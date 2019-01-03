@@ -1,0 +1,49 @@
+﻿{
+  "ShipperAccountNumber": "000000000",
+  "BillingAccountNumber": "000000000",
+  "DutyAccountNumber": "000000000",
+  "From": {
+    "CompanyName": "Shipper Company",
+    "PersonName": "Shipper Name",
+    "Address1": "Shipper Address 1",
+    "Address2": "Shipper Address 2",
+    "City": "Dubai",
+    "CountryCode": "AE",
+    "PostalCode": "00000",
+    "PhoneNumber": "+97145551234",
+    "MobileNumber": "+971555551234",
+    "EMailAddress": "shipper@example.com"
+  },
+  "To": {
+    "CompanyName": "Consignee Company",
+    "PersonName": "Consignee Name",
+    "Address1": "Consignee Address 1",
+    "Address2": "Consignee Address 2",
+    "City": "Denton",
+    "USState": "TX",
+    "CountryCode": "US",
+    "PostalCode": "76201",
+    "PhoneNumber": "+19405551234",
+    "MobileNumber": "+19405554321",
+    "EMailAddress": "consignee@example.com"
+  },
+  "DeclaredValue": "150",
+  "DeclaredCurrency": "USD",
+  "Contents": "Test Shipment",
+  "Pieces": [
+    {
+      "PieceID": 1,
+      "Weight": 0.5,
+      "Height": 10,
+      "Width": 20,
+      "Depth": 30,
+      "WeightUnit": "KG",
+      "DimUnit": "CM"
+    }
+  ],
+  "TrackingAWBNumber": "1234567891",
+  "EPOD": {
+    "AccountNumber": "000000000",
+    "AWBNumber": "1234567891"
+  }
+}

@@ -1,0 +1,671 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:tns="http://scxgxtt.phx-dc.dhl.com/glDHLExpressePOD/providers/DocumentRetrieve" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:s4="http://www.dhl.com/DA/CF_Error" xmlns:s0="http://www.dhl.com/DA/CF_Header" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s5="http://www.reactivity.com/xsdbundle/" xmlns:s1="http://www.dhl.com/DA/CF_Shipment" xmlns:CF_GI="http://www.dhl.com/DA/CF_GeneralInfo" xmlns:s2="http://www.dhl.com/DA/CF_ShipmentCustomsDocuments" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:s3="http://www.dhl.com/DA/CF_GenericRequest" xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://scxgxtt.phx-dc.dhl.com/glDHLExpressePOD/providers/DocumentRetrieve" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://www.dhl.com/DA/CF_Shipment">
+      <xsd:import namespace="http://www.dhl.com/DA/CF_ShipmentCustomsDocuments" />
+      <xsd:complexType name="ShpCFType">
+        <xsd:annotation>
+          <xsd:documentation>Business object messages.</xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+          <xsd:element maxOccurs="unbounded" name="Shp" type="s1:CdmShipment_Shipment">
+            <xsd:annotation>
+              <xsd:documentation>Element for Shipment</xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="CdmShipment_Shipment">
+        <xsd:annotation>
+          <xsd:documentation>Information about one or more PIECEs in DHL's custody for transportation which are destined for the same Receiver and united under the same airwaybill. Today, we are aware that duplicate Air waybill numbers exist. However, it is a business requirement to reduce the duplications. This entity only contains attributes that cannot change during the shipment life cycle.</xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="ShpTr" type="s1:CdmShipment_ShipmentTransaction">
+            <xsd:annotation>
+              <xsd:documentation>Shipment has a least one Shipment transaction</xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+          <xsd:element maxOccurs="unbounded" name="ShpInDoc" type="s1:CdmShipment_ShipmentInDocument">
+            <xsd:annotation>
+              <xsd:documentation>Shipment is included Shipment in document</xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+        </xsd:sequence>
+        <xsd:attribute name="Id" use="required">
+          <xsd:annotation>
+            <xsd:documentation>Shipment identifier : An identification number assigned to a shipment, controlled by DHL.</xsd:documentation>
+          </xsd:annotation>
+          <xsd:simpleType>
+            <xsd:restriction base="xsd:string">
+              <xsd:maxLength value="35" />
+            </xsd:restriction>
+          </xsd:simpleType>
+        </xsd:attribute>
+      </xsd:complexType>
+      <xsd:complexType name="CdmShipment_ShipmentCustomerDetail">
+        <xsd:annotation>
+          <xsd:documentation>A collection of information about a shipment transaction that helps serve the customer needs depending on the customer role type, e.g. shipper, receiver, etc. Issue/Plan: The address attributes need to be removed and the address entity should be used instead.</xsd:documentation>
+        </xsd:annotation>
+        <xsd:attribute name="AccNo">
+          <xsd:annotation>
+            <xsd:documentation>Account No. Optional. If not present, filtering by account number will not be done. This includes 4 distinct request parameters: Filter by account number of a specific type (CRITyCd) (1. payer - PY 2. receiver - RV 3. shipper - SP) or filter by any account number(TC). If CRITyCd not provided then "any" (TC) is used.</xsd:documentation>
+          </xsd:annotation>
+          <xsd:simpleType>
+            <xsd:restriction base="xsd:string">
+              <xsd:maxLength value="12" />
+            </xsd:restriction>
+          </xsd:simpleType>
+        </xsd:attribute>
+        <xsd:attribute name="CRlTyCd">
+          <xsd:annotation>
+            <xsd:documentation>Customer role type code : A code that uniquely identifies a customer role. Values are: PY=Payer RV=Receiver SP=Shipper TC=Technical</xsd:documentation>
+          </xsd:annotation>
+          <xsd:simpleType>
+            <xsd:restriction base="xsd:string">
+              <xsd:maxLength value="2" />
+            </xsd:restriction>
+          </xsd:simpleType>
+        </xsd:attribute>
+        <xsd:attribute name="CtryCd">
+          <xsd:annotation>
+            <xsd:documentation>/Country code : The country code is a two-character code that uniquely identifies a country. The code should be aligned to the ISO (ISO 3166-1-alpha-2 code elements) or in certain circumstances created by DHL. Values are e.g. BE=Belgium FR=France XC=Curacao (Not ISO - part of Netherlands Antilles)</xsd:documentation>
+          </xsd:annotation>
+          <xsd:simpleType>
+            <xsd:restriction base="xsd:string">
+              <xsd:maxLength value="2" />
+            </xsd:restriction>
+          </xsd:simpleType>
+        </xsd:attribute>
+      </xsd:complexType>
+      <xsd:complexType name="CdmShipment_ShipmentInDocument">
+        <xsd:annotation>
+          <xsd:documentation>An association between a shipment and shipment documents.</xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+          <xsd:element maxOccurs="unbounded" name="SDoc" type="s2:CdmShipment_CustomsDocuments_ShipmentDocumentation">
+            <xsd:annotation>
+              <xsd:documentation>Shipment documentation contains Shipment in document</xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="CdmShipment_ShipmentTransaction">
+        <xsd:annotation>
+          <xsd:documentation>The shipment transaction keeps a complete list of attributes that can change during the shipment life cycle.</xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="SCDtl" type="s1:CdmShipment_ShipmentCustomerDetail">
+            <xsd:annotation>
+              <xsd:documentation>Shipment transaction has Shipment customer detail</xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+        </xsd:sequence>
+        <xsd:attribute name="PuDtm">
+          <xsd:annotation>
+            <xsd:documentation>Shipment pick-up datetime (Optional (part of Shipment Key)) The date and time when the goods are collected from shipper. Optional. If not provided, the shipment with the most recent pickup date matching the other search criteria is considered</xsd:documentation>
+          </xsd:annotation>
+          <xsd:simpleType>
+            <xsd:restriction base="xsd:dateTime" />
+          </xsd:simpleType>
+        </xsd:attribute>
+      </xsd:complexType>
+    </xsd:schema>
+    <xsd:schema targetNamespace="http://scxgxtt.phx-dc.dhl.com/glDHLExpressePOD/providers/DocumentRetrieve">
+      <xsd:import namespace="http://www.dhl.com/DA/CF_Header" />
+      <xsd:import namespace="http://www.dhl.com/DA/CF_Shipment" />
+      <xsd:import namespace="http://www.dhl.com/DA/CF_GenericRequest" />
+      <xsd:import namespace="http://www.dhl.com/DA/CF_Error" />
+      <xsd:complexType name="shipmentDocumentRetrieveReq">
+        <xsd:sequence>
+          <xsd:element name="MSG">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="Hdr" type="s0:HDR" />
+                <xsd:element name="Bd">
+                  <xsd:complexType>
+                    <xsd:sequence>
+                      <xsd:element maxOccurs="unbounded" name="Shp" type="s1:CdmShipment_Shipment" />
+                      <xsd:element minOccurs="1" name="GenrcRq" type="s3:CdmGenericRequest_GenericRequest" />
+                    </xsd:sequence>
+                  </xsd:complexType>
+                </xsd:element>
+              </xsd:sequence>
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="shipmentDocumentRetrieveResp">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="MSG" nillable="true">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="Hdr" type="s0:HDR" />
+                <xsd:element name="Bd">
+                  <xsd:complexType>
+                    <xsd:sequence>
+                      <xsd:element maxOccurs="unbounded" name="Shp" type="s1:CdmShipment_Shipment" />
+                    </xsd:sequence>
+                  </xsd:complexType>
+                </xsd:element>
+                <xsd:element minOccurs="0" maxOccurs="unbounded" name="DatTrErr" type="s4:DataTransferErrorMessage" />
+              </xsd:sequence>
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="shipmentDocumentRetrieveReq" type="tns:shipmentDocumentRetrieveReq" />
+      <xsd:element name="shipmentDocumentRetrieveResp" type="tns:shipmentDocumentRetrieveResp" />
+    </xsd:schema>
+    <xsd:schema targetNamespace="http://www.dhl.com/DA/CF_Header">
+      <xsd:simpleType name="DatetimeCymdhms_19">
+        <xsd:annotation>
+          <xsd:documentation>DateTime values may be viewed as objects with integer-valued year, month, day, hour and minute properties, a decimal-valued second property, and a boolean timezoned property. Each such object also has one decimal-valued method or computed property, timeOnTimeline, whose value is always a decimal number; the values are dimensioned in seconds, the integer 0 is 0001-01-01T00:00:00 and the value of timeOnTimeline for other dateTime values is computed using the Gregorian algorithm as modified for leap-seconds. The timeOnTimeline values form two related "timelines", one for timezoned values and one for non-timezoned values. Each timeline is a copy of the �value space� of decimal, with integers given units of seconds. Example: 1980-12-23 24:00:00 = 1980-12-24T00:00:00 Valuesformat 'CCYY-MM-DDThh:mm:ss'= the year in the usual Gregorian calendar= the century, values 19 to 20 (spaces not allowed)= the year, values 00 to 99 (spaces not allowed)= the month, values 01 to 12 (spaces not allowed)= the day, values 01 to 31 (spaces not allowed)= the hours, values 00 to 24 (spaces not allowed)= the minutes, values 00 to 59 (spaces not allowed)= the seconds, values 00 to 60 (spaces not allowed).</xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:dateTime" />
+      </xsd:simpleType>
+      <xsd:simpleType name="ApplicationSystemCode_5">
+        <xsd:annotation>
+          <xsd:documentation>Original Domain_Definition: The user-assigned code identifying an application, e.g. IBS = International Billing System. Also known as 'Application Name'.</xsd:documentation>
+        </xsd:annotation>
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="5" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:complexType name="PartIdentification">
+        <xsd:annotation>
+          <xsd:documentation>Identification of part type.</xsd:documentation>
+        </xsd:annotation>
+        <xsd:attribute name="AppCd" use="required">
+          <xsd:annotation>
+            <xsd:documentation>Requesting application code. e.g. DCG</xsd:documentation>
+          </xsd:annotation>
+          <xsd:simpleType>
+            <xsd:restriction base="s0:ApplicationSystemCode_5" />
+          </xsd:simpleType>
+        </xsd:attribute>
+        <xsd:attribute name="AppNm">
+          <xsd:annotation>
+            <xsd:documentation>Requesting application name. e.g. DCG</xsd:documentation>
+          </xsd:annotation>
+          <xsd:simpleType>
+            <xsd:restriction base="xsd:string">
+              <xsd:maxLength value="20" />
+            </xsd:restriction>
+          </xsd:simpleType>
+        </xsd:attribute>
+        <xsd:attribute name="CmptNm">
+          <xsd:annotation>
+            <xsd:documentation>For this service this field is optional. No need to send it in request. Component Name Specifies the logical identity of a component. This property should contain the name of a particular application, product or subsystem (e.g., IBM DB2). This value SHOULD be unique within the scope.</xsd:documentation>
+          </xsd:annotation>
+          <xsd:simpleType>
+            <xsd:restriction base="xsd:string">
+              <xsd:maxLength value="256" />
+            </xsd:restriction>
+          </xsd:simpleType>
+        </xsd:attribute>
+      </xsd:complexType>
+      <xsd:complexType name="HDR">
+        <xsd:annotation>
+          <xsd:documentation>Control Data.</xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="Sndr" type="s0:PartIdentification">
+            <xsd:annotation>
+              <xsd:documentation>Sender identification.</xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+        </xsd:sequence>
+        <xsd:attribute name="Id" use="required">
+          <xsd:annotation>
+            <xsd:documentation>Unique identification of the request. e.g. 1234567890</xsd:documentation>
+          </xsd:annotation>
+          <xsd:simpleType>
+            <xsd:restriction base="xsd:string">
+              <xsd:maxLength value="20" />
+            </xsd:restriction>
+          </xsd:simpleType>
+        </xsd:attribute>
+        <xsd:attribute name="Ver" use="required">
+          <xsd:annotation>
+            <xsd:documentation>DHL CF version number in format n.nnnn (e.g. 1.038)</xsd:documentation>
+          </xsd:annotation>
+          <xsd:simpleType>
+            <xsd:restriction base="xsd:string">
+              <xsd:maxLength value="7" />
+            </xsd:restriction>
+          </xsd:simpleType>
+        </xsd:attribute>
+        <xsd:attribute name="Dtm" use="required">
+          <xsd:annotation>
+            <xsd:documentation>Message creation datetime. e.g. 2013-04-07T23:59:59</xsd:documentation>
+          </xsd:annotation>
+          <xsd:simpleType>
+            <xsd:restriction base="s0:DatetimeCymdhms_19" />
+          </xsd:simpleType>
+        </xsd:attribute>
+      </xsd:complexType>
+    </xsd:schema>
+    <xsd:schema targetNamespace="http://www.dhl.com/DA/CF_GenericRequest">
+      <xsd:complexType name="GenRqCFType">
+        <xsd:annotation>
+          <xsd:documentation>Business object messages.</xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="Genrq" type="s3:CdmGenericRequest_GenericRequest">
+            <xsd:annotation>
+              <xsd:documentation>Element for Generic Request</xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="CdmGenericRequest_GenericRequest">
+        <xsd:annotation>
+          <xsd:documentation>Uniquely identified request sent to any client.</xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="GenrcRqCritr" type="s3:CdmGenericRequest_GenericRequestCriteria">
+            <xsd:annotation>
+              <xsd:documentation>Generic Request has criteria type and value Generic request criteria</xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="CdmGenericRequest_GenericRequestCriteria">
+        <xsd:annotation>
+          <xsd:documentation>Data request criteria to be applied to all requested objects.</xsd:documentation>
+        </xsd:annotation>
+        <xsd:attribute name="TyCd">
+          <xsd:annotation>
+            <xsd:documentation>Generic request criteria type code : There might be up to 7 instances of this element with a matching value in the Val attribute. These are the values for each instance: 1. "IMG_CONTENT" - Mandatory. Specifies the output type for PDF rendering. 2. "IMG_FORMAT" - Mandatory. Document Format. 3. "DOC_RND_REQ" - Optional. Presentation format. If not provided the default is all documents in one file. 4."EXT_REQ" - Optional. Specifies whether the request is done for DHL internal purpose or whether the data is requested by a customer. 5. "DUPL_HANDL" - Optional . From a set of matching documents which have identical values in the specified metadata fields, only one will be returned. 6. "SORT_BY" - Optional - Sort order within a group of matching documents for which only one will be returned. The top most entry in the sort order will be returned. 7. "LANGUAGE" - Optional - Language code.</xsd:documentation>
+          </xsd:annotation>
+          <xsd:simpleType>
+            <xsd:restriction base="xsd:string">
+              <xsd:maxLength value="12" />
+            </xsd:restriction>
+          </xsd:simpleType>
+        </xsd:attribute>
+        <xsd:attribute name="Val">
+          <xsd:annotation>
+            <xsd:documentation>Generic request criteria value. One value for each TyCd. 1. For IMG_CONTENT. Up to now, the following values are supported:a. epod-detail-esig: Detail ePOD with eSIG if available; otherwise detail ePOD without eSIG. b. epod-detail: Detail without eSIG. c. epod-summary-esig: Summary with eSIG; otherwise detail ePOD without eSIG. d. epod-summary: Summary without eSIG. e. epod-table-esig: Table with eSIG if available; otherwise table without eSIG. f. epod-table: Table without eSIG. 2. For IMG_FORMAT. The possible values are PDF or XML. 3. For DOC_RND_REQ. The possible values are: true if one output file for all shipments which is the default or false one file for each shipment. 4. For EXT_REQ. The possible values are: true (default) if the purpose is customer use or false if it is for internal purpose. 5. For DUPL_HANDL. The only available and default value is CORE_WB_NO. 6. For SORT_BY. The only available value "$INGEST_DATE,D". 7. For LANGUAGE. Specify the 2 character ISO language code e.g. EN, DE. If not provided EN is the default.</xsd:documentation>
+          </xsd:annotation>
+          <xsd:simpleType>
+            <xsd:restriction base="xsd:string">
+              <xsd:maxLength value="75" />
+            </xsd:restriction>
+          </xsd:simpleType>
+        </xsd:attribute>
+      </xsd:complexType>
+    </xsd:schema>
+    <xsd:schema targetNamespace="http://www.dhl.com/DA/CF_Error">
+      <xsd:import namespace="http://www.dhl.com/DA/CF_Header" />
+      <xsd:complexType name="ErrorMessageGeneralInfo">
+        <xsd:annotation>
+          <xsd:documentation>Error Message General Info Type Information used by all error messages.</xsd:documentation>
+        </xsd:annotation>
+        <xsd:attribute name="Ty">
+          <xsd:annotation>
+            <xsd:documentation>Error message type identifier (CF).</xsd:documentation>
+          </xsd:annotation>
+          <xsd:simpleType>
+            <xsd:restriction base="xsd:string">
+              <xsd:maxLength value="20" />
+            </xsd:restriction>
+          </xsd:simpleType>
+        </xsd:attribute>
+        <xsd:attribute name="Ver">
+          <xsd:annotation>
+            <xsd:documentation>Error Message version.</xsd:documentation>
+          </xsd:annotation>
+          <xsd:simpleType>
+            <xsd:restriction base="xsd:string">
+              <xsd:maxLength value="7" />
+            </xsd:restriction>
+          </xsd:simpleType>
+        </xsd:attribute>
+        <xsd:attribute name="GlId" use="optional">
+          <xsd:annotation>
+            <xsd:documentation>Global Identifier of Error Message. The primary identifier for the event. This property MUST be globally unique and MAY be used as the primary key for the event.</xsd:documentation>
+          </xsd:annotation>
+          <xsd:simpleType>
+            <xsd:restriction base="xsd:ID">
+              <xsd:maxLength value="64" />
+            </xsd:restriction>
+          </xsd:simpleType>
+        </xsd:attribute>
+        <xsd:attribute name="LcId" use="optional">
+          <xsd:annotation>
+            <xsd:documentation>Local identifier. A source supplied error identifier. There is no guarantee that this value is globally unique.</xsd:documentation>
+          </xsd:annotation>
+          <xsd:simpleType>
+            <xsd:restriction base="xsd:string">
+              <xsd:maxLength value="128" />
+            </xsd:restriction>
+          </xsd:simpleType>
+        </xsd:attribute>
+        <xsd:attribute name="CrDtm" type="xsd:dateTime">
+          <xsd:annotation>
+            <xsd:documentation>The date-time when the event was issued.</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+        <xsd:attribute name="Pri" use="optional">
+          <xsd:annotation>
+            <xsd:documentation>Priority Defines the importance of the event. The predefined priorities are: � 10 Low � 50 Medium � 70 High The values are 0 to 100. The reserved value for Low is 10, for Medium is 50, and for High is 70. Other priorities MAY be added but MUST NOT exceed 100.</xsd:documentation>
+          </xsd:annotation>
+          <xsd:simpleType>
+            <xsd:restriction base="xsd:short">
+              <xsd:minInclusive value="0" />
+              <xsd:maxInclusive value="100" />
+            </xsd:restriction>
+          </xsd:simpleType>
+        </xsd:attribute>
+        <xsd:attribute name="Sev" use="optional">
+          <xsd:annotation>
+            <xsd:documentation>Severity: The perceived severity of the status the event is describing with respect to the application that reports the event. The predefined severity levels, in order of increasing severity, are as follows: � 0 Unknown � 10 Information MUST be used for cases when the event contains only general information and is not reporting an error. � 20 Harmless MUST be used for cases in which the error event has no effect on the normal operation of the resource. � 30 Warning MUST be used when it is appropriate to let the user decide if an action is needed in response to the event. � 40 Minor MUST be used to indicate that action is needed, but the situation is not serious at this time. � 50 Critical MUST be used to indicate that an immediate action is needed and the scope is broad (perhaps an imminent outage to a critical resource will result). � 60 Fatal MUST be used to indicate that an error occurred, but it is too late to take remedial action. The associated values are 0 to 70. The reserved values start at 0 for Unknown and increase by increments of 10 to 60 for Fatal. Other severities MAY be added but MUST NOT exceed 70. This is an OPTIONAL property.</xsd:documentation>
+          </xsd:annotation>
+          <xsd:simpleType>
+            <xsd:restriction base="xsd:short">
+              <xsd:minInclusive value="0" />
+              <xsd:maxInclusive value="70" />
+            </xsd:restriction>
+          </xsd:simpleType>
+        </xsd:attribute>
+        <xsd:attribute name="SqNo" use="optional">
+          <xsd:annotation>
+            <xsd:documentation>Sequence Number: A source-defined number that allows for multiple messages to be sent and processed in a logical order that is different than the order in which they arrived at the consumer location (e.g., an event server or management tools). The sequence number helps consumers to sort arrived messages that may arrive out-of-order. This is with respect to the creation time and to the particular reporter of the messages.</xsd:documentation>
+          </xsd:annotation>
+          <xsd:simpleType>
+            <xsd:restriction base="xsd:long">
+              <xsd:minInclusive value="0" />
+            </xsd:restriction>
+          </xsd:simpleType>
+        </xsd:attribute>
+        <xsd:attribute name="RptCt" use="optional">
+          <xsd:annotation>
+            <xsd:documentation>Repeat Count: The number of occurrences of an identical error within a specific time interval. A value of 0 or no value is indicative of no repeat of the event detected.</xsd:documentation>
+          </xsd:annotation>
+          <xsd:simpleType>
+            <xsd:restriction base="xsd:short">
+              <xsd:minInclusive value="0" />
+            </xsd:restriction>
+          </xsd:simpleType>
+        </xsd:attribute>
+        <xsd:attribute name="ElpTm" use="optional">
+          <xsd:annotation>
+            <xsd:documentation>Elapsed Time: This is the time interval or the elapsed time during which the number of identical events occurred (as specified by the repeatCount property). This property is expressed in microseconds. However, if repeatCount is specified (it has a non-zero value), then elapsedTime is REQUIRED.</xsd:documentation>
+          </xsd:annotation>
+          <xsd:simpleType>
+            <xsd:restriction base="xsd:long">
+              <xsd:minInclusive value="0" />
+            </xsd:restriction>
+          </xsd:simpleType>
+        </xsd:attribute>
+      </xsd:complexType>
+      <xsd:complexType name="DataTransferErrorMessage">
+        <xsd:annotation>
+          <xsd:documentation>Error message related to data transfer.</xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="OrgHdr" type="s0:HDR">
+            <xsd:annotation>
+              <xsd:documentation>General Info</xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+          <xsd:element minOccurs="0" name="Rp" type="s0:PartIdentification">
+            <xsd:annotation>
+              <xsd:documentation>Reported by</xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+          <xsd:element minOccurs="0" name="ErrMsgGI" type="s4:ErrorMessageGeneralInfo">
+            <xsd:annotation>
+              <xsd:documentation>Error Message GI</xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+          <xsd:choice minOccurs="0" maxOccurs="unbounded">
+            <xsd:element minOccurs="0" name="TfErrMsg">
+              <xsd:annotation>
+                <xsd:documentation>Transfer Error Message: Error related to transfer</xsd:documentation>
+              </xsd:annotation>
+              <xsd:complexType>
+                <xsd:all>
+                  <xsd:element minOccurs="0" name="ErrMsgDtl" type="s4:MessageDetail">
+                    <xsd:annotation>
+                      <xsd:documentation>Details of error message</xsd:documentation>
+                    </xsd:annotation>
+                  </xsd:element>
+                </xsd:all>
+              </xsd:complexType>
+            </xsd:element>
+            <xsd:element minOccurs="0" name="DatErrMsg">
+              <xsd:annotation>
+                <xsd:documentation>Error related to data</xsd:documentation>
+              </xsd:annotation>
+              <xsd:complexType>
+                <xsd:all>
+                  <xsd:element minOccurs="0" name="ErrMsgDtl" type="s4:MessageDetail">
+                    <xsd:annotation>
+                      <xsd:documentation>Details of error message</xsd:documentation>
+                    </xsd:annotation>
+                  </xsd:element>
+                  <xsd:element minOccurs="0" name="BOErr" type="s4:BusinessObjectError">
+                    <xsd:annotation>
+                      <xsd:documentation>Business object error</xsd:documentation>
+                    </xsd:annotation>
+                  </xsd:element>
+                </xsd:all>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:choice>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="BusinessObjectError">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="BOId" type="s4:BusinessObjectIdentification">
+            <xsd:annotation>
+              <xsd:documentation>Identification of business object.</xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="ErrMsgDtl" type="s4:MessageDetail">
+            <xsd:annotation>
+              <xsd:documentation>Details of error message</xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="FldErr" type="s4:FieldError">
+            <xsd:annotation>
+              <xsd:documentation>Field error</xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="MsgDtl" type="s4:MessageDetail">
+            <xsd:annotation>
+              <xsd:documentation>Details of message</xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="FieldError">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" name="FldId" type="s4:FieldIdentification">
+            <xsd:annotation>
+              <xsd:documentation>Identification of field</xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+          <xsd:element minOccurs="0" name="ErrMsgDtl" type="s4:MessageDetail">
+            <xsd:annotation>
+              <xsd:documentation>Details of error message</xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="MessageDetail">
+        <xsd:attribute name="MsgCIgd">
+          <xsd:annotation>
+            <xsd:documentation>The index or the identifier for a message that is used for resolving the message text from a message catalog.</xsd:documentation>
+          </xsd:annotation>
+          <xsd:simpleType>
+            <xsd:restriction base="xsd:string">
+              <xsd:maxLength value="128" />
+            </xsd:restriction>
+          </xsd:simpleType>
+        </xsd:attribute>
+        <xsd:attribute name="MsgClg">
+          <xsd:annotation>
+            <xsd:documentation>The qualified name of the message catalog that contains the translated message specified by the msgCatalogId.</xsd:documentation>
+          </xsd:annotation>
+          <xsd:simpleType>
+            <xsd:restriction base="xsd:string">
+              <xsd:maxLength value="128" />
+            </xsd:restriction>
+          </xsd:simpleType>
+        </xsd:attribute>
+        <xsd:attribute name="Dsc">
+          <xsd:annotation>
+            <xsd:documentation>Description from catalog.</xsd:documentation>
+          </xsd:annotation>
+          <xsd:simpleType>
+            <xsd:restriction base="xsd:string">
+              <xsd:maxLength value="128" />
+            </xsd:restriction>
+          </xsd:simpleType>
+        </xsd:attribute>
+        <xsd:attribute name="DtlDsc">
+          <xsd:annotation>
+            <xsd:documentation>Detailed description: added information.</xsd:documentation>
+          </xsd:annotation>
+          <xsd:simpleType>
+            <xsd:restriction base="xsd:string">
+              <xsd:maxLength value="128" />
+            </xsd:restriction>
+          </xsd:simpleType>
+        </xsd:attribute>
+      </xsd:complexType>
+      <xsd:complexType name="BusinessObjectIdentification">
+        <xsd:attribute name="BOTyAbbr">
+          <xsd:annotation>
+            <xsd:documentation>Business type abbreviation: Type of business object (for example Shp,Ord,Pcs ...)</xsd:documentation>
+          </xsd:annotation>
+          <xsd:simpleType>
+            <xsd:restriction base="xsd:string">
+              <xsd:maxLength value="10" />
+            </xsd:restriction>
+          </xsd:simpleType>
+        </xsd:attribute>
+        <xsd:attribute name="BOId">
+          <xsd:annotation>
+            <xsd:documentation>Id of business object (for example shipment id, picec id ...)</xsd:documentation>
+          </xsd:annotation>
+          <xsd:simpleType>
+            <xsd:restriction base="xsd:string">
+              <xsd:maxLength value="100" />
+            </xsd:restriction>
+          </xsd:simpleType>
+        </xsd:attribute>
+        <xsd:attribute name="BOXPth">
+          <xsd:annotation>
+            <xsd:documentation>XPath to business object</xsd:documentation>
+          </xsd:annotation>
+          <xsd:simpleType>
+            <xsd:restriction base="xsd:string">
+              <xsd:maxLength value="512" />
+            </xsd:restriction>
+          </xsd:simpleType>
+        </xsd:attribute>
+      </xsd:complexType>
+      <xsd:complexType name="FieldIdentification">
+        <xsd:attribute name="FldNm">
+          <xsd:annotation>
+            <xsd:documentation>Name of field</xsd:documentation>
+          </xsd:annotation>
+          <xsd:simpleType>
+            <xsd:restriction base="xsd:string">
+              <xsd:maxLength value="100" />
+            </xsd:restriction>
+          </xsd:simpleType>
+        </xsd:attribute>
+        <xsd:attribute name="FldXPth">
+          <xsd:annotation>
+            <xsd:documentation>XPath to Field</xsd:documentation>
+          </xsd:annotation>
+          <xsd:simpleType>
+            <xsd:restriction base="xsd:string">
+              <xsd:maxLength value="512" />
+            </xsd:restriction>
+          </xsd:simpleType>
+        </xsd:attribute>
+      </xsd:complexType>
+    </xsd:schema>
+    <xsd:schema targetNamespace="http://www.dhl.com/DA/CF_ShipmentCustomsDocuments">
+      <xsd:complexType name="ShpDocCFType">
+        <xsd:annotation>
+          <xsd:documentation>Business object messages.</xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="Shpdoc" type="s2:CdmShipment_CustomsDocuments_ShipmentDocumentation">
+            <xsd:annotation>
+              <xsd:documentation>Element for Shipment documentation</xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="CdmShipment_CustomsDocuments_ShipmentDocumentation">
+        <xsd:annotation>
+          <xsd:documentation>Identifies all the documents there are attached to a shipment. The header of a shipment document that can be decomposed into multiple document lines.</xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="Img" type="s2:CdmShipment_CustomsDocuments_Image">
+            <xsd:annotation>
+              <xsd:documentation>Image of the document. Please note that this tag is only used in this service as the place where the ePOD image is returned. Not need to send it in the request.</xsd:documentation>
+            </xsd:annotation>
+          </xsd:element>
+        </xsd:sequence>
+        <xsd:attribute name="DocTyCd" use="required">
+          <xsd:annotation>
+            <xsd:documentation>Document type code : Identifies uniquely a document type. In this case POD (electronic proof of delivery</xsd:documentation>
+          </xsd:annotation>
+          <xsd:simpleType>
+            <xsd:restriction base="xsd:string">
+              <xsd:maxLength value="3" />
+            </xsd:restriction>
+          </xsd:simpleType>
+        </xsd:attribute>
+      </xsd:complexType>
+      <xsd:complexType name="CdmShipment_CustomsDocuments_Image">
+        <xsd:annotation>
+          <xsd:documentation>Contains metadata and data of scanned or pictured paperwork.</xsd:documentation>
+        </xsd:annotation>
+        <xsd:attribute name="Img" type="xsd:base64Binary">
+          <xsd:annotation>
+            <xsd:documentation>base64 encoded image</xsd:documentation>
+          </xsd:annotation>
+        </xsd:attribute>
+      </xsd:complexType>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="ShipmentDocumentRetrieveIn">
+    <wsdl:part name="parameters" element="tns:shipmentDocumentRetrieveReq" />
+  </wsdl:message>
+  <wsdl:message name="ShipmentDocumentRetrieveOut">
+    <wsdl:part name="parameters" element="tns:shipmentDocumentRetrieveResp" />
+  </wsdl:message>
+  <wsdl:portType name="gblDHLExpressePOD">
+    <wsdl:operation name="ShipmentDocumentRetrieve">
+      <wsdl:input message="tns:ShipmentDocumentRetrieveIn" />
+      <wsdl:output message="tns:ShipmentDocumentRetrieveOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="gblDHLExpressePOD" type="tns:gblDHLExpressePOD">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ShipmentDocumentRetrieve">
+      <soap:operation soapAction="glDHLExpressePOD_providers_DocumentRetrieve_Binder_ShipmentDocumentRetrieve" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" parts="parameters" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="gblDHLExpressePOD">
+    <wsdl:port name="gblDHLExpressePOD" binding="tns:gblDHLExpressePOD">
+      <soap:address location="https://wsbexpress.dhl.com/gbl/getePOD" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

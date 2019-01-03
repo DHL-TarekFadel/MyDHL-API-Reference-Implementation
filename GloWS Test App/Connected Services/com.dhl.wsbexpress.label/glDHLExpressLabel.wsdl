@@ -1,0 +1,508 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://scxgxtt.phx-dc.dhl.com/glDHLExpressLabel/providers/globalLabel" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:s1="http://www.reactivity.com/xsdbundle/" xmlns:s0="http://www.dhl.com" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://scxgxtt.phx-dc.dhl.com/glDHLExpressLabel/providers/globalLabel" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://scxgxtt.phx-dc.dhl.com/glDHLExpressLabel/providers/globalLabel">
+      <xsd:import namespace="http://www.dhl.com" />
+      <xsd:complexType name="LabelRequest">
+        <xsd:sequence>
+          <xsd:element name="LabelRequest" type="tns:LabelRequest2" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="LabelRequest2">
+        <xsd:sequence>
+          <xsd:element form="qualified" name="LabelType" type="tns:LabelType" />
+          <xsd:element form="qualified" name="ProductCode" type="tns:ProductCode" />
+          <xsd:element form="qualified" name="ProductFeatures" type="tns:ProductFeatures" />
+          <xsd:element form="qualified" name="ShipmentData" type="tns:ShipmentData" />
+          <xsd:element form="qualified" name="BusinessParty" type="tns:ArrayOfBusinessParty" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="LabelType">
+        <xsd:attribute name="Type" type="tns:Label_TYPE" />
+        <xsd:attribute name="Version" type="xsd:string" />
+        <xsd:attribute name="MinLength" type="xsd:string" />
+        <xsd:attribute name="MinWidth" type="xsd:string" />
+        <xsd:attribute name="UnitOfMeasure" type="tns:SizeUOM_TYPE" />
+        <xsd:attribute name="FileType" type="tns:File_TYPE" />
+        <xsd:attribute name="Template" type="xsd:string" />
+      </xsd:complexType>
+      <xsd:simpleType name="Label_TYPE">
+        <xsd:restriction base="xsd:string">
+          <xsd:whiteSpace value="preserve" />
+          <xsd:enumeration value="ECOM" />
+          <xsd:enumeration value="NETW" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="SizeUOM_TYPE">
+        <xsd:restriction base="xsd:string">
+          <xsd:whiteSpace value="preserve" />
+          <xsd:enumeration value="IN" />
+          <xsd:enumeration value="CM" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="File_TYPE">
+        <xsd:restriction base="xsd:string">
+          <xsd:whiteSpace value="preserve" />
+          <xsd:enumeration value="PDF" />
+          <xsd:enumeration value="ZPL" />
+          <xsd:enumeration value="EPL" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:complexType name="ProductCode">
+        <xsd:attribute name="GlobalProduct" type="tns:PCode_TYPE" />
+        <xsd:attribute name="LocalProduct" type="tns:PCode_TYPE" />
+      </xsd:complexType>
+      <xsd:simpleType name="PCode_TYPE">
+        <xsd:restriction base="xsd:string">
+          <xsd:whiteSpace value="preserve" />
+          <xsd:length value="1" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:complexType name="ProductFeatures">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" form="qualified" name="Code" type="tns:ArrayOfPFCode_TYPE" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:simpleType name="PFCode_TYPE">
+        <xsd:restriction base="xsd:string">
+          <xsd:whiteSpace value="preserve" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:complexType name="ArrayOfPFCode_TYPE">
+        <xsd:sequence>
+          <xsd:element maxOccurs="unbounded" name="ArrayOfPFCode_TYPEItem" type="tns:PFCode_TYPE" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ShipmentData">
+        <xsd:sequence>
+          <xsd:element form="qualified" name="PieceInfo" type="tns:ArrayOfPieceInfo" />
+          <xsd:element minOccurs="0" name="DangerousGoods">
+            <xsd:complexType>
+              <xsd:sequence maxOccurs="unbounded">
+                <xsd:element name="Content">
+                  <xsd:complexType>
+                    <xsd:sequence>
+                      <xsd:element name="ContentID">
+                        <xsd:simpleType>
+                          <xsd:restriction base="xsd:string">
+                            <xsd:minLength value="3" />
+                            <xsd:maxLength value="3" />
+                          </xsd:restriction>
+                        </xsd:simpleType>
+                      </xsd:element>
+                      <xsd:choice minOccurs="0">
+                        <xsd:element name="DryIceTotalNetWeight">
+                          <xsd:simpleType>
+                            <xsd:restriction base="xsd:string">
+                              <xsd:minLength value="1" />
+                              <xsd:maxLength value="7" />
+                            </xsd:restriction>
+                          </xsd:simpleType>
+                        </xsd:element>
+                        <xsd:element name="UNCode">
+                          <xsd:simpleType>
+                            <xsd:restriction base="xsd:string">
+                              <xsd:minLength value="1" />
+                            </xsd:restriction>
+                          </xsd:simpleType>
+                        </xsd:element>
+                      </xsd:choice>
+                    </xsd:sequence>
+                  </xsd:complexType>
+                </xsd:element>
+              </xsd:sequence>
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:sequence>
+        <xsd:attribute name="ShipmentID" type="tns:SID_TYPE" />
+        <xsd:attribute name="WeightUnitofMeasure" type="tns:WeightUom_TYPE" />
+        <xsd:attribute name="PickupDateTime" type="tns:PuDtm_TYPE" />
+        <xsd:attribute name="NumberOfPieces" type="tns:SActNoPcs_TYPE" />
+        <xsd:attribute name="ShipmentWeight" type="tns:Weight_TYPE" />
+        <xsd:attribute name="ContentsDescription" type="tns:DscGds_TYPE" />
+        <xsd:attribute name="ShipmentReference" type="tns:ShpRef_TYPE" />
+      </xsd:complexType>
+      <xsd:simpleType name="SID_TYPE">
+        <xsd:restriction base="xsd:string">
+          <xsd:minLength value="10" />
+          <xsd:maxLength value="35" />
+          <xsd:whiteSpace value="collapse" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="WeightUom_TYPE">
+        <xsd:restriction base="xsd:string">
+          <xsd:whiteSpace value="preserve" />
+          <xsd:enumeration value="L" />
+          <xsd:enumeration value="K" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="PuDtm_TYPE">
+        <xsd:restriction base="xsd:dateTime" />
+      </xsd:simpleType>
+      <xsd:simpleType name="SActNoPcs_TYPE">
+        <xsd:restriction base="xsd:decimal">
+          <xsd:totalDigits value="6" />
+          <xsd:fractionDigits value="0" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="Weight_TYPE">
+        <xsd:restriction base="xsd:decimal">
+          <xsd:totalDigits value="15" />
+          <xsd:fractionDigits value="3" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="DscGds_TYPE">
+        <xsd:restriction base="xsd:string">
+          <xsd:whiteSpace value="preserve" />
+          <xsd:maxLength value="70" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="ShpRef_TYPE">
+        <xsd:restriction base="xsd:string">
+          <xsd:whiteSpace value="preserve" />
+          <xsd:maxLength value="35" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:complexType name="PieceInfo">
+        <xsd:attribute name="PieceNumber" type="xsd:string" />
+        <xsd:attribute name="PieceID" type="tns:PcsId_TYPE" />
+        <xsd:attribute name="DataIdentifier" type="tns:PcsDatId_TYPE" />
+        <xsd:attribute name="PieceReference" type="tns:PcsRef_TYPE" />
+        <xsd:attribute name="Weight" type="tns:Weight_TYPE" />
+        <xsd:attribute name="WeightUnitOfMeasure" type="tns:WeightUom_TYPE" />
+      </xsd:complexType>
+      <xsd:simpleType name="PcsId_TYPE">
+        <xsd:restriction base="xsd:string">
+          <xsd:whiteSpace value="preserve" />
+          <xsd:maxLength value="35" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="PcsDatId_TYPE">
+        <xsd:restriction base="xsd:string">
+          <xsd:whiteSpace value="preserve" />
+          <xsd:maxLength value="4" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="PcsRef_TYPE">
+        <xsd:restriction base="xsd:string">
+          <xsd:whiteSpace value="preserve" />
+          <xsd:maxLength value="35" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:complexType name="ArrayOfPieceInfo">
+        <xsd:sequence>
+          <xsd:element maxOccurs="unbounded" name="ArrayOfPieceInfoItem" type="tns:PieceInfo" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="BusinessParty">
+        <xsd:sequence>
+          <xsd:element form="qualified" name="AccountNumber" type="tns:Account_TYPE" />
+          <xsd:element form="qualified" name="ContactDevice" type="tns:ArrayOfContactDevice" />
+        </xsd:sequence>
+        <xsd:attribute name="Role" type="tns:Role_TYPE" />
+        <xsd:attribute name="Name" type="tns:CustNm_TYPE" />
+        <xsd:attribute name="ContactName" type="tns:CntNm_TYPE" />
+        <xsd:attribute name="StreetName" type="tns:StrNm_TYPE" />
+        <xsd:attribute name="StreetNumber" type="tns:StrNo_TYPE" />
+        <xsd:attribute name="BuildingName" type="tns:BldgNm_TYPE" />
+        <xsd:attribute name="CityName" type="tns:CtyNm_TYPE" />
+        <xsd:attribute name="DivisionState" type="tns:CtryDivNm_TYPE" />
+        <xsd:attribute name="CountryCode" type="tns:CtryCd_TYPE" />
+        <xsd:attribute name="PostCode" type="tns:Zip_TYPE" />
+      </xsd:complexType>
+      <xsd:simpleType name="Role_TYPE">
+        <xsd:restriction base="xsd:string">
+          <xsd:whiteSpace value="preserve" />
+          <xsd:enumeration value="SP" />
+          <xsd:enumeration value="RV" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="CustNm_TYPE">
+        <xsd:restriction base="xsd:string">
+          <xsd:whiteSpace value="preserve" />
+          <xsd:maxLength value="100" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="CntNm_TYPE">
+        <xsd:restriction base="xsd:string">
+          <xsd:whiteSpace value="preserve" />
+          <xsd:maxLength value="70" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="StrNm_TYPE">
+        <xsd:restriction base="xsd:string">
+          <xsd:whiteSpace value="preserve" />
+          <xsd:maxLength value="45" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="StrNo_TYPE">
+        <xsd:restriction base="xsd:string">
+          <xsd:whiteSpace value="preserve" />
+          <xsd:maxLength value="20" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="BldgNm_TYPE">
+        <xsd:restriction base="xsd:string">
+          <xsd:whiteSpace value="preserve" />
+          <xsd:maxLength value="45" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="CtyNm_TYPE">
+        <xsd:restriction base="xsd:string">
+          <xsd:whiteSpace value="preserve" />
+          <xsd:maxLength value="45" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="CtryDivNm_TYPE">
+        <xsd:restriction base="xsd:string">
+          <xsd:whiteSpace value="preserve" />
+          <xsd:maxLength value="45" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="CtryCd_TYPE">
+        <xsd:restriction base="xsd:string">
+          <xsd:whiteSpace value="preserve" />
+          <xsd:maxLength value="2" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="Zip_TYPE">
+        <xsd:restriction base="xsd:string">
+          <xsd:whiteSpace value="preserve" />
+          <xsd:maxLength value="12" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="Account_TYPE">
+        <xsd:restriction base="xsd:string">
+          <xsd:minLength value="1" />
+          <xsd:maxLength value="12" />
+          <xsd:whiteSpace value="preserve" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:complexType name="ContactDevice">
+        <xsd:attribute name="Type" type="tns:Type_TYPE" />
+        <xsd:attribute name="Number" type="tns:CDevNo_TYPE" />
+      </xsd:complexType>
+      <xsd:simpleType name="Type_TYPE">
+        <xsd:restriction base="xsd:string">
+          <xsd:whiteSpace value="preserve" />
+          <xsd:enumeration value="TEL" />
+          <xsd:enumeration value="EML" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="CDevNo_TYPE">
+        <xsd:restriction base="xsd:string">
+          <xsd:whiteSpace value="preserve" />
+          <xsd:maxLength value="70" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:complexType name="ArrayOfContactDevice">
+        <xsd:sequence>
+          <xsd:element maxOccurs="unbounded" name="ArrayOfContactDeviceItem" type="tns:ContactDevice" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ArrayOfBusinessParty">
+        <xsd:sequence>
+          <xsd:element maxOccurs="unbounded" name="ArrayOfBusinessPartyItem" type="tns:BusinessParty" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="LabelResponse">
+        <xsd:sequence>
+          <xsd:element ref="s0:LabelResponse" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="Notification">
+        <xsd:attribute name="Code" type="s0:Code_TYPE" />
+        <xsd:attribute name="Message" type="s0:Mesg_TYPE" />
+      </xsd:complexType>
+      <xsd:complexType name="ArrayOfNotification">
+        <xsd:sequence>
+          <xsd:element maxOccurs="unbounded" name="ArrayOfNotificationItem" type="tns:Notification" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ShipmentData2">
+        <xsd:sequence>
+          <xsd:element name="PieceInfo" type="tns:ArrayOfPieceInfo2" />
+          <xsd:element minOccurs="0" name="HandlingFeatures" type="tns:ArrayOfHandlingFeatures" />
+        </xsd:sequence>
+        <xsd:attribute name="ShipmentID" type="s0:SID_TYPE" />
+        <xsd:attribute name="ProductShortName" type="s0:ShtNm_TYPE" />
+        <xsd:attribute name="ProductContentCode" type="s0:SrvOpCd_TYPE" />
+        <xsd:attribute name="OriginServiceAreaCode" type="s0:SrvaCd_TYPE" />
+        <xsd:attribute name="OriginFacilityCode" type="s0:FcCd_TYPE" />
+        <xsd:attribute name="OutboundSortCode" type="s0:SortCd_TYPE" />
+        <xsd:attribute name="DestServiceAreaCode" type="s0:SrvaCd_TYPE" />
+        <xsd:attribute name="DestFacilityCode" type="s0:FcCd_TYPE" />
+        <xsd:attribute name="InboundSortCode" type="s0:SortCd_TYPE" />
+        <xsd:attribute name="DeliveryDateCode" type="s0:SrvDtCd_TYPE" />
+        <xsd:attribute name="DeliveryTimeCode" type="s0:SrvTmCd_TYPE" />
+        <xsd:attribute name="RoutingBarCodeText" type="s0:RtCdText_TYPE" />
+      </xsd:complexType>
+      <xsd:complexType name="PieceInfo2">
+        <xsd:attribute name="PieceNumber" type="xsd:string" />
+        <xsd:attribute name="PieceID" type="s0:PcsId_TYPE" />
+        <xsd:attribute name="DataIdentifier" type="s0:PcsDatId_TYPE" />
+      </xsd:complexType>
+      <xsd:complexType name="ArrayOfPieceInfo2">
+        <xsd:sequence>
+          <xsd:element maxOccurs="unbounded" name="ArrayOfPieceInfoItem" type="tns:PieceInfo2" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="HandlingFeatures">
+        <xsd:attribute name="FeatureNumber" type="s0:HdlgNo_TYPE" />
+        <xsd:attribute name="FeatureCode" type="s0:HdlgCd_TYPE" />
+        <xsd:attribute name="HandlingSortCode" type="s0:HdlgStCd_TYPE" />
+      </xsd:complexType>
+      <xsd:complexType name="ArrayOfHandlingFeatures">
+        <xsd:sequence>
+          <xsd:element maxOccurs="unbounded" name="ArrayOfHandlingFeaturesItem" type="tns:HandlingFeatures" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="Label">
+        <xsd:attribute name="FileType" type="s0:File_TYPE" />
+        <xsd:attribute name="LabelImage" type="xsd:base64Binary" />
+      </xsd:complexType>
+      <xsd:element name="LabelRequest" type="tns:LabelRequest" />
+      <xsd:element name="LabelResponse" type="tns:LabelResponse" />
+    </xsd:schema>
+    <xsd:schema targetNamespace="http://www.dhl.com">
+      <xsd:import namespace="http://scxgxtt.phx-dc.dhl.com/glDHLExpressLabel/providers/globalLabel" />
+      <xsd:element name="LabelResponse" type="s0:LabelResponse" />
+      <xsd:complexType name="LabelResponse">
+        <xsd:sequence>
+          <xsd:element name="Notification" type="tns:ArrayOfNotification" />
+          <xsd:element name="ShipmentData" type="tns:ShipmentData2" />
+          <xsd:element name="Label" type="tns:Label" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:simpleType name="Code_TYPE">
+        <xsd:restriction base="xsd:nonNegativeInteger">
+          <xsd:totalDigits value="6" />
+          <xsd:whiteSpace value="collapse" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="Mesg_TYPE">
+        <xsd:restriction base="xsd:string">
+          <xsd:whiteSpace value="collapse" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="SID_TYPE">
+        <xsd:restriction base="xsd:string">
+          <xsd:minLength value="10" />
+          <xsd:maxLength value="35" />
+          <xsd:whiteSpace value="collapse" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="ShtNm_TYPE">
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="20" />
+          <xsd:whiteSpace value="collapse" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="SrvOpCd_TYPE">
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="3" />
+          <xsd:whiteSpace value="collapse" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="SrvaCd_TYPE">
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="3" />
+          <xsd:whiteSpace value="collapse" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="FcCd_TYPE">
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="3" />
+          <xsd:whiteSpace value="collapse" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="SortCd_TYPE">
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="4" />
+          <xsd:whiteSpace value="collapse" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="SrvDtCd_TYPE">
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="2" />
+          <xsd:whiteSpace value="collapse" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="SrvTmCd_TYPE">
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="3" />
+          <xsd:whiteSpace value="collapse" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="RtCdText_TYPE">
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="35" />
+          <xsd:whiteSpace value="collapse" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="PcsId_TYPE">
+        <xsd:restriction base="xsd:string">
+          <xsd:whiteSpace value="preserve" />
+          <xsd:maxLength value="35" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="PcsDatId_TYPE">
+        <xsd:restriction base="xsd:string">
+          <xsd:whiteSpace value="preserve" />
+          <xsd:maxLength value="4" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="HdlgNo_TYPE">
+        <xsd:restriction base="xsd:string">
+          <xsd:whiteSpace value="collapse" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="HdlgCd_TYPE">
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="3" />
+          <xsd:whiteSpace value="collapse" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="HdlgStCd_TYPE">
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="3" />
+          <xsd:whiteSpace value="collapse" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="File_TYPE">
+        <xsd:restriction base="xsd:string">
+          <xsd:whiteSpace value="preserve" />
+        </xsd:restriction>
+      </xsd:simpleType>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="labelRequestIn">
+    <wsdl:part name="parameters" element="tns:LabelRequest" />
+  </wsdl:message>
+  <wsdl:message name="labelRequestOut">
+    <wsdl:part name="parameters" element="tns:LabelResponse" />
+  </wsdl:message>
+  <wsdl:portType name="gblDHLExpressLabel">
+    <wsdl:operation name="labelRequest">
+      <wsdl:input message="tns:labelRequestIn" />
+      <wsdl:output message="tns:labelRequestOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="gblDHLExpressLabel" type="tns:gblDHLExpressLabel">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="labelRequest">
+      <soap:operation soapAction="glDHLExpressLabel_providers_globalLabel_Binder_labelRequest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" parts="parameters" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" parts="parameters" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="gblDHLExpressLabel">
+    <wsdl:port name="gblDHLExpressLabel" binding="tns:gblDHLExpressLabel">
+      <soap:address location="https://wsbexpress.dhl.com/gbl/glDHLExpressLabel" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -37,7 +37,8 @@ Requirements
 
 To use the test app, you must create a `credentials.txt` and ensure that it is included while building. This file should contain your username on `line 1` and your password on `line 2`. __Do not include this in source control if you intent to publish to the Internet__
 
-You also have the option to use the `defaults.txt` file to set default values which all forms in the test app will use to pre-populate the form (saving your time). __Do not include this in source control if you intend to publish to the Internet__
+You also have the option to use the `defaults.json` file to set default values which all forms in the test app will use to pre-populate the form (saving your time). __Do not include this in source control if you intend to publish to the Internet__
+A `defaults-example.json` file is included for your reference.
 
 Example
 ----

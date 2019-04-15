@@ -110,6 +110,9 @@ namespace GloWS_Test_App.REST
             }
 
             cmbProductCode.SelectedItem = "P";
+
+            CmbProductCode_SelectedIndexChanged(cmbProductCode, new EventArgs());
+            CbxShipmentRequestInsurance_CheckedChanged(cbxShipmentRequestInsurance, new EventArgs());
         }
 
         private void Ship_FormClosing(object sender, FormClosingEventArgs e)
@@ -354,13 +357,28 @@ namespace GloWS_Test_App.REST
                     req.Data.ShipmentInfo.SpecialServices.Service.Add(new SpecialService("WY"));
                 }
 
+                if (cbxShipmentDDP.Checked)
+                {
+                    req.Data.ShipmentInfo.SpecialServices.Service.Add(new SpecialService("DD"));
+                }
+
+                if (cbxShipmentRequestInsurance.Checked)
+                {
+                    req.Data.ShipmentInfo.SpecialServices.Service.Add(
+                        new SpecialService(cbxShipmentRequestInsurance.Tag.ToString()
+                                           , decimal.Parse(txtShipmentInsuredValue.Text)
+                                           , txtShipmentInsuredCurrency.Text));
+                }
+
                 if (!req.Data.ShipmentInfo.SpecialServices.Service.Any())
                 {
                     req.Data.ShipmentInfo.SpecialServices = null;
                 }
 
                 /*** GENERATE SHIPMENT ***/
-                GloWS glows = new GloWS_REST_Library.GloWS(Common.username, Common.password, (Common.IsProduction ? Common.restProductionBaseUrl : Common.restTestingBaseUrl));
+                GloWS glows = new GloWS_REST_Library.GloWS(Common.CurrentCredentials["Username"]
+                                                           , Common.CurrentCredentials["Password"]
+                                                           , Common.CurrentRestBaseUrl);
 
                 CreateShipmentResponse resp;
 
@@ -697,12 +715,22 @@ namespace GloWS_Test_App.REST
                 case "X":
                     txtShipmentDeclaredValue.Enabled = false;
                     txtShipmentDeclaredValueCurrency.Enabled = false;
+                    cbxShipmentRequestInsurance.Tag = "IB";
                     break;
                 default:
                     txtShipmentDeclaredValue.Enabled = true;
                     txtShipmentDeclaredValueCurrency.Enabled = true;
+                    cbxShipmentRequestInsurance.Tag = "II";
                     break;
             }
+        }
+
+        private void CbxShipmentRequestInsurance_CheckedChanged(object sender, EventArgs e)
+        {
+            CheckBox cbx = (CheckBox)sender;
+
+            txtShipmentInsuredValue.Enabled = cbx.Checked;
+            txtShipmentInsuredCurrency.Enabled = cbx.Checked;
         }
     }
 }

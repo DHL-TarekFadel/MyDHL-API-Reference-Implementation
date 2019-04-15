@@ -54,6 +54,7 @@
             this.txtShipperEMailAddress = new System.Windows.Forms.TextBox();
             this.txtShipperName = new System.Windows.Forms.TextBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.cbxShipmentDDP = new System.Windows.Forms.CheckBox();
             this.cbxShipmentRequestPickup = new System.Windows.Forms.CheckBox();
             this.cmbProductCode = new System.Windows.Forms.ComboBox();
             this.cmbShipmentDimsUOM = new System.Windows.Forms.ComboBox();
@@ -118,11 +119,18 @@
             this.lblInvoiceUploaded = new System.Windows.Forms.Label();
             this.lblLogoUploaded = new System.Windows.Forms.Label();
             this.btnUploadInvoice = new System.Windows.Forms.Button();
+            this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.label38 = new System.Windows.Forms.Label();
+            this.label30 = new System.Windows.Forms.Label();
+            this.cbxShipmentRequestInsurance = new System.Windows.Forms.CheckBox();
+            this.txtShipmentInsuredCurrency = new System.Windows.Forms.TextBox();
+            this.txtShipmentInsuredValue = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox5.SuspendLayout();
+            this.groupBox6.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -350,6 +358,7 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.cbxShipmentDDP);
             this.groupBox3.Controls.Add(this.cbxShipmentRequestPickup);
             this.groupBox3.Controls.Add(this.cmbProductCode);
             this.groupBox3.Controls.Add(this.cmbShipmentDimsUOM);
@@ -384,6 +393,16 @@
             this.groupBox3.TabIndex = 3;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "SHIPMENT";
+            // 
+            // cbxShipmentDDP
+            // 
+            this.cbxShipmentDDP.AutoSize = true;
+            this.cbxShipmentDDP.Location = new System.Drawing.Point(346, 181);
+            this.cbxShipmentDDP.Name = "cbxShipmentDDP";
+            this.cbxShipmentDDP.Size = new System.Drawing.Size(54, 18);
+            this.cbxShipmentDDP.TabIndex = 32;
+            this.cbxShipmentDDP.Text = "DDP?";
+            this.cbxShipmentDDP.UseVisualStyleBackColor = true;
             // 
             // cbxShipmentRequestPickup
             // 
@@ -953,7 +972,7 @@
             this.groupBox5.Controls.Add(this.btnUploadLogo);
             this.groupBox5.Location = new System.Drawing.Point(12, 350);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(200, 82);
+            this.groupBox5.Size = new System.Drawing.Size(226, 82);
             this.groupBox5.TabIndex = 6;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Images Upload";
@@ -988,12 +1007,72 @@
             this.btnUploadInvoice.UseVisualStyleBackColor = true;
             this.btnUploadInvoice.Click += new System.EventHandler(this.BtnUploadInvoice_Click);
             // 
+            // groupBox6
+            // 
+            this.groupBox6.Controls.Add(this.label38);
+            this.groupBox6.Controls.Add(this.label30);
+            this.groupBox6.Controls.Add(this.cbxShipmentRequestInsurance);
+            this.groupBox6.Controls.Add(this.txtShipmentInsuredCurrency);
+            this.groupBox6.Controls.Add(this.txtShipmentInsuredValue);
+            this.groupBox6.Location = new System.Drawing.Point(244, 350);
+            this.groupBox6.Name = "groupBox6";
+            this.groupBox6.Size = new System.Drawing.Size(226, 82);
+            this.groupBox6.TabIndex = 7;
+            this.groupBox6.TabStop = false;
+            this.groupBox6.Text = "Insurance";
+            // 
+            // label38
+            // 
+            this.label38.AutoSize = true;
+            this.label38.Location = new System.Drawing.Point(158, 29);
+            this.label38.Name = "label38";
+            this.label38.Size = new System.Drawing.Size(51, 14);
+            this.label38.TabIndex = 33;
+            this.label38.Text = "Currency";
+            // 
+            // label30
+            // 
+            this.label30.AutoSize = true;
+            this.label30.Location = new System.Drawing.Point(6, 50);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(74, 14);
+            this.label30.TabIndex = 33;
+            this.label30.Text = "Insured Value";
+            // 
+            // cbxShipmentRequestInsurance
+            // 
+            this.cbxShipmentRequestInsurance.AutoSize = true;
+            this.cbxShipmentRequestInsurance.Location = new System.Drawing.Point(6, 19);
+            this.cbxShipmentRequestInsurance.Name = "cbxShipmentRequestInsurance";
+            this.cbxShipmentRequestInsurance.Size = new System.Drawing.Size(121, 18);
+            this.cbxShipmentRequestInsurance.TabIndex = 33;
+            this.cbxShipmentRequestInsurance.Tag = "II";
+            this.cbxShipmentRequestInsurance.Text = "Request Insurance?";
+            this.cbxShipmentRequestInsurance.UseVisualStyleBackColor = true;
+            this.cbxShipmentRequestInsurance.CheckedChanged += new System.EventHandler(this.CbxShipmentRequestInsurance_CheckedChanged);
+            // 
+            // txtShipmentInsuredCurrency
+            // 
+            this.txtShipmentInsuredCurrency.Location = new System.Drawing.Point(153, 47);
+            this.txtShipmentInsuredCurrency.MaxLength = 3;
+            this.txtShipmentInsuredCurrency.Name = "txtShipmentInsuredCurrency";
+            this.txtShipmentInsuredCurrency.Size = new System.Drawing.Size(61, 20);
+            this.txtShipmentInsuredCurrency.TabIndex = 34;
+            // 
+            // txtShipmentInsuredValue
+            // 
+            this.txtShipmentInsuredValue.Location = new System.Drawing.Point(86, 47);
+            this.txtShipmentInsuredValue.Name = "txtShipmentInsuredValue";
+            this.txtShipmentInsuredValue.Size = new System.Drawing.Size(61, 20);
+            this.txtShipmentInsuredValue.TabIndex = 35;
+            // 
             // Ship
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(204)))), ((int)(((byte)(0)))));
             this.ClientSize = new System.Drawing.Size(918, 440);
+            this.Controls.Add(this.groupBox6);
             this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox2);
@@ -1014,6 +1093,8 @@
             this.groupBox4.PerformLayout();
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
+            this.groupBox6.ResumeLayout(false);
+            this.groupBox6.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1109,5 +1190,12 @@
         private System.Windows.Forms.Label lblLogoUploaded;
         private System.Windows.Forms.Button btnUploadInvoice;
         private System.Windows.Forms.Button btnUploadLogo;
+        private System.Windows.Forms.CheckBox cbxShipmentDDP;
+        private System.Windows.Forms.GroupBox groupBox6;
+        private System.Windows.Forms.Label label38;
+        private System.Windows.Forms.Label label30;
+        private System.Windows.Forms.CheckBox cbxShipmentRequestInsurance;
+        private System.Windows.Forms.TextBox txtShipmentInsuredCurrency;
+        private System.Windows.Forms.TextBox txtShipmentInsuredValue;
     }
 }

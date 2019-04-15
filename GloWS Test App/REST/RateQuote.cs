@@ -112,7 +112,9 @@ namespace GloWS_Test_App.REST {
                 this.Cursor = Cursors.WaitCursor;
                 this.UseWaitCursor = true;
 
-                GloWS glows = new GloWS(Common.username, Common.password, (Common.IsProduction ? Common.restProductionBaseUrl : Common.restTestingBaseUrl));
+                GloWS glows = new GloWS(Common.CurrentCredentials["Username"]
+                                        , Common.CurrentCredentials["Password"]
+                                        , Common.CurrentRestBaseUrl);
 
                 RateQueryRequest rqr = new RateQueryRequest();
                 RateRequest rr = new RateRequest();

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 using System.IO;
+using System.Collections.Generic;
 
 namespace GloWS_Test_App
 {
@@ -27,8 +28,34 @@ namespace GloWS_Test_App
                 }
                 else
                 {
-                    Common.username = credentials[0];
-                    Common.password = credentials[1];
+                    // Sandpit Credentials
+                    Dictionary<string, string> sandpit = new Dictionary<string, string>
+                    {
+                        { "Username", credentials[0] },
+                        { "Password", credentials[1] }
+                    };
+                    Common.Credentials.Add(Common.GloWSEnvironment.Sandpit, sandpit);
+                    Common.CurrentCredentials = sandpit;
+
+                    // Production Credentials
+                    Dictionary<string, string> production = new Dictionary<string, string>
+                    {
+                        { "Username", credentials[0] },
+                        { "Password", credentials[1] }
+                    };
+                    Common.Credentials.Add(Common.GloWSEnvironment.Production, production);
+
+                    // E2E/UAT Credentials
+                    if (credentials.Length == 4)
+                    {
+
+                        Dictionary<string, string> e2e = new Dictionary<string, string>
+                        {
+                            { "Username", credentials[2] },
+                            { "Password", credentials[3] }
+                        };
+                        Common.Credentials.Add(Common.GloWSEnvironment.E2E, e2e);
+                    }
                 }
             }
             else

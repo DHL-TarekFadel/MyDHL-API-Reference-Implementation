@@ -1,6 +1,7 @@
 ﻿using GloWS_Test_App.Objects;
 using Newtonsoft.Json;
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.ServiceModel;
 using System.ServiceModel.Channels;
@@ -10,14 +11,19 @@ namespace GloWS_Test_App
 {
     public static class Common
     {
-        public static bool IsProduction = false;
-        public static string productionBaseUrl = "https://wsbexpress.dhl.com/gbl";
-        public static string testingBaseUrl = "https://wsbexpress.dhl.com/sndpt";
+        public static string soapProductionBaseUrl = "https://wsbexpress.dhl.com/gbl";
+        public static string soapSandpitBaseUrl = "https://wsbexpress.dhl.com/sndpt";
+        public static string soapE2EBaseUrl = "https://wsbexpressuat.dhl.com/gbl";
         public static string restProductionBaseUrl = "https://wsbexpress.dhl.com/rest/gbl";
-        public static string restTestingBaseUrl = "https://wsbexpress.dhl.com/rest/gbl";
+        public static string restSandpitBaseUrl = "https://wsbexpress.dhl.com/rest/sndpt";
+        public static string restE2EBaseUrl = "https://wsbexpressuat.dhl.com/rest/gbl";
 
-        public static string username;
-        public static string password;
+        public static GloWSEnvironment CurrentEnvironment = GloWSEnvironment.Sandpit;
+        public static Dictionary<GloWSEnvironment, Dictionary<string, string>> Credentials = new Dictionary<GloWSEnvironment, Dictionary<string, string>>();
+        public static string CurrentRestBaseUrl = restSandpitBaseUrl;
+        public static string CurrentSoapBaseUrl = soapSandpitBaseUrl;
+
+        public static Dictionary<string, string> CurrentCredentials = new Dictionary<string, string>();
 
         public static Defaults Defaults;
 
@@ -27,7 +33,7 @@ namespace GloWS_Test_App
         /// <returns>Tuple(EndpointAddress, BasicHttpBinding, username, password)</returns>
         public static Tuple<EndpointAddress, BindingElementCollection, string, string> PrepareGlowsAuth(string endpoint)
         {
-            EndpointAddress soapEndpoint = new EndpointAddress(string.Format("{0}/{1}", (Common.IsProduction ? Common.productionBaseUrl : Common.testingBaseUrl), endpoint));
+            EndpointAddress soapEndpoint = new EndpointAddress(string.Format("{0}/{1}", CurrentSoapBaseUrl, endpoint));
             BasicHttpsBinding binding = new BasicHttpsBinding();
             binding.Security.Mode = BasicHttpsSecurityMode.TransportWithMessageCredential;
             binding.Security.Message.ClientCredentialType = BasicHttpMessageCredentialType.UserName;
@@ -35,7 +41,7 @@ namespace GloWS_Test_App
             BindingElementCollection elements = binding.CreateBindingElements();
             elements.Find<SecurityBindingElement>().EnableUnsecuredResponse = true;
 
-            return new Tuple<EndpointAddress, BindingElementCollection, string, string>(soapEndpoint, elements, username, password);
+            return new Tuple<EndpointAddress, BindingElementCollection, string, string>(soapEndpoint, elements, CurrentCredentials["Username"], CurrentCredentials["Password"]);
         }
 
         public static string GetTempFilenameWithExtension(string staticFilenamePart, string extension)
@@ -94,6 +100,13 @@ namespace GloWS_Test_App
             textBox.Value = (defaultValue ?? backupValue);
         }
         #endregion
+
+        public enum GloWSEnvironment
+        {
+            Sandpit
+            , Production
+            , E2E
+        }
     }
 
     public class Utf8StringWriter : StringWriter

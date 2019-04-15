@@ -58,7 +58,9 @@ namespace GloWS_Test_App.REST
                 txtAccountNumber.Text = txtAccountNumber.Text.Trim();
                 txtAWBNumber.Text = txtAWBNumber.Text.Trim();
 
-                GloWS glows = new GloWS(Common.username, Common.password, (Common.IsProduction ? Common.restProductionBaseUrl : Common.restTestingBaseUrl));
+                GloWS glows = new GloWS(Common.CurrentCredentials["Username"]
+                                        , Common.CurrentCredentials["Password"]
+                                        , Common.CurrentRestBaseUrl);
 
                 EPodResponse ePod = glows.GetEPod(txtAWBNumber.Text
                                                  , txtAccountNumber.Text

@@ -9,22 +9,48 @@ namespace GloWS_Test_App
         public MainMenu()
         {
             InitializeComponent();
+            Common.CurrentEnvironment = Common.GloWSEnvironment.Sandpit;
         }
 
         private void BtnSwitchMode_Click(object sender, EventArgs e)
         {
-            if (Common.IsProduction)
+            switch (Common.CurrentEnvironment)
             {
-                Common.IsProduction = false;
-                lblMode.Text = "Sandpit";
-                lblMode.Font = new Font(lblMode.Font, FontStyle.Regular);
+                case Common.GloWSEnvironment.Sandpit:
+                    lblMode.Text = "## PRODUCTION ##";
+                    lblMode.Font = new Font(lblMode.Font, FontStyle.Bold);
+                    Common.CurrentEnvironment = Common.GloWSEnvironment.Production;
+                    Common.CurrentSoapBaseUrl = Common.soapProductionBaseUrl;
+                    Common.CurrentRestBaseUrl = Common.restProductionBaseUrl;
+                    break;
+                case Common.GloWSEnvironment.Production:
+                    if (Common.Credentials.ContainsKey(Common.GloWSEnvironment.E2E))
+                    {
+                        lblMode.Text = "E2E";
+                        lblMode.Font = new Font(lblMode.Font, FontStyle.Italic);
+                        Common.CurrentEnvironment = Common.GloWSEnvironment.E2E;
+                        Common.CurrentSoapBaseUrl = Common.soapE2EBaseUrl;
+                        Common.CurrentRestBaseUrl = Common.restE2EBaseUrl;
+                    }
+                    else
+                    {
+                        lblMode.Text = "Sandpit";
+                        lblMode.Font = new Font(lblMode.Font, FontStyle.Regular);
+                        Common.CurrentEnvironment = Common.GloWSEnvironment.Sandpit;
+                        Common.CurrentSoapBaseUrl = Common.soapSandpitBaseUrl;
+                        Common.CurrentRestBaseUrl = Common.restSandpitBaseUrl;
+                    }
+                    break;
+                case Common.GloWSEnvironment.E2E:
+                    lblMode.Text = "Sandpit";
+                    lblMode.Font = new Font(lblMode.Font, FontStyle.Regular);
+                    Common.CurrentEnvironment = Common.GloWSEnvironment.Sandpit;
+                    Common.CurrentSoapBaseUrl = Common.soapSandpitBaseUrl;
+                    Common.CurrentRestBaseUrl = Common.restSandpitBaseUrl;
+                    break;
             }
-            else
-            {
-                Common.IsProduction = true;
-                lblMode.Text = "## PRODUCTION ##";
-                lblMode.Font = new Font(lblMode.Font, FontStyle.Bold);
-            }
+
+            Common.CurrentCredentials = Common.Credentials[Common.CurrentEnvironment];
         }
 
         private void BtnSOAP_Track_Click(object sender, EventArgs e)

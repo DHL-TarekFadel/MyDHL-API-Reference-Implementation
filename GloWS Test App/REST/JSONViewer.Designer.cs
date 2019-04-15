@@ -58,7 +58,7 @@
             this.Controls.Add(this.txtXMLDisplay);
             this.KeyPreview = true;
             this.Name = "JSONViewer";
-            this.Text = "XML Viewer";
+            this.Text = "JSON Viewer";
             this.Load += new System.EventHandler(this.JSONViewer_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

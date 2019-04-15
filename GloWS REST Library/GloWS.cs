@@ -8,9 +8,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.IO;
 using System.Linq;
-using System.Linq.Expressions;
 using System.Net;
-using System.Net.Http.Headers;
 using System.Text;
 using GloWS_REST_Library.Objects.ePOD;
 

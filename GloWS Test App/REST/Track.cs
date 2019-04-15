@@ -47,7 +47,9 @@ namespace GloWS_Test_App.REST
             {
                 this.Enabled = false;
 
-                GloWS glows = new GloWS(Common.username, Common.password, (Common.IsProduction ? Common.restProductionBaseUrl : Common.restTestingBaseUrl));
+                GloWS glows = new GloWS(Common.CurrentCredentials["Username"]
+                                        , Common.CurrentCredentials["Password"]
+                                        , Common.CurrentRestBaseUrl);
                 KnownTrackingResponse resp = null;
                 
                 try
@@ -61,7 +63,7 @@ namespace GloWS_Test_App.REST
                     //    reqData.TrackingRequest.LPNumber = new[] { txtTrackingNumber.Text.Trim() };
                     //}
 
-                    resp = glows.KnownAWBTracking(new List<string>() { txtTrackingNumber.Text, "1234567891" }
+                    resp = glows.KnownAWBTracking(new List<string>() { txtTrackingNumber.Text }
                                                   , Enums.LevelOfDetails.AllCheckpoints
                                                   , Enums.PiecesEnabled.Both
                                                   , Enums.EstimatedDeliveryDateEnabled.Yes);
@@ -77,6 +79,12 @@ namespace GloWS_Test_App.REST
                         msg += $"{Environment.NewLine}   {validationResult.ErrorMessage}";
                     }
                     MessageBox.Show(msg, "Validation Errors", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                if (null == resp.ActualResponse.AWBInfo)
+                {
+                    MessageBox.Show($"No shipment data found for AWB # {txtTrackingNumber.Text.Trim()}");
                     return;
                 }
 

@@ -103,21 +103,29 @@ namespace GloWS_REST_Library.Objects.Common
         // ReSharper disable InconsistentNaming
         public enum TermsOfTrade
         {
-            /// <remarks/>
+            /// <summary>
+            /// Cost & Freight
+            /// </summary>
             CFR,
 
             /// <summary>
-            /// Customs, Insurance and Freight
+            /// Cost, Insurance and Freight
             /// </summary>
             CIF,
 
-            /// <remarks/>
+            /// <summary>
+			/// Carriage and Insurance Paid to [consignee address]
+			/// </summary>
             CIP,
 
-            /// <remarks/>
+            /// <summary>
+			/// Carriage paid to [consignee address]
+			/// </summary>
             CPT,
 
-            /// <remarks/>
+            /// <summary>
+			/// Delivered at Frontier
+			/// </summary>
             DAF,
 
             /// <summary>
@@ -135,10 +143,14 @@ namespace GloWS_REST_Library.Objects.Common
             /// </summary>
             DAP,
 
-            /// <remarks/>
+            /// <summary>
+			/// Delivered Ex Quay (duty paid)
+			/// </summary>
             DEQ,
 
-            /// <remarks/>
+            /// <summary>
+			/// Delivered Ex Ship-(named port of destination) 
+			/// </summary>
             DES,
 
             /// <summary>
@@ -146,10 +158,14 @@ namespace GloWS_REST_Library.Objects.Common
             /// </summary>
             EXW,
 
-            /// <remarks/>
+            /// <summary>
+			/// Free Alongside Ship
+			/// </summary>
             FAS,
 
-            /// <remarks/>
+            /// <summary>
+			/// Free Carrier
+			/// </summary>
             FCA,
 
             /// <summary>

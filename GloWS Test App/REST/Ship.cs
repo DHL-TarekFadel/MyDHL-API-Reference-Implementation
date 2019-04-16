@@ -160,6 +160,12 @@ namespace GloWS_Test_App.REST
                 llblAWB.ForeColor = Color.Black;
                 llblAWB.Font = new Font(llblAWB.Font, FontStyle.Regular);
 
+                // Clear result fields
+                txtResultAWB.Clear();
+                txtResultPieces.Clear();
+                txtResultBookingReferenceNumber.Clear();
+                Application.DoEvents();
+
                 // Determine if this is a dox or non-dox shipment
                 bool isDox = !(new[] { "3", "4", "8", "E", "F", "H", "J", "M", "P", "Q", "V", "Y" }).Contains(cmbProductCode.SelectedValue.ToString());
                 bool isDomestic = "N" == cmbProductCode.Text;
@@ -448,7 +454,7 @@ namespace GloWS_Test_App.REST
                             llblAWB.Tag = tempFilename;
                             llblAWB.LinkBehavior = LinkBehavior.AlwaysUnderline;
                             llblAWB.ForeColor = Color.White;
-                            llblAWB.Font = new Font(llblAWB.Font, FontStyle.Bold);
+                            llblAWB.Font = new Font(llblAWB.Font, FontStyle.Bold | FontStyle.Underline);
                         }
                     }
                 }

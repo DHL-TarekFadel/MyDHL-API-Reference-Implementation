@@ -99,7 +99,7 @@
             this.btnGo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnGo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(204)))), ((int)(((byte)(0)))));
             this.btnGo.Location = new System.Drawing.Point(375, 14);
-            this.btnGo.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnGo.Margin = new System.Windows.Forms.Padding(2);
             this.btnGo.Name = "btnGo";
             this.btnGo.Size = new System.Drawing.Size(50, 25);
             this.btnGo.TabIndex = 25;
@@ -118,9 +118,9 @@
             this.gbShipper.Controls.Add(this.txtShipperCity);
             this.gbShipper.Controls.Add(this.label2);
             this.gbShipper.Location = new System.Drawing.Point(8, 8);
-            this.gbShipper.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.gbShipper.Margin = new System.Windows.Forms.Padding(2);
             this.gbShipper.Name = "gbShipper";
-            this.gbShipper.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.gbShipper.Padding = new System.Windows.Forms.Padding(2);
             this.gbShipper.Size = new System.Drawing.Size(196, 106);
             this.gbShipper.TabIndex = 3;
             this.gbShipper.TabStop = false;
@@ -129,7 +129,7 @@
             // txtShipperCountry
             // 
             this.txtShipperCountry.Location = new System.Drawing.Point(74, 79);
-            this.txtShipperCountry.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtShipperCountry.Margin = new System.Windows.Forms.Padding(2);
             this.txtShipperCountry.MaxLength = 2;
             this.txtShipperCountry.Name = "txtShipperCountry";
             this.txtShipperCountry.Size = new System.Drawing.Size(117, 20);
@@ -150,7 +150,7 @@
             // txtShipperUSState
             // 
             this.txtShipperUSState.Location = new System.Drawing.Point(74, 58);
-            this.txtShipperUSState.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtShipperUSState.Margin = new System.Windows.Forms.Padding(2);
             this.txtShipperUSState.MaxLength = 2;
             this.txtShipperUSState.Name = "txtShipperUSState";
             this.txtShipperUSState.Size = new System.Drawing.Size(117, 20);
@@ -170,7 +170,7 @@
             // txtShipperPostalCode
             // 
             this.txtShipperPostalCode.Location = new System.Drawing.Point(74, 37);
-            this.txtShipperPostalCode.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtShipperPostalCode.Margin = new System.Windows.Forms.Padding(2);
             this.txtShipperPostalCode.MaxLength = 12;
             this.txtShipperPostalCode.Name = "txtShipperPostalCode";
             this.txtShipperPostalCode.Size = new System.Drawing.Size(117, 20);
@@ -190,7 +190,7 @@
             // txtShipperCity
             // 
             this.txtShipperCity.Location = new System.Drawing.Point(74, 16);
-            this.txtShipperCity.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtShipperCity.Margin = new System.Windows.Forms.Padding(2);
             this.txtShipperCity.MaxLength = 35;
             this.txtShipperCity.Name = "txtShipperCity";
             this.txtShipperCity.Size = new System.Drawing.Size(117, 20);
@@ -233,9 +233,9 @@
             this.gbShipment.Controls.Add(this.label10);
             this.gbShipment.Controls.Add(this.label11);
             this.gbShipment.Location = new System.Drawing.Point(208, 8);
-            this.gbShipment.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.gbShipment.Margin = new System.Windows.Forms.Padding(2);
             this.gbShipment.Name = "gbShipment";
-            this.gbShipment.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.gbShipment.Padding = new System.Windows.Forms.Padding(2);
             this.gbShipment.Size = new System.Drawing.Size(163, 216);
             this.gbShipment.TabIndex = 3;
             this.gbShipment.TabStop = false;
@@ -244,8 +244,8 @@
             // txtDeclaredCurrency
             // 
             this.txtDeclaredCurrency.Location = new System.Drawing.Point(66, 84);
-            this.txtDeclaredCurrency.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.txtDeclaredCurrency.MaxLength = 2;
+            this.txtDeclaredCurrency.Margin = new System.Windows.Forms.Padding(2);
+            this.txtDeclaredCurrency.MaxLength = 3;
             this.txtDeclaredCurrency.Name = "txtDeclaredCurrency";
             this.txtDeclaredCurrency.Size = new System.Drawing.Size(94, 20);
             this.txtDeclaredCurrency.TabIndex = 13;
@@ -265,7 +265,7 @@
             // ntxtHeight
             // 
             this.ntxtHeight.Location = new System.Drawing.Point(66, 190);
-            this.ntxtHeight.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ntxtHeight.Margin = new System.Windows.Forms.Padding(2);
             this.ntxtHeight.Maximum = new decimal(new int[] {
             300,
             0,
@@ -288,7 +288,7 @@
             // ntxtWidth
             // 
             this.ntxtWidth.Location = new System.Drawing.Point(66, 169);
-            this.ntxtWidth.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ntxtWidth.Margin = new System.Windows.Forms.Padding(2);
             this.ntxtWidth.Maximum = new decimal(new int[] {
             300,
             0,
@@ -311,7 +311,7 @@
             // ntxtLength
             // 
             this.ntxtLength.Location = new System.Drawing.Point(66, 148);
-            this.ntxtLength.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ntxtLength.Margin = new System.Windows.Forms.Padding(2);
             this.ntxtLength.Maximum = new decimal(new int[] {
             300,
             0,
@@ -340,7 +340,7 @@
             0,
             65536});
             this.ntxtDeclaredValue.Location = new System.Drawing.Point(66, 62);
-            this.ntxtDeclaredValue.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ntxtDeclaredValue.Margin = new System.Windows.Forms.Padding(2);
             this.ntxtDeclaredValue.Maximum = new decimal(new int[] {
             65535,
             0,
@@ -369,7 +369,7 @@
             0,
             65536});
             this.ntxtWeight.Location = new System.Drawing.Point(66, 127);
-            this.ntxtWeight.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ntxtWeight.Margin = new System.Windows.Forms.Padding(2);
             this.ntxtWeight.Maximum = new decimal(new int[] {
             1000,
             0,
@@ -395,7 +395,7 @@
             "Request",
             "Scheduled"});
             this.cmbRequestCourier.Location = new System.Drawing.Point(66, 16);
-            this.cmbRequestCourier.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cmbRequestCourier.Margin = new System.Windows.Forms.Padding(2);
             this.cmbRequestCourier.Name = "cmbRequestCourier";
             this.cmbRequestCourier.Size = new System.Drawing.Size(94, 21);
             this.cmbRequestCourier.TabIndex = 9;
@@ -406,7 +406,7 @@
             "SI (KG, CM)",
             "SU (LB, IN)"});
             this.cmbUOM.Location = new System.Drawing.Point(66, 105);
-            this.cmbUOM.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cmbUOM.Margin = new System.Windows.Forms.Padding(2);
             this.cmbUOM.Name = "cmbUOM";
             this.cmbUOM.Size = new System.Drawing.Size(94, 21);
             this.cmbUOM.TabIndex = 14;
@@ -418,7 +418,7 @@
             "Yes",
             "No"});
             this.cmbDutiable.Location = new System.Drawing.Point(66, 39);
-            this.cmbDutiable.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cmbDutiable.Margin = new System.Windows.Forms.Padding(2);
             this.cmbDutiable.Name = "cmbDutiable";
             this.cmbDutiable.Size = new System.Drawing.Size(94, 21);
             this.cmbDutiable.TabIndex = 10;
@@ -565,9 +565,9 @@
             this.gbBilling.Controls.Add(this.cmbTermsOfTrade);
             this.gbBilling.Controls.Add(this.label21);
             this.gbBilling.Location = new System.Drawing.Point(8, 228);
-            this.gbBilling.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.gbBilling.Margin = new System.Windows.Forms.Padding(2);
             this.gbBilling.Name = "gbBilling";
-            this.gbBilling.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.gbBilling.Padding = new System.Windows.Forms.Padding(2);
             this.gbBilling.Size = new System.Drawing.Size(363, 69);
             this.gbBilling.TabIndex = 3;
             this.gbBilling.TabStop = false;
@@ -577,7 +577,7 @@
             // 
             this.cbxShowAllServices.AutoSize = true;
             this.cbxShowAllServices.Location = new System.Drawing.Point(247, 46);
-            this.cbxShowAllServices.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cbxShowAllServices.Margin = new System.Windows.Forms.Padding(2);
             this.cbxShowAllServices.Name = "cbxShowAllServices";
             this.cbxShowAllServices.Size = new System.Drawing.Size(111, 17);
             this.cbxShowAllServices.TabIndex = 24;
@@ -588,7 +588,7 @@
             // 
             this.rbtnPayBilling.AutoSize = true;
             this.rbtnPayBilling.Location = new System.Drawing.Point(173, 46);
-            this.rbtnPayBilling.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rbtnPayBilling.Margin = new System.Windows.Forms.Padding(2);
             this.rbtnPayBilling.Name = "rbtnPayBilling";
             this.rbtnPayBilling.Size = new System.Drawing.Size(43, 17);
             this.rbtnPayBilling.TabIndex = 22;
@@ -600,7 +600,7 @@
             this.rbtnPayShipper.AutoSize = true;
             this.rbtnPayShipper.Checked = true;
             this.rbtnPayShipper.Location = new System.Drawing.Point(173, 25);
-            this.rbtnPayShipper.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rbtnPayShipper.Margin = new System.Windows.Forms.Padding(2);
             this.rbtnPayShipper.Name = "rbtnPayShipper";
             this.rbtnPayShipper.Size = new System.Drawing.Size(43, 17);
             this.rbtnPayShipper.TabIndex = 21;
@@ -611,7 +611,7 @@
             // txtAccountBilling
             // 
             this.txtAccountBilling.Location = new System.Drawing.Point(53, 45);
-            this.txtAccountBilling.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtAccountBilling.Margin = new System.Windows.Forms.Padding(2);
             this.txtAccountBilling.MaxLength = 35;
             this.txtAccountBilling.Name = "txtAccountBilling";
             this.txtAccountBilling.Size = new System.Drawing.Size(117, 20);
@@ -621,7 +621,7 @@
             // txtAccountShipper
             // 
             this.txtAccountShipper.Location = new System.Drawing.Point(53, 25);
-            this.txtAccountShipper.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtAccountShipper.Margin = new System.Windows.Forms.Padding(2);
             this.txtAccountShipper.MaxLength = 35;
             this.txtAccountShipper.Name = "txtAccountShipper";
             this.txtAccountShipper.Size = new System.Drawing.Size(117, 20);
@@ -667,7 +667,7 @@
             "SI (KG, CM)",
             "SU (LB, IN)"});
             this.cmbTermsOfTrade.Location = new System.Drawing.Point(247, 23);
-            this.cmbTermsOfTrade.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cmbTermsOfTrade.Margin = new System.Windows.Forms.Padding(2);
             this.cmbTermsOfTrade.Name = "cmbTermsOfTrade";
             this.cmbTermsOfTrade.Size = new System.Drawing.Size(94, 21);
             this.cmbTermsOfTrade.TabIndex = 23;
@@ -695,9 +695,9 @@
             this.gbConsignee.Controls.Add(this.txtConsigneeCity);
             this.gbConsignee.Controls.Add(this.label9);
             this.gbConsignee.Location = new System.Drawing.Point(8, 118);
-            this.gbConsignee.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.gbConsignee.Margin = new System.Windows.Forms.Padding(2);
             this.gbConsignee.Name = "gbConsignee";
-            this.gbConsignee.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.gbConsignee.Padding = new System.Windows.Forms.Padding(2);
             this.gbConsignee.Size = new System.Drawing.Size(196, 107);
             this.gbConsignee.TabIndex = 3;
             this.gbConsignee.TabStop = false;
@@ -706,7 +706,7 @@
             // txtConsigneeCountry
             // 
             this.txtConsigneeCountry.Location = new System.Drawing.Point(74, 79);
-            this.txtConsigneeCountry.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtConsigneeCountry.Margin = new System.Windows.Forms.Padding(2);
             this.txtConsigneeCountry.MaxLength = 2;
             this.txtConsigneeCountry.Name = "txtConsigneeCountry";
             this.txtConsigneeCountry.Size = new System.Drawing.Size(117, 20);
@@ -727,7 +727,7 @@
             // txtConsigneeUSState
             // 
             this.txtConsigneeUSState.Location = new System.Drawing.Point(74, 58);
-            this.txtConsigneeUSState.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtConsigneeUSState.Margin = new System.Windows.Forms.Padding(2);
             this.txtConsigneeUSState.MaxLength = 2;
             this.txtConsigneeUSState.Name = "txtConsigneeUSState";
             this.txtConsigneeUSState.Size = new System.Drawing.Size(117, 20);
@@ -747,7 +747,7 @@
             // txtConsigneePostalCode
             // 
             this.txtConsigneePostalCode.Location = new System.Drawing.Point(74, 37);
-            this.txtConsigneePostalCode.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtConsigneePostalCode.Margin = new System.Windows.Forms.Padding(2);
             this.txtConsigneePostalCode.MaxLength = 12;
             this.txtConsigneePostalCode.Name = "txtConsigneePostalCode";
             this.txtConsigneePostalCode.Size = new System.Drawing.Size(117, 20);
@@ -767,7 +767,7 @@
             // txtConsigneeCity
             // 
             this.txtConsigneeCity.Location = new System.Drawing.Point(74, 16);
-            this.txtConsigneeCity.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtConsigneeCity.Margin = new System.Windows.Forms.Padding(2);
             this.txtConsigneeCity.MaxLength = 35;
             this.txtConsigneeCity.Name = "txtConsigneeCity";
             this.txtConsigneeCity.Size = new System.Drawing.Size(117, 20);
@@ -791,7 +791,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tvResult.Location = new System.Drawing.Point(375, 70);
-            this.tvResult.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tvResult.Margin = new System.Windows.Forms.Padding(2);
             this.tvResult.Name = "tvResult";
             this.tvResult.Size = new System.Drawing.Size(186, 228);
             this.tvResult.TabIndex = 4;
@@ -817,7 +817,7 @@
             this.btnViewRequest.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnViewRequest.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(204)))), ((int)(((byte)(0)))));
             this.btnViewRequest.Location = new System.Drawing.Point(510, 14);
-            this.btnViewRequest.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnViewRequest.Margin = new System.Windows.Forms.Padding(2);
             this.btnViewRequest.Name = "btnViewRequest";
             this.btnViewRequest.Size = new System.Drawing.Size(50, 25);
             this.btnViewRequest.TabIndex = 25;
@@ -835,7 +835,7 @@
             this.btnViewResponse.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnViewResponse.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(204)))), ((int)(((byte)(0)))));
             this.btnViewResponse.Location = new System.Drawing.Point(510, 39);
-            this.btnViewResponse.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnViewResponse.Margin = new System.Windows.Forms.Padding(2);
             this.btnViewResponse.Name = "btnViewResponse";
             this.btnViewResponse.Size = new System.Drawing.Size(50, 25);
             this.btnViewResponse.TabIndex = 26;
@@ -859,7 +859,7 @@
             this.Controls.Add(this.btnViewRequest);
             this.Controls.Add(this.btnGo);
             this.Controls.Add(this.label22);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "RateQuote";
             this.Text = "[REST] Rate Quote";
             this.Load += new System.EventHandler(this.RateQuote_Load);

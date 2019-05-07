@@ -13,7 +13,7 @@
     <DelaySign>false</DelaySign>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageId>DHL.GloWS.RESTLibrary</PackageId>
-    <FileVersion>1.0.19127.2</FileVersion>
+    <FileVersion>1.0.19127.3</FileVersion>
   </PropertyGroup>
 
   <ItemGroup>

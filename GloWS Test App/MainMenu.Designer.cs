@@ -219,7 +219,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "MainMenu";
-            this.Text = "GloWS Tester";
+            this.Text = "MyDHL API Tester";
             this.ResumeLayout(false);
             this.PerformLayout();
 

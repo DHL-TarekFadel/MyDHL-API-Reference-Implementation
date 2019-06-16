@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace GloWS_REST_Library.Objects.Common
+namespace MyDHLAPI_REST_Library.Objects.Common
 {
     public class Common
     {

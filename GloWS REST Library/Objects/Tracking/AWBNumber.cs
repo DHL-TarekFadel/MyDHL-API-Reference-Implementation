@@ -1,9 +1,9 @@
-﻿using GloWS_REST_Library.Objects.Plumbing;
-using GloWS_REST_Library.Objects.Plumbing.Attributes;
+﻿using MyDHLAPI_REST_Library.Objects.Plumbing;
+using MyDHLAPI_REST_Library.Objects.Plumbing.Attributes;
 using Newtonsoft.Json;
 using System.Collections.Generic;
 
-namespace GloWS_REST_Library.Objects.Tracking
+namespace MyDHLAPI_REST_Library.Objects.Tracking
 {
     public class AWBNumber
     {

@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using Newtonsoft.Json;
 
-namespace GloWS_REST_Library.Objects.RateQuery {
+namespace MyDHLAPI_REST_Library.Objects.RateQuery {
     public class Address {
         /// <summary>
         /// Street name and number

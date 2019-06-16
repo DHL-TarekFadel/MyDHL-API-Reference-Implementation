@@ -1,10 +1,10 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
-using GloWS_REST_Library.Objects.Plumbing;
-using GloWS_REST_Library.Objects.Plumbing.Attributes;
+using MyDHLAPI_REST_Library.Objects.Plumbing;
+using MyDHLAPI_REST_Library.Objects.Plumbing.Attributes;
 using Newtonsoft.Json;
 
-namespace GloWS_REST_Library.Objects.ePOD {
+namespace MyDHLAPI_REST_Library.Objects.ePOD {
     public class MessageHeader
     {
         /// <summary>

@@ -1,9 +1,9 @@
-﻿using GloWS_REST_Library.Objects.Common.Response;
-using GloWS_REST_Library.Objects.Ship.Response;
+﻿using MyDHLAPI_REST_Library.Objects.Common.Response;
+using MyDHLAPI_REST_Library.Objects.Ship.Response;
 using Newtonsoft.Json;
 using System.Collections.Generic;
 
-namespace GloWS_REST_Library.Objects
+namespace MyDHLAPI_REST_Library.Objects
 {
     public class CreateShipmentResponse
     {

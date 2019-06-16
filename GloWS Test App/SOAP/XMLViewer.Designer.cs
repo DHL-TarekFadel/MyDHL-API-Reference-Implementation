@@ -1,4 +1,4 @@
-﻿namespace GloWS_Test_App.SOAP
+﻿namespace MyDHLAPI_Test_App.SOAP
 {
     partial class XMLViewer
     {

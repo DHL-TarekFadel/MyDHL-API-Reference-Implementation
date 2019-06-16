@@ -8,13 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-using System.ServiceModel;
-using System.ServiceModel.Channels;
-using System.ServiceModel.Description;
-using System.ServiceModel.Dispatcher;
-using System.Xml;
-
-namespace GloWS_Test_App.com.dhl.wsbexpress.epod {
+namespace MyDHLAPI_Test_App.com.dhl.wsbexpress.epod {
     
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -23,15 +17,15 @@ namespace GloWS_Test_App.com.dhl.wsbexpress.epod {
         
         [System.ServiceModel.OperationContractAttribute(Action="glDHLExpressePOD_providers_DocumentRetrieve_Binder_ShipmentDocumentRetrieve", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        GloWS_Test_App.com.dhl.wsbexpress.epod.ShipmentDocumentRetrieveResponse ShipmentDocumentRetrieve(GloWS_Test_App.com.dhl.wsbexpress.epod.ShipmentDocumentRetrieveRequest request);
+        MyDHLAPI_Test_App.com.dhl.wsbexpress.epod.ShipmentDocumentRetrieveResponse ShipmentDocumentRetrieve(MyDHLAPI_Test_App.com.dhl.wsbexpress.epod.ShipmentDocumentRetrieveRequest request);
         
         // CODEGEN: Generating message contract since the operation has multiple return values.
         [System.ServiceModel.OperationContractAttribute(Action="glDHLExpressePOD_providers_DocumentRetrieve_Binder_ShipmentDocumentRetrieve", ReplyAction="*")]
-        System.Threading.Tasks.Task<GloWS_Test_App.com.dhl.wsbexpress.epod.ShipmentDocumentRetrieveResponse> ShipmentDocumentRetrieveAsync(GloWS_Test_App.com.dhl.wsbexpress.epod.ShipmentDocumentRetrieveRequest request);
+        System.Threading.Tasks.Task<MyDHLAPI_Test_App.com.dhl.wsbexpress.epod.ShipmentDocumentRetrieveResponse> ShipmentDocumentRetrieveAsync(MyDHLAPI_Test_App.com.dhl.wsbexpress.epod.ShipmentDocumentRetrieveRequest request);
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3062.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3190.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -77,7 +71,7 @@ namespace GloWS_Test_App.com.dhl.wsbexpress.epod {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3062.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3190.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -151,7 +145,7 @@ namespace GloWS_Test_App.com.dhl.wsbexpress.epod {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3062.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3190.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -211,7 +205,7 @@ namespace GloWS_Test_App.com.dhl.wsbexpress.epod {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3062.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3190.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -257,7 +251,7 @@ namespace GloWS_Test_App.com.dhl.wsbexpress.epod {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3062.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3190.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -303,7 +297,7 @@ namespace GloWS_Test_App.com.dhl.wsbexpress.epod {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3062.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3190.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -377,7 +371,7 @@ namespace GloWS_Test_App.com.dhl.wsbexpress.epod {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3062.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3190.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -437,7 +431,7 @@ namespace GloWS_Test_App.com.dhl.wsbexpress.epod {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3062.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3190.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -511,7 +505,7 @@ namespace GloWS_Test_App.com.dhl.wsbexpress.epod {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3062.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3190.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -753,7 +747,7 @@ namespace GloWS_Test_App.com.dhl.wsbexpress.epod {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3062.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3190.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -828,7 +822,7 @@ namespace GloWS_Test_App.com.dhl.wsbexpress.epod {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3062.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3190.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -874,7 +868,7 @@ namespace GloWS_Test_App.com.dhl.wsbexpress.epod {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3062.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3190.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -906,7 +900,7 @@ namespace GloWS_Test_App.com.dhl.wsbexpress.epod {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3062.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3190.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -952,7 +946,7 @@ namespace GloWS_Test_App.com.dhl.wsbexpress.epod {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3062.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3190.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -984,7 +978,7 @@ namespace GloWS_Test_App.com.dhl.wsbexpress.epod {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3062.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3190.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -1030,7 +1024,7 @@ namespace GloWS_Test_App.com.dhl.wsbexpress.epod {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3062.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3190.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -1090,7 +1084,7 @@ namespace GloWS_Test_App.com.dhl.wsbexpress.epod {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3062.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3190.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -1150,7 +1144,7 @@ namespace GloWS_Test_App.com.dhl.wsbexpress.epod {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3062.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3190.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -1159,7 +1153,7 @@ namespace GloWS_Test_App.com.dhl.wsbexpress.epod {
         
         private CdmShipment_ShipmentTransaction[] shpTrField;
         
-        private CdmShipment_CustomsDocuments_ShipmentDocumentation[] shpInDocField;
+        private CdmShipment_CustomsDocuments_ShipmentDocumentation[][] shpInDocField;
         
         private string idField;
         
@@ -1178,7 +1172,7 @@ namespace GloWS_Test_App.com.dhl.wsbexpress.epod {
         /// <remarks/>
         [System.Xml.Serialization.XmlArrayAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, Order=1)]
         [System.Xml.Serialization.XmlArrayItemAttribute("SDoc", typeof(CdmShipment_CustomsDocuments_ShipmentDocumentation), Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=false)]
-        public CdmShipment_CustomsDocuments_ShipmentDocumentation[] ShpInDoc {
+        public CdmShipment_CustomsDocuments_ShipmentDocumentation[][] ShpInDoc {
             get {
                 return this.shpInDocField;
             }
@@ -1211,7 +1205,7 @@ namespace GloWS_Test_App.com.dhl.wsbexpress.epod {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3062.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3190.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -1258,7 +1252,7 @@ namespace GloWS_Test_App.com.dhl.wsbexpress.epod {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3062.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3190.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -1325,12 +1319,12 @@ namespace GloWS_Test_App.com.dhl.wsbexpress.epod {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://scxgxtt.phx-dc.dhl.com/glDHLExpressePOD/providers/DocumentRetrieve", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public GloWS_Test_App.com.dhl.wsbexpress.epod.shipmentDocumentRetrieveReqMSG MSG;
+        public MyDHLAPI_Test_App.com.dhl.wsbexpress.epod.shipmentDocumentRetrieveReqMSG MSG;
         
         public ShipmentDocumentRetrieveRequest() {
         }
         
-        public ShipmentDocumentRetrieveRequest(GloWS_Test_App.com.dhl.wsbexpress.epod.shipmentDocumentRetrieveReqMSG MSG) {
+        public ShipmentDocumentRetrieveRequest(MyDHLAPI_Test_App.com.dhl.wsbexpress.epod.shipmentDocumentRetrieveReqMSG MSG) {
             this.MSG = MSG;
         }
     }
@@ -1342,114 +1336,57 @@ namespace GloWS_Test_App.com.dhl.wsbexpress.epod {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://scxgxtt.phx-dc.dhl.com/glDHLExpressePOD/providers/DocumentRetrieve", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=true)]
-        public GloWS_Test_App.com.dhl.wsbexpress.epod.shipmentDocumentRetrieveRespMSG MSG;
+        public MyDHLAPI_Test_App.com.dhl.wsbexpress.epod.shipmentDocumentRetrieveRespMSG MSG;
         
         public ShipmentDocumentRetrieveResponse() {
         }
         
-        public ShipmentDocumentRetrieveResponse(GloWS_Test_App.com.dhl.wsbexpress.epod.shipmentDocumentRetrieveRespMSG MSG) {
+        public ShipmentDocumentRetrieveResponse(MyDHLAPI_Test_App.com.dhl.wsbexpress.epod.shipmentDocumentRetrieveRespMSG MSG) {
             this.MSG = MSG;
         }
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface gblDHLExpressePODChannel : GloWS_Test_App.com.dhl.wsbexpress.epod.gblDHLExpressePOD, System.ServiceModel.IClientChannel {
+    public interface gblDHLExpressePODChannel : MyDHLAPI_Test_App.com.dhl.wsbexpress.epod.gblDHLExpressePOD, System.ServiceModel.IClientChannel {
     }
     
-    //[System.Diagnostics.DebuggerStepThroughAttribute()]
+    [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class gblDHLExpressePODClient : System.ServiceModel.ClientBase<GloWS_Test_App.com.dhl.wsbexpress.epod.gblDHLExpressePOD>, GloWS_Test_App.com.dhl.wsbexpress.epod.gblDHLExpressePOD {
+    public partial class gblDHLExpressePODClient : System.ServiceModel.ClientBase<MyDHLAPI_Test_App.com.dhl.wsbexpress.epod.gblDHLExpressePOD>, MyDHLAPI_Test_App.com.dhl.wsbexpress.epod.gblDHLExpressePOD {
         
-        public string RawResponse { get; set; }
-
         public gblDHLExpressePODClient() {
-            this.Endpoint.Behaviors.Add(new RawResponseGrabber(this));
         }
         
         public gblDHLExpressePODClient(string endpointConfigurationName) : 
                 base(endpointConfigurationName) {
-            this.Endpoint.Behaviors.Add(new RawResponseGrabber(this));
         }
         
         public gblDHLExpressePODClient(string endpointConfigurationName, string remoteAddress) : 
                 base(endpointConfigurationName, remoteAddress) {
-            this.Endpoint.Behaviors.Add(new RawResponseGrabber(this));
         }
         
         public gblDHLExpressePODClient(string endpointConfigurationName, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(endpointConfigurationName, remoteAddress) {
-            this.Endpoint.Behaviors.Add(new RawResponseGrabber(this));
         }
         
         public gblDHLExpressePODClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(binding, remoteAddress) {
-            this.Endpoint.Behaviors.Add(new RawResponseGrabber(this));
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        GloWS_Test_App.com.dhl.wsbexpress.epod.ShipmentDocumentRetrieveResponse GloWS_Test_App.com.dhl.wsbexpress.epod.gblDHLExpressePOD.ShipmentDocumentRetrieve(GloWS_Test_App.com.dhl.wsbexpress.epod.ShipmentDocumentRetrieveRequest request) {
+        MyDHLAPI_Test_App.com.dhl.wsbexpress.epod.ShipmentDocumentRetrieveResponse MyDHLAPI_Test_App.com.dhl.wsbexpress.epod.gblDHLExpressePOD.ShipmentDocumentRetrieve(MyDHLAPI_Test_App.com.dhl.wsbexpress.epod.ShipmentDocumentRetrieveRequest request) {
             return base.Channel.ShipmentDocumentRetrieve(request);
         }
         
-        public GloWS_Test_App.com.dhl.wsbexpress.epod.shipmentDocumentRetrieveRespMSG ShipmentDocumentRetrieve(GloWS_Test_App.com.dhl.wsbexpress.epod.shipmentDocumentRetrieveReqMSG MSG) {
-            GloWS_Test_App.com.dhl.wsbexpress.epod.ShipmentDocumentRetrieveRequest inValue = new GloWS_Test_App.com.dhl.wsbexpress.epod.ShipmentDocumentRetrieveRequest();
+        public MyDHLAPI_Test_App.com.dhl.wsbexpress.epod.shipmentDocumentRetrieveRespMSG ShipmentDocumentRetrieve(MyDHLAPI_Test_App.com.dhl.wsbexpress.epod.shipmentDocumentRetrieveReqMSG MSG) {
+            MyDHLAPI_Test_App.com.dhl.wsbexpress.epod.ShipmentDocumentRetrieveRequest inValue = new MyDHLAPI_Test_App.com.dhl.wsbexpress.epod.ShipmentDocumentRetrieveRequest();
             inValue.MSG = MSG;
-            GloWS_Test_App.com.dhl.wsbexpress.epod.ShipmentDocumentRetrieveResponse retVal = ((GloWS_Test_App.com.dhl.wsbexpress.epod.gblDHLExpressePOD)(this)).ShipmentDocumentRetrieve(inValue);
+            MyDHLAPI_Test_App.com.dhl.wsbexpress.epod.ShipmentDocumentRetrieveResponse retVal = ((MyDHLAPI_Test_App.com.dhl.wsbexpress.epod.gblDHLExpressePOD)(this)).ShipmentDocumentRetrieve(inValue);
             return retVal.MSG;
         }
         
-        public System.Threading.Tasks.Task<GloWS_Test_App.com.dhl.wsbexpress.epod.ShipmentDocumentRetrieveResponse> ShipmentDocumentRetrieveAsync(GloWS_Test_App.com.dhl.wsbexpress.epod.ShipmentDocumentRetrieveRequest request) {
+        public System.Threading.Tasks.Task<MyDHLAPI_Test_App.com.dhl.wsbexpress.epod.ShipmentDocumentRetrieveResponse> ShipmentDocumentRetrieveAsync(MyDHLAPI_Test_App.com.dhl.wsbexpress.epod.ShipmentDocumentRetrieveRequest request) {
             return base.Channel.ShipmentDocumentRetrieveAsync(request);
-        }
-
-        public class RawResponseGrabber : IEndpointBehavior, IClientMessageInspector
-        {
-            private gblDHLExpressePODClient _instance;
-
-            public RawResponseGrabber(gblDHLExpressePODClient instance)
-            {
-                _instance = instance;
-            }
-
-            public void AddBindingParameters(ServiceEndpoint endpoint, BindingParameterCollection bindingParameters)
-            {
-            }
-
-            public void ApplyClientBehavior(ServiceEndpoint endpoint, ClientRuntime clientRuntime)
-            {
-                clientRuntime.MessageInspectors.Add(this);
-            }
-
-            public void ApplyDispatchBehavior(ServiceEndpoint endpoint, EndpointDispatcher endpointDispatcher)
-            {
-            }
-
-            public void Validate(ServiceEndpoint endpoint)
-            {
-            }
-
-            public void AfterReceiveReply(ref Message reply, object correlationState)
-            {
-                var buff = reply.CreateBufferedCopy(int.MaxValue);
-                reply = buff.CreateMessage();
-
-                using (XmlDictionaryReader reader = buff.CreateMessage().GetReaderAtBodyContents())
-                {
-                    _instance.RawResponse = reader.ReadOuterXml();
-                }
-
-                //if (reply.IsFault)
-                //{
-                //    Console.ForegroundColor = ConsoleColor.Red;
-                //    Console.WriteLine("Fault received!: {0}", reply);
-                //    Console.ResetColor();
-                //}
-            }
-
-            public object BeforeSendRequest(ref Message request, IClientChannel channel)
-            {
-                return null;
-            }
         }
     }
 }

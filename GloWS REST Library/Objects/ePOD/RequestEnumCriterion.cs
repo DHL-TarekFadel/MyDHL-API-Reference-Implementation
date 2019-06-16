@@ -1,9 +1,9 @@
-﻿using GloWS_REST_Library.Objects.Common;
-using GloWS_REST_Library.Objects.Plumbing.Interfaces;
+﻿using MyDHLAPI_REST_Library.Objects.Common;
+using MyDHLAPI_REST_Library.Objects.Plumbing.Interfaces;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 
-namespace GloWS_REST_Library.Objects.ePOD
+namespace MyDHLAPI_REST_Library.Objects.ePOD
 {
     public class RequestEnumCriterion : IRequestCriterion
     {

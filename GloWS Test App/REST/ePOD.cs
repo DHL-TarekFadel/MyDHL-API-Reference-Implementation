@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Windows.Forms;
-using GloWS_REST_Library;
-using GloWS_REST_Library.Objects;
-using GloWS_REST_Library.Objects.Common;
-using GloWS_REST_Library.Objects.Exceptions;
+using MyDHLAPI_REST_Library;
+using MyDHLAPI_REST_Library.Objects;
+using MyDHLAPI_REST_Library.Objects.Common;
+using MyDHLAPI_REST_Library.Objects.Exceptions;
 
-namespace GloWS_Test_App.REST
+namespace MyDHLAPI_Test_App.REST
 {
     // ReSharper disable once InconsistentNaming
     public partial class ePOD : Form
@@ -58,7 +58,7 @@ namespace GloWS_Test_App.REST
                 txtAccountNumber.Text = txtAccountNumber.Text.Trim();
                 txtAWBNumber.Text = txtAWBNumber.Text.Trim();
 
-                GloWS glows = new GloWS(Common.CurrentCredentials["Username"]
+                MyDHLAPI glows = new MyDHLAPI(Common.CurrentCredentials["Username"]
                                         , Common.CurrentCredentials["Password"]
                                         , Common.CurrentRestBaseUrl);
 

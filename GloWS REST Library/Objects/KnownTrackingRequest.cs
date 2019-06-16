@@ -1,13 +1,13 @@
-﻿using GloWS_REST_Library.Objects.Common;
-using GloWS_REST_Library.Objects.Plumbing.Attributes;
-using GloWS_REST_Library.Objects.Tracking;
+﻿using MyDHLAPI_REST_Library.Objects.Common;
+using MyDHLAPI_REST_Library.Objects.Plumbing.Attributes;
+using MyDHLAPI_REST_Library.Objects.Tracking;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Dynamic;
 
-namespace GloWS_REST_Library.Objects
+namespace MyDHLAPI_REST_Library.Objects
 {
     /// <summary>
     /// Tracking using a known tracking number (AWB or LPN)

@@ -2,14 +2,14 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
-using GloWS_REST_Library;
-using GloWS_REST_Library.Objects;
-using GloWS_REST_Library.Objects.Common;
-using GloWS_REST_Library.Objects.Common.Response;
-using GloWS_REST_Library.Objects.RateQuery;
-using GloWS_REST_Library.Objects.RateQuery.Response;
+using MyDHLAPI_REST_Library;
+using MyDHLAPI_REST_Library.Objects;
+using MyDHLAPI_REST_Library.Objects.Common;
+using MyDHLAPI_REST_Library.Objects.Common.Response;
+using MyDHLAPI_REST_Library.Objects.RateQuery;
+using MyDHLAPI_REST_Library.Objects.RateQuery.Response;
 
-namespace GloWS_Test_App.REST {
+namespace MyDHLAPI_Test_App.REST {
     public partial class RateQuote : Form
     {
 
@@ -112,7 +112,7 @@ namespace GloWS_Test_App.REST {
                 this.Cursor = Cursors.WaitCursor;
                 this.UseWaitCursor = true;
 
-                GloWS glows = new GloWS(Common.CurrentCredentials["Username"]
+                MyDHLAPI glows = new MyDHLAPI(Common.CurrentCredentials["Username"]
                                         , Common.CurrentCredentials["Password"]
                                         , Common.CurrentRestBaseUrl);
 
@@ -130,7 +130,7 @@ namespace GloWS_Test_App.REST {
                     , RequestValueAddedServices = (cbxShowAllServices.Checked ? Enums.YesNo.Yes : Enums.YesNo.No)
                     , Content = (cmbDutiable.SelectedIndex == 0 ? Enums.ShipmentType.Documents : Enums.ShipmentType.NonDocuments)
                 };
-                GloWS_REST_Library.Objects.RateQuery.Ship s = new GloWS_REST_Library.Objects.RateQuery.Ship();
+                MyDHLAPI_REST_Library.Objects.RateQuery.Ship s = new MyDHLAPI_REST_Library.Objects.RateQuery.Ship();
                 Address sa = new Address
                 {
                     City = txtShipperCity.Text.Trim()

@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace GloWS_REST_Library.Objects.Ship.Response
+namespace MyDHLAPI_REST_Library.Objects.Ship.Response
 {
     public class ShipmentImage
     {

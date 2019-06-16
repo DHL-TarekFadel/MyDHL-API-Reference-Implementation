@@ -1,4 +1,4 @@
-﻿namespace GloWS_REST_Library.Objects.Plumbing
+﻿namespace MyDHLAPI_REST_Library.Objects.Plumbing
 {
     /// <summary>
     /// Creates a UTF-8 string writer instead of the default UTF-16 used by .NET

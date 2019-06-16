@@ -1,6 +1,6 @@
 ﻿using System.Runtime.Serialization;
 
-namespace GloWS_REST_Library.Objects.Common
+namespace MyDHLAPI_REST_Library.Objects.Common
 {
     public class Enums
     {

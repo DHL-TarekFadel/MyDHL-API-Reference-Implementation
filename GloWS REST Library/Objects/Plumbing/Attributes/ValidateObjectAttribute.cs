@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace GloWS_REST_Library.Objects.Plumbing.Attributes
+namespace MyDHLAPI_REST_Library.Objects.Plumbing.Attributes
 {
     public class ValidateObjectAttribute : ValidationAttribute
     {

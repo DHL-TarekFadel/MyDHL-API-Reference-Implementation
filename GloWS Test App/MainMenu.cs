@@ -2,7 +2,7 @@
 using System.Drawing;
 using System.Windows.Forms;
 
-namespace GloWS_Test_App
+namespace MyDHLAPI_Test_App
 {
     public partial class MainMenu : Form
     {

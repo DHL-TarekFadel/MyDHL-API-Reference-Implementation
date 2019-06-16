@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace GloWS_Test_App.com.dhl.wsbexpress.label {
+namespace MyDHLAPI_Test_App.com.dhl.wsbexpress.label {
     
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -18,14 +18,14 @@ namespace GloWS_Test_App.com.dhl.wsbexpress.label {
         // CODEGEN: Generating message contract since the wrapper name (LabelRequest) of message labelRequestRequest does not match the default value (labelRequest)
         [System.ServiceModel.OperationContractAttribute(Action="glDHLExpressLabel_providers_globalLabel_Binder_labelRequest", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        GloWS_Test_App.com.dhl.wsbexpress.label.labelRequestResponse labelRequest(GloWS_Test_App.com.dhl.wsbexpress.label.labelRequestRequest request);
+        MyDHLAPI_Test_App.com.dhl.wsbexpress.label.labelRequestResponse labelRequest(MyDHLAPI_Test_App.com.dhl.wsbexpress.label.labelRequestRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="glDHLExpressLabel_providers_globalLabel_Binder_labelRequest", ReplyAction="*")]
-        System.Threading.Tasks.Task<GloWS_Test_App.com.dhl.wsbexpress.label.labelRequestResponse> labelRequestAsync(GloWS_Test_App.com.dhl.wsbexpress.label.labelRequestRequest request);
+        System.Threading.Tasks.Task<MyDHLAPI_Test_App.com.dhl.wsbexpress.label.labelRequestResponse> labelRequestAsync(MyDHLAPI_Test_App.com.dhl.wsbexpress.label.labelRequestRequest request);
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2102.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3190.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -114,7 +114,7 @@ namespace GloWS_Test_App.com.dhl.wsbexpress.label {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2102.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3190.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -272,7 +272,7 @@ namespace GloWS_Test_App.com.dhl.wsbexpress.label {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2102.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3190.0")]
     [System.SerializableAttribute()]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://scxgxtt.phx-dc.dhl.com/glDHLExpressLabel/providers/globalLabel")]
     public enum Label_TYPE {
@@ -285,7 +285,7 @@ namespace GloWS_Test_App.com.dhl.wsbexpress.label {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2102.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3190.0")]
     [System.SerializableAttribute()]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://scxgxtt.phx-dc.dhl.com/glDHLExpressLabel/providers/globalLabel")]
     public enum SizeUOM_TYPE {
@@ -298,7 +298,7 @@ namespace GloWS_Test_App.com.dhl.wsbexpress.label {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2102.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3190.0")]
     [System.SerializableAttribute()]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://scxgxtt.phx-dc.dhl.com/glDHLExpressLabel/providers/globalLabel")]
     public enum File_TYPE {
@@ -314,7 +314,7 @@ namespace GloWS_Test_App.com.dhl.wsbexpress.label {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2102.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3190.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -360,7 +360,7 @@ namespace GloWS_Test_App.com.dhl.wsbexpress.label {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2102.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3190.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -420,7 +420,7 @@ namespace GloWS_Test_App.com.dhl.wsbexpress.label {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2102.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3190.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -480,7 +480,7 @@ namespace GloWS_Test_App.com.dhl.wsbexpress.label {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2102.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3190.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -696,7 +696,7 @@ namespace GloWS_Test_App.com.dhl.wsbexpress.label {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2102.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3190.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -742,7 +742,7 @@ namespace GloWS_Test_App.com.dhl.wsbexpress.label {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2102.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3190.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -803,7 +803,7 @@ namespace GloWS_Test_App.com.dhl.wsbexpress.label {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2102.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3190.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -863,7 +863,7 @@ namespace GloWS_Test_App.com.dhl.wsbexpress.label {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2102.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3190.0")]
     [System.SerializableAttribute()]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://scxgxtt.phx-dc.dhl.com/glDHLExpressLabel/providers/globalLabel")]
     public enum Type_TYPE {
@@ -876,7 +876,7 @@ namespace GloWS_Test_App.com.dhl.wsbexpress.label {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2102.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3190.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -1077,7 +1077,7 @@ namespace GloWS_Test_App.com.dhl.wsbexpress.label {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2102.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3190.0")]
     [System.SerializableAttribute()]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://scxgxtt.phx-dc.dhl.com/glDHLExpressLabel/providers/globalLabel")]
     public enum Role_TYPE {
@@ -1090,7 +1090,7 @@ namespace GloWS_Test_App.com.dhl.wsbexpress.label {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2102.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3190.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -1220,7 +1220,7 @@ namespace GloWS_Test_App.com.dhl.wsbexpress.label {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2102.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3190.0")]
     [System.SerializableAttribute()]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://scxgxtt.phx-dc.dhl.com/glDHLExpressLabel/providers/globalLabel")]
     public enum WeightUom_TYPE {
@@ -1233,7 +1233,7 @@ namespace GloWS_Test_App.com.dhl.wsbexpress.label {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2102.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3190.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -1434,7 +1434,7 @@ namespace GloWS_Test_App.com.dhl.wsbexpress.label {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2102.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3190.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -1466,7 +1466,7 @@ namespace GloWS_Test_App.com.dhl.wsbexpress.label {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2102.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3190.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -1529,7 +1529,7 @@ namespace GloWS_Test_App.com.dhl.wsbexpress.label {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2102.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3190.0")]
     [System.SerializableAttribute()]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://scxgxtt.phx-dc.dhl.com/glDHLExpressLabel/providers/globalLabel", IncludeInSchema=false)]
     public enum ItemChoiceType {
@@ -1544,7 +1544,7 @@ namespace GloWS_Test_App.com.dhl.wsbexpress.label {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2102.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3190.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -1577,7 +1577,7 @@ namespace GloWS_Test_App.com.dhl.wsbexpress.label {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2102.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3190.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -1630,12 +1630,12 @@ namespace GloWS_Test_App.com.dhl.wsbexpress.label {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://scxgxtt.phx-dc.dhl.com/glDHLExpressLabel/providers/globalLabel", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public GloWS_Test_App.com.dhl.wsbexpress.label.LabelRequest2 LabelRequest;
+        public MyDHLAPI_Test_App.com.dhl.wsbexpress.label.LabelRequest2 LabelRequest;
         
         public labelRequestRequest() {
         }
         
-        public labelRequestRequest(GloWS_Test_App.com.dhl.wsbexpress.label.LabelRequest2 LabelRequest) {
+        public labelRequestRequest(MyDHLAPI_Test_App.com.dhl.wsbexpress.label.LabelRequest2 LabelRequest) {
             this.LabelRequest = LabelRequest;
         }
     }
@@ -1648,23 +1648,23 @@ namespace GloWS_Test_App.com.dhl.wsbexpress.label {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://www.dhl.com", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Namespace="http://www.dhl.com")]
-        public GloWS_Test_App.com.dhl.wsbexpress.label.LabelResponse LabelResponse;
+        public MyDHLAPI_Test_App.com.dhl.wsbexpress.label.LabelResponse LabelResponse;
         
         public labelRequestResponse() {
         }
         
-        public labelRequestResponse(GloWS_Test_App.com.dhl.wsbexpress.label.LabelResponse LabelResponse) {
+        public labelRequestResponse(MyDHLAPI_Test_App.com.dhl.wsbexpress.label.LabelResponse LabelResponse) {
             this.LabelResponse = LabelResponse;
         }
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface gblDHLExpressLabelChannel : GloWS_Test_App.com.dhl.wsbexpress.label.gblDHLExpressLabel, System.ServiceModel.IClientChannel {
+    public interface gblDHLExpressLabelChannel : MyDHLAPI_Test_App.com.dhl.wsbexpress.label.gblDHLExpressLabel, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class gblDHLExpressLabelClient : System.ServiceModel.ClientBase<GloWS_Test_App.com.dhl.wsbexpress.label.gblDHLExpressLabel>, GloWS_Test_App.com.dhl.wsbexpress.label.gblDHLExpressLabel {
+    public partial class gblDHLExpressLabelClient : System.ServiceModel.ClientBase<MyDHLAPI_Test_App.com.dhl.wsbexpress.label.gblDHLExpressLabel>, MyDHLAPI_Test_App.com.dhl.wsbexpress.label.gblDHLExpressLabel {
         
         public gblDHLExpressLabelClient() {
         }
@@ -1686,26 +1686,26 @@ namespace GloWS_Test_App.com.dhl.wsbexpress.label {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        GloWS_Test_App.com.dhl.wsbexpress.label.labelRequestResponse GloWS_Test_App.com.dhl.wsbexpress.label.gblDHLExpressLabel.labelRequest(GloWS_Test_App.com.dhl.wsbexpress.label.labelRequestRequest request) {
+        MyDHLAPI_Test_App.com.dhl.wsbexpress.label.labelRequestResponse MyDHLAPI_Test_App.com.dhl.wsbexpress.label.gblDHLExpressLabel.labelRequest(MyDHLAPI_Test_App.com.dhl.wsbexpress.label.labelRequestRequest request) {
             return base.Channel.labelRequest(request);
         }
         
-        public GloWS_Test_App.com.dhl.wsbexpress.label.LabelResponse labelRequest(GloWS_Test_App.com.dhl.wsbexpress.label.LabelRequest2 LabelRequest1) {
-            GloWS_Test_App.com.dhl.wsbexpress.label.labelRequestRequest inValue = new GloWS_Test_App.com.dhl.wsbexpress.label.labelRequestRequest();
+        public MyDHLAPI_Test_App.com.dhl.wsbexpress.label.LabelResponse labelRequest(MyDHLAPI_Test_App.com.dhl.wsbexpress.label.LabelRequest2 LabelRequest1) {
+            MyDHLAPI_Test_App.com.dhl.wsbexpress.label.labelRequestRequest inValue = new MyDHLAPI_Test_App.com.dhl.wsbexpress.label.labelRequestRequest();
             inValue.LabelRequest = LabelRequest1;
-            GloWS_Test_App.com.dhl.wsbexpress.label.labelRequestResponse retVal = ((GloWS_Test_App.com.dhl.wsbexpress.label.gblDHLExpressLabel)(this)).labelRequest(inValue);
+            MyDHLAPI_Test_App.com.dhl.wsbexpress.label.labelRequestResponse retVal = ((MyDHLAPI_Test_App.com.dhl.wsbexpress.label.gblDHLExpressLabel)(this)).labelRequest(inValue);
             return retVal.LabelResponse;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<GloWS_Test_App.com.dhl.wsbexpress.label.labelRequestResponse> GloWS_Test_App.com.dhl.wsbexpress.label.gblDHLExpressLabel.labelRequestAsync(GloWS_Test_App.com.dhl.wsbexpress.label.labelRequestRequest request) {
+        System.Threading.Tasks.Task<MyDHLAPI_Test_App.com.dhl.wsbexpress.label.labelRequestResponse> MyDHLAPI_Test_App.com.dhl.wsbexpress.label.gblDHLExpressLabel.labelRequestAsync(MyDHLAPI_Test_App.com.dhl.wsbexpress.label.labelRequestRequest request) {
             return base.Channel.labelRequestAsync(request);
         }
         
-        public System.Threading.Tasks.Task<GloWS_Test_App.com.dhl.wsbexpress.label.labelRequestResponse> labelRequestAsync(GloWS_Test_App.com.dhl.wsbexpress.label.LabelRequest2 LabelRequest) {
-            GloWS_Test_App.com.dhl.wsbexpress.label.labelRequestRequest inValue = new GloWS_Test_App.com.dhl.wsbexpress.label.labelRequestRequest();
+        public System.Threading.Tasks.Task<MyDHLAPI_Test_App.com.dhl.wsbexpress.label.labelRequestResponse> labelRequestAsync(MyDHLAPI_Test_App.com.dhl.wsbexpress.label.LabelRequest2 LabelRequest) {
+            MyDHLAPI_Test_App.com.dhl.wsbexpress.label.labelRequestRequest inValue = new MyDHLAPI_Test_App.com.dhl.wsbexpress.label.labelRequestRequest();
             inValue.LabelRequest = LabelRequest;
-            return ((GloWS_Test_App.com.dhl.wsbexpress.label.gblDHLExpressLabel)(this)).labelRequestAsync(inValue);
+            return ((MyDHLAPI_Test_App.com.dhl.wsbexpress.label.gblDHLExpressLabel)(this)).labelRequestAsync(inValue);
         }
     }
 }

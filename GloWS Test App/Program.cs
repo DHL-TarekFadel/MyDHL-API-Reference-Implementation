@@ -3,7 +3,7 @@ using System.Windows.Forms;
 using System.IO;
 using System.Collections.Generic;
 
-namespace GloWS_Test_App
+namespace MyDHLAPI_Test_App
 {
     static class Program
     {

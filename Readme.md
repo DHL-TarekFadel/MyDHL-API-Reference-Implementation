@@ -1,12 +1,12 @@
-This project is a reference implementation of GloWS in .NET.
+This project is a reference implementation of MyDHL API in .NET.
 ============================================================
 
 This project includes:
-* A library for RESTful GloWS operations
-* A test application for all GloWS operations
+* A library for RESTful MyDHL API operations
+* A test application for all MyDHL API operations
 
 This project will include (at a later date):
-* A library for SOAP GloWS operations (work in progress)
+* A library for SOAP MyDHL API operations (work in progress)
 
 _Please note that this is all a work in progress. This message will be removed when all components reach v1.0 state_
 
@@ -43,13 +43,13 @@ A `defaults-example.json` file is included for your reference.
 
 Example
 ----
-Instantiate the GloWS object
+Instantiate the MyDHLAPI object
 
-    GloWS glows = new GloWS(username, password, baseURL);
+    MyDHLAPI myDHLAPI = new MyDHLAPI(username, password, baseURL);
 
 Call the appropriate method (tracking as an example)
 
-    resp = glows.KnownAWBTracking(new List<string>() { "1234567891" }
+    resp = myDHLAPI.KnownAWBTracking(new List<string>() { "1234567891" }
                                   , Enums.LevelOfDetails.AllCheckpoints
                                   , Enums.PiecesEnabled.Both
                                   , Enums.EstimatedDeliveryDateEnabled.Yes);

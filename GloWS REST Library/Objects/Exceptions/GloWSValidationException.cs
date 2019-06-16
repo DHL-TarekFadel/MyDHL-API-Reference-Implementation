@@ -1,9 +1,9 @@
-﻿using GloWS_REST_Library.Objects.Plumbing.Attributes;
+﻿using MyDHLAPI_REST_Library.Objects.Plumbing.Attributes;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace GloWS_REST_Library.Objects.Exceptions
+namespace MyDHLAPI_REST_Library.Objects.Exceptions
 {
     public class GloWSValidationException : System.Exception
     {

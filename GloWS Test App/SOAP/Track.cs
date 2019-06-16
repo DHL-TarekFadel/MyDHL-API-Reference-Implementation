@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
-using GloWS_Test_App.com.dhl.wsbexpress.track;
+using MyDHLAPI_Test_App.com.dhl.wsbexpress.track;
 using System.ServiceModel.Channels;
-using GloWS_Test_App.Objects;
+using MyDHLAPI_Test_App.Objects;
 
-namespace GloWS_Test_App.SOAP
+namespace MyDHLAPI_Test_App.SOAP
 {
     public partial class Track : Form
     {

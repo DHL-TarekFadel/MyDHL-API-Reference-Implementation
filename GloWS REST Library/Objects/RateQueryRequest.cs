@@ -1,6 +1,6 @@
-﻿using GloWS_REST_Library.Objects.RateQuery;
+﻿using MyDHLAPI_REST_Library.Objects.RateQuery;
 
-namespace GloWS_REST_Library.Objects {
+namespace MyDHLAPI_REST_Library.Objects {
     public class RateQueryRequest {
         public RateRequest RateRequest { get; set; }
     }

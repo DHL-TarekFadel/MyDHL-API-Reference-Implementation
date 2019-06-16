@@ -2,8 +2,8 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <RootNamespace>GloWS_REST_Library</RootNamespace>
-    <AssemblyName>GloWS REST Library</AssemblyName>
+    <RootNamespace>MyDHLAPI_REST_Library</RootNamespace>
+    <AssemblyName>MyDHL API REST Library</AssemblyName>
     <Authors>Tarek Fadel</Authors>
     <Company>DHL Express</Company>
     <Description>This .NET standard library allows customers leverage the DHL Express Global WebServices API in their own applications.</Description>

@@ -2,7 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 
-namespace GloWS_REST_Library.Objects.Plumbing.Attributes
+namespace MyDHLAPI_REST_Library.Objects.Plumbing.Attributes
 {
     /// <summary>
     /// Validates AWB Numbers to ensure that they are the correct length and check out

@@ -1,8 +1,8 @@
 ﻿using System;
-using GloWS_REST_Library.Objects;
-using GloWS_REST_Library.Objects.Common;
-using GloWS_REST_Library.Objects.Exceptions;
-using GloWS_REST_Library.Objects.Tracking;
+using MyDHLAPI_REST_Library.Objects;
+using MyDHLAPI_REST_Library.Objects.Common;
+using MyDHLAPI_REST_Library.Objects.Exceptions;
+using MyDHLAPI_REST_Library.Objects.Tracking;
 using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -10,11 +10,11 @@ using System.IO;
 using System.Linq;
 using System.Net;
 using System.Text;
-using GloWS_REST_Library.Objects.ePOD;
+using MyDHLAPI_REST_Library.Objects.ePOD;
 
-namespace GloWS_REST_Library
+namespace MyDHLAPI_REST_Library
 {
-    public class GloWS
+    public class MyDHLAPI
     {
         private readonly string _baseURL;
 
@@ -24,7 +24,7 @@ namespace GloWS_REST_Library
         public string LastJSONRequest { get; set; }
         public string LastJSONResponse { get; set; }
 
-        public GloWS(string username, string password, string baseUrl)
+        public MyDHLAPI(string username, string password, string baseUrl)
         {
             _username = username;
             _password = password;

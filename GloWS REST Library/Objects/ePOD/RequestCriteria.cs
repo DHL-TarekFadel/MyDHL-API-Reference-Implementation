@@ -1,10 +1,10 @@
-﻿using GloWS_REST_Library.Objects.Plumbing.Attributes;
-using GloWS_REST_Library.Objects.Plumbing.Interfaces;
+﻿using MyDHLAPI_REST_Library.Objects.Plumbing.Attributes;
+using MyDHLAPI_REST_Library.Objects.Plumbing.Interfaces;
 using Newtonsoft.Json;
 using System.Collections.Generic;
-using static GloWS_REST_Library.Objects.Common.Enums;
+using static MyDHLAPI_REST_Library.Objects.Common.Enums;
 
-namespace GloWS_REST_Library.Objects.ePOD
+namespace MyDHLAPI_REST_Library.Objects.ePOD
 {
     public class RequestCriteria
     {

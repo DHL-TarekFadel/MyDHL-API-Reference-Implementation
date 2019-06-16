@@ -1,10 +1,10 @@
-﻿using GloWS_REST_Library.Objects.Common;
+﻿using MyDHLAPI_REST_Library.Objects.Common;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace GloWS_REST_Library.Objects.Ship
+namespace MyDHLAPI_REST_Library.Objects.Ship
 {
     public class InternationalDetail
     {

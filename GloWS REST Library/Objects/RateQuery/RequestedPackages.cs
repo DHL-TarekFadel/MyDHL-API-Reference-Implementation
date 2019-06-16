@@ -1,8 +1,8 @@
-﻿using GloWS_REST_Library.Objects.Common;
-using GloWS_REST_Library.Objects.Plumbing.Attributes;
+﻿using MyDHLAPI_REST_Library.Objects.Common;
+using MyDHLAPI_REST_Library.Objects.Plumbing.Attributes;
 using Newtonsoft.Json;
 
-namespace GloWS_REST_Library.Objects.RateQuery {
+namespace MyDHLAPI_REST_Library.Objects.RateQuery {
     public class RequestedPackages {
 
         [PositiveInteger]

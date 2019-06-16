@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using GloWS_REST_Library.Objects.Common;
+using MyDHLAPI_REST_Library.Objects.Common;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 
-namespace GloWS_REST_Library.Objects.RateQuery.Response {
+namespace MyDHLAPI_REST_Library.Objects.RateQuery.Response {
     public class Service {
         [JsonProperty("@type")]
         public string ProductCode { get; set; }

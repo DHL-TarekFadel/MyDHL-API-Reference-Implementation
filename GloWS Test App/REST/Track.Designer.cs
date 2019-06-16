@@ -1,4 +1,4 @@
-﻿namespace GloWS_Test_App.REST
+﻿namespace MyDHLAPI_Test_App.REST
 {
     partial class Track
     {

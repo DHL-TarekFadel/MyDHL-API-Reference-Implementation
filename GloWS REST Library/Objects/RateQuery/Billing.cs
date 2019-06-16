@@ -1,10 +1,10 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using GloWS_REST_Library.Objects.Common;
-using GloWS_REST_Library.Objects.Plumbing.Attributes;
+using MyDHLAPI_REST_Library.Objects.Common;
+using MyDHLAPI_REST_Library.Objects.Plumbing.Attributes;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 
-namespace GloWS_REST_Library.Objects.RateQuery {
+namespace MyDHLAPI_REST_Library.Objects.RateQuery {
     public class Billing {
         public string ShipperAccountNumber { get; set; }
 

@@ -1,4 +1,4 @@
-﻿namespace GloWS_REST_Library.Objects.RateQuery.Response {
+﻿namespace MyDHLAPI_REST_Library.Objects.RateQuery.Response {
     public class ProductCharges {
         public string Currency { get; set; }
 

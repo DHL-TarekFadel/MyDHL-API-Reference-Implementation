@@ -1,7 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System.Collections.Generic;
 
-namespace GloWS_REST_Library.Objects.Ship.Response
+namespace MyDHLAPI_REST_Library.Objects.Ship.Response
 {
     public class PieceResults
     {

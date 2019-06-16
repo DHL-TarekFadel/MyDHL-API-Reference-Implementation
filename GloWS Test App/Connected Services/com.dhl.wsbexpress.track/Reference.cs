@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace GloWS_Test_App.com.dhl.wsbexpress.track {
+namespace MyDHLAPI_Test_App.com.dhl.wsbexpress.track {
     
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -19,14 +19,14 @@ namespace GloWS_Test_App.com.dhl.wsbexpress.track {
         [System.ServiceModel.OperationContractAttribute(Action="glDHLExpressTrack_providers_services_trackShipment_Binder_trackShipmentRequest", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
         [return: System.ServiceModel.MessageParameterAttribute(Name="trackingResponse")]
-        GloWS_Test_App.com.dhl.wsbexpress.track.trackShipmentRequestResponse trackShipmentRequest(GloWS_Test_App.com.dhl.wsbexpress.track.trackShipmentRequestRequest request);
+        MyDHLAPI_Test_App.com.dhl.wsbexpress.track.trackShipmentRequestResponse trackShipmentRequest(MyDHLAPI_Test_App.com.dhl.wsbexpress.track.trackShipmentRequestRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="glDHLExpressTrack_providers_services_trackShipment_Binder_trackShipmentRequest", ReplyAction="*")]
-        System.Threading.Tasks.Task<GloWS_Test_App.com.dhl.wsbexpress.track.trackShipmentRequestResponse> trackShipmentRequestAsync(GloWS_Test_App.com.dhl.wsbexpress.track.trackShipmentRequestRequest request);
+        System.Threading.Tasks.Task<MyDHLAPI_Test_App.com.dhl.wsbexpress.track.trackShipmentRequestResponse> trackShipmentRequestAsync(MyDHLAPI_Test_App.com.dhl.wsbexpress.track.trackShipmentRequestRequest request);
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2102.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3190.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -58,7 +58,7 @@ namespace GloWS_Test_App.com.dhl.wsbexpress.track {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2102.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3190.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -176,7 +176,7 @@ namespace GloWS_Test_App.com.dhl.wsbexpress.track {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2102.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3190.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -208,7 +208,7 @@ namespace GloWS_Test_App.com.dhl.wsbexpress.track {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2102.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3190.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -254,7 +254,7 @@ namespace GloWS_Test_App.com.dhl.wsbexpress.track {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2102.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3190.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -314,7 +314,7 @@ namespace GloWS_Test_App.com.dhl.wsbexpress.track {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2102.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3190.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -347,7 +347,7 @@ namespace GloWS_Test_App.com.dhl.wsbexpress.track {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2102.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3190.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -393,7 +393,7 @@ namespace GloWS_Test_App.com.dhl.wsbexpress.track {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2102.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3190.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -495,7 +495,7 @@ namespace GloWS_Test_App.com.dhl.wsbexpress.track {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2102.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3190.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -541,7 +541,7 @@ namespace GloWS_Test_App.com.dhl.wsbexpress.track {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2102.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3190.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -587,7 +587,7 @@ namespace GloWS_Test_App.com.dhl.wsbexpress.track {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2102.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3190.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -815,7 +815,7 @@ namespace GloWS_Test_App.com.dhl.wsbexpress.track {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2102.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3190.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -862,7 +862,7 @@ namespace GloWS_Test_App.com.dhl.wsbexpress.track {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2102.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3190.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -895,7 +895,7 @@ namespace GloWS_Test_App.com.dhl.wsbexpress.track {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2102.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3190.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -941,7 +941,7 @@ namespace GloWS_Test_App.com.dhl.wsbexpress.track {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2102.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3190.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -1029,7 +1029,7 @@ namespace GloWS_Test_App.com.dhl.wsbexpress.track {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2102.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3190.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -1103,7 +1103,7 @@ namespace GloWS_Test_App.com.dhl.wsbexpress.track {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2102.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3190.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -1163,7 +1163,7 @@ namespace GloWS_Test_App.com.dhl.wsbexpress.track {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2102.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3190.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -1378,7 +1378,7 @@ namespace GloWS_Test_App.com.dhl.wsbexpress.track {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2102.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3190.0")]
     [System.SerializableAttribute()]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://scxgxtt.phx-dc.dhl.com/glDHLExpressTrack/providers/services/trackShipment")]
     public enum WeightUnit {
@@ -1394,7 +1394,7 @@ namespace GloWS_Test_App.com.dhl.wsbexpress.track {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2102.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3190.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -1440,7 +1440,7 @@ namespace GloWS_Test_App.com.dhl.wsbexpress.track {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2102.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3190.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -1487,7 +1487,7 @@ namespace GloWS_Test_App.com.dhl.wsbexpress.track {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2102.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3190.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -1561,7 +1561,7 @@ namespace GloWS_Test_App.com.dhl.wsbexpress.track {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2102.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3190.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -1593,7 +1593,7 @@ namespace GloWS_Test_App.com.dhl.wsbexpress.track {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2102.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3190.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -1654,7 +1654,7 @@ namespace GloWS_Test_App.com.dhl.wsbexpress.track {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2102.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3190.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -1686,7 +1686,7 @@ namespace GloWS_Test_App.com.dhl.wsbexpress.track {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.2102.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3190.0")]
     [System.SerializableAttribute()]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://www.dhl.com")]
     public enum LevelOfDetails {
@@ -1706,12 +1706,12 @@ namespace GloWS_Test_App.com.dhl.wsbexpress.track {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://scxgxtt.phx-dc.dhl.com/glDHLExpressTrack/providers/services/trackShipment", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=true)]
-        public GloWS_Test_App.com.dhl.wsbexpress.track.pubTrackingRequest trackingRequest;
+        public MyDHLAPI_Test_App.com.dhl.wsbexpress.track.pubTrackingRequest trackingRequest;
         
         public trackShipmentRequestRequest() {
         }
         
-        public trackShipmentRequestRequest(GloWS_Test_App.com.dhl.wsbexpress.track.pubTrackingRequest trackingRequest) {
+        public trackShipmentRequestRequest(MyDHLAPI_Test_App.com.dhl.wsbexpress.track.pubTrackingRequest trackingRequest) {
             this.trackingRequest = trackingRequest;
         }
     }
@@ -1724,23 +1724,23 @@ namespace GloWS_Test_App.com.dhl.wsbexpress.track {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://scxgxtt.phx-dc.dhl.com/glDHLExpressTrack/providers/services/trackShipment", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=true)]
-        public GloWS_Test_App.com.dhl.wsbexpress.track.pubTrackingResponse trackingResponse;
+        public MyDHLAPI_Test_App.com.dhl.wsbexpress.track.pubTrackingResponse trackingResponse;
         
         public trackShipmentRequestResponse() {
         }
         
-        public trackShipmentRequestResponse(GloWS_Test_App.com.dhl.wsbexpress.track.pubTrackingResponse trackingResponse) {
+        public trackShipmentRequestResponse(MyDHLAPI_Test_App.com.dhl.wsbexpress.track.pubTrackingResponse trackingResponse) {
             this.trackingResponse = trackingResponse;
         }
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface gblDHLExpressTrackChannel : GloWS_Test_App.com.dhl.wsbexpress.track.gblDHLExpressTrack, System.ServiceModel.IClientChannel {
+    public interface gblDHLExpressTrackChannel : MyDHLAPI_Test_App.com.dhl.wsbexpress.track.gblDHLExpressTrack, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class gblDHLExpressTrackClient : System.ServiceModel.ClientBase<GloWS_Test_App.com.dhl.wsbexpress.track.gblDHLExpressTrack>, GloWS_Test_App.com.dhl.wsbexpress.track.gblDHLExpressTrack {
+    public partial class gblDHLExpressTrackClient : System.ServiceModel.ClientBase<MyDHLAPI_Test_App.com.dhl.wsbexpress.track.gblDHLExpressTrack>, MyDHLAPI_Test_App.com.dhl.wsbexpress.track.gblDHLExpressTrack {
         
         public gblDHLExpressTrackClient() {
         }
@@ -1762,26 +1762,26 @@ namespace GloWS_Test_App.com.dhl.wsbexpress.track {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        GloWS_Test_App.com.dhl.wsbexpress.track.trackShipmentRequestResponse GloWS_Test_App.com.dhl.wsbexpress.track.gblDHLExpressTrack.trackShipmentRequest(GloWS_Test_App.com.dhl.wsbexpress.track.trackShipmentRequestRequest request) {
+        MyDHLAPI_Test_App.com.dhl.wsbexpress.track.trackShipmentRequestResponse MyDHLAPI_Test_App.com.dhl.wsbexpress.track.gblDHLExpressTrack.trackShipmentRequest(MyDHLAPI_Test_App.com.dhl.wsbexpress.track.trackShipmentRequestRequest request) {
             return base.Channel.trackShipmentRequest(request);
         }
         
-        public GloWS_Test_App.com.dhl.wsbexpress.track.pubTrackingResponse trackShipmentRequest(GloWS_Test_App.com.dhl.wsbexpress.track.pubTrackingRequest trackingRequest) {
-            GloWS_Test_App.com.dhl.wsbexpress.track.trackShipmentRequestRequest inValue = new GloWS_Test_App.com.dhl.wsbexpress.track.trackShipmentRequestRequest();
+        public MyDHLAPI_Test_App.com.dhl.wsbexpress.track.pubTrackingResponse trackShipmentRequest(MyDHLAPI_Test_App.com.dhl.wsbexpress.track.pubTrackingRequest trackingRequest) {
+            MyDHLAPI_Test_App.com.dhl.wsbexpress.track.trackShipmentRequestRequest inValue = new MyDHLAPI_Test_App.com.dhl.wsbexpress.track.trackShipmentRequestRequest();
             inValue.trackingRequest = trackingRequest;
-            GloWS_Test_App.com.dhl.wsbexpress.track.trackShipmentRequestResponse retVal = ((GloWS_Test_App.com.dhl.wsbexpress.track.gblDHLExpressTrack)(this)).trackShipmentRequest(inValue);
+            MyDHLAPI_Test_App.com.dhl.wsbexpress.track.trackShipmentRequestResponse retVal = ((MyDHLAPI_Test_App.com.dhl.wsbexpress.track.gblDHLExpressTrack)(this)).trackShipmentRequest(inValue);
             return retVal.trackingResponse;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<GloWS_Test_App.com.dhl.wsbexpress.track.trackShipmentRequestResponse> GloWS_Test_App.com.dhl.wsbexpress.track.gblDHLExpressTrack.trackShipmentRequestAsync(GloWS_Test_App.com.dhl.wsbexpress.track.trackShipmentRequestRequest request) {
+        System.Threading.Tasks.Task<MyDHLAPI_Test_App.com.dhl.wsbexpress.track.trackShipmentRequestResponse> MyDHLAPI_Test_App.com.dhl.wsbexpress.track.gblDHLExpressTrack.trackShipmentRequestAsync(MyDHLAPI_Test_App.com.dhl.wsbexpress.track.trackShipmentRequestRequest request) {
             return base.Channel.trackShipmentRequestAsync(request);
         }
         
-        public System.Threading.Tasks.Task<GloWS_Test_App.com.dhl.wsbexpress.track.trackShipmentRequestResponse> trackShipmentRequestAsync(GloWS_Test_App.com.dhl.wsbexpress.track.pubTrackingRequest trackingRequest) {
-            GloWS_Test_App.com.dhl.wsbexpress.track.trackShipmentRequestRequest inValue = new GloWS_Test_App.com.dhl.wsbexpress.track.trackShipmentRequestRequest();
+        public System.Threading.Tasks.Task<MyDHLAPI_Test_App.com.dhl.wsbexpress.track.trackShipmentRequestResponse> trackShipmentRequestAsync(MyDHLAPI_Test_App.com.dhl.wsbexpress.track.pubTrackingRequest trackingRequest) {
+            MyDHLAPI_Test_App.com.dhl.wsbexpress.track.trackShipmentRequestRequest inValue = new MyDHLAPI_Test_App.com.dhl.wsbexpress.track.trackShipmentRequestRequest();
             inValue.trackingRequest = trackingRequest;
-            return ((GloWS_Test_App.com.dhl.wsbexpress.track.gblDHLExpressTrack)(this)).trackShipmentRequestAsync(inValue);
+            return ((MyDHLAPI_Test_App.com.dhl.wsbexpress.track.gblDHLExpressTrack)(this)).trackShipmentRequestAsync(inValue);
         }
     }
 }

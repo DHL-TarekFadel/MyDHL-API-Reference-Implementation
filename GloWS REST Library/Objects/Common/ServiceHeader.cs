@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 
-namespace GloWS_REST_Library.Objects.Common
+namespace MyDHLAPI_REST_Library.Objects.Common
 {
     public class ServiceHeader
     {

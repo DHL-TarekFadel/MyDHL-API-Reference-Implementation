@@ -1,8 +1,8 @@
-﻿using GloWS_REST_Library.Objects.ePOD;
-using GloWS_REST_Library.Objects.Plumbing.Attributes;
+﻿using MyDHLAPI_REST_Library.Objects.ePOD;
+using MyDHLAPI_REST_Library.Objects.Plumbing.Attributes;
 using Newtonsoft.Json;
 
-namespace GloWS_REST_Library.Objects {
+namespace MyDHLAPI_REST_Library.Objects {
 
     public class EPodRequest
     {

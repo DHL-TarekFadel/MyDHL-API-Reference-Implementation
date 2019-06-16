@@ -1,7 +1,7 @@
-﻿using GloWS_REST_Library.Objects.Common;
+﻿using MyDHLAPI_REST_Library.Objects.Common;
 using System.ComponentModel.DataAnnotations;
 
-namespace GloWS_REST_Library.Objects.Plumbing.Attributes
+namespace MyDHLAPI_REST_Library.Objects.Plumbing.Attributes
 {
     public class AccountNumberRequiredIfAttribute : ValidationAttribute
     {

@@ -1,8 +1,8 @@
-﻿using GloWS_REST_Library.Objects.Plumbing.Attributes;
+﻿using MyDHLAPI_REST_Library.Objects.Plumbing.Attributes;
 using Newtonsoft.Json;
 using System.ComponentModel.DataAnnotations;
 
-namespace GloWS_REST_Library.Objects.ePOD
+namespace MyDHLAPI_REST_Library.Objects.ePOD
 {
     public class ShipmentDetail
     {

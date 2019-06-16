@@ -1,4 +1,4 @@
-﻿namespace GloWS_Test_App
+﻿namespace MyDHLAPI_Test_App
 {
     partial class MainMenu
     {

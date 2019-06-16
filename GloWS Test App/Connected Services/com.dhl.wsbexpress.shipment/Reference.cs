@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace GloWS_Test_App.com.dhl.wsbexpress.shipment {
+namespace MyDHLAPI_Test_App.com.dhl.wsbexpress.shipment {
     
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -18,36 +18,36 @@ namespace GloWS_Test_App.com.dhl.wsbexpress.shipment {
         [System.ServiceModel.OperationContractAttribute(Action="euExpressRateBook_providerServices_ShipmentHandlingServices_Binder_createShipment" +
             "Request", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        GloWS_Test_App.com.dhl.wsbexpress.shipment.createShipmentRequestResponse createShipmentRequest(GloWS_Test_App.com.dhl.wsbexpress.shipment.createShipmentRequestRequest request);
+        MyDHLAPI_Test_App.com.dhl.wsbexpress.shipment.createShipmentRequestResponse createShipmentRequest(MyDHLAPI_Test_App.com.dhl.wsbexpress.shipment.createShipmentRequestRequest request);
         
         // CODEGEN: Generating message contract since the operation has multiple return values.
         [System.ServiceModel.OperationContractAttribute(Action="euExpressRateBook_providerServices_ShipmentHandlingServices_Binder_createShipment" +
             "Request", ReplyAction="*")]
-        System.Threading.Tasks.Task<GloWS_Test_App.com.dhl.wsbexpress.shipment.createShipmentRequestResponse> createShipmentRequestAsync(GloWS_Test_App.com.dhl.wsbexpress.shipment.createShipmentRequestRequest request);
+        System.Threading.Tasks.Task<MyDHLAPI_Test_App.com.dhl.wsbexpress.shipment.createShipmentRequestResponse> createShipmentRequestAsync(MyDHLAPI_Test_App.com.dhl.wsbexpress.shipment.createShipmentRequestRequest request);
         
         // CODEGEN: Generating message contract since the wrapper namespace (http://scxgxtt.phx-dc.dhl.com/euExpressRateBook/RateMsgRequest) of message getRateRequestRequest does not match the default value (http://scxgxtt.phx-dc.dhl.com/euExpressRateBook/ShipmentMsgRequest)
         [System.ServiceModel.OperationContractAttribute(Action="euExpressRateBook_providerServices_ShipmentHandlingServices_Binder_getRateRequest" +
             "", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        GloWS_Test_App.com.dhl.wsbexpress.shipment.getRateRequestResponse getRateRequest(GloWS_Test_App.com.dhl.wsbexpress.shipment.getRateRequestRequest request);
+        MyDHLAPI_Test_App.com.dhl.wsbexpress.shipment.getRateRequestResponse getRateRequest(MyDHLAPI_Test_App.com.dhl.wsbexpress.shipment.getRateRequestRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="euExpressRateBook_providerServices_ShipmentHandlingServices_Binder_getRateRequest" +
             "", ReplyAction="*")]
-        System.Threading.Tasks.Task<GloWS_Test_App.com.dhl.wsbexpress.shipment.getRateRequestResponse> getRateRequestAsync(GloWS_Test_App.com.dhl.wsbexpress.shipment.getRateRequestRequest request);
+        System.Threading.Tasks.Task<MyDHLAPI_Test_App.com.dhl.wsbexpress.shipment.getRateRequestResponse> getRateRequestAsync(MyDHLAPI_Test_App.com.dhl.wsbexpress.shipment.getRateRequestRequest request);
         
         // CODEGEN: Generating message contract since the wrapper namespace (http://scxgxtt.phx-dc.dhl.com/euExpressRateBook/DeleteShipmentRequest) of message deleteShipmentRequestRequest does not match the default value (http://scxgxtt.phx-dc.dhl.com/euExpressRateBook/ShipmentMsgRequest)
         [System.ServiceModel.OperationContractAttribute(Action="euExpressRateBook_providerServices_ShipmentHandlingServices_Binder_deleteShipment" +
             "Request", ReplyAction="*")]
         [System.ServiceModel.XmlSerializerFormatAttribute(SupportFaults=true)]
-        GloWS_Test_App.com.dhl.wsbexpress.shipment.deleteShipmentRequestResponse deleteShipmentRequest(GloWS_Test_App.com.dhl.wsbexpress.shipment.deleteShipmentRequestRequest request);
+        MyDHLAPI_Test_App.com.dhl.wsbexpress.shipment.deleteShipmentRequestResponse deleteShipmentRequest(MyDHLAPI_Test_App.com.dhl.wsbexpress.shipment.deleteShipmentRequestRequest request);
         
         [System.ServiceModel.OperationContractAttribute(Action="euExpressRateBook_providerServices_ShipmentHandlingServices_Binder_deleteShipment" +
             "Request", ReplyAction="*")]
-        System.Threading.Tasks.Task<GloWS_Test_App.com.dhl.wsbexpress.shipment.deleteShipmentRequestResponse> deleteShipmentRequestAsync(GloWS_Test_App.com.dhl.wsbexpress.shipment.deleteShipmentRequestRequest request);
+        System.Threading.Tasks.Task<MyDHLAPI_Test_App.com.dhl.wsbexpress.shipment.deleteShipmentRequestResponse> deleteShipmentRequestAsync(MyDHLAPI_Test_App.com.dhl.wsbexpress.shipment.deleteShipmentRequestRequest request);
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3062.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3190.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -93,7 +93,7 @@ namespace GloWS_Test_App.com.dhl.wsbexpress.shipment {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3062.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3190.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -139,7 +139,7 @@ namespace GloWS_Test_App.com.dhl.wsbexpress.shipment {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3062.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3190.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -185,7 +185,7 @@ namespace GloWS_Test_App.com.dhl.wsbexpress.shipment {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3062.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3190.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -245,7 +245,7 @@ namespace GloWS_Test_App.com.dhl.wsbexpress.shipment {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3062.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3190.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -291,7 +291,7 @@ namespace GloWS_Test_App.com.dhl.wsbexpress.shipment {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3062.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3190.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -337,7 +337,7 @@ namespace GloWS_Test_App.com.dhl.wsbexpress.shipment {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3062.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3190.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -509,7 +509,7 @@ namespace GloWS_Test_App.com.dhl.wsbexpress.shipment {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3062.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3190.0")]
     [System.SerializableAttribute()]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://scxgxtt.phx-dc.dhl.com/euExpressRateBook/RateMsgResponse")]
     public enum NextBusinessDayInd2 {
@@ -522,7 +522,7 @@ namespace GloWS_Test_App.com.dhl.wsbexpress.shipment {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3062.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3190.0")]
     [System.SerializableAttribute()]
     [System.Xml.Serialization.XmlTypeAttribute(TypeName="@account", Namespace="http://scxgxtt.phx-dc.dhl.com/euExpressRateBook/RateMsgResponse")]
     public enum account {
@@ -535,7 +535,7 @@ namespace GloWS_Test_App.com.dhl.wsbexpress.shipment {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3062.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3190.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -581,7 +581,7 @@ namespace GloWS_Test_App.com.dhl.wsbexpress.shipment {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3062.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3190.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -628,7 +628,7 @@ namespace GloWS_Test_App.com.dhl.wsbexpress.shipment {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3062.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3190.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -786,7 +786,7 @@ namespace GloWS_Test_App.com.dhl.wsbexpress.shipment {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3062.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3190.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -846,7 +846,7 @@ namespace GloWS_Test_App.com.dhl.wsbexpress.shipment {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3062.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3190.0")]
     [System.SerializableAttribute()]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://scxgxtt.phx-dc.dhl.com/euExpressRateBook/RateMsgRequest")]
     public enum ShipmentPaymentType2 {
@@ -862,7 +862,7 @@ namespace GloWS_Test_App.com.dhl.wsbexpress.shipment {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3062.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3190.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -922,7 +922,7 @@ namespace GloWS_Test_App.com.dhl.wsbexpress.shipment {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3062.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3190.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -954,7 +954,7 @@ namespace GloWS_Test_App.com.dhl.wsbexpress.shipment {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3062.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3190.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -1015,7 +1015,7 @@ namespace GloWS_Test_App.com.dhl.wsbexpress.shipment {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3062.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3190.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -1159,7 +1159,7 @@ namespace GloWS_Test_App.com.dhl.wsbexpress.shipment {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3062.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3190.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -1205,7 +1205,7 @@ namespace GloWS_Test_App.com.dhl.wsbexpress.shipment {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3062.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3190.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -1244,7 +1244,7 @@ namespace GloWS_Test_App.com.dhl.wsbexpress.shipment {
         
         private Billing2 billingField;
         
-        private Service2[] specialServicesField;
+        private Service2[] specialServicessField;
         
         private string requestValueAddedServicesField;
         
@@ -1448,13 +1448,13 @@ namespace GloWS_Test_App.com.dhl.wsbexpress.shipment {
         /// <remarks/>
         [System.Xml.Serialization.XmlArrayAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
         [System.Xml.Serialization.XmlArrayItemAttribute("Service", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=false)]
-        public Service2[] SpecialServices {
+        public Service2[] SpecialServicess {
             get {
-                return this.specialServicesField;
+                return this.specialServicessField;
             }
             set {
-                this.specialServicesField = value;
-                this.RaisePropertyChanged("SpecialServices");
+                this.specialServicessField = value;
+                this.RaisePropertyChanged("SpecialServicess");
             }
         }
         
@@ -1482,7 +1482,7 @@ namespace GloWS_Test_App.com.dhl.wsbexpress.shipment {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3062.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3190.0")]
     [System.SerializableAttribute()]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://scxgxtt.phx-dc.dhl.com/euExpressRateBook/RateMsgRequest")]
     public enum DropOffType2 {
@@ -1495,7 +1495,7 @@ namespace GloWS_Test_App.com.dhl.wsbexpress.shipment {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3062.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3190.0")]
     [System.SerializableAttribute()]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://scxgxtt.phx-dc.dhl.com/euExpressRateBook/RateMsgRequest")]
     public enum NextBusinessDay2 {
@@ -1508,7 +1508,7 @@ namespace GloWS_Test_App.com.dhl.wsbexpress.shipment {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3062.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3190.0")]
     [System.SerializableAttribute()]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://scxgxtt.phx-dc.dhl.com/euExpressRateBook/RateMsgRequest")]
     public enum UnitOfMeasurement2 {
@@ -1521,7 +1521,7 @@ namespace GloWS_Test_App.com.dhl.wsbexpress.shipment {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3062.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3190.0")]
     [System.SerializableAttribute()]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://scxgxtt.phx-dc.dhl.com/euExpressRateBook/RateMsgRequest")]
     public enum Content2 {
@@ -1534,7 +1534,7 @@ namespace GloWS_Test_App.com.dhl.wsbexpress.shipment {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3062.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3190.0")]
     [System.SerializableAttribute()]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://scxgxtt.phx-dc.dhl.com/euExpressRateBook/RateMsgRequest")]
     public enum PaymentInfo2 {
@@ -1583,7 +1583,7 @@ namespace GloWS_Test_App.com.dhl.wsbexpress.shipment {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3062.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3190.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -1629,7 +1629,7 @@ namespace GloWS_Test_App.com.dhl.wsbexpress.shipment {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3062.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3190.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -1689,7 +1689,7 @@ namespace GloWS_Test_App.com.dhl.wsbexpress.shipment {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3062.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3190.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -1749,7 +1749,7 @@ namespace GloWS_Test_App.com.dhl.wsbexpress.shipment {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3062.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3190.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -1795,7 +1795,7 @@ namespace GloWS_Test_App.com.dhl.wsbexpress.shipment {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3062.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3190.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -1858,7 +1858,7 @@ namespace GloWS_Test_App.com.dhl.wsbexpress.shipment {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3062.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3190.0")]
     [System.SerializableAttribute()]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://scxgxtt.phx-dc.dhl.com/euExpressRateBook/ShipmentMsgRequest", IncludeInSchema=false)]
     public enum ItemChoiceType {
@@ -1873,7 +1873,7 @@ namespace GloWS_Test_App.com.dhl.wsbexpress.shipment {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3062.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3190.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -1905,7 +1905,7 @@ namespace GloWS_Test_App.com.dhl.wsbexpress.shipment {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3062.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3190.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -1965,7 +1965,7 @@ namespace GloWS_Test_App.com.dhl.wsbexpress.shipment {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3062.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3190.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -2114,7 +2114,7 @@ namespace GloWS_Test_App.com.dhl.wsbexpress.shipment {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3062.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3190.0")]
     [System.SerializableAttribute()]
     [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://scxgxtt.phx-dc.dhl.com/euExpressRateBook/ShipmentMsgRequest")]
     public enum docTypeRef_RequestedPackagesTypeUseOwnPieceIdentificationNumber {
@@ -2127,7 +2127,7 @@ namespace GloWS_Test_App.com.dhl.wsbexpress.shipment {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3062.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3190.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -2159,7 +2159,7 @@ namespace GloWS_Test_App.com.dhl.wsbexpress.shipment {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3062.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3190.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -2345,7 +2345,7 @@ namespace GloWS_Test_App.com.dhl.wsbexpress.shipment {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3062.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3190.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -2433,7 +2433,7 @@ namespace GloWS_Test_App.com.dhl.wsbexpress.shipment {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3062.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3190.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -2479,7 +2479,7 @@ namespace GloWS_Test_App.com.dhl.wsbexpress.shipment {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3062.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3190.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -2539,7 +2539,7 @@ namespace GloWS_Test_App.com.dhl.wsbexpress.shipment {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3062.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3190.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -2683,7 +2683,7 @@ namespace GloWS_Test_App.com.dhl.wsbexpress.shipment {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3062.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3190.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -2771,7 +2771,7 @@ namespace GloWS_Test_App.com.dhl.wsbexpress.shipment {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3062.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3190.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -2832,7 +2832,7 @@ namespace GloWS_Test_App.com.dhl.wsbexpress.shipment {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3062.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3190.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -2920,7 +2920,7 @@ namespace GloWS_Test_App.com.dhl.wsbexpress.shipment {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3062.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3190.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -3092,7 +3092,7 @@ namespace GloWS_Test_App.com.dhl.wsbexpress.shipment {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3062.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3190.0")]
     [System.SerializableAttribute()]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://scxgxtt.phx-dc.dhl.com/euExpressRateBook/ShipmentMsgRequest")]
     public enum DeliveryOption {
@@ -3108,7 +3108,7 @@ namespace GloWS_Test_App.com.dhl.wsbexpress.shipment {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3062.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3190.0")]
     [System.SerializableAttribute()]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://scxgxtt.phx-dc.dhl.com/euExpressRateBook/ShipmentMsgRequest")]
     public enum LWNTypeCode {
@@ -3121,7 +3121,7 @@ namespace GloWS_Test_App.com.dhl.wsbexpress.shipment {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3062.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3190.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -3251,7 +3251,7 @@ namespace GloWS_Test_App.com.dhl.wsbexpress.shipment {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3062.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3190.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -3325,7 +3325,7 @@ namespace GloWS_Test_App.com.dhl.wsbexpress.shipment {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3062.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3190.0")]
     [System.SerializableAttribute()]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://scxgxtt.phx-dc.dhl.com/euExpressRateBook/ShipmentMsgRequest")]
     public enum Content {
@@ -3338,7 +3338,7 @@ namespace GloWS_Test_App.com.dhl.wsbexpress.shipment {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3062.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3190.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -3496,7 +3496,7 @@ namespace GloWS_Test_App.com.dhl.wsbexpress.shipment {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3062.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3190.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -3556,7 +3556,7 @@ namespace GloWS_Test_App.com.dhl.wsbexpress.shipment {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3062.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3190.0")]
     [System.SerializableAttribute()]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://scxgxtt.phx-dc.dhl.com/euExpressRateBook/ShipmentMsgRequest")]
     public enum ShipmentPaymentType {
@@ -3572,7 +3572,7 @@ namespace GloWS_Test_App.com.dhl.wsbexpress.shipment {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3062.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3190.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -3587,7 +3587,7 @@ namespace GloWS_Test_App.com.dhl.wsbexpress.shipment {
         
         private Billing billingField;
         
-        private Service[] specialServicesField;
+        private Service[] specialServicessField;
         
         private string currencyField;
         
@@ -3670,13 +3670,13 @@ namespace GloWS_Test_App.com.dhl.wsbexpress.shipment {
         /// <remarks/>
         [System.Xml.Serialization.XmlArrayAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
         [System.Xml.Serialization.XmlArrayItemAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=false)]
-        public Service[] SpecialServices {
+        public Service[] SpecialServicess {
             get {
-                return this.specialServicesField;
+                return this.specialServicessField;
             }
             set {
-                this.specialServicesField = value;
-                this.RaisePropertyChanged("SpecialServices");
+                this.specialServicessField = value;
+                this.RaisePropertyChanged("SpecialServicess");
             }
         }
         
@@ -3848,7 +3848,7 @@ namespace GloWS_Test_App.com.dhl.wsbexpress.shipment {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3062.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3190.0")]
     [System.SerializableAttribute()]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://scxgxtt.phx-dc.dhl.com/euExpressRateBook/ShipmentMsgRequest")]
     public enum DropOffType {
@@ -3861,7 +3861,7 @@ namespace GloWS_Test_App.com.dhl.wsbexpress.shipment {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3062.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3190.0")]
     [System.SerializableAttribute()]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://scxgxtt.phx-dc.dhl.com/euExpressRateBook/ShipmentMsgRequest")]
     public enum UnitOfMeasurement {
@@ -3874,7 +3874,7 @@ namespace GloWS_Test_App.com.dhl.wsbexpress.shipment {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3062.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3190.0")]
     [System.SerializableAttribute()]
     [System.Xml.Serialization.XmlTypeAttribute(AnonymousType=true, Namespace="http://scxgxtt.phx-dc.dhl.com/euExpressRateBook/ShipmentMsgRequest")]
     public enum docTypeRef_ShipmentInfoTypeUseOwnShipmentIdentificationNumber {
@@ -3887,7 +3887,7 @@ namespace GloWS_Test_App.com.dhl.wsbexpress.shipment {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3062.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3190.0")]
     [System.SerializableAttribute()]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://scxgxtt.phx-dc.dhl.com/euExpressRateBook/ShipmentMsgRequest")]
     public enum LabelType {
@@ -3906,7 +3906,7 @@ namespace GloWS_Test_App.com.dhl.wsbexpress.shipment {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3062.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3190.0")]
     [System.SerializableAttribute()]
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -4078,7 +4078,7 @@ namespace GloWS_Test_App.com.dhl.wsbexpress.shipment {
     }
     
     /// <remarks/>
-    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3062.0")]
+    [System.CodeDom.Compiler.GeneratedCodeAttribute("System.Xml", "4.7.3190.0")]
     [System.SerializableAttribute()]
     [System.Xml.Serialization.XmlTypeAttribute(Namespace="http://scxgxtt.phx-dc.dhl.com/euExpressRateBook/ShipmentMsgRequest")]
     public enum PaymentInfo {
@@ -4137,16 +4137,16 @@ namespace GloWS_Test_App.com.dhl.wsbexpress.shipment {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://scxgxtt.phx-dc.dhl.com/euExpressRateBook/ShipmentMsgRequest", Order=1)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public GloWS_Test_App.com.dhl.wsbexpress.shipment.docTypeRef_ClientDetailType2 ClientDetail;
+        public MyDHLAPI_Test_App.com.dhl.wsbexpress.shipment.docTypeRef_ClientDetailType2 ClientDetail;
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://scxgxtt.phx-dc.dhl.com/euExpressRateBook/ShipmentMsgRequest", Order=2)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public GloWS_Test_App.com.dhl.wsbexpress.shipment.docTypeRef_RequestedShipmentType RequestedShipment;
+        public MyDHLAPI_Test_App.com.dhl.wsbexpress.shipment.docTypeRef_RequestedShipmentType RequestedShipment;
         
         public createShipmentRequestRequest() {
         }
         
-        public createShipmentRequestRequest(string MessageId, GloWS_Test_App.com.dhl.wsbexpress.shipment.docTypeRef_ClientDetailType2 ClientDetail, GloWS_Test_App.com.dhl.wsbexpress.shipment.docTypeRef_RequestedShipmentType RequestedShipment) {
+        public createShipmentRequestRequest(string MessageId, MyDHLAPI_Test_App.com.dhl.wsbexpress.shipment.docTypeRef_ClientDetailType2 ClientDetail, MyDHLAPI_Test_App.com.dhl.wsbexpress.shipment.docTypeRef_RequestedShipmentType RequestedShipment) {
             this.MessageId = MessageId;
             this.ClientDetail = ClientDetail;
             this.RequestedShipment = RequestedShipment;
@@ -4160,16 +4160,16 @@ namespace GloWS_Test_App.com.dhl.wsbexpress.shipment {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://scxgxtt.phx-dc.dhl.com/euExpressRateBook/ShipmentMsgResponse", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute("Notification", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public GloWS_Test_App.com.dhl.wsbexpress.shipment.docTypeRef_NotificationType2[] Notification;
+        public MyDHLAPI_Test_App.com.dhl.wsbexpress.shipment.docTypeRef_NotificationType2[] Notification;
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://scxgxtt.phx-dc.dhl.com/euExpressRateBook/ShipmentMsgResponse", Order=1)]
         [System.Xml.Serialization.XmlArrayAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
         [System.Xml.Serialization.XmlArrayItemAttribute("PackageResult", Form=System.Xml.Schema.XmlSchemaForm.Unqualified, IsNullable=false)]
-        public GloWS_Test_App.com.dhl.wsbexpress.shipment.docTypeRef_PackageResultType[] PackagesResult;
+        public MyDHLAPI_Test_App.com.dhl.wsbexpress.shipment.docTypeRef_PackageResultType[] PackagesResult;
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://scxgxtt.phx-dc.dhl.com/euExpressRateBook/ShipmentMsgResponse", Order=2)]
         [System.Xml.Serialization.XmlElementAttribute("LabelImage", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public GloWS_Test_App.com.dhl.wsbexpress.shipment.docTypeRef_LabelImageType[] LabelImage;
+        public MyDHLAPI_Test_App.com.dhl.wsbexpress.shipment.docTypeRef_LabelImageType[] LabelImage;
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://scxgxtt.phx-dc.dhl.com/euExpressRateBook/ShipmentMsgResponse", Order=3)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, DataType="token")]
@@ -4182,7 +4182,7 @@ namespace GloWS_Test_App.com.dhl.wsbexpress.shipment {
         public createShipmentRequestResponse() {
         }
         
-        public createShipmentRequestResponse(GloWS_Test_App.com.dhl.wsbexpress.shipment.docTypeRef_NotificationType2[] Notification, GloWS_Test_App.com.dhl.wsbexpress.shipment.docTypeRef_PackageResultType[] PackagesResult, GloWS_Test_App.com.dhl.wsbexpress.shipment.docTypeRef_LabelImageType[] LabelImage, string ShipmentIdentificationNumber, string DispatchConfirmationNumber) {
+        public createShipmentRequestResponse(MyDHLAPI_Test_App.com.dhl.wsbexpress.shipment.docTypeRef_NotificationType2[] Notification, MyDHLAPI_Test_App.com.dhl.wsbexpress.shipment.docTypeRef_PackageResultType[] PackagesResult, MyDHLAPI_Test_App.com.dhl.wsbexpress.shipment.docTypeRef_LabelImageType[] LabelImage, string ShipmentIdentificationNumber, string DispatchConfirmationNumber) {
             this.Notification = Notification;
             this.PackagesResult = PackagesResult;
             this.LabelImage = LabelImage;
@@ -4199,16 +4199,16 @@ namespace GloWS_Test_App.com.dhl.wsbexpress.shipment {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://scxgxtt.phx-dc.dhl.com/euExpressRateBook/RateMsgRequest", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public GloWS_Test_App.com.dhl.wsbexpress.shipment.docTypeRef_ClientDetailType3 ClientDetail;
+        public MyDHLAPI_Test_App.com.dhl.wsbexpress.shipment.docTypeRef_ClientDetailType3 ClientDetail;
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://scxgxtt.phx-dc.dhl.com/euExpressRateBook/RateMsgRequest", Order=1)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public GloWS_Test_App.com.dhl.wsbexpress.shipment.docTypeRef_RequestedShipmentType2 RequestedShipment;
+        public MyDHLAPI_Test_App.com.dhl.wsbexpress.shipment.docTypeRef_RequestedShipmentType2 RequestedShipment;
         
         public getRateRequestRequest() {
         }
         
-        public getRateRequestRequest(GloWS_Test_App.com.dhl.wsbexpress.shipment.docTypeRef_ClientDetailType3 ClientDetail, GloWS_Test_App.com.dhl.wsbexpress.shipment.docTypeRef_RequestedShipmentType2 RequestedShipment) {
+        public getRateRequestRequest(MyDHLAPI_Test_App.com.dhl.wsbexpress.shipment.docTypeRef_ClientDetailType3 ClientDetail, MyDHLAPI_Test_App.com.dhl.wsbexpress.shipment.docTypeRef_RequestedShipmentType2 RequestedShipment) {
             this.ClientDetail = ClientDetail;
             this.RequestedShipment = RequestedShipment;
         }
@@ -4222,12 +4222,12 @@ namespace GloWS_Test_App.com.dhl.wsbexpress.shipment {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://scxgxtt.phx-dc.dhl.com/euExpressRateBook/RateMsgResponse", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute("Provider", Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public GloWS_Test_App.com.dhl.wsbexpress.shipment.docTypeRef_ProviderType[] Provider;
+        public MyDHLAPI_Test_App.com.dhl.wsbexpress.shipment.docTypeRef_ProviderType[] Provider;
         
         public getRateRequestResponse() {
         }
         
-        public getRateRequestResponse(GloWS_Test_App.com.dhl.wsbexpress.shipment.docTypeRef_ProviderType[] Provider) {
+        public getRateRequestResponse(MyDHLAPI_Test_App.com.dhl.wsbexpress.shipment.docTypeRef_ProviderType[] Provider) {
             this.Provider = Provider;
         }
     }
@@ -4240,7 +4240,7 @@ namespace GloWS_Test_App.com.dhl.wsbexpress.shipment {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://scxgxtt.phx-dc.dhl.com/euExpressRateBook/DeleteShipmentRequest", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public GloWS_Test_App.com.dhl.wsbexpress.shipment.docTypeRef_ClientDetailType ClientDetail;
+        public MyDHLAPI_Test_App.com.dhl.wsbexpress.shipment.docTypeRef_ClientDetailType ClientDetail;
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://scxgxtt.phx-dc.dhl.com/euExpressRateBook/DeleteShipmentRequest", Order=1)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified, DataType="date")]
@@ -4265,7 +4265,7 @@ namespace GloWS_Test_App.com.dhl.wsbexpress.shipment {
         public deleteShipmentRequestRequest() {
         }
         
-        public deleteShipmentRequestRequest(GloWS_Test_App.com.dhl.wsbexpress.shipment.docTypeRef_ClientDetailType ClientDetail, System.DateTime PickupDate, string PickupCountry, string DispatchConfirmationNumber, string RequestorName, string Reason) {
+        public deleteShipmentRequestRequest(MyDHLAPI_Test_App.com.dhl.wsbexpress.shipment.docTypeRef_ClientDetailType ClientDetail, System.DateTime PickupDate, string PickupCountry, string DispatchConfirmationNumber, string RequestorName, string Reason) {
             this.ClientDetail = ClientDetail;
             this.PickupDate = PickupDate;
             this.PickupCountry = PickupCountry;
@@ -4283,23 +4283,23 @@ namespace GloWS_Test_App.com.dhl.wsbexpress.shipment {
         
         [System.ServiceModel.MessageBodyMemberAttribute(Namespace="http://scxgxtt.phx-dc.dhl.com/euExpressRateBook/DeleteShipmentResponse", Order=0)]
         [System.Xml.Serialization.XmlElementAttribute(Form=System.Xml.Schema.XmlSchemaForm.Unqualified)]
-        public GloWS_Test_App.com.dhl.wsbexpress.shipment.docTypeRef_NotificationType Notification;
+        public MyDHLAPI_Test_App.com.dhl.wsbexpress.shipment.docTypeRef_NotificationType Notification;
         
         public deleteShipmentRequestResponse() {
         }
         
-        public deleteShipmentRequestResponse(GloWS_Test_App.com.dhl.wsbexpress.shipment.docTypeRef_NotificationType Notification) {
+        public deleteShipmentRequestResponse(MyDHLAPI_Test_App.com.dhl.wsbexpress.shipment.docTypeRef_NotificationType Notification) {
             this.Notification = Notification;
         }
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public interface gblExpressRateBookChannel : GloWS_Test_App.com.dhl.wsbexpress.shipment.gblExpressRateBook, System.ServiceModel.IClientChannel {
+    public interface gblExpressRateBookChannel : MyDHLAPI_Test_App.com.dhl.wsbexpress.shipment.gblExpressRateBook, System.ServiceModel.IClientChannel {
     }
     
     [System.Diagnostics.DebuggerStepThroughAttribute()]
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
-    public partial class gblExpressRateBookClient : System.ServiceModel.ClientBase<GloWS_Test_App.com.dhl.wsbexpress.shipment.gblExpressRateBook>, GloWS_Test_App.com.dhl.wsbexpress.shipment.gblExpressRateBook {
+    public partial class gblExpressRateBookClient : System.ServiceModel.ClientBase<MyDHLAPI_Test_App.com.dhl.wsbexpress.shipment.gblExpressRateBook>, MyDHLAPI_Test_App.com.dhl.wsbexpress.shipment.gblExpressRateBook {
         
         public gblExpressRateBookClient() {
         }
@@ -4321,16 +4321,16 @@ namespace GloWS_Test_App.com.dhl.wsbexpress.shipment {
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        GloWS_Test_App.com.dhl.wsbexpress.shipment.createShipmentRequestResponse GloWS_Test_App.com.dhl.wsbexpress.shipment.gblExpressRateBook.createShipmentRequest(GloWS_Test_App.com.dhl.wsbexpress.shipment.createShipmentRequestRequest request) {
+        MyDHLAPI_Test_App.com.dhl.wsbexpress.shipment.createShipmentRequestResponse MyDHLAPI_Test_App.com.dhl.wsbexpress.shipment.gblExpressRateBook.createShipmentRequest(MyDHLAPI_Test_App.com.dhl.wsbexpress.shipment.createShipmentRequestRequest request) {
             return base.Channel.createShipmentRequest(request);
         }
         
-        public GloWS_Test_App.com.dhl.wsbexpress.shipment.docTypeRef_NotificationType2[] createShipmentRequest(string MessageId, GloWS_Test_App.com.dhl.wsbexpress.shipment.docTypeRef_ClientDetailType2 ClientDetail, GloWS_Test_App.com.dhl.wsbexpress.shipment.docTypeRef_RequestedShipmentType RequestedShipment, out GloWS_Test_App.com.dhl.wsbexpress.shipment.docTypeRef_PackageResultType[] PackagesResult, out GloWS_Test_App.com.dhl.wsbexpress.shipment.docTypeRef_LabelImageType[] LabelImage, out string ShipmentIdentificationNumber, out string DispatchConfirmationNumber) {
-            GloWS_Test_App.com.dhl.wsbexpress.shipment.createShipmentRequestRequest inValue = new GloWS_Test_App.com.dhl.wsbexpress.shipment.createShipmentRequestRequest();
+        public MyDHLAPI_Test_App.com.dhl.wsbexpress.shipment.docTypeRef_NotificationType2[] createShipmentRequest(string MessageId, MyDHLAPI_Test_App.com.dhl.wsbexpress.shipment.docTypeRef_ClientDetailType2 ClientDetail, MyDHLAPI_Test_App.com.dhl.wsbexpress.shipment.docTypeRef_RequestedShipmentType RequestedShipment, out MyDHLAPI_Test_App.com.dhl.wsbexpress.shipment.docTypeRef_PackageResultType[] PackagesResult, out MyDHLAPI_Test_App.com.dhl.wsbexpress.shipment.docTypeRef_LabelImageType[] LabelImage, out string ShipmentIdentificationNumber, out string DispatchConfirmationNumber) {
+            MyDHLAPI_Test_App.com.dhl.wsbexpress.shipment.createShipmentRequestRequest inValue = new MyDHLAPI_Test_App.com.dhl.wsbexpress.shipment.createShipmentRequestRequest();
             inValue.MessageId = MessageId;
             inValue.ClientDetail = ClientDetail;
             inValue.RequestedShipment = RequestedShipment;
-            GloWS_Test_App.com.dhl.wsbexpress.shipment.createShipmentRequestResponse retVal = ((GloWS_Test_App.com.dhl.wsbexpress.shipment.gblExpressRateBook)(this)).createShipmentRequest(inValue);
+            MyDHLAPI_Test_App.com.dhl.wsbexpress.shipment.createShipmentRequestResponse retVal = ((MyDHLAPI_Test_App.com.dhl.wsbexpress.shipment.gblExpressRateBook)(this)).createShipmentRequest(inValue);
             PackagesResult = retVal.PackagesResult;
             LabelImage = retVal.LabelImage;
             ShipmentIdentificationNumber = retVal.ShipmentIdentificationNumber;
@@ -4338,66 +4338,66 @@ namespace GloWS_Test_App.com.dhl.wsbexpress.shipment {
             return retVal.Notification;
         }
         
-        public System.Threading.Tasks.Task<GloWS_Test_App.com.dhl.wsbexpress.shipment.createShipmentRequestResponse> createShipmentRequestAsync(GloWS_Test_App.com.dhl.wsbexpress.shipment.createShipmentRequestRequest request) {
+        public System.Threading.Tasks.Task<MyDHLAPI_Test_App.com.dhl.wsbexpress.shipment.createShipmentRequestResponse> createShipmentRequestAsync(MyDHLAPI_Test_App.com.dhl.wsbexpress.shipment.createShipmentRequestRequest request) {
             return base.Channel.createShipmentRequestAsync(request);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        GloWS_Test_App.com.dhl.wsbexpress.shipment.getRateRequestResponse GloWS_Test_App.com.dhl.wsbexpress.shipment.gblExpressRateBook.getRateRequest(GloWS_Test_App.com.dhl.wsbexpress.shipment.getRateRequestRequest request) {
+        MyDHLAPI_Test_App.com.dhl.wsbexpress.shipment.getRateRequestResponse MyDHLAPI_Test_App.com.dhl.wsbexpress.shipment.gblExpressRateBook.getRateRequest(MyDHLAPI_Test_App.com.dhl.wsbexpress.shipment.getRateRequestRequest request) {
             return base.Channel.getRateRequest(request);
         }
         
-        public GloWS_Test_App.com.dhl.wsbexpress.shipment.docTypeRef_ProviderType[] getRateRequest(GloWS_Test_App.com.dhl.wsbexpress.shipment.docTypeRef_ClientDetailType3 ClientDetail, GloWS_Test_App.com.dhl.wsbexpress.shipment.docTypeRef_RequestedShipmentType2 RequestedShipment) {
-            GloWS_Test_App.com.dhl.wsbexpress.shipment.getRateRequestRequest inValue = new GloWS_Test_App.com.dhl.wsbexpress.shipment.getRateRequestRequest();
+        public MyDHLAPI_Test_App.com.dhl.wsbexpress.shipment.docTypeRef_ProviderType[] getRateRequest(MyDHLAPI_Test_App.com.dhl.wsbexpress.shipment.docTypeRef_ClientDetailType3 ClientDetail, MyDHLAPI_Test_App.com.dhl.wsbexpress.shipment.docTypeRef_RequestedShipmentType2 RequestedShipment) {
+            MyDHLAPI_Test_App.com.dhl.wsbexpress.shipment.getRateRequestRequest inValue = new MyDHLAPI_Test_App.com.dhl.wsbexpress.shipment.getRateRequestRequest();
             inValue.ClientDetail = ClientDetail;
             inValue.RequestedShipment = RequestedShipment;
-            GloWS_Test_App.com.dhl.wsbexpress.shipment.getRateRequestResponse retVal = ((GloWS_Test_App.com.dhl.wsbexpress.shipment.gblExpressRateBook)(this)).getRateRequest(inValue);
+            MyDHLAPI_Test_App.com.dhl.wsbexpress.shipment.getRateRequestResponse retVal = ((MyDHLAPI_Test_App.com.dhl.wsbexpress.shipment.gblExpressRateBook)(this)).getRateRequest(inValue);
             return retVal.Provider;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<GloWS_Test_App.com.dhl.wsbexpress.shipment.getRateRequestResponse> GloWS_Test_App.com.dhl.wsbexpress.shipment.gblExpressRateBook.getRateRequestAsync(GloWS_Test_App.com.dhl.wsbexpress.shipment.getRateRequestRequest request) {
+        System.Threading.Tasks.Task<MyDHLAPI_Test_App.com.dhl.wsbexpress.shipment.getRateRequestResponse> MyDHLAPI_Test_App.com.dhl.wsbexpress.shipment.gblExpressRateBook.getRateRequestAsync(MyDHLAPI_Test_App.com.dhl.wsbexpress.shipment.getRateRequestRequest request) {
             return base.Channel.getRateRequestAsync(request);
         }
         
-        public System.Threading.Tasks.Task<GloWS_Test_App.com.dhl.wsbexpress.shipment.getRateRequestResponse> getRateRequestAsync(GloWS_Test_App.com.dhl.wsbexpress.shipment.docTypeRef_ClientDetailType3 ClientDetail, GloWS_Test_App.com.dhl.wsbexpress.shipment.docTypeRef_RequestedShipmentType2 RequestedShipment) {
-            GloWS_Test_App.com.dhl.wsbexpress.shipment.getRateRequestRequest inValue = new GloWS_Test_App.com.dhl.wsbexpress.shipment.getRateRequestRequest();
+        public System.Threading.Tasks.Task<MyDHLAPI_Test_App.com.dhl.wsbexpress.shipment.getRateRequestResponse> getRateRequestAsync(MyDHLAPI_Test_App.com.dhl.wsbexpress.shipment.docTypeRef_ClientDetailType3 ClientDetail, MyDHLAPI_Test_App.com.dhl.wsbexpress.shipment.docTypeRef_RequestedShipmentType2 RequestedShipment) {
+            MyDHLAPI_Test_App.com.dhl.wsbexpress.shipment.getRateRequestRequest inValue = new MyDHLAPI_Test_App.com.dhl.wsbexpress.shipment.getRateRequestRequest();
             inValue.ClientDetail = ClientDetail;
             inValue.RequestedShipment = RequestedShipment;
-            return ((GloWS_Test_App.com.dhl.wsbexpress.shipment.gblExpressRateBook)(this)).getRateRequestAsync(inValue);
+            return ((MyDHLAPI_Test_App.com.dhl.wsbexpress.shipment.gblExpressRateBook)(this)).getRateRequestAsync(inValue);
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        GloWS_Test_App.com.dhl.wsbexpress.shipment.deleteShipmentRequestResponse GloWS_Test_App.com.dhl.wsbexpress.shipment.gblExpressRateBook.deleteShipmentRequest(GloWS_Test_App.com.dhl.wsbexpress.shipment.deleteShipmentRequestRequest request) {
+        MyDHLAPI_Test_App.com.dhl.wsbexpress.shipment.deleteShipmentRequestResponse MyDHLAPI_Test_App.com.dhl.wsbexpress.shipment.gblExpressRateBook.deleteShipmentRequest(MyDHLAPI_Test_App.com.dhl.wsbexpress.shipment.deleteShipmentRequestRequest request) {
             return base.Channel.deleteShipmentRequest(request);
         }
         
-        public GloWS_Test_App.com.dhl.wsbexpress.shipment.docTypeRef_NotificationType deleteShipmentRequest(GloWS_Test_App.com.dhl.wsbexpress.shipment.docTypeRef_ClientDetailType ClientDetail, System.DateTime PickupDate, string PickupCountry, string DispatchConfirmationNumber, string RequestorName, string Reason) {
-            GloWS_Test_App.com.dhl.wsbexpress.shipment.deleteShipmentRequestRequest inValue = new GloWS_Test_App.com.dhl.wsbexpress.shipment.deleteShipmentRequestRequest();
+        public MyDHLAPI_Test_App.com.dhl.wsbexpress.shipment.docTypeRef_NotificationType deleteShipmentRequest(MyDHLAPI_Test_App.com.dhl.wsbexpress.shipment.docTypeRef_ClientDetailType ClientDetail, System.DateTime PickupDate, string PickupCountry, string DispatchConfirmationNumber, string RequestorName, string Reason) {
+            MyDHLAPI_Test_App.com.dhl.wsbexpress.shipment.deleteShipmentRequestRequest inValue = new MyDHLAPI_Test_App.com.dhl.wsbexpress.shipment.deleteShipmentRequestRequest();
             inValue.ClientDetail = ClientDetail;
             inValue.PickupDate = PickupDate;
             inValue.PickupCountry = PickupCountry;
             inValue.DispatchConfirmationNumber = DispatchConfirmationNumber;
             inValue.RequestorName = RequestorName;
             inValue.Reason = Reason;
-            GloWS_Test_App.com.dhl.wsbexpress.shipment.deleteShipmentRequestResponse retVal = ((GloWS_Test_App.com.dhl.wsbexpress.shipment.gblExpressRateBook)(this)).deleteShipmentRequest(inValue);
+            MyDHLAPI_Test_App.com.dhl.wsbexpress.shipment.deleteShipmentRequestResponse retVal = ((MyDHLAPI_Test_App.com.dhl.wsbexpress.shipment.gblExpressRateBook)(this)).deleteShipmentRequest(inValue);
             return retVal.Notification;
         }
         
         [System.ComponentModel.EditorBrowsableAttribute(System.ComponentModel.EditorBrowsableState.Advanced)]
-        System.Threading.Tasks.Task<GloWS_Test_App.com.dhl.wsbexpress.shipment.deleteShipmentRequestResponse> GloWS_Test_App.com.dhl.wsbexpress.shipment.gblExpressRateBook.deleteShipmentRequestAsync(GloWS_Test_App.com.dhl.wsbexpress.shipment.deleteShipmentRequestRequest request) {
+        System.Threading.Tasks.Task<MyDHLAPI_Test_App.com.dhl.wsbexpress.shipment.deleteShipmentRequestResponse> MyDHLAPI_Test_App.com.dhl.wsbexpress.shipment.gblExpressRateBook.deleteShipmentRequestAsync(MyDHLAPI_Test_App.com.dhl.wsbexpress.shipment.deleteShipmentRequestRequest request) {
             return base.Channel.deleteShipmentRequestAsync(request);
         }
         
-        public System.Threading.Tasks.Task<GloWS_Test_App.com.dhl.wsbexpress.shipment.deleteShipmentRequestResponse> deleteShipmentRequestAsync(GloWS_Test_App.com.dhl.wsbexpress.shipment.docTypeRef_ClientDetailType ClientDetail, System.DateTime PickupDate, string PickupCountry, string DispatchConfirmationNumber, string RequestorName, string Reason) {
-            GloWS_Test_App.com.dhl.wsbexpress.shipment.deleteShipmentRequestRequest inValue = new GloWS_Test_App.com.dhl.wsbexpress.shipment.deleteShipmentRequestRequest();
+        public System.Threading.Tasks.Task<MyDHLAPI_Test_App.com.dhl.wsbexpress.shipment.deleteShipmentRequestResponse> deleteShipmentRequestAsync(MyDHLAPI_Test_App.com.dhl.wsbexpress.shipment.docTypeRef_ClientDetailType ClientDetail, System.DateTime PickupDate, string PickupCountry, string DispatchConfirmationNumber, string RequestorName, string Reason) {
+            MyDHLAPI_Test_App.com.dhl.wsbexpress.shipment.deleteShipmentRequestRequest inValue = new MyDHLAPI_Test_App.com.dhl.wsbexpress.shipment.deleteShipmentRequestRequest();
             inValue.ClientDetail = ClientDetail;
             inValue.PickupDate = PickupDate;
             inValue.PickupCountry = PickupCountry;
             inValue.DispatchConfirmationNumber = DispatchConfirmationNumber;
             inValue.RequestorName = RequestorName;
             inValue.Reason = Reason;
-            return ((GloWS_Test_App.com.dhl.wsbexpress.shipment.gblExpressRateBook)(this)).deleteShipmentRequestAsync(inValue);
+            return ((MyDHLAPI_Test_App.com.dhl.wsbexpress.shipment.gblExpressRateBook)(this)).deleteShipmentRequestAsync(inValue);
         }
     }
 }

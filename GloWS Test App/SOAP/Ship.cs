@@ -4,11 +4,11 @@ using System.Drawing;
 using System.Linq;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
-using GloWS_Test_App.com.dhl.wsbexpress.shipment;
+using MyDHLAPI_Test_App.com.dhl.wsbexpress.shipment;
 using System.IO;
 using System.ServiceModel.Channels;
 
-namespace GloWS_Test_App.SOAP
+namespace MyDHLAPI_Test_App.SOAP
 {
     public partial class Ship : Form
     {
@@ -77,353 +77,353 @@ namespace GloWS_Test_App.SOAP
 
             // All validation done, send the data to GloWS.
 #pragma warning disable IDE0017 // Simplify object initialization
-            try
-            {
-                this.Enabled = false;
+//            try
+//            {
+//                this.Enabled = false;
 
-                // Reset AWB link label
-                llblAWB.Tag = null;
-                llblAWB.LinkBehavior = LinkBehavior.NeverUnderline;
-                llblAWB.ForeColor = Color.Black;
-                llblAWB.Font = new Font(llblAWB.Font, FontStyle.Regular);
+//                // Reset AWB link label
+//                llblAWB.Tag = null;
+//                llblAWB.LinkBehavior = LinkBehavior.NeverUnderline;
+//                llblAWB.ForeColor = Color.Black;
+//                llblAWB.Font = new Font(llblAWB.Font, FontStyle.Regular);
 
-                // Determine if this is a dox or non-dox shipment
-                bool isDox = !(new[] { "3", "4", "8", "E", "F", "H", "J", "M", "P", "Q", "V", "Y" }).Contains(cmbProductCode.SelectedValue.ToString());
-                bool isDomestic = "N" == cmbProductCode.Text;
+//                // Determine if this is a dox or non-dox shipment
+//                bool isDox = !(new[] { "3", "4", "8", "E", "F", "H", "J", "M", "P", "Q", "V", "Y" }).Contains(cmbProductCode.SelectedValue.ToString());
+//                bool isDomestic = "N" == cmbProductCode.Text;
 
-                createShipmentRequestRequest reqData = new createShipmentRequestRequest();
+//                createShipmentRequestRequest reqData = new createShipmentRequestRequest();
                 
-                reqData.RequestedShipment = new docTypeRef_RequestedShipmentType();
-                reqData.MessageId = Guid.NewGuid().ToString("N");
-#pragma warning restore IDE0017 // Simplify object initialization
+//                reqData.RequestedShipment = new docTypeRef_RequestedShipmentType();
+//                reqData.MessageId = Guid.NewGuid().ToString("N");
+//#pragma warning restore IDE0017 // Simplify object initialization
 
-                docTypeRef_ShipmentInfoType shipmentInfo = new docTypeRef_ShipmentInfoType();
-                if (cbxShipmentRequestPickup.Checked)
-                {
-                    shipmentInfo.DropOffType = DropOffType.REQUEST_COURIER;
-                }
-                else
-                {
-                    shipmentInfo.DropOffType = DropOffType.REGULAR_PICKUP;
-                }
+//                docTypeRef_ShipmentInfoType shipmentInfo = new docTypeRef_ShipmentInfoType();
+//                if (cbxShipmentRequestPickup.Checked)
+//                {
+//                    shipmentInfo.DropOffType = DropOffType.REQUEST_COURIER;
+//                }
+//                else
+//                {
+//                    shipmentInfo.DropOffType = DropOffType.REGULAR_PICKUP;
+//                }
 
-                string[] pltCountries = new string[] { "AE", "SA", "US"};
-                bool isPLT = false;
+//                string[] pltCountries = new string[] { "AE", "SA", "US"};
+//                bool isPLT = false;
 
-                /*** PLT ***/
-                if (!isDomestic
-                    && !isDox
-                    && _invoiceAvailable
-                    && (pltCountries.Contains(txtShipperCountry.Text)
-                        || pltCountries.Contains(txtConsigneeCountry.Text))
-                    )
-                {
-                    shipmentInfo.PaperlessTradeEnabled = true;
-                    shipmentInfo.PaperlessTradeEnabledSpecified = true;
-                    shipmentInfo.PaperlessTradeImage = _invoiceData;
-                    isPLT = true;
-                }
+//                /*** PLT ***/
+//                if (!isDomestic
+//                    && !isDox
+//                    && _invoiceAvailable
+//                    && (pltCountries.Contains(txtShipperCountry.Text)
+//                        || pltCountries.Contains(txtConsigneeCountry.Text))
+//                    )
+//                {
+//                    shipmentInfo.PaperlessTradeEnabled = true;
+//                    shipmentInfo.PaperlessTradeEnabledSpecified = true;
+//                    shipmentInfo.PaperlessTradeImage = _invoiceData;
+//                    isPLT = true;
+//                }
 
-                shipmentInfo.ServiceType = cmbProductCode.SelectedValue.ToString();
+//                shipmentInfo.ServiceType = cmbProductCode.SelectedValue.ToString();
                 
-                // SU = Standard (american) Units (LB, IN); SI = Standard International (KG, CM)
-                if ("KG" == cmbShipmentWeightUOM.SelectedValue.ToString())
-                {
-                    shipmentInfo.UnitOfMeasurement = UnitOfMeasurement.SI;
-                }
-                else
-                {
-                    shipmentInfo.UnitOfMeasurement = UnitOfMeasurement.SU;
-                }
+//                // SU = Standard (american) Units (LB, IN); SI = Standard International (KG, CM)
+//                if ("KG" == cmbShipmentWeightUOM.SelectedValue.ToString())
+//                {
+//                    shipmentInfo.UnitOfMeasurement = UnitOfMeasurement.SI;
+//                }
+//                else
+//                {
+//                    shipmentInfo.UnitOfMeasurement = UnitOfMeasurement.SU;
+//                }
 
-                // If the billing element is defined (it should be used anyway) then there is no need for the
-                // generic shipmentInfo.Account element to be populated.
-                //shipmentInfo.Account = txtShipperAccountNumber.Text;
-                shipmentInfo.Billing = new Billing()
-                {
-                    BillingAccountNumber = txtShipperAccountNumber.Text
-                    , ShipperAccountNumber = txtShipperAccountNumber.Text
-                    , ShippingPaymentType = ShipmentPaymentType.S
-                };
+//                // If the billing element is defined (it should be used anyway) then there is no need for the
+//                // generic shipmentInfo.Account element to be populated.
+//                //shipmentInfo.Account = txtShipperAccountNumber.Text;
+//                shipmentInfo.Billing = new Billing()
+//                {
+//                    BillingAccountNumber = txtShipperAccountNumber.Text
+//                    , ShipperAccountNumber = txtShipperAccountNumber.Text
+//                    , ShippingPaymentType = ShipmentPaymentType.S
+//                };
 
-                if (!isDomestic && !isDox)
-                {
-                    // We have a non-dox shipment
-                    shipmentInfo.Currency = txtShipmentDeclaredValueCurrency.Text;
-                }
+//                if (!isDomestic && !isDox)
+//                {
+//                    // We have a non-dox shipment
+//                    shipmentInfo.Currency = txtShipmentDeclaredValueCurrency.Text;
+//                }
 
-                shipmentInfo.LabelType = LabelType.PDF;
-                shipmentInfo.LabelTypeSpecified = true;
+//                shipmentInfo.LabelType = LabelType.PDF;
+//                shipmentInfo.LabelTypeSpecified = true;
 
-                shipmentInfo.PackagesCount = "1";
+//                shipmentInfo.PackagesCount = "1";
                 
-                reqData.RequestedShipment.ShipmentInfo = shipmentInfo;
+//                reqData.RequestedShipment.ShipmentInfo = shipmentInfo;
 
-                DateTime timestamp;
+//                DateTime timestamp;
 
-                if (DateTime.Now.TimeOfDay > new TimeSpan(18, 00, 00))
-                {
-                    timestamp = DateTime.Now.AddDays(1);
-                    timestamp = new DateTime(timestamp.Year, timestamp.Month, timestamp.Day, 10, 0, 0);
-                }
-                else
-                {
-                    timestamp = DateTime.Now.AddMinutes(10);
-                }
+//                if (DateTime.Now.TimeOfDay > new TimeSpan(18, 00, 00))
+//                {
+//                    timestamp = DateTime.Now.AddDays(1);
+//                    timestamp = new DateTime(timestamp.Year, timestamp.Month, timestamp.Day, 10, 0, 0);
+//                }
+//                else
+//                {
+//                    timestamp = DateTime.Now.AddMinutes(10);
+//                }
                 
-                reqData.RequestedShipment.ShipTimestamp = $"{timestamp:s} GMT{timestamp:zzz}";
+//                reqData.RequestedShipment.ShipTimestamp = $"{timestamp:s} GMT{timestamp:zzz}";
 
-                if (!IsBlank(txtDutyAccountNumber))
-                {
-                    reqData.RequestedShipment.PaymentInfo = PaymentInfo.DDP;
-                }
-                else
-                {
-                    reqData.RequestedShipment.PaymentInfo = PaymentInfo.DDU;
-                }
+//                if (!IsBlank(txtDutyAccountNumber))
+//                {
+//                    reqData.RequestedShipment.PaymentInfo = PaymentInfo.DDP;
+//                }
+//                else
+//                {
+//                    reqData.RequestedShipment.PaymentInfo = PaymentInfo.DDU;
+//                }
 
-                docTypeRef_InternationDetailType internationalDetail = new docTypeRef_InternationDetailType();
+//                docTypeRef_InternationDetailType internationalDetail = new docTypeRef_InternationDetailType();
 
-                if (!isDox && !isDomestic)
-                {
-                    internationalDetail.Content = Content.NON_DOCUMENTS;
-                    docTypeRef_CommoditiesType commodities = new docTypeRef_CommoditiesType();
-                    commodities.CustomsValue = 20M;
-                    commodities.CustomsValueSpecified = true;
-                    commodities.CountryOfManufacture = "AE";
-                    commodities.Description = "Test Commoditiy";
-                    commodities.NumberOfPieces = "2";
-                    commodities.UnitPrice = "10";
-                    internationalDetail.Commodities = commodities;
-                }
-                else
-                {
-                    internationalDetail.Content = Content.DOCUMENTS;
-                }
-                internationalDetail.ContentSpecified = true;
+//                if (!isDox && !isDomestic)
+//                {
+//                    internationalDetail.Content = Content.NON_DOCUMENTS;
+//                    docTypeRef_CommoditiesType commodities = new docTypeRef_CommoditiesType();
+//                    commodities.CustomsValue = 20M;
+//                    commodities.CustomsValueSpecified = true;
+//                    commodities.CountryOfManufacture = "AE";
+//                    commodities.Description = "Test Commoditiy";
+//                    commodities.NumberOfPieces = "2";
+//                    commodities.UnitPrice = "10";
+//                    internationalDetail.Commodities = commodities;
+//                }
+//                else
+//                {
+//                    internationalDetail.Content = Content.DOCUMENTS;
+//                }
+//                internationalDetail.ContentSpecified = true;
 
-                reqData.RequestedShipment.InternationalDetail = internationalDetail;
+//                reqData.RequestedShipment.InternationalDetail = internationalDetail;
 
-                reqData.RequestedShipment.Ship = new docTypeRef_ShipType();
+//                reqData.RequestedShipment.Ship = new docTypeRef_ShipType();
 
-                /*** SHIPPER ***/
+//                /*** SHIPPER ***/
 
-                docTypeRef_ContactInfoType shipper = new docTypeRef_ContactInfoType();
+//                docTypeRef_ContactInfoType shipper = new docTypeRef_ContactInfoType();
 
-                docTypeRef_ContactType shipperContact = new docTypeRef_ContactType();
-                if (!IsBlank(txtShipperCompany))
-                {
-                    shipperContact.CompanyName = txtShipperCompany.Text;
-                }
-                else
-                {
-                    shipperContact.CompanyName = txtShipperName.Text;
-                }
-                shipperContact.PersonName = txtShipperName.Text;
-                shipperContact.EmailAddress = txtShipperEMailAddress.Text;
-                shipperContact.PhoneNumber = txtShipperMobileNumber.Text;
+//                docTypeRef_ContactType shipperContact = new docTypeRef_ContactType();
+//                if (!IsBlank(txtShipperCompany))
+//                {
+//                    shipperContact.CompanyName = txtShipperCompany.Text;
+//                }
+//                else
+//                {
+//                    shipperContact.CompanyName = txtShipperName.Text;
+//                }
+//                shipperContact.PersonName = txtShipperName.Text;
+//                shipperContact.EmailAddress = txtShipperEMailAddress.Text;
+//                shipperContact.PhoneNumber = txtShipperMobileNumber.Text;
 
-                shipper.Contact = shipperContact;
+//                shipper.Contact = shipperContact;
 
-                docTypeRef_AddressType shipperAddress = new docTypeRef_AddressType();
-                shipperAddress.StreetLines = txtShipperAddress1.Text;
-                shipperAddress.StreetLines2 = (string.IsNullOrWhiteSpace(txtShipperAddress2.Text) ? "." : txtShipperAddress2.Text);
-                shipperAddress.StreetLines3 = (string.IsNullOrWhiteSpace(txtShipperAddress3.Text) ? "." : txtShipperAddress3.Text);
-                shipperAddress.City = txtShipperCity.Text;
-                shipperAddress.StateOrProvinceCode = txtShipperState.Text;
-                shipperAddress.CountryCode = txtShipperCountry.Text;
-                shipperAddress.PostalCode = txtShipperPostalCode.Text;
-                shipper.Address = shipperAddress;
+//                docTypeRef_AddressType shipperAddress = new docTypeRef_AddressType();
+//                shipperAddress.StreetLines = txtShipperAddress1.Text;
+//                shipperAddress.StreetLines2 = (string.IsNullOrWhiteSpace(txtShipperAddress2.Text) ? "." : txtShipperAddress2.Text);
+//                shipperAddress.StreetLines3 = (string.IsNullOrWhiteSpace(txtShipperAddress3.Text) ? "." : txtShipperAddress3.Text);
+//                shipperAddress.City = txtShipperCity.Text;
+//                shipperAddress.StateOrProvinceCode = txtShipperState.Text;
+//                shipperAddress.CountryCode = txtShipperCountry.Text;
+//                shipperAddress.PostalCode = txtShipperPostalCode.Text;
+//                shipper.Address = shipperAddress;
 
-                reqData.RequestedShipment.Ship.Shipper = shipper;
+//                reqData.RequestedShipment.Ship.Shipper = shipper;
 
-                /*** CONSIGNEE ***/
-                docTypeRef_ContactInfoType consignee = new docTypeRef_ContactInfoType();
+//                /*** CONSIGNEE ***/
+//                docTypeRef_ContactInfoType consignee = new docTypeRef_ContactInfoType();
 
-                docTypeRef_ContactType consigneeContact = new docTypeRef_ContactType();
-                if (!IsBlank(txtConsigneeCompany))
-                {
-                    consigneeContact.CompanyName = txtConsigneeCompany.Text;
-                }
-                else
-                {
-                    consigneeContact.CompanyName = txtConsigneeName.Text;
-                }
-                consigneeContact.PersonName = txtConsigneeName.Text;
-                consigneeContact.EmailAddress = txtConsigneeEMailAddress.Text;
-                consigneeContact.PhoneNumber = txtConsigneeMobileNumber.Text;
+//                docTypeRef_ContactType consigneeContact = new docTypeRef_ContactType();
+//                if (!IsBlank(txtConsigneeCompany))
+//                {
+//                    consigneeContact.CompanyName = txtConsigneeCompany.Text;
+//                }
+//                else
+//                {
+//                    consigneeContact.CompanyName = txtConsigneeName.Text;
+//                }
+//                consigneeContact.PersonName = txtConsigneeName.Text;
+//                consigneeContact.EmailAddress = txtConsigneeEMailAddress.Text;
+//                consigneeContact.PhoneNumber = txtConsigneeMobileNumber.Text;
 
-                consignee.Contact = consigneeContact;
+//                consignee.Contact = consigneeContact;
 
-                docTypeRef_AddressType consigneeAddress = new docTypeRef_AddressType();
-                consigneeAddress.StreetLines = txtConsigneeAddress1.Text;
-                consigneeAddress.StreetLines2 = (string.IsNullOrWhiteSpace(txtConsigneeAddress2.Text) ? "." : txtConsigneeAddress2.Text);
-                consigneeAddress.StreetLines3 = (string.IsNullOrWhiteSpace(txtConsigneeAddress3.Text) ? "." : txtConsigneeAddress3.Text);
-                consigneeAddress.City = txtConsigneeCity.Text;
-                consigneeAddress.StateOrProvinceCode = txtConsigneeState.Text;
-                consigneeAddress.CountryCode = txtConsigneeCountry.Text;
-                consigneeAddress.PostalCode = txtConsigneePostalCode.Text;
-                consignee.Address = consigneeAddress;
+//                docTypeRef_AddressType consigneeAddress = new docTypeRef_AddressType();
+//                consigneeAddress.StreetLines = txtConsigneeAddress1.Text;
+//                consigneeAddress.StreetLines2 = (string.IsNullOrWhiteSpace(txtConsigneeAddress2.Text) ? "." : txtConsigneeAddress2.Text);
+//                consigneeAddress.StreetLines3 = (string.IsNullOrWhiteSpace(txtConsigneeAddress3.Text) ? "." : txtConsigneeAddress3.Text);
+//                consigneeAddress.City = txtConsigneeCity.Text;
+//                consigneeAddress.StateOrProvinceCode = txtConsigneeState.Text;
+//                consigneeAddress.CountryCode = txtConsigneeCountry.Text;
+//                consigneeAddress.PostalCode = txtConsigneePostalCode.Text;
+//                consignee.Address = consigneeAddress;
 
-                reqData.RequestedShipment.Ship.Recipient = consignee;
+//                reqData.RequestedShipment.Ship.Recipient = consignee;
 
-                /*** PICKUP ***/
-                if (cbxShipmentRequestPickup.Checked)
-                {
-                    reqData.RequestedShipment.Ship.Pickup = shipper;
-                }
+//                /*** PICKUP ***/
+//                if (cbxShipmentRequestPickup.Checked)
+//                {
+//                    reqData.RequestedShipment.Ship.Pickup = shipper;
+//                }
 
-                /*** PIECES ***/
-                reqData.RequestedShipment.Packages = new docTypeRef_PackagesType();
+//                /*** PIECES ***/
+//                reqData.RequestedShipment.Packages = new docTypeRef_PackagesType();
 
-                List<docTypeRef_RequestedPackagesType> requestedPackages = new List<docTypeRef_RequestedPackagesType>();
+//                List<docTypeRef_RequestedPackagesType> requestedPackages = new List<docTypeRef_RequestedPackagesType>();
 
-                docTypeRef_RequestedPackagesType singlePackage = new docTypeRef_RequestedPackagesType();
-                singlePackage.number = "1";
-                singlePackage.Weight = decimal.Parse($"{txtShipmentWeight.Text}");
+//                docTypeRef_RequestedPackagesType singlePackage = new docTypeRef_RequestedPackagesType();
+//                singlePackage.number = "1";
+//                singlePackage.Weight = decimal.Parse($"{txtShipmentWeight.Text}");
 
-                int height = GetDimension(ref txtShipmentHeight);
-                int width = GetDimension(ref txtShipmentWidth);
-                int depth = GetDimension(ref txtShipmentDepth);
+//                int height = GetDimension(ref txtShipmentHeight);
+//                int width = GetDimension(ref txtShipmentWidth);
+//                int depth = GetDimension(ref txtShipmentDepth);
 
-                if (height > 0
-                    && width > 0
-                    && depth > 0)
-                {
-                    // Keep the divisor at 5000.0, this forces .NET to treate the result as a float and not an integer.
-                    singlePackage.Dimensions = new docTypeRef_DimensionsType
-                    {
-                        Height = decimal.Parse($"{height}"),
-                        Width = decimal.Parse($"{width}"),
-                        Length = decimal.Parse($"{depth}")
-                    };
-                }
+//                if (height > 0
+//                    && width > 0
+//                    && depth > 0)
+//                {
+//                    // Keep the divisor at 5000.0, this forces .NET to treate the result as a float and not an integer.
+//                    singlePackage.Dimensions = new docTypeRef_DimensionsType
+//                    {
+//                        Height = decimal.Parse($"{height}"),
+//                        Width = decimal.Parse($"{width}"),
+//                        Length = decimal.Parse($"{depth}")
+//                    };
+//                }
 
-                singlePackage.CustomerReferences = $"{DateTime.Now.Ticks}";
+//                singlePackage.CustomerReferences = $"{DateTime.Now.Ticks}";
 
-                requestedPackages.Add(singlePackage);
+//                requestedPackages.Add(singlePackage);
 
-                reqData.RequestedShipment.Packages.RequestedPackages = requestedPackages.ToArray();
+//                reqData.RequestedShipment.Packages.RequestedPackages = requestedPackages.ToArray();
                 
-                /*** SPECIAL SEVICES ***/
-                List<Service> specialServices = new List<Service>();
-                if (isPLT)
-                {
-                    specialServices.Add(new Service()
-                    {
-                        ServiceType = "WY"
-                    });
-                }
-                reqData.RequestedShipment.ShipmentInfo.SpecialServices = specialServices.ToArray();
+//                /*** SPECIAL SEVICES ***/
+//                List<Service> specialServices = new List<Service>();
+//                if (isPLT)
+//                {
+//                    specialServices.Add(new Service()
+//                    {
+//                        ServiceType = "WY"
+//                    });
+//                }
+//                reqData.RequestedShipment.ShipmentInfo.SpecialServices = specialServices.ToArray();
 
-                if (!reqData.RequestedShipment.ShipmentInfo.SpecialServices.Any())
-                {
-                    reqData.RequestedShipment.ShipmentInfo.SpecialServices = null;
-                }
+//                if (!reqData.RequestedShipment.ShipmentInfo.SpecialServices.Any())
+//                {
+//                    reqData.RequestedShipment.ShipmentInfo.SpecialServices = null;
+//                }
 
-                /*** GENERATE SHIPMENT ***/
-                GloWS_Request = Common.XMLToString(reqData.GetType(), reqData);
+//                /*** GENERATE SHIPMENT ***/
+//                GloWS_Request = Common.XMLToString(reqData.GetType(), reqData);
 
-                var glowsAuthData = Common.PrepareGlowsAuth("expressRateBook");
+//                var glowsAuthData = Common.PrepareGlowsAuth("expressRateBook");
 
-                gblExpressRateBookClient client = new gblExpressRateBookClient(new CustomBinding(glowsAuthData.Item2), glowsAuthData.Item1);
-                client.ClientCredentials.UserName.UserName = glowsAuthData.Item3;
-                client.ClientCredentials.UserName.Password = glowsAuthData.Item4;
+//                gblExpressRateBookClient client = new gblExpressRateBookClient(new CustomBinding(glowsAuthData.Item2), glowsAuthData.Item1);
+//                client.ClientCredentials.UserName.UserName = glowsAuthData.Item3;
+//                client.ClientCredentials.UserName.Password = glowsAuthData.Item4;
 
-                docTypeRef_NotificationType2[] resp;
-                docTypeRef_PackageResultType[] packages;
-                docTypeRef_LabelImageType[] labels;
-                string shipmentIdentificationNumber;
-                string dispatchConfirmationNumber;
+//                docTypeRef_NotificationType2[] resp;
+//                docTypeRef_PackageResultType[] packages;
+//                docTypeRef_LabelImageType[] labels;
+//                string shipmentIdentificationNumber;
+//                string dispatchConfirmationNumber;
 
-                try
-                {
-                    resp = client.createShipmentRequest(reqData.MessageId
-                                                        , reqData.ClientDetail
-                                                        , reqData.RequestedShipment
-                                                        , out packages
-                                                        , out labels
-                                                        , out shipmentIdentificationNumber
-                                                        , out dispatchConfirmationNumber);
-                }
-                catch (Exception ex)
-                {
-                    var text = ex.Message;
-                    txtResultAWB.Text = "ERROR!";
-                    return;
-                }
+//                try
+//                {
+//                    resp = client.createShipmentRequest(reqData.MessageId
+//                                                        , reqData.ClientDetail
+//                                                        , reqData.RequestedShipment
+//                                                        , out packages
+//                                                        , out labels
+//                                                        , out shipmentIdentificationNumber
+//                                                        , out dispatchConfirmationNumber);
+//                }
+//                catch (Exception ex)
+//                {
+//                    var text = ex.Message;
+//                    txtResultAWB.Text = "ERROR!";
+//                    return;
+//                }
 
-                if (null == resp || !resp.Any())
-                {
-                    MessageBox.Show("There was an error in generating the shipment.");
-                    return;
-                }
+//                if (null == resp || !resp.Any())
+//                {
+//                    MessageBox.Show("There was an error in generating the shipment.");
+//                    return;
+//                }
 
-                GloWS_Response = Common.XMLToString(resp.GetType(), resp);
+//                GloWS_Response = Common.XMLToString(resp.GetType(), resp);
 
-                // Display our results
+//                // Display our results
 
-                if (!string.IsNullOrEmpty(shipmentIdentificationNumber))
-                {
-                    txtResultAWB.Text = shipmentIdentificationNumber;
-                }
-                else
-                {
-                    txtResultAWB.Text = string.Empty;
-                }
+//                if (!string.IsNullOrEmpty(shipmentIdentificationNumber))
+//                {
+//                    txtResultAWB.Text = shipmentIdentificationNumber;
+//                }
+//                else
+//                {
+//                    txtResultAWB.Text = string.Empty;
+//                }
 
-                if (null != packages)
-                {
-                    string prefix = string.Empty;
-                    string pieces = string.Empty;
+//                if (null != packages)
+//                {
+//                    string prefix = string.Empty;
+//                    string pieces = string.Empty;
 
-                    foreach (docTypeRef_PackageResultType package in packages)
-                    {
-                        pieces += $"{prefix}{package.TrackingNumber}";
-                        prefix = Environment.NewLine;
-                    }
+//                    foreach (docTypeRef_PackageResultType package in packages)
+//                    {
+//                        pieces += $"{prefix}{package.TrackingNumber}";
+//                        prefix = Environment.NewLine;
+//                    }
 
-                    txtResultPieces.Text = pieces;
-                }
-                else
-                {
-                    txtResultPieces.Text = string.Empty;
-                }
+//                    txtResultPieces.Text = pieces;
+//                }
+//                else
+//                {
+//                    txtResultPieces.Text = string.Empty;
+//                }
 
-                if (!string.IsNullOrEmpty(dispatchConfirmationNumber))
-                {
-                    txtResultBookingReferenceNumber.Text = dispatchConfirmationNumber;
-                }
-                else
-                {
-                    txtResultBookingReferenceNumber.Text = string.Empty;
-                }
+//                if (!string.IsNullOrEmpty(dispatchConfirmationNumber))
+//                {
+//                    txtResultBookingReferenceNumber.Text = dispatchConfirmationNumber;
+//                }
+//                else
+//                {
+//                    txtResultBookingReferenceNumber.Text = string.Empty;
+//                }
 
-                if (labels.Any())
-                {
-                    int i = 0;
-                    // Prepare our files for viewing
-                    foreach (var label in labels)
-                    {
-                        var tempFilename = Common.GetTempFilenameWithExtension(txtResultAWB.Text, label.LabelImageFormat);
-                        File.WriteAllBytes(tempFilename, label.GraphicImage);
-                        _generatedTempFiles.Add(tempFilename);
+//                if (labels.Any())
+//                {
+//                    int i = 0;
+//                    // Prepare our files for viewing
+//                    foreach (var label in labels)
+//                    {
+//                        var tempFilename = Common.GetTempFilenameWithExtension(txtResultAWB.Text, label.LabelImageFormat);
+//                        File.WriteAllBytes(tempFilename, label.GraphicImage);
+//                        _generatedTempFiles.Add(tempFilename);
 
-                        if (0 == i++)
-                        {
-                            llblAWB.Tag = tempFilename;
-                            llblAWB.LinkBehavior = LinkBehavior.AlwaysUnderline;
-                            llblAWB.ForeColor = Color.White;
-                            llblAWB.Font = new Font(llblAWB.Font, FontStyle.Bold);
-                        }
-                    }                    
-                }
+//                        if (0 == i++)
+//                        {
+//                            llblAWB.Tag = tempFilename;
+//                            llblAWB.LinkBehavior = LinkBehavior.AlwaysUnderline;
+//                            llblAWB.ForeColor = Color.White;
+//                            llblAWB.Font = new Font(llblAWB.Font, FontStyle.Bold);
+//                        }
+//                    }                    
+//                }
                 
-            }
-            finally
-            {
-                this.Enabled = true;
-            }
+//            }
+//            finally
+//            {
+//                this.Enabled = true;
+//            }
         }
 
         private void ClearInputErrors()

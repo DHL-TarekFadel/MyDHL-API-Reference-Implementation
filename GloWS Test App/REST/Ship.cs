@@ -1,7 +1,7 @@
-﻿using GloWS_REST_Library;
-using GloWS_REST_Library.Objects;
-using GloWS_REST_Library.Objects.Common;
-using GloWS_REST_Library.Objects.Ship;
+﻿using MyDHLAPI_REST_Library;
+using MyDHLAPI_REST_Library.Objects;
+using MyDHLAPI_REST_Library.Objects.Common;
+using MyDHLAPI_REST_Library.Objects.Ship;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -9,10 +9,10 @@ using System.Linq;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using System.IO;
-using GloWS_REST_Library.Objects.Exceptions;
-using GloWS_REST_Library.Objects.Ship.Response;
+using MyDHLAPI_REST_Library.Objects.Exceptions;
+using MyDHLAPI_REST_Library.Objects.Ship.Response;
 
-namespace GloWS_Test_App.REST
+namespace MyDHLAPI_Test_App.REST
 {
     public partial class Ship : Form
     {
@@ -382,7 +382,7 @@ namespace GloWS_Test_App.REST
                 }
 
                 /*** GENERATE SHIPMENT ***/
-                GloWS glows = new GloWS_REST_Library.GloWS(Common.CurrentCredentials["Username"]
+                MyDHLAPI glows = new MyDHLAPI_REST_Library.MyDHLAPI(Common.CurrentCredentials["Username"]
                                                            , Common.CurrentCredentials["Password"]
                                                            , Common.CurrentRestBaseUrl);
 

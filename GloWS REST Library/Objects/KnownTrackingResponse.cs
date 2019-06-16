@@ -1,11 +1,11 @@
-﻿using GloWS_REST_Library.Objects.Common;
-using GloWS_REST_Library.Objects.Plumbing;
-using GloWS_REST_Library.Objects.Plumbing.Attributes;
-using GloWS_REST_Library.Objects.Tracking;
+﻿using MyDHLAPI_REST_Library.Objects.Common;
+using MyDHLAPI_REST_Library.Objects.Plumbing;
+using MyDHLAPI_REST_Library.Objects.Plumbing.Attributes;
+using MyDHLAPI_REST_Library.Objects.Tracking;
 using Newtonsoft.Json;
 using System.Collections.Generic;
 
-namespace GloWS_REST_Library.Objects
+namespace MyDHLAPI_REST_Library.Objects
 {
     public class KnownTrackingResponse
     {

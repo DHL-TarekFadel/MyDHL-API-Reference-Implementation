@@ -1,7 +1,7 @@
 ﻿using System.Xml.Linq;
 using System.Xml.Serialization;
 
-namespace GloWS_REST_Library.Objects.Plumbing
+namespace MyDHLAPI_REST_Library.Objects.Plumbing
 {
     public static class SerializationUtil
 {

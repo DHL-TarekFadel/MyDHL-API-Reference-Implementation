@@ -1,9 +1,9 @@
-﻿using GloWS_REST_Library.Objects.Tracking;
+﻿using MyDHLAPI_REST_Library.Objects.Tracking;
 using System;
 using System.ComponentModel.DataAnnotations;
 
 
-namespace GloWS_Test_App.Objects
+namespace MyDHLAPI_Test_App.Objects
 {
     public class TrackingEventData
     {

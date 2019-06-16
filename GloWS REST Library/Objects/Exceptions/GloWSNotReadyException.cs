@@ -1,4 +1,4 @@
-﻿namespace GloWS_REST_Library.Objects.Exceptions
+﻿namespace MyDHLAPI_REST_Library.Objects.Exceptions
 {
     public class GloWSNotReadyException : System.Exception
     {

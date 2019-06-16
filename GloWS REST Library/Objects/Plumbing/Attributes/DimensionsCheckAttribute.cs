@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.Reflection;
 
-namespace GloWS_REST_Library.Objects.Plumbing.Attributes
+namespace MyDHLAPI_REST_Library.Objects.Plumbing.Attributes
 {
     public class DimensionsCheckAttribute : ValidationAttribute
     {

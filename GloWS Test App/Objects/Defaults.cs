@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GloWS_Test_App.Objects
+namespace MyDHLAPI_Test_App.Objects
 {
     public class Defaults
     {

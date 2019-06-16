@@ -1,16 +1,16 @@
-﻿using GloWS_REST_Library;
-using GloWS_REST_Library.Objects.Common;
+﻿using MyDHLAPI_REST_Library;
+using MyDHLAPI_REST_Library.Objects.Common;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
-using GloWS_REST_Library.Objects;
-using GloWS_REST_Library.Objects.Exceptions;
+using MyDHLAPI_REST_Library.Objects;
+using MyDHLAPI_REST_Library.Objects.Exceptions;
 using System.ComponentModel.DataAnnotations;
-using GloWS_REST_Library.Objects.Tracking;
-using GloWS_Test_App.Objects;
+using MyDHLAPI_REST_Library.Objects.Tracking;
+using MyDHLAPI_Test_App.Objects;
 
-namespace GloWS_Test_App.REST
+namespace MyDHLAPI_Test_App.REST
 {
     public partial class Track : Form
     {
@@ -47,7 +47,7 @@ namespace GloWS_Test_App.REST
             {
                 this.Enabled = false;
 
-                GloWS glows = new GloWS(Common.CurrentCredentials["Username"]
+                MyDHLAPI glows = new MyDHLAPI(Common.CurrentCredentials["Username"]
                                         , Common.CurrentCredentials["Password"]
                                         , Common.CurrentRestBaseUrl);
                 KnownTrackingResponse resp = null;
@@ -202,6 +202,12 @@ namespace GloWS_Test_App.REST
 
         private void SetTextboxText(ref TextBox tbx, string text, bool isWeight = false, string weightUnit = "KG")
         {
+            if (string.IsNullOrEmpty(text))
+            {
+                tbx.Text = string.Empty;
+                return;
+            }
+
             if (!isWeight)
             {
                 tbx.Text = text.Trim();
@@ -209,7 +215,6 @@ namespace GloWS_Test_App.REST
             else
             {
                 tbx.Text = $"{text.Trim()} {weightUnit}";
-
             }
 
         }

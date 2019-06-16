@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace GloWS_REST_Library.Objects.ePOD
+namespace MyDHLAPI_REST_Library.Objects.ePOD
 {
     public class ReceiverInfo
     {

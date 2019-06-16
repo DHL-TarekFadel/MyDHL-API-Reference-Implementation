@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace GloWS_REST_Library.Objects.Tracking
+namespace MyDHLAPI_REST_Library.Objects.Tracking
 {
     public class ServiceArea
     {

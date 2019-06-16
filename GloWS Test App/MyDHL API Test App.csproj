@@ -6,8 +6,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{AE7F2081-CC88-41FF-A62E-570C62988BFA}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>GloWS_Test_App</RootNamespace>
-    <AssemblyName>GloWS Test App</AssemblyName>
+    <RootNamespace>MyDHLAPI_Test_App</RootNamespace>
+    <AssemblyName>MyDHL API Test App</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -161,6 +161,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="REST\ePOD.resx">
       <DependentUpon>ePOD.cs</DependentUpon>
@@ -186,58 +187,58 @@
     <EmbeddedResource Include="SOAP\XMLViewer.resx">
       <DependentUpon>XMLViewer.cs</DependentUpon>
     </EmbeddedResource>
-    <None Include="Connected Services\com.dhl.wsbexpress.epod\GloWS_Test_App.com.dhl.wsbexpress.epod.shipmentDocumentRetrieveRespMSG.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\com.dhl.wsbexpress.epod\GloWS_Test_App.com.dhl.wsbexpress.epod.ShipmentDocumentRetrieveResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
     <None Include="Connected Services\com.dhl.wsbexpress.epod\GWSManagement DocumentRetrieve %28updated%29.wsdl" />
-    <None Include="Connected Services\com.dhl.wsbexpress.label\glDHLExpressLabel.wsdl" />
-    <None Include="Connected Services\com.dhl.wsbexpress.label\GloWS_Test_App.com.dhl.wsbexpress.label.labelRequestResponse.datasource">
+    <None Include="Connected Services\com.dhl.wsbexpress.epod\MyDHLAPI_Test_App.com.dhl.wsbexpress.epod.shipmentDocumentRetrieveRespMSG.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Connected Services\com.dhl.wsbexpress.label\GloWS_Test_App.com.dhl.wsbexpress.label.LabelResponse.datasource">
+    <None Include="Connected Services\com.dhl.wsbexpress.epod\MyDHLAPI_Test_App.com.dhl.wsbexpress.epod.ShipmentDocumentRetrieveResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\com.dhl.wsbexpress.label\glDHLExpressLabel.wsdl" />
+    <None Include="Connected Services\com.dhl.wsbexpress.label\MyDHLAPI_Test_App.com.dhl.wsbexpress.label.labelRequestResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\com.dhl.wsbexpress.label\MyDHLAPI_Test_App.com.dhl.wsbexpress.label.LabelResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\com.dhl.wsbexpress.shipment\expressRateBook1.wsdl" />
-    <None Include="Connected Services\com.dhl.wsbexpress.shipment\GloWS_Test_App.com.dhl.wsbexpress.shipment.createShipmentRequestResponse.datasource">
+    <None Include="Connected Services\com.dhl.wsbexpress.shipment\MyDHLAPI_Test_App.com.dhl.wsbexpress.shipment.createShipmentRequestResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Connected Services\com.dhl.wsbexpress.shipment\GloWS_Test_App.com.dhl.wsbexpress.shipment.deleteShipmentRequestResponse.datasource">
+    <None Include="Connected Services\com.dhl.wsbexpress.shipment\MyDHLAPI_Test_App.com.dhl.wsbexpress.shipment.deleteShipmentRequestResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Connected Services\com.dhl.wsbexpress.shipment\GloWS_Test_App.com.dhl.wsbexpress.shipment.docTypeRef_LabelImageType.datasource">
+    <None Include="Connected Services\com.dhl.wsbexpress.shipment\MyDHLAPI_Test_App.com.dhl.wsbexpress.shipment.docTypeRef_LabelImageType.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Connected Services\com.dhl.wsbexpress.shipment\GloWS_Test_App.com.dhl.wsbexpress.shipment.docTypeRef_NotificationType.datasource">
+    <None Include="Connected Services\com.dhl.wsbexpress.shipment\MyDHLAPI_Test_App.com.dhl.wsbexpress.shipment.docTypeRef_NotificationType.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Connected Services\com.dhl.wsbexpress.shipment\GloWS_Test_App.com.dhl.wsbexpress.shipment.docTypeRef_NotificationType2.datasource">
+    <None Include="Connected Services\com.dhl.wsbexpress.shipment\MyDHLAPI_Test_App.com.dhl.wsbexpress.shipment.docTypeRef_NotificationType2.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Connected Services\com.dhl.wsbexpress.shipment\GloWS_Test_App.com.dhl.wsbexpress.shipment.docTypeRef_PackageResultType.datasource">
+    <None Include="Connected Services\com.dhl.wsbexpress.shipment\MyDHLAPI_Test_App.com.dhl.wsbexpress.shipment.docTypeRef_PackageResultType.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Connected Services\com.dhl.wsbexpress.shipment\GloWS_Test_App.com.dhl.wsbexpress.shipment.docTypeRef_ProviderType.datasource">
+    <None Include="Connected Services\com.dhl.wsbexpress.shipment\MyDHLAPI_Test_App.com.dhl.wsbexpress.shipment.docTypeRef_ProviderType.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
-    <None Include="Connected Services\com.dhl.wsbexpress.shipment\GloWS_Test_App.com.dhl.wsbexpress.shipment.getRateRequestResponse.datasource">
+    <None Include="Connected Services\com.dhl.wsbexpress.shipment\MyDHLAPI_Test_App.com.dhl.wsbexpress.shipment.getRateRequestResponse.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>
     </None>
     <None Include="Connected Services\com.dhl.wsbexpress.track\glDHLExpressTrack.wsdl" />
-    <None Include="Connected Services\com.dhl.wsbexpress.track\GloWS_Test_App.com.dhl.wsbexpress.track.pubTrackingResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
-    <None Include="Connected Services\com.dhl.wsbexpress.track\GloWS_Test_App.com.dhl.wsbexpress.track.trackShipmentRequestResponse.datasource">
-      <DependentUpon>Reference.svcmap</DependentUpon>
-    </None>
     <Content Include="defaults.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="defaults-example.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <None Include="Connected Services\com.dhl.wsbexpress.track\MyDHLAPI_Test_App.com.dhl.wsbexpress.track.pubTrackingResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Connected Services\com.dhl.wsbexpress.track\MyDHLAPI_Test_App.com.dhl.wsbexpress.track.trackShipmentRequestResponse.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
     <None Include="packages.config">
       <SubType>Designer</SubType>
     </None>
@@ -321,9 +322,9 @@
     <Content Include="GloWS Test App.ico" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\GloWS REST Library\GloWS REST Library.csproj">
+    <ProjectReference Include="..\GloWS REST Library\MyDHL API REST Library.csproj">
       <Project>{780faa01-f809-47ad-ae7b-963ab028bfc0}</Project>
-      <Name>GloWS REST Library</Name>
+      <Name>MyDHL API REST Library</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

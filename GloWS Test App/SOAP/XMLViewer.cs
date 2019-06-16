@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 
-namespace GloWS_Test_App.SOAP
+namespace MyDHLAPI_Test_App.SOAP
 {
     public partial class XMLViewer : Form
     {

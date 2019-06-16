@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 
-namespace GloWS_Test_App.REST
+namespace MyDHLAPI_Test_App.REST
 {
     public partial class JSONViewer : Form
     {

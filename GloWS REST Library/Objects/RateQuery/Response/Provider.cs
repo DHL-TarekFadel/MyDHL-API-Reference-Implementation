@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
-using GloWS_REST_Library.Objects.Common.Response;
+using MyDHLAPI_REST_Library.Objects.Common.Response;
 using Newtonsoft.Json;
 
-namespace GloWS_REST_Library.Objects.RateQuery.Response
+namespace MyDHLAPI_REST_Library.Objects.RateQuery.Response
 {
     public class Provider {
         [JsonProperty("@code")]

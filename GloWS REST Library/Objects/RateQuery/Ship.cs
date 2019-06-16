@@ -1,6 +1,6 @@
-﻿using GloWS_REST_Library.Objects.Plumbing.Attributes;
+﻿using MyDHLAPI_REST_Library.Objects.Plumbing.Attributes;
 
-namespace GloWS_REST_Library.Objects.RateQuery {
+namespace MyDHLAPI_REST_Library.Objects.RateQuery {
     public class Ship {
         /// <summary>
         /// Shipper's address information

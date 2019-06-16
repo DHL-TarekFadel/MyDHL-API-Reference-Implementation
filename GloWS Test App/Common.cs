@@ -1,4 +1,4 @@
-﻿using GloWS_Test_App.Objects;
+﻿using MyDHLAPI_Test_App.Objects;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -7,7 +7,7 @@ using System.ServiceModel;
 using System.ServiceModel.Channels;
 using System.Xml.Serialization;
 
-namespace GloWS_Test_App
+namespace MyDHLAPI_Test_App
 {
     public static class Common
     {

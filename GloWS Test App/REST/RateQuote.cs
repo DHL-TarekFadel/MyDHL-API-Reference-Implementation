@@ -185,6 +185,8 @@ namespace MyDHLAPI_Test_App.REST {
                     rs.SpecialServices = sss;
                 }
 
+                rs.GetDetailedRateBreakdown = Enums.YesNo.Yes;
+
                 rr.RequestedShipment = rs;
                 rqr.RateRequest = rr;
 

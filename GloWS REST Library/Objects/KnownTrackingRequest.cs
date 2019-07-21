@@ -17,9 +17,29 @@ namespace MyDHLAPI_REST_Library.Objects
         [ValidateObject]
         public Request Request { get; set; }
 
+        [StringLength(3)]
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+        public string LanguageCode { get; set; }
+
+        [StringLength(4)]
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+        public string LanguageScriptCode { get; set; }
+
+        [StringLength(2)]
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+        public string LanguageCountryCode { get; set; }
+
         [ValidateObject]
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         public AWBNumber AWBNumber { get; set; }
+
+        [ValidateObject]
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+        public LPNumber LPNumber { get; set; }
+
+        [ValidateObject]
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+        public ReferenceQuery ReferenceQuery { get; set; }
 
         [Required]
         [JsonConverter(typeof(StringEnumConverter))]

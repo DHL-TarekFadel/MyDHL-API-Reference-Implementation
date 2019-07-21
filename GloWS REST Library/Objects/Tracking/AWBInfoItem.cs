@@ -19,6 +19,21 @@ namespace MyDHLAPI_REST_Library.Objects.Tracking
         public Pieces Pieces { get; set; }
 
         [JsonIgnore]
-        public List<PieceInfoItem> PieceInfo => Pieces.PieceInfo.ArrayOfPieceInfoItem;
+        public List<PieceInfoItem> PieceInfo
+        {
+            get
+            {
+                List<PieceInfoItem> retval = new List<PieceInfoItem>();
+
+                if (null != Pieces
+                    && null != Pieces.PieceInfo
+                    && null != Pieces.PieceInfo.ArrayOfPieceInfoItem)
+                {
+                    retval = Pieces.PieceInfo.ArrayOfPieceInfoItem;
+                }
+
+                return retval;
+            }
+        }
     }
 }

@@ -14,8 +14,8 @@ namespace MyDHLAPI_Test_App.REST
 {
     public partial class Track : Form
     {
-        private string _gloWsRequest;
-        private string _gloWsResponse;
+        private string _myDHLAPIRequest;
+        private string _myDHLAPIResponse;
 
         public Track()
         {
@@ -29,6 +29,10 @@ namespace MyDHLAPI_Test_App.REST
             {
                 txtTrackingNumber.Text = Common.Defaults.TrackingAWBNumber;
             }
+
+            cmbTrackingType.DataSource = new BindingSource(Enums.LevelOfDetailsList, null);
+            cmbTrackingType.DisplayMember = "KEY";
+            cmbTrackingType.ValueMember = "VALUE";
         }
 
         private void BtnTrack_Click(object sender, EventArgs e)
@@ -47,29 +51,22 @@ namespace MyDHLAPI_Test_App.REST
             {
                 this.Enabled = false;
 
-                MyDHLAPI glows = new MyDHLAPI(Common.CurrentCredentials["Username"]
+                MyDHLAPI mydhlAPI = new MyDHLAPI(Common.CurrentCredentials["Username"]
                                         , Common.CurrentCredentials["Password"]
                                         , Common.CurrentRestBaseUrl);
                 KnownTrackingResponse resp = null;
                 
                 try
                 {
-                    //if (10 == txtTrackingNumber.Text.Length)
-                    //{
-                    //    reqData.TrackingRequest.AWBNumber = new[] { txtTrackingNumber.Text.Trim() };
-                    //}
-                    //else
-                    //{
-                    //    reqData.TrackingRequest.LPNumber = new[] { txtTrackingNumber.Text.Trim() };
-                    //}
+                    Enums.LevelOfDetails lod = (Enums.LevelOfDetails) cmbTrackingType.SelectedValue;
 
-                    resp = glows.KnownAWBTracking(new List<string>() { txtTrackingNumber.Text }
-                                                  , Enums.LevelOfDetails.AllCheckpoints
+                    resp = mydhlAPI.KnownAWBTracking(new List<string>() { txtTrackingNumber.Text }
+                                                  , lod
                                                   , Enums.PiecesEnabled.Both
                                                   , Enums.EstimatedDeliveryDateEnabled.Yes);
 
-                    _gloWsRequest = glows.LastJSONRequest;
-                    _gloWsResponse = glows.LastJSONResponse;
+                    _myDHLAPIRequest = mydhlAPI.LastJSONRequest;
+                    _myDHLAPIResponse = mydhlAPI.LastJSONResponse;
                 }
                 catch (GloWSValidationException ex)
                 {
@@ -79,6 +76,12 @@ namespace MyDHLAPI_Test_App.REST
                         msg += $"{Environment.NewLine}   {validationResult.ErrorMessage}";
                     }
                     MessageBox.Show(msg, "Validation Errors", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Exception Caught: {ex.Message}");
+                    _myDHLAPIRequest = mydhlAPI.LastJSONRequest;
                     return;
                 }
 
@@ -148,7 +151,8 @@ namespace MyDHLAPI_Test_App.REST
                     eventData.AddRange(shipmentEvents);
                 }
 
-                if (null != shipment.Pieces.PieceInfo)
+                if (null != shipment.Pieces
+                    && null != shipment.Pieces.PieceInfo)
                 {
                     List<TrackingEventData> pieceEvents;
                     foreach (PieceInfoItem piece in shipment.PieceInfo)
@@ -243,13 +247,13 @@ namespace MyDHLAPI_Test_App.REST
 
         private void BtnViewRequest_Click(object sender, EventArgs e)
         {
-            JSONViewer frm = new JSONViewer(_gloWsRequest);
+            JSONViewer frm = new JSONViewer(_myDHLAPIRequest);
             frm.ShowDialog();
         }
 
         private void BtnViewResponse_Click(object sender, EventArgs e)
         {
-            JSONViewer frm = new JSONViewer(_gloWsResponse);
+            JSONViewer frm = new JSONViewer(_myDHLAPIResponse);
             frm.ShowDialog();
         }
 

@@ -50,6 +50,8 @@
             this.btnViewResponse = new System.Windows.Forms.Button();
             this.ToolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.dgvTrackingData = new System.Windows.Forms.DataGridView();
+            this.cmbTrackingType = new System.Windows.Forms.ComboBox();
+            this.label9 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTrackingData)).BeginInit();
             this.SuspendLayout();
             // 
@@ -57,15 +59,15 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Frutiger", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(205, 24);
+            this.label1.Location = new System.Drawing.Point(9, 23);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(77, 14);
+            this.label1.Size = new System.Drawing.Size(80, 14);
             this.label1.TabIndex = 0;
-            this.label1.Text = "AWB/Piece ID";
+            this.label1.Text = "AWB/Piece ID:";
             // 
             // txtTrackingNumber
             // 
-            this.txtTrackingNumber.Location = new System.Drawing.Point(289, 21);
+            this.txtTrackingNumber.Location = new System.Drawing.Point(95, 20);
             this.txtTrackingNumber.Name = "txtTrackingNumber";
             this.txtTrackingNumber.Size = new System.Drawing.Size(167, 20);
             this.txtTrackingNumber.TabIndex = 1;
@@ -74,10 +76,10 @@
             // btnTrack
             // 
             this.btnTrack.Font = new System.Drawing.Font("Frutiger", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTrack.Location = new System.Drawing.Point(462, 19);
+            this.btnTrack.Location = new System.Drawing.Point(507, 19);
             this.btnTrack.Name = "btnTrack";
             this.btnTrack.Size = new System.Drawing.Size(78, 23);
-            this.btnTrack.TabIndex = 2;
+            this.btnTrack.TabIndex = 3;
             this.btnTrack.Text = "TRACK";
             this.btnTrack.UseVisualStyleBackColor = true;
             this.btnTrack.Click += new System.EventHandler(this.BtnTrack_Click);
@@ -86,11 +88,11 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Frutiger", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(27, 53);
+            this.label2.Location = new System.Drawing.Point(24, 53);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(47, 14);
+            this.label2.Size = new System.Drawing.Size(50, 14);
             this.label2.TabIndex = 0;
-            this.label2.Text = "Shipper";
+            this.label2.Text = "Shipper:";
             // 
             // txtShipper
             // 
@@ -105,11 +107,11 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Frutiger", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(12, 79);
+            this.label3.Location = new System.Drawing.Point(9, 79);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(62, 14);
+            this.label3.Size = new System.Drawing.Size(65, 14);
             this.label3.TabIndex = 0;
-            this.label3.Text = "Consignee";
+            this.label3.Text = "Consignee:";
             // 
             // txtConsignee
             // 
@@ -126,16 +128,16 @@
             this.label5.Font = new System.Drawing.Font("Frutiger", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(250, 53);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(57, 14);
+            this.label5.Size = new System.Drawing.Size(60, 14);
             this.label5.TabIndex = 0;
-            this.label5.Text = "Ship Date";
+            this.label5.Text = "Ship Date:";
             // 
             // txtShipmentDate
             // 
-            this.txtShipmentDate.Location = new System.Drawing.Point(313, 50);
+            this.txtShipmentDate.Location = new System.Drawing.Point(316, 50);
             this.txtShipmentDate.Name = "txtShipmentDate";
             this.txtShipmentDate.ReadOnly = true;
-            this.txtShipmentDate.Size = new System.Drawing.Size(152, 20);
+            this.txtShipmentDate.Size = new System.Drawing.Size(155, 20);
             this.txtShipmentDate.TabIndex = 1;
             this.txtShipmentDate.TabStop = false;
             // 
@@ -145,16 +147,16 @@
             this.label6.Font = new System.Drawing.Font("Frutiger", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label6.Location = new System.Drawing.Point(269, 79);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(38, 14);
+            this.label6.Size = new System.Drawing.Size(41, 14);
             this.label6.TabIndex = 0;
-            this.label6.Text = "Pieces";
+            this.label6.Text = "Pieces:";
             // 
             // txtNumberOfPieces
             // 
-            this.txtNumberOfPieces.Location = new System.Drawing.Point(313, 76);
+            this.txtNumberOfPieces.Location = new System.Drawing.Point(316, 76);
             this.txtNumberOfPieces.Name = "txtNumberOfPieces";
             this.txtNumberOfPieces.ReadOnly = true;
-            this.txtNumberOfPieces.Size = new System.Drawing.Size(47, 20);
+            this.txtNumberOfPieces.Size = new System.Drawing.Size(28, 20);
             this.txtNumberOfPieces.TabIndex = 1;
             this.txtNumberOfPieces.TabStop = false;
             // 
@@ -162,18 +164,18 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Frutiger", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(366, 79);
+            this.label7.Location = new System.Drawing.Point(350, 79);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(45, 14);
+            this.label7.Size = new System.Drawing.Size(48, 14);
             this.label7.TabIndex = 0;
-            this.label7.Text = "Weight";
+            this.label7.Text = "Weight:";
             // 
             // txtShipmentWeight
             // 
-            this.txtShipmentWeight.Location = new System.Drawing.Point(417, 76);
+            this.txtShipmentWeight.Location = new System.Drawing.Point(404, 76);
             this.txtShipmentWeight.Name = "txtShipmentWeight";
             this.txtShipmentWeight.ReadOnly = true;
-            this.txtShipmentWeight.Size = new System.Drawing.Size(48, 20);
+            this.txtShipmentWeight.Size = new System.Drawing.Size(67, 20);
             this.txtShipmentWeight.TabIndex = 1;
             this.txtShipmentWeight.TabStop = false;
             // 
@@ -182,19 +184,19 @@
             this.label8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Frutiger", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(471, 79);
+            this.label8.Location = new System.Drawing.Point(477, 79);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(90, 14);
+            this.label8.Size = new System.Drawing.Size(93, 14);
             this.label8.TabIndex = 0;
-            this.label8.Text = "Last Checkpoint";
+            this.label8.Text = "Last Checkpoint:";
             // 
             // txtShipmentLastCheckpoint
             // 
             this.txtShipmentLastCheckpoint.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtShipmentLastCheckpoint.Location = new System.Drawing.Point(567, 76);
+            this.txtShipmentLastCheckpoint.Location = new System.Drawing.Point(576, 76);
             this.txtShipmentLastCheckpoint.Name = "txtShipmentLastCheckpoint";
             this.txtShipmentLastCheckpoint.ReadOnly = true;
-            this.txtShipmentLastCheckpoint.Size = new System.Drawing.Size(164, 20);
+            this.txtShipmentLastCheckpoint.Size = new System.Drawing.Size(157, 20);
             this.txtShipmentLastCheckpoint.TabIndex = 1;
             this.txtShipmentLastCheckpoint.TabStop = false;
             // 
@@ -203,19 +205,19 @@
             this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Frutiger", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(504, 53);
+            this.label4.Location = new System.Drawing.Point(509, 53);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(58, 14);
+            this.label4.Size = new System.Drawing.Size(61, 14);
             this.label4.TabIndex = 0;
-            this.label4.Text = "Reference";
+            this.label4.Text = "Reference:";
             // 
             // txtShipmentReference
             // 
             this.txtShipmentReference.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtShipmentReference.Location = new System.Drawing.Point(568, 50);
+            this.txtShipmentReference.Location = new System.Drawing.Point(576, 50);
             this.txtShipmentReference.Name = "txtShipmentReference";
             this.txtShipmentReference.ReadOnly = true;
-            this.txtShipmentReference.Size = new System.Drawing.Size(164, 20);
+            this.txtShipmentReference.Size = new System.Drawing.Size(157, 20);
             this.txtShipmentReference.TabIndex = 1;
             this.txtShipmentReference.TabStop = false;
             // 
@@ -226,7 +228,7 @@
             this.btnViewRequest.Location = new System.Drawing.Point(642, 19);
             this.btnViewRequest.Name = "btnViewRequest";
             this.btnViewRequest.Size = new System.Drawing.Size(41, 23);
-            this.btnViewRequest.TabIndex = 2;
+            this.btnViewRequest.TabIndex = 4;
             this.btnViewRequest.TabStop = false;
             this.btnViewRequest.Text = "REQ";
             this.ToolTip1.SetToolTip(this.btnViewRequest, "View Request XML");
@@ -240,7 +242,7 @@
             this.btnViewResponse.Location = new System.Drawing.Point(689, 19);
             this.btnViewResponse.Name = "btnViewResponse";
             this.btnViewResponse.Size = new System.Drawing.Size(44, 23);
-            this.btnViewResponse.TabIndex = 2;
+            this.btnViewResponse.TabIndex = 5;
             this.btnViewResponse.TabStop = false;
             this.btnViewResponse.Text = "RESP";
             this.ToolTip1.SetToolTip(this.btnViewResponse, "View Response XML");
@@ -262,12 +264,32 @@
             this.dgvTrackingData.Size = new System.Drawing.Size(721, 318);
             this.dgvTrackingData.TabIndex = 3;
             // 
+            // cmbTrackingType
+            // 
+            this.cmbTrackingType.FormattingEnabled = true;
+            this.cmbTrackingType.Location = new System.Drawing.Point(369, 21);
+            this.cmbTrackingType.Name = "cmbTrackingType";
+            this.cmbTrackingType.Size = new System.Drawing.Size(121, 21);
+            this.cmbTrackingType.TabIndex = 2;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Frutiger", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(281, 24);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(82, 14);
+            this.label9.TabIndex = 5;
+            this.label9.Text = "Tracking Type:";
+            // 
             // Track
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(204)))), ((int)(((byte)(0)))));
             this.ClientSize = new System.Drawing.Size(744, 432);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.cmbTrackingType);
             this.Controls.Add(this.dgvTrackingData);
             this.Controls.Add(this.btnViewResponse);
             this.Controls.Add(this.btnViewRequest);
@@ -320,5 +342,7 @@
         private System.Windows.Forms.Button btnViewResponse;
         private System.Windows.Forms.ToolTip ToolTip1;
         private System.Windows.Forms.DataGridView dgvTrackingData;
+        private System.Windows.Forms.ComboBox cmbTrackingType;
+        private System.Windows.Forms.Label label9;
     }
 }

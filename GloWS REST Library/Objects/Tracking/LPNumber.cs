@@ -3,22 +3,21 @@ using System.Collections.Generic;
 
 namespace MyDHLAPI_REST_Library.Objects.Tracking
 {
-    public class AWBNumber
+    public class LPNumber
     {
-        [AWBNumber]
         [CollectionLength(100, 0)]
         public List<string> ArrayOfAWBNumberItem { get; set; } = new List<string>();
 
-        public AWBNumber() { }
+        public LPNumber() { }
 
-        public AWBNumber (string awbNumber)
+        public LPNumber(string lpNumber)
         {
-            ArrayOfAWBNumberItem.Add(awbNumber);
+            ArrayOfAWBNumberItem.Add(lpNumber);
         }
 
-        public AWBNumber (IEnumerable<string> awbNumbers)
+        public LPNumber(IEnumerable<string> lpNumbers)
         {
-            ArrayOfAWBNumberItem.AddRange(awbNumbers);
+            ArrayOfAWBNumberItem.AddRange(lpNumbers);
         }
     }
 }

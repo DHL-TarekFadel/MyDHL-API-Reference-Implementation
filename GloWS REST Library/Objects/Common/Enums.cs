@@ -1,4 +1,7 @@
-﻿using System.Runtime.Serialization;
+﻿using System.Collections.Generic;
+using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
+using System.Runtime.Serialization;
 
 namespace MyDHLAPI_REST_Library.Objects.Common
 {
@@ -40,10 +43,46 @@ namespace MyDHLAPI_REST_Library.Objects.Common
 
         public enum LevelOfDetails
         {
+            [Display(Name = "All (as captured)")]
             [EnumMember(Value = "ALL_CHECK_POINTS")]
             AllCheckpoints,
+            [Display(Name = "Last (as captured)")]
             [EnumMember(Value = "LAST_CHECK_POINT_ONLY")]
-            LastCheckpointOnly
+            LastCheckpointOnly,
+            [Display(Name = "All (derived)")]
+            [EnumMember(Value = "ALL_CHECKPOINTS")]
+            AllDerivedCheckpoints,
+            [Display(Name = "Last (derived)")]
+            [EnumMember(Value = "LAST_CHECKPOINT_ONLY")]
+            LastDerivedCheckpointOnly,
+            [Display(Name = "Advance Shipment")]
+            [EnumMember(Value = "ADVANCE_SHIPMENT")]
+            AdvanceShipment,
+            [Display(Name = "BBX Children")]
+            [EnumMember(Value = "BBX_CHILDREN")]
+            BBXChildren,
+            [Display(Name = "No Events")]
+            [EnumMember(Value = "SHIPMENT_DETAILS_ONLY")]
+            ShipmentDetailsOnly
+        }
+
+        public static Dictionary<string, LevelOfDetails> LevelOfDetailsList
+        {
+            get
+            {
+                var retval = new Dictionary<string, LevelOfDetails>
+                {
+                    { "All (as captured)", LevelOfDetails.AllCheckpoints }
+                    , { "Last (as captured)", LevelOfDetails.LastCheckpointOnly }
+                    , { "All (derived)", LevelOfDetails.AllDerivedCheckpoints }
+                    , { "Last (derived)", LevelOfDetails.LastDerivedCheckpointOnly }
+                    , { "Advance Shipment", LevelOfDetails.AdvanceShipment }
+                    , { "BBX Children", LevelOfDetails.BBXChildren }
+                    , { "No Events", LevelOfDetails.ShipmentDetailsOnly }
+                };
+
+                return retval;
+            }
         }
 
         public enum PiecesEnabled
@@ -370,6 +409,167 @@ namespace MyDHLAPI_REST_Library.Objects.Common
             /// </summary>
             [EnumMember(Value = "C")]
             Concierge
+        }
+        // ReSharper restore StringLiteralTypo
+        // ReSharper restore CommentTypo
+
+        // ReSharper disable CommentTypo
+        // ReSharper disable StringLiteralTypo
+        public enum NetworkTypeCode
+        {
+            /// <summary>
+            /// Both Time Definite and Day Definite products will be returned
+            /// </summary>
+            [EnumMember(Value = "AL")]
+            All,
+            /// <summary>
+            /// Return only Day Definite products
+            /// </summary>
+            [EnumMember(Value = "DD")]
+            DayDefinite,
+            /// <summary>
+            /// Return only Time Definite products
+            /// </summary>
+            [EnumMember(Value = "TD")]
+            TimeDefinite
+        }
+        // ReSharper restore StringLiteralTypo
+        // ReSharper restore CommentTypo
+
+        // ReSharper disable CommentTypo
+        // ReSharper disable StringLiteralTypo
+        public enum PackageTypeCode
+        {
+            /// <summary>
+            /// Both Time Definite and Day Definite products will be returned
+            /// </summary>
+            [EnumMember(Value = "AL")]
+            All,
+            /// <summary>
+            /// Return only Day Definite products
+            /// </summary>
+            [EnumMember(Value = "DD")]
+            DayDefinite,
+            /// <summary>
+            /// Return only Time Definite products
+            /// </summary>
+            [EnumMember(Value = "TD")]
+            TimeDefinite
+        }
+        // ReSharper restore StringLiteralTypo
+        // ReSharper restore CommentTypo
+
+        // ReSharper disable CommentTypo
+        // ReSharper disable StringLiteralTypo
+        public enum DeliveryType
+        {
+            /// <summary>
+            /// The fastest ("docs") transit time as quoted to the customer at booking or shipment creation. No custom clearance is considered.
+            /// </summary>
+            [EnumMember(Value = "QDDF")]
+            CustomsClearanceNotFactoredIn,
+            /// <summary>
+            /// Constitutes DHL's service commitment as quoted at booking/shipment creation. QDDc builds in clearance time, and potentially other special operational non-transport component(s), when relevant.
+            /// </summary>
+            [EnumMember(Value = "QDDC")]
+            CustomsClearanceFactoredIn
+        }
+        // ReSharper restore StringLiteralTypo
+        // ReSharper restore CommentTypo
+
+        // ReSharper disable CommentTypo
+        // ReSharper disable StringLiteralTypo
+        public enum ChargeType
+        {
+            /// <summary>
+            /// Billing currency
+            /// </summary>
+            [EnumMember(Value = "BILLC")]
+            BillingCurrency,
+            /// <summary>
+            /// Country public rates currency
+            /// </summary>
+            [EnumMember(Value = "PULCL")]
+            PublishedLocalCurrency,
+            /// <summary>
+            /// Base currency
+            /// </summary>
+            [EnumMember(Value = "BASEC")]
+            BaseCurrency
+            /// <summary>
+            /// Breakdown item is a discount
+            /// </summary>
+            //[EnumMember(Value = "DISCOUNT")]
+            //Discount,
+            /// <summary>
+            /// Breakdown item is a tax
+            /// </summary>
+            //[EnumMember(Value = "TAX")]
+            //Tax
+        }
+        // ReSharper restore StringLiteralTypo
+        // ReSharper restore CommentTypo
+
+        // ReSharper disable CommentTypo
+        // ReSharper disable StringLiteralTypo
+        public enum TotalChargeType
+        {
+            /// <summary>
+            /// Total tax for the shipment
+            /// </summary>
+            [EnumMember(Value = "STTXA")]
+            TotalTax,
+            /// <summary>
+            /// Total discount for the shipment
+            /// </summary>
+            [EnumMember(Value = "STDIS")]
+            TotalDiscount,
+            /// <summary>
+            /// Net shipment / weight charge
+            /// </summary>
+            [EnumMember(Value = "SPRQT")]
+            ShipmentCharges
+        }
+        // ReSharper restore StringLiteralTypo
+        // ReSharper restore CommentTypo
+
+        // ReSharper disable CommentTypo
+        // ReSharper disable StringLiteralTypo
+        public enum ItemChargeType
+        {
+            [EnumMember(Value = "DUTY")]
+            Duty,
+            [EnumMember(Value = "TAX")]
+            Tax,
+            [EnumMember(Value = "FEE")]
+            Fee
+        }
+        // ReSharper restore StringLiteralTypo
+        // ReSharper restore CommentTypo
+
+        // ReSharper disable CommentTypo
+        // ReSharper disable StringLiteralTypo
+        public enum ChargeTypeCode
+        {
+            [EnumMember(Value = "XCH")]
+            ExtraCharge,
+            [EnumMember(Value = "FEE")]
+            Fee,
+            [EnumMember(Value = "SCH")]
+            Surcharge,
+            [EnumMember(Value = "NRI")]
+            NonRevenueItem
+        }
+        // ReSharper restore StringLiteralTypo
+        // ReSharper restore CommentTypo
+
+
+        // ReSharper disable CommentTypo
+        // ReSharper disable StringLiteralTypo
+        public enum ShipmentReferenceType
+        {
+            [EnumMember(Value = "CU")]
+            Consignor
         }
         // ReSharper restore StringLiteralTypo
         // ReSharper restore CommentTypo

@@ -16,9 +16,16 @@ namespace MyDHLAPI_REST_Library.Objects.Common {
         /// Special service code (ex: II for non-documents insurance)
         /// </summary>
         [Required]
-        [StringLength(2, MinimumLength = 2)]
+        [StringLength(3, MinimumLength = 2)]
         [JsonProperty("ServiceType")]
         public string ServiceType { get; set; }
+
+        /// <summary>
+        /// The DHL local or country specific Product Code used to ship the items
+        /// </summary>
+        [StringLength(3, MinimumLength = 2)]
+        [JsonProperty("LocalServiceType", NullValueHandling = NullValueHandling.Ignore)]
+        public string LocalServiceType { get; set; }
 
         /// <summary>
         /// Monetary value of service (e.g. Insured Value) – this is needed if you wish to get a quote on Insurance with your prospect shipment

@@ -92,5 +92,11 @@ namespace MyDHLAPI_Test_App
             Form frm = new REST.Ship();
             frm.Show();
         }
+
+        private void BtnAdHoc_Click(object sender, EventArgs e)
+        {
+            Form frm = new AdHoc();
+            frm.Show();
+        }
     }
 }

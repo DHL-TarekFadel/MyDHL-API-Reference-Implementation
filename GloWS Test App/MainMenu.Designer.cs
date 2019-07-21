@@ -41,6 +41,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.btnREST_RateQuery = new System.Windows.Forms.Button();
+            this.btnAdHoc = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnSOAP_Track
@@ -198,12 +199,27 @@
             this.btnREST_RateQuery.UseVisualStyleBackColor = false;
             this.btnREST_RateQuery.Click += new System.EventHandler(this.BtnREST_RateQuery_Click);
             // 
+            // btnAdHoc
+            // 
+            this.btnAdHoc.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(5)))), ((int)(((byte)(17)))));
+            this.btnAdHoc.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAdHoc.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAdHoc.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(204)))), ((int)(((byte)(0)))));
+            this.btnAdHoc.Location = new System.Drawing.Point(104, 298);
+            this.btnAdHoc.Name = "btnAdHoc";
+            this.btnAdHoc.Size = new System.Drawing.Size(99, 35);
+            this.btnAdHoc.TabIndex = 9;
+            this.btnAdHoc.Text = "Ad-Hoc";
+            this.btnAdHoc.UseVisualStyleBackColor = false;
+            this.btnAdHoc.Click += new System.EventHandler(this.BtnAdHoc_Click);
+            // 
             // MainMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(204)))), ((int)(((byte)(0)))));
-            this.ClientSize = new System.Drawing.Size(306, 313);
+            this.ClientSize = new System.Drawing.Size(306, 339);
+            this.Controls.Add(this.btnAdHoc);
             this.Controls.Add(this.btnREST_RateQuery);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label1);
@@ -239,6 +255,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btnREST_RateQuery;
+        private System.Windows.Forms.Button btnAdHoc;
     }
 }
 

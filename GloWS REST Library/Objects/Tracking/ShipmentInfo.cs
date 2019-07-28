@@ -27,6 +27,12 @@ namespace MyDHLAPI_REST_Library.Objects.Tracking
 
         public decimal Weight { get; set; }
 
+        public string WeightUnit { get; set; }
+
+        public ShipperReference ShipperReference { get; set; }
+
+        public DateTime? EstimatedDeliveryDate { get; set; }
+
         [JsonConverter(typeof(SingleOrArrayConverter<ShipmentEvent>))]
         [ValidateObject]
         public List<ShipmentEvent> ShipmentEvent { get; set; }

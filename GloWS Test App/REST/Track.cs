@@ -91,10 +91,17 @@ namespace MyDHLAPI_Test_App.REST
                     return;
                 }
 
-                // Get the most recent AWB Info (this is a common issue due to AWB reuse)
-                AWBInfoItem shipment = resp.ActualResponse.AWBInfo.Aggregate((a1, a2) => a1.ArrayOfAWBInfoItem.ShipmentInfo.ShipmentDate > a2.ArrayOfAWBInfoItem.ShipmentInfo.ShipmentDate ? a1 : a2).ArrayOfAWBInfoItem;
+                AWBInfoItem shipment = null;
 
-                if (shipment.Status.ActionStatus.ToLower() != "success")
+                if (resp.ActualResponse.AWBInfo.ArrayOfAWBInfoItem.Any(a => null != a.ShipmentInfo))
+                {
+                    // Get the most recent AWB Info (this is a common issue due to AWB reuse)
+                    shipment = resp.ActualResponse.AWBInfo.ArrayOfAWBInfoItem.Where(a => null != a.ShipmentInfo)
+                                                                             .Aggregate((a1, a2) => a1.ShipmentInfo.ShipmentDate > a2.ShipmentInfo.ShipmentDate ? a1 : a2);
+                }
+
+                if (null == shipment
+                    || shipment.Status.ActionStatus.ToLower() != "success")
                 {
                     MessageBox.Show("There was an error in tracking.");
                     return;
@@ -112,10 +119,10 @@ namespace MyDHLAPI_Test_App.REST
                 SetTextboxText(ref txtShipmentDate, shipment.ShipmentInfo.ShipmentDate);
                 SetTextboxText(ref txtNumberOfPieces, shipment.ShipmentInfo.Pieces);
                 SetTextboxText(ref txtShipmentWeight, shipment.ShipmentInfo.Weight, true);
-                //if (null != shipment.ShipmentInfo.ShipperReference)
-                //{
-                //    SetTextboxText(ref txtShipmentReference, shipment.ShipmentInfo.ShipperReference.ReferenceID);
-                //}
+                if (null != shipment.ShipmentInfo.ShipperReference)
+                {
+                    SetTextboxText(ref txtShipmentReference, shipment.ShipmentInfo.ShipperReference.ReferenceID);
+                }
 
                 List<string> lastCheckpoints = new List<string>();
                 foreach (PieceInfoItem piece in shipment.PieceInfo)

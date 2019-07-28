@@ -1,4 +1,5 @@
-﻿using MyDHLAPI_REST_Library.Objects.Plumbing.Attributes;
+﻿using MyDHLAPI_REST_Library.Objects.Plumbing;
+using MyDHLAPI_REST_Library.Objects.Plumbing.Attributes;
 using Newtonsoft.Json;
 using System.Collections.Generic;
 
@@ -10,13 +11,14 @@ namespace MyDHLAPI_REST_Library.Objects.Tracking
 
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         [ValidateObject]
-        public List<Condition> Condition { get; set; }
+        public Condition Condition { get; set; }
     }
 
     public class Condition
     {
         [ValidateObject]
-        public ConditionItem ArrayOfConditionItem { get; set; }
+        [JsonConverter(typeof(SingleOrArrayConverter<ConditionItem>))]
+        public List<ConditionItem> ArrayOfConditionItem { get; set; }
     }
 
     public class ConditionItem

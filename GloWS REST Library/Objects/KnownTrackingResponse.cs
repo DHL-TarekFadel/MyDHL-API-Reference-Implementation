@@ -37,9 +37,9 @@ namespace MyDHLAPI_REST_Library.Objects
         [ValidateObject]
         public Response Response { get; set; }
 
-        [JsonConverter(typeof(SingleOrArrayConverter<AWBInfo>))]
+
         [ValidateObject]
-        public List<AWBInfo> AWBInfo { get; set; }
+        public AWBInfo AWBInfo { get; set; }
     }
 
     public class Response

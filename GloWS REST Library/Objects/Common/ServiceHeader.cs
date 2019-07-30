@@ -17,21 +17,27 @@ namespace MyDHLAPI_REST_Library.Objects.Common
         public string MessageReference { get; set; } = Guid.NewGuid().ToString("N");
 
         [StringLength(20)]
+        [JsonProperty("WebstorePlatform", NullValueHandling = NullValueHandling.Ignore)]
         public string WebstorePlatform { get; set; }
 
         [StringLength(15)]
+        [JsonProperty("WebstorePlatformVersion", NullValueHandling = NullValueHandling.Ignore)]
         public string WebstorePlatformVersion { get; set; }
 
         [StringLength(20)]
+        [JsonProperty("ShippingSystemPlatform", NullValueHandling = NullValueHandling.Ignore)]
         public string ShippingSystemPlatform { get; set; }
 
         [StringLength(15)]
+        [JsonProperty("ShippingSystemPlatformVersion", NullValueHandling = NullValueHandling.Ignore)]
         public string ShippingSystemPlatformVersion { get; set; }
 
         [StringLength(20)]
+        [JsonProperty("PlugIn", NullValueHandling = NullValueHandling.Ignore)]
         public string Plugin { get; set; }
 
         [StringLength(15)]
+        [JsonProperty("PlugInVersion", NullValueHandling = NullValueHandling.Ignore)]
         public string PluginVersion { get; set; }
 
         public override string ToString()

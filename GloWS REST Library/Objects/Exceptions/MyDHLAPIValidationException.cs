@@ -5,11 +5,11 @@ using System.ComponentModel.DataAnnotations;
 
 namespace MyDHLAPI_REST_Library.Objects.Exceptions
 {
-    public class GloWSValidationException : System.Exception
+    public class MyDHLAPIValidationException : System.Exception
     {
         private const string _msg = "Validation errors were found. Please refer to the Exception data for more information.";
 
-        public GloWSValidationException(List<ValidationResult> validationResults)
+        public MyDHLAPIValidationException(List<ValidationResult> validationResults)
             : base(_msg)
         {
             base.Data.Add("ValidationResults", validationResults);
@@ -42,15 +42,5 @@ namespace MyDHLAPI_REST_Library.Objects.Exceptions
         {
             return new string(' ', indentationLevel * 2);
         }
-
-        //public string PrintValidationErrors(List<ValidationResult> data, string indent = "")
-        //{
-        //    string retval = string.Empty;
-
-        //    foreach (CompositeValidationResult item in data)
-        //    {
-        //        item.
-        //    }
-        //}
     }
 }

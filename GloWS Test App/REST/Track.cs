@@ -68,7 +68,7 @@ namespace MyDHLAPI_Test_App.REST
                     _myDHLAPIRequest = mydhlAPI.LastJSONRequest;
                     _myDHLAPIResponse = mydhlAPI.LastJSONResponse;
                 }
-                catch (GloWSValidationException ex)
+                catch (MyDHLAPIValidationException ex)
                 {
                     string msg = "Validation Failed:";
                     foreach (ValidationResult validationResult in ex.Data["ValidationResults"] as List<ValidationResult>)

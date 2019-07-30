@@ -11,6 +11,8 @@ using System.Linq;
 using System.Net;
 using System.Text;
 using MyDHLAPI_REST_Library.Objects.ePOD;
+using System.Reflection;
+using System.Diagnostics;
 
 namespace MyDHLAPI_REST_Library
 {
@@ -29,6 +31,11 @@ namespace MyDHLAPI_REST_Library
             _username = username;
             _password = password;
             _baseURL = baseUrl;
+        }
+
+        public string GetVersion()
+        {
+            return FileVersionInfo.GetVersionInfo(Assembly.GetAssembly(this.GetType()).Location).ProductVersion;
         }
 
         public string SendRequestAndReceiveResponse(string req, string endpoint)
@@ -92,7 +99,7 @@ namespace MyDHLAPI_REST_Library
             List<ValidationResult> validationResult = Common.Validate(ref ktr);
             if (validationResult.Any())
             {
-                throw new GloWSValidationException(validationResult);
+                throw new MyDHLAPIValidationException(validationResult);
             }
 
             LastJSONRequest = JsonConvert.SerializeObject(KnownTrackingRequest.DecorateRequest(ktr), Formatting.Indented);
@@ -127,7 +134,7 @@ namespace MyDHLAPI_REST_Library
 
             List<ValidationResult> validationResult = Common.Validate(ref rqr);
             if (validationResult.Any()) {
-                throw new GloWSValidationException(validationResult);
+                throw new MyDHLAPIValidationException(validationResult);
             }
 
             LastJSONRequest = JsonConvert.SerializeObject(rqr, Formatting.Indented);
@@ -187,7 +194,7 @@ namespace MyDHLAPI_REST_Library
             }
 
             if (validationResult.Any()) {
-                throw new GloWSValidationException(validationResult);
+                throw new MyDHLAPIValidationException(validationResult);
             }
 
             LastJSONRequest = JsonConvert.SerializeObject(req, Formatting.Indented);
@@ -224,8 +231,8 @@ namespace MyDHLAPI_REST_Library
             List<ValidationResult> validationResult = Common.Validate(ref req);
             if (validationResult.Any())
             {
-                string errors = GloWSValidationException.PrintResults(validationResult);
-                throw new GloWSValidationException(validationResult);
+                string errors = MyDHLAPIValidationException.PrintResults(validationResult);
+                throw new MyDHLAPIValidationException(validationResult);
             }
 
             LastJSONRequest = JsonConvert.SerializeObject(req, Formatting.Indented);

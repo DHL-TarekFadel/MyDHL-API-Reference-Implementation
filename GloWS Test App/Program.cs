@@ -34,7 +34,7 @@ namespace MyDHLAPI_Test_App
                         { "Username", credentials[0] },
                         { "Password", credentials[1] }
                     };
-                    Common.Credentials.Add(Common.GloWSEnvironment.Sandpit, sandpit);
+                    Common.Credentials.Add(Common.MyDHLAPIEnvironment.Sandpit, sandpit);
                     Common.CurrentCredentials = sandpit;
 
                     // Production Credentials
@@ -43,7 +43,7 @@ namespace MyDHLAPI_Test_App
                         { "Username", credentials[0] },
                         { "Password", credentials[1] }
                     };
-                    Common.Credentials.Add(Common.GloWSEnvironment.Production, production);
+                    Common.Credentials.Add(Common.MyDHLAPIEnvironment.Production, production);
 
                     // E2E/UAT Credentials
                     if (credentials.Length == 4)
@@ -54,7 +54,7 @@ namespace MyDHLAPI_Test_App
                             { "Username", credentials[2] },
                             { "Password", credentials[3] }
                         };
-                        Common.Credentials.Add(Common.GloWSEnvironment.E2E, e2e);
+                        Common.Credentials.Add(Common.MyDHLAPIEnvironment.E2E, e2e);
                     }
                 }
             }

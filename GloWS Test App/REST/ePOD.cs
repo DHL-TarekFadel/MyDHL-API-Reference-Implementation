@@ -78,9 +78,9 @@ namespace MyDHLAPI_Test_App.REST
                     System.Diagnostics.Process.Start(tempFilename);
                 }
             }
-            catch (GloWSValidationException gvx)
+            catch (MyDHLAPIValidationException gvx)
             {
-                txtResult.Text = GloWSValidationException.PrintResults(gvx.ExtractValidationResults(), 0);
+                txtResult.Text = MyDHLAPIValidationException.PrintResults(gvx.ExtractValidationResults(), 0);
             }
             catch (Exception ex)
             {

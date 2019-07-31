@@ -1,4 +1,4 @@
-﻿using MyDHLAPI_REST_Library.Objects.Plumbing;
+﻿using MyDHLAPI_REST_Library.Objects.Plumbing.JSON_Converters;
 using Newtonsoft.Json;
 using System;
 using System.ComponentModel.DataAnnotations;

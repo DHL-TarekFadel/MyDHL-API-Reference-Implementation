@@ -1,16 +1,27 @@
-﻿using Newtonsoft.Json;
+﻿using MyDHLAPI_REST_Library.Objects.Plumbing.Attributes;
+using Newtonsoft.Json;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace MyDHLAPI_REST_Library.Objects.Ship
 {
     public class DangerousGoods
     {
+        [ValidateObject]
+        [CollectionLength(99, 1)]
+        [JsonProperty("Content")]
+        public List<DangerousGood> DangerousGood { get; set; }
+
+    }
+
+    public class DangerousGood
+    {
         /// <summary>
         /// Valid DHL Express Dangerous good content id
         /// </summary>
         [Required]
         [StringLength(3)]
-        [JsonProperty("ContentId")]
+        [JsonProperty("ContentID")]
         public string ContentId { get; set; }
 
         /// <summary>

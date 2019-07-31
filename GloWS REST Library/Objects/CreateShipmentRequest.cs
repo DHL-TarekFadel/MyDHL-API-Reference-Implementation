@@ -21,14 +21,9 @@ namespace MyDHLAPI_REST_Library.Objects
 
     public class ShipmentRequest
     {
-        [Required]
-        [StringLength(200)]
-        [JsonProperty("MessageId")]
-        public string MessageId
-        {
-            get { return System.Guid.NewGuid().ToString("N"); }
-            set { MessageId = value; }
-        }
+        [ValidateObject]
+        [JsonProperty("Request", NullValueHandling = NullValueHandling.Ignore)]
+        public Request Request { get; set; }
 
         [ValidateObject]
         [JsonProperty("ClientDetail", NullValueHandling = NullValueHandling.Ignore)]

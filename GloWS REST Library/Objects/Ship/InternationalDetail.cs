@@ -1,4 +1,5 @@
 ﻿using MyDHLAPI_REST_Library.Objects.Common;
+using MyDHLAPI_REST_Library.Objects.Plumbing.Attributes;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System.Collections.Generic;
@@ -8,19 +9,26 @@ namespace MyDHLAPI_REST_Library.Objects.Ship
 {
     public class InternationalDetail
     {
-        [JsonProperty("Commodities")]
-        public Commodity Commodities { get; set; }
 
         [Required]
         [JsonProperty("Content")]
         [JsonConverter(typeof(StringEnumConverter))]
         public Enums.ShipmentType ShipmentType { get; set; }
 
-        /// <summary>
-        /// Export Reference field, appears on label
-        /// </summary>
-        [StringLength(40)]
-        [JsonProperty("ExportReference", NullValueHandling = NullValueHandling.Ignore)]
-        public string ExportReference { get; set; }
+        [ValidateObject]
+        [JsonProperty("Commodities")]
+        public Commodity Commodities { get; set; }
+
+        [ValidateObject]
+        [JsonProperty("ExportDeclaration", NullValueHandling = NullValueHandling.Ignore)]
+        public ExportDeclaration ExportDeclaration { get; set; }
+
+        ///// <summary>
+        ///// Export Reference field, appears on label
+        ///// </summary>
+        //[StringLength(40)]
+        //[JsonProperty("ExportReference", NullValueHandling = NullValueHandling.Ignore)]
+        //public string ExportReference { get; set; }
+
     }
 }

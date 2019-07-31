@@ -1,5 +1,6 @@
 ﻿using MyDHLAPI_REST_Library.Objects.Common;
 using MyDHLAPI_REST_Library.Objects.Plumbing.Attributes;
+using MyDHLAPI_REST_Library.Objects.Tracking;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System;
@@ -29,7 +30,14 @@ namespace MyDHLAPI_REST_Library.Objects.Ship
         [Required]
         [StringLength(1)]
         [JsonProperty("ServiceType")]
-        public string ProductCode { get; set; }
+        public string GlobalProductCode { get; set; }
+
+        /// <summary>
+        /// The shipping product requested for this shipment, corresponding to the DHL Local Product codes (based on billing country).
+        /// </summary>
+        [StringLength(1)]
+        [JsonProperty("LocalServiceType", NullValueHandling = NullValueHandling.Ignore)]
+        public string LocalProductCode { get; set; }
 
         /// <summary>
         /// Required if the "Billing" section is not defined.
@@ -37,20 +45,6 @@ namespace MyDHLAPI_REST_Library.Objects.Ship
         [StringLength(9)]
         [JsonProperty("Account", NullValueHandling = NullValueHandling.Ignore)]
         public string AccountNumber { get; set; }
-
-        /// <summary>
-        /// Contains specific billing information (if paied by receiver/3rd party)
-        /// </summary>
-        [ValidateObject]
-        [JsonProperty("Billing")]
-        public BillilngInfo Billing { get; set; }
-
-        /// <summary>
-        /// Special Services (ex: Insurance, Saturday Delivery, etc.)
-        /// </summary>
-        [ValidateObject]
-        [JsonProperty("SpecialServices", NullValueHandling = NullValueHandling.Ignore)]
-        public SpecialServices SpecialServices { get; set; }
 
         /// <summary>
         /// The currency of the monetary values presented in the request.
@@ -83,17 +77,6 @@ namespace MyDHLAPI_REST_Library.Objects.Ship
         [JsonConverter(typeof(StringEnumConverter))]
         public Enums.YesNo? UseOwnAWBNumber { get; set; }
 
-        /// <summary>
-        /// Number of packages which need to be processed.
-        /// </summary>
-        [PositiveInteger]
-        [JsonProperty("PackagesCount")]
-        public int NumberOfPieces { get; set; }
-
-        [JsonProperty("SendPackage", NullValueHandling = NullValueHandling.Ignore)]
-        [JsonConverter(typeof(StringEnumConverter))]
-        public Enums.YesNo? SendPackage { get; set; }
-
         [JsonProperty("LabelType", NullValueHandling = NullValueHandling.Ignore)]
         [JsonConverter(typeof(StringEnumConverter))]
         public Enums.LabelFormat? LabelFormat { get; set; }
@@ -113,13 +96,79 @@ namespace MyDHLAPI_REST_Library.Objects.Ship
         public string ArchiveLabelTemplate { get; set; }
 
         /// <summary>
+        /// Any valid DHL Express customs invoice template (please contact your DHL Express IT representative for a list of templates) – If this node is left blank then the default DHL commercial invoice template will be used.
+        /// </summary>
+        [StringLength(25)]
+        [JsonProperty("CustomsInvoiceTemplate", NullValueHandling = NullValueHandling.Ignore)]
+        public string CustomsInvoiceTemplate { get; set; }
+
+        /// <summary>
+        /// Any valid DHL Express shipment receipt template (please contact your DHL Express IT representative for a list of templates) – If this node is left blank then the default DHL shipemnt receipt template will be used.
+        /// </summary>
+        [StringLength(20)]
+        [JsonProperty("ShipmentReceiptTemplate", NullValueHandling = NullValueHandling.Ignore)]
+        public string ShipmentReceiptTemplate { get; set; }
+
+        /// <summary>
         /// Enable Paperless Trade (PLT) for this shipment
         /// </summary>
         [JsonProperty("PaperlessTradeEnabled", NullValueHandling = NullValueHandling.Ignore)]
         public bool PaperlessTradeEnabled { get; set; }
 
+        /// <summary>
+        /// Parent (Mother) Shipment ID number used for Break Bulk Shipments (BBX)
+        /// </summary>
+        [StringLength(25)]
+        [JsonProperty("ParentShipmentIdentificationNumber", NullValueHandling = NullValueHandling.Ignore)]
+        public string BBXMotherAWBNumber { get; set; }
+
+        /// <summary>
+        /// Request transliteration text in response.
+        /// </summary>
+        [JsonProperty("RequestTransliterateResponse", NullValueHandling = NullValueHandling.Ignore)]
+        [JsonConverter(typeof(StringEnumConverter))]
+        public Enums.YesNo? TransliterateResponses { get; set; }
+
+        /// <summary>
+        /// Additional information will be returned
+        // @TODO figure out what that is.
+        /// </summary>
+        [JsonProperty("RequestAdditionalInformation", NullValueHandling = NullValueHandling.Ignore)]
+        [JsonConverter(typeof(StringEnumConverter))]
+        public Enums.YesNo? RequestAdditionalInformation { get; set; }
+
         [JsonProperty("PaperlessTradeImage", NullValueHandling = NullValueHandling.Ignore)]
         public byte[] PaperlessTradeImage { get; set; }
+
+        /// <summary>
+        /// Contains specific billing information (if paied by receiver/3rd party)
+        /// </summary>
+        [ValidateObject]
+        [JsonProperty("Billing")]
+        public BillilngInfo Billing { get; set; }
+
+        [ValidateObject]
+        [JsonProperty("DocumentImages", NullValueHandling = NullValueHandling.Ignore)]
+        public AdditionalImages AdditionalImages { get; set; }
+
+        [ValidateObject]
+        [JsonProperty("LabelOptions", NullValueHandling = NullValueHandling.Ignore)]
+        public LabelOptions LabelOptions { get; set; }
+
+        [ValidateObject]
+        [JsonProperty("ShipmentReferences", NullValueHandling = NullValueHandling.Ignore)]
+        public ShipmentReferences ShipmentReferences { get; set; }
+
+        /// <summary>
+        /// Special Services (ex: Insurance, Saturday Delivery, etc.)
+        /// </summary>
+        [ValidateObject]
+        [JsonProperty("SpecialServices", NullValueHandling = NullValueHandling.Ignore)]
+        public SpecialServices SpecialServices { get; set; }
+
+        //[JsonProperty("SendPackage", NullValueHandling = NullValueHandling.Ignore)]
+        //[JsonConverter(typeof(StringEnumConverter))]
+        //public Enums.YesNo? SendPackage { get; set; }
 
         public ShipmentInfo() { }
 

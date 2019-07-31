@@ -9,6 +9,7 @@ namespace MyDHLAPI_REST_Library.Objects.Ship
     {
         [Required]
         [ValidateObject]
+        [CollectionLength(999, 1)]
         [JsonProperty("RequestedPackages")]
         public List<Package> PackageList { get; set; } = new List<Package>();
     }

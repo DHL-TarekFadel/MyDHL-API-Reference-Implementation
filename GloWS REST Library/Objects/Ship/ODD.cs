@@ -66,8 +66,9 @@ namespace MyDHLAPI_REST_Library.Objects.Ship
         [JsonProperty("SelectedServicePointID")]
         public string SelectedServicePointId { get; set; }
 
-        [StringLength(29)]
         [JsonIgnore]
-        public System.DateTime RequestedDeliveryDate { get; set; }
+        [StringLength(29)]
+        [JsonProperty("RequestedDeliveryDate", NullValueHandling = NullValueHandling.Ignore)]
+        public string RequestedDeliveryDate { get; set; }
     }
 }

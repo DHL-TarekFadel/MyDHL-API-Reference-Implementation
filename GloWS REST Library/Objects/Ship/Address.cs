@@ -30,7 +30,7 @@ namespace MyDHLAPI_REST_Library.Objects.Ship
         public string PersonName { get; set; }
 
         [Required]
-        [StringLength(35)]
+        [StringLength(60)]
         [JsonProperty("CompanyName")]
         public string CompanyName { get; set; }
 
@@ -54,19 +54,26 @@ namespace MyDHLAPI_REST_Library.Objects.Ship
         /// Address line 1 should contain street name and number of the address.
         /// </summary>
         [Required]
-        [StringLength(35)]
+        [StringLength(45)]
         [JsonProperty("StreetLines")]
         public string AddressLine1 { get; set; }
 
         /// <summary>
-        /// Shipper street name should be sent as separate attribute if feasible.
+        /// Street name should be sent as separate attribute if feasible.
         /// </summary>
         [StringLength(35)]
         [JsonProperty("StreetName", NullValueHandling = NullValueHandling.Ignore, DefaultValueHandling = DefaultValueHandling.Ignore)]
         public string StreetName { get; set; }
 
         /// <summary>
-        /// Shipper street number should be sent as separate attribute, if feasible.
+        /// Building name should be sent as separate attribute if feasible.
+        /// </summary>
+        [StringLength(35)]
+        [JsonProperty("BuildingName", NullValueHandling = NullValueHandling.Ignore, DefaultValueHandling = DefaultValueHandling.Ignore)]
+        public string BuildingName { get; set; }
+
+        /// <summary>
+        /// Street number should be sent as separate attribute, if feasible.
         /// </summary>
         [StringLength(15)]
         [JsonProperty("StreetNumber", NullValueHandling = NullValueHandling.Ignore, DefaultValueHandling = DefaultValueHandling.Ignore)]
@@ -75,7 +82,7 @@ namespace MyDHLAPI_REST_Library.Objects.Ship
         /// <summary>
         /// Additional address information.
         /// </summary>
-        [StringLength(35)]
+        [StringLength(45)]
         [DefaultValue("")]
         [JsonProperty("StreetLines2", NullValueHandling = NullValueHandling.Ignore, DefaultValueHandling = DefaultValueHandling.Ignore)]
         public string AddressLine2 { get; set; }
@@ -83,7 +90,7 @@ namespace MyDHLAPI_REST_Library.Objects.Ship
         /// <summary>
         /// Additional address information.
         /// </summary>
-        [StringLength(35)]
+        [StringLength(45)]
         [DefaultValue("")]
         [JsonProperty("StreetLines3", NullValueHandling = NullValueHandling.Ignore, DefaultValueHandling = DefaultValueHandling.Ignore)]
         public string AddressLine3 { get; set; }
@@ -114,8 +121,25 @@ namespace MyDHLAPI_REST_Library.Objects.Ship
         [JsonProperty("CountryCode")]
         public string CountryCode { get; set; }
 
+        [StringLength(35)]
+        [JsonProperty("Suburb", NullValueHandling = NullValueHandling.Ignore)]
+        public string Suburb { get; set; }
+
+        [ValidateObject]
         [JsonProperty("RegistrationNumbers", NullValueHandling = NullValueHandling.Ignore)]
-        public List<RegistrationNumber> RegistrationNumbers { get; set; }
+        public RegistrationNumbers RegistrationNumbers { get; set; }
+
+        [ValidateObject]
+        [JsonProperty("BankDetails", NullValueHandling = NullValueHandling.Ignore)]
+        public BankDetails BankDetails { get; set; }
+    }
+
+    public class RegistrationNumbers
+    {
+        [ValidateObject]
+        [CollectionLength(50, 1)]
+        [JsonProperty("RegistrationNumber")]
+        public List<RegistrationNumber> RegistrationNumber { get; set; }
     }
 
     public class RegistrationNumber
@@ -124,7 +148,7 @@ namespace MyDHLAPI_REST_Library.Objects.Ship
         /// Registration Number (ex: VAT ID, TRN number, etc.)
         /// </summary>
         [Required]
-        [StringLength(20)]
+        [StringLength(35)]
         [JsonProperty("Number")]
         public string Number { get; set; }
 
@@ -132,7 +156,8 @@ namespace MyDHLAPI_REST_Library.Objects.Ship
         /// Type of the registration number. At this moment only “VAT” is allowed
         /// </summary>
         [Required]
-        [JsonProperty("NumberTypeCode", ItemConverterType = typeof(StringEnumConverter))]
+        [JsonProperty("NumberTypeCode")]
+        [JsonConverter(typeof(StringEnumConverter))]
         public Enums.NumberTypeCode NumberType { get; set; }
 
         /// <summary>
@@ -143,5 +168,33 @@ namespace MyDHLAPI_REST_Library.Objects.Ship
         [JsonProperty("NumberIssuerCountryCode")]
         public string NumberIssuerCountryCode { get; set; }
 
+    }
+
+    public class BankDetails
+    {
+        [ValidateObject]
+        [JsonProperty("BankDetail")]
+        public BankDetail BankDetail { get; set; }
+    }
+
+    public class BankDetail
+    {
+        /// <summary>
+        /// To be mapped in Customs Invoice - Russia Bank Name field
+        /// </summary>
+        [JsonProperty("BankName", NullValueHandling = NullValueHandling.Ignore)]
+        public string BankName { get; set; }
+
+        /// <summary>
+        /// To be mapped in Customs Invoice - Russia Bank Settlement Account Number in RUR field
+        /// </summary>
+        [JsonProperty("BankSettlementAccountNumberInLocalCurrency", NullValueHandling = NullValueHandling.Ignore)]
+        public string BankSettlementAccountNumberInLocalCurrency { get; set; }
+
+        /// <summary>
+        /// To be mapped in Customs Invoice - Russia Bank Settlement Account Number in USD/EUR
+        /// </summary>
+        [JsonProperty("BankSettlementAccountNumberInForeignCurrency", NullValueHandling = NullValueHandling.Ignore)]
+        public string BankSettlementAccountNumberInForeignCurrency { get; set; }
     }
 }

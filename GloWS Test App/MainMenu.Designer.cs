@@ -49,7 +49,7 @@
             this.btnSOAP_Track.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(5)))), ((int)(((byte)(17)))));
             this.btnSOAP_Track.Enabled = false;
             this.btnSOAP_Track.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSOAP_Track.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSOAP_Track.Font = new System.Drawing.Font("Delivery Cd Light", 14F);
             this.btnSOAP_Track.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(204)))), ((int)(((byte)(0)))));
             this.btnSOAP_Track.Location = new System.Drawing.Point(36, 130);
             this.btnSOAP_Track.Name = "btnSOAP_Track";
@@ -61,7 +61,7 @@
             // 
             // lblMode
             // 
-            this.lblMode.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMode.Font = new System.Drawing.Font("Delivery", 11F);
             this.lblMode.Location = new System.Drawing.Point(51, 30);
             this.lblMode.Name = "lblMode";
             this.lblMode.Size = new System.Drawing.Size(203, 18);
@@ -74,7 +74,7 @@
             this.btnSOAP_Ship.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(5)))), ((int)(((byte)(17)))));
             this.btnSOAP_Ship.Enabled = false;
             this.btnSOAP_Ship.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSOAP_Ship.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSOAP_Ship.Font = new System.Drawing.Font("Delivery Cd Light", 14F);
             this.btnSOAP_Ship.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(204)))), ((int)(((byte)(0)))));
             this.btnSOAP_Ship.Location = new System.Drawing.Point(36, 214);
             this.btnSOAP_Ship.Name = "btnSOAP_Ship";
@@ -89,7 +89,7 @@
             this.btnSOAP_EPOD.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(5)))), ((int)(((byte)(17)))));
             this.btnSOAP_EPOD.Enabled = false;
             this.btnSOAP_EPOD.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSOAP_EPOD.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSOAP_EPOD.Font = new System.Drawing.Font("Delivery Cd Light", 14F);
             this.btnSOAP_EPOD.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(204)))), ((int)(((byte)(0)))));
             this.btnSOAP_EPOD.Location = new System.Drawing.Point(36, 257);
             this.btnSOAP_EPOD.Name = "btnSOAP_EPOD";
@@ -103,7 +103,7 @@
             // 
             this.btnSwitchMode.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(5)))), ((int)(((byte)(17)))));
             this.btnSwitchMode.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSwitchMode.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnSwitchMode.Font = new System.Drawing.Font("Delivery Cd Light", 14F);
             this.btnSwitchMode.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(204)))), ((int)(((byte)(0)))));
             this.btnSwitchMode.Location = new System.Drawing.Point(104, 54);
             this.btnSwitchMode.Name = "btnSwitchMode";
@@ -116,7 +116,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Delivery", 8F);
             this.label2.Location = new System.Drawing.Point(106, 9);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(95, 13);
@@ -127,7 +127,7 @@
             // 
             this.btnREST_Track.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(5)))), ((int)(((byte)(17)))));
             this.btnREST_Track.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnREST_Track.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnREST_Track.Font = new System.Drawing.Font("Delivery Cd Light", 14F);
             this.btnREST_Track.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(204)))), ((int)(((byte)(0)))));
             this.btnREST_Track.Location = new System.Drawing.Point(172, 130);
             this.btnREST_Track.Name = "btnREST_Track";
@@ -141,7 +141,7 @@
             // 
             this.btnREST_Ship.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(5)))), ((int)(((byte)(17)))));
             this.btnREST_Ship.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnREST_Ship.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnREST_Ship.Font = new System.Drawing.Font("Delivery Cd Light", 14F);
             this.btnREST_Ship.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(204)))), ((int)(((byte)(0)))));
             this.btnREST_Ship.Location = new System.Drawing.Point(172, 214);
             this.btnREST_Ship.Name = "btnREST_Ship";
@@ -155,7 +155,7 @@
             // 
             this.btnREST_ePOD.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(5)))), ((int)(((byte)(17)))));
             this.btnREST_ePOD.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnREST_ePOD.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnREST_ePOD.Font = new System.Drawing.Font("Delivery Cd Light", 14F);
             this.btnREST_ePOD.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(204)))), ((int)(((byte)(0)))));
             this.btnREST_ePOD.Location = new System.Drawing.Point(172, 257);
             this.btnREST_ePOD.Name = "btnREST_ePOD";
@@ -168,20 +168,20 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Delivery", 9F);
             this.label1.Location = new System.Drawing.Point(67, 109);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(36, 13);
+            this.label1.Size = new System.Drawing.Size(36, 15);
             this.label1.TabIndex = 2;
             this.label1.Text = "SOAP";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Font = new System.Drawing.Font("Delivery", 9F);
             this.label3.Location = new System.Drawing.Point(203, 109);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(36, 13);
+            this.label3.Size = new System.Drawing.Size(35, 15);
             this.label3.TabIndex = 2;
             this.label3.Text = "REST";
             // 
@@ -189,7 +189,7 @@
             // 
             this.btnREST_RateQuery.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(5)))), ((int)(((byte)(17)))));
             this.btnREST_RateQuery.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnREST_RateQuery.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnREST_RateQuery.Font = new System.Drawing.Font("Delivery Cd Light", 14F);
             this.btnREST_RateQuery.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(204)))), ((int)(((byte)(0)))));
             this.btnREST_RateQuery.Location = new System.Drawing.Point(172, 171);
             this.btnREST_RateQuery.Name = "btnREST_RateQuery";
@@ -203,13 +203,13 @@
             // 
             this.btnAdHoc.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(5)))), ((int)(((byte)(17)))));
             this.btnAdHoc.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAdHoc.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAdHoc.Font = new System.Drawing.Font("Delivery Cd Light", 14F);
             this.btnAdHoc.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(204)))), ((int)(((byte)(0)))));
             this.btnAdHoc.Location = new System.Drawing.Point(104, 298);
             this.btnAdHoc.Name = "btnAdHoc";
             this.btnAdHoc.Size = new System.Drawing.Size(99, 35);
             this.btnAdHoc.TabIndex = 9;
-            this.btnAdHoc.Text = "Ad-Hoc";
+            this.btnAdHoc.Text = "AD-HOC";
             this.btnAdHoc.UseVisualStyleBackColor = false;
             this.btnAdHoc.Click += new System.EventHandler(this.BtnAdHoc_Click);
             // 

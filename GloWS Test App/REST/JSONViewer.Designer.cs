@@ -37,6 +37,7 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtXMLDisplay.CausesValidation = false;
+            this.txtXMLDisplay.Font = new System.Drawing.Font("Consolas", 8F);
             this.txtXMLDisplay.HideSelection = false;
             this.txtXMLDisplay.Location = new System.Drawing.Point(12, 12);
             this.txtXMLDisplay.MaxLength = 65535;

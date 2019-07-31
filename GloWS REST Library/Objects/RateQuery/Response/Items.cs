@@ -1,5 +1,5 @@
 ﻿using MyDHLAPI_REST_Library.Objects.Common;
-using MyDHLAPI_REST_Library.Objects.Plumbing;
+using MyDHLAPI_REST_Library.Objects.Plumbing.JSON_Converters;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 using System.Collections.Generic;

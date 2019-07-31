@@ -54,7 +54,6 @@
             this.txtShipperEMailAddress = new System.Windows.Forms.TextBox();
             this.txtShipperName = new System.Windows.Forms.TextBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.cbxShipmentDDP = new System.Windows.Forms.CheckBox();
             this.cbxShipmentRequestPickup = new System.Windows.Forms.CheckBox();
             this.cmbProductCode = new System.Windows.Forms.ComboBox();
             this.cmbShipmentDimsUOM = new System.Windows.Forms.ComboBox();
@@ -69,6 +68,7 @@
             this.label29 = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
             this.label36 = new System.Windows.Forms.Label();
+            this.label38 = new System.Windows.Forms.Label();
             this.label35 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
             this.txtShipmentDepth = new System.Windows.Forms.TextBox();
@@ -79,8 +79,10 @@
             this.txtShipmentDimWeight = new System.Windows.Forms.TextBox();
             this.txtShipmentWeight = new System.Windows.Forms.TextBox();
             this.txtDutyAccountNumber = new System.Windows.Forms.TextBox();
+            this.txtShipmentReference = new System.Windows.Forms.TextBox();
             this.txtShipperAccountNumber = new System.Windows.Forms.TextBox();
             this.txtShipmentContents = new System.Windows.Forms.TextBox();
+            this.cbxShipmentDDP = new System.Windows.Forms.CheckBox();
             this.btnViewResponse = new System.Windows.Forms.Button();
             this.btnViewRequest = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -119,44 +121,61 @@
             this.lblInvoiceUploaded = new System.Windows.Forms.Label();
             this.lblLogoUploaded = new System.Windows.Forms.Label();
             this.btnUploadInvoice = new System.Windows.Forms.Button();
-            this.groupBox6 = new System.Windows.Forms.GroupBox();
-            this.label38 = new System.Windows.Forms.Label();
             this.label30 = new System.Windows.Forms.Label();
             this.cbxShipmentRequestInsurance = new System.Windows.Forms.CheckBox();
             this.txtShipmentInsuredCurrency = new System.Windows.Forms.TextBox();
             this.txtShipmentInsuredValue = new System.Windows.Forms.TextBox();
+            this.groupBox7 = new System.Windows.Forms.GroupBox();
+            this.label41 = new System.Windows.Forms.Label();
+            this.label39 = new System.Windows.Forms.Label();
+            this.label40 = new System.Windows.Forms.Label();
+            this.cbxRequestCoD = new System.Windows.Forms.CheckBox();
+            this.cbxDataStaging = new System.Windows.Forms.CheckBox();
+            this.txtShipmentCoDCurrency = new System.Windows.Forms.TextBox();
+            this.txtShipmentCoDValue = new System.Windows.Forms.TextBox();
+            this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.cbxSendNotification = new System.Windows.Forms.CheckBox();
+            this.cbxExportDeclaration = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox5.SuspendLayout();
+            this.groupBox7.SuspendLayout();
             this.groupBox6.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(20, 17);
+            this.label1.Font = new System.Drawing.Font("Delivery", 8.249999F);
+            this.label1.Location = new System.Drawing.Point(20, 18);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(54, 14);
+            this.label1.Size = new System.Drawing.Size(53, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "Company";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // txtShipperCompany
             // 
+            this.txtShipperCompany.Font = new System.Drawing.Font("Delivery", 8.249999F);
             this.txtShipperCompany.Location = new System.Drawing.Point(76, 14);
             this.txtShipperCompany.Name = "txtShipperCompany";
-            this.txtShipperCompany.Size = new System.Drawing.Size(144, 20);
+            this.txtShipperCompany.Size = new System.Drawing.Size(144, 21);
             this.txtShipperCompany.TabIndex = 1;
             // 
             // btnShip
             // 
-            this.btnShip.Location = new System.Drawing.Point(346, 128);
+            this.btnShip.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(5)))), ((int)(((byte)(17)))));
+            this.btnShip.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnShip.Font = new System.Drawing.Font("Delivery Cd Light", 10F);
+            this.btnShip.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(204)))), ((int)(((byte)(0)))));
+            this.btnShip.Location = new System.Drawing.Point(257, 75);
             this.btnShip.Name = "btnShip";
             this.btnShip.Size = new System.Drawing.Size(75, 25);
-            this.btnShip.TabIndex = 31;
+            this.btnShip.TabIndex = 48;
             this.btnShip.Text = "SHIP";
-            this.btnShip.UseVisualStyleBackColor = true;
+            this.btnShip.UseVisualStyleBackColor = false;
             this.btnShip.Click += new System.EventHandler(this.BtnShip_Click);
             // 
             // groupBox1
@@ -183,7 +202,7 @@
             this.groupBox1.Controls.Add(this.txtShipperEMailAddress);
             this.groupBox1.Controls.Add(this.txtShipperName);
             this.groupBox1.Controls.Add(this.txtShipperCompany);
-            this.groupBox1.Font = new System.Drawing.Font("Frutiger", 8.249999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.Font = new System.Drawing.Font("Delivery Cd Light", 9F);
             this.groupBox1.Location = new System.Drawing.Point(12, 13);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(226, 331);
@@ -194,171 +213,200 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(6, 297);
+            this.label12.Font = new System.Drawing.Font("Delivery", 8.249999F);
+            this.label12.Location = new System.Drawing.Point(9, 298);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(68, 14);
+            this.label12.Size = new System.Drawing.Size(64, 13);
             this.label12.TabIndex = 0;
             this.label12.Text = "Postal Code";
+            this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(48, 269);
+            this.label11.Font = new System.Drawing.Font("Delivery", 8.249999F);
+            this.label11.Location = new System.Drawing.Point(47, 270);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(26, 14);
+            this.label11.Size = new System.Drawing.Size(26, 13);
             this.label11.TabIndex = 0;
             this.label11.Text = "City";
+            this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(17, 185);
+            this.label8.Font = new System.Drawing.Font("Delivery", 8.249999F);
+            this.label8.Location = new System.Drawing.Point(19, 186);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(57, 14);
+            this.label8.Size = new System.Drawing.Size(54, 13);
             this.label8.TabIndex = 0;
             this.label8.Text = "Address 3";
+            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(25, 241);
+            this.label10.Font = new System.Drawing.Font("Delivery", 8.249999F);
+            this.label10.Location = new System.Drawing.Point(25, 242);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(49, 14);
+            this.label10.Size = new System.Drawing.Size(48, 13);
             this.label10.TabIndex = 0;
             this.label10.Text = "US State";
+            this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(17, 157);
+            this.label7.Font = new System.Drawing.Font("Delivery", 8.249999F);
+            this.label7.Location = new System.Drawing.Point(19, 158);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(57, 14);
+            this.label7.Size = new System.Drawing.Size(54, 13);
             this.label7.TabIndex = 0;
             this.label7.Text = "Address 2";
+            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(28, 213);
+            this.label9.Font = new System.Drawing.Font("Delivery", 8.249999F);
+            this.label9.Location = new System.Drawing.Point(28, 214);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(46, 14);
+            this.label9.Size = new System.Drawing.Size(45, 13);
             this.label9.TabIndex = 0;
             this.label9.Text = "Country";
+            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(17, 129);
+            this.label6.Font = new System.Drawing.Font("Delivery", 8.249999F);
+            this.label6.Location = new System.Drawing.Point(19, 130);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(57, 14);
+            this.label6.Size = new System.Drawing.Size(54, 13);
             this.label6.TabIndex = 0;
             this.label6.Text = "Address 1";
+            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(31, 101);
+            this.label5.Font = new System.Drawing.Font("Delivery", 8.249999F);
+            this.label5.Location = new System.Drawing.Point(33, 102);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(43, 14);
+            this.label5.Size = new System.Drawing.Size(40, 13);
             this.label5.TabIndex = 0;
             this.label5.Text = "Mobile";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(35, 73);
+            this.label4.Font = new System.Drawing.Font("Delivery", 8.249999F);
+            this.label4.Location = new System.Drawing.Point(35, 74);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(39, 14);
+            this.label4.Size = new System.Drawing.Size(38, 13);
             this.label4.TabIndex = 0;
             this.label4.Text = "E-Mail";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(39, 45);
+            this.label3.Font = new System.Drawing.Font("Delivery", 8.249999F);
+            this.label3.Location = new System.Drawing.Point(36, 46);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(35, 14);
+            this.label3.Size = new System.Drawing.Size(37, 13);
             this.label3.TabIndex = 0;
             this.label3.Text = "Name";
+            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // txtShipperPostalCode
             // 
             this.txtShipperPostalCode.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtShipperPostalCode.Font = new System.Drawing.Font("Delivery", 8.249999F);
             this.txtShipperPostalCode.Location = new System.Drawing.Point(76, 294);
             this.txtShipperPostalCode.Name = "txtShipperPostalCode";
-            this.txtShipperPostalCode.Size = new System.Drawing.Size(144, 20);
+            this.txtShipperPostalCode.Size = new System.Drawing.Size(144, 21);
             this.txtShipperPostalCode.TabIndex = 11;
             // 
             // txtShipperCity
             // 
             this.txtShipperCity.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtShipperCity.Font = new System.Drawing.Font("Delivery", 8.249999F);
             this.txtShipperCity.Location = new System.Drawing.Point(76, 266);
             this.txtShipperCity.Name = "txtShipperCity";
-            this.txtShipperCity.Size = new System.Drawing.Size(144, 20);
+            this.txtShipperCity.Size = new System.Drawing.Size(144, 21);
             this.txtShipperCity.TabIndex = 10;
             // 
             // txtShipperAddress3
             // 
+            this.txtShipperAddress3.Font = new System.Drawing.Font("Delivery", 8.249999F);
             this.txtShipperAddress3.Location = new System.Drawing.Point(76, 182);
             this.txtShipperAddress3.Name = "txtShipperAddress3";
-            this.txtShipperAddress3.Size = new System.Drawing.Size(144, 20);
+            this.txtShipperAddress3.Size = new System.Drawing.Size(144, 21);
             this.txtShipperAddress3.TabIndex = 7;
             // 
             // txtShipperState
             // 
             this.txtShipperState.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtShipperState.Font = new System.Drawing.Font("Delivery", 8.249999F);
             this.txtShipperState.Location = new System.Drawing.Point(76, 238);
             this.txtShipperState.Name = "txtShipperState";
-            this.txtShipperState.Size = new System.Drawing.Size(144, 20);
+            this.txtShipperState.Size = new System.Drawing.Size(144, 21);
             this.txtShipperState.TabIndex = 9;
             // 
             // txtShipperAddress2
             // 
+            this.txtShipperAddress2.Font = new System.Drawing.Font("Delivery", 8.249999F);
             this.txtShipperAddress2.Location = new System.Drawing.Point(76, 154);
             this.txtShipperAddress2.Name = "txtShipperAddress2";
-            this.txtShipperAddress2.Size = new System.Drawing.Size(144, 20);
+            this.txtShipperAddress2.Size = new System.Drawing.Size(144, 21);
             this.txtShipperAddress2.TabIndex = 6;
             // 
             // txtShipperCountry
             // 
             this.txtShipperCountry.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtShipperCountry.Font = new System.Drawing.Font("Delivery", 8.249999F);
             this.txtShipperCountry.Location = new System.Drawing.Point(76, 210);
             this.txtShipperCountry.MaxLength = 2;
             this.txtShipperCountry.Name = "txtShipperCountry";
-            this.txtShipperCountry.Size = new System.Drawing.Size(144, 20);
+            this.txtShipperCountry.Size = new System.Drawing.Size(144, 21);
             this.txtShipperCountry.TabIndex = 8;
             // 
             // txtShipperAddress1
             // 
+            this.txtShipperAddress1.Font = new System.Drawing.Font("Delivery", 8.249999F);
             this.txtShipperAddress1.Location = new System.Drawing.Point(76, 126);
             this.txtShipperAddress1.Name = "txtShipperAddress1";
-            this.txtShipperAddress1.Size = new System.Drawing.Size(144, 20);
+            this.txtShipperAddress1.Size = new System.Drawing.Size(144, 21);
             this.txtShipperAddress1.TabIndex = 5;
             // 
             // txtShipperMobileNumber
             // 
+            this.txtShipperMobileNumber.Font = new System.Drawing.Font("Delivery", 8.249999F);
             this.txtShipperMobileNumber.Location = new System.Drawing.Point(76, 98);
             this.txtShipperMobileNumber.Name = "txtShipperMobileNumber";
-            this.txtShipperMobileNumber.Size = new System.Drawing.Size(144, 20);
+            this.txtShipperMobileNumber.Size = new System.Drawing.Size(144, 21);
             this.txtShipperMobileNumber.TabIndex = 4;
             // 
             // txtShipperEMailAddress
             // 
+            this.txtShipperEMailAddress.Font = new System.Drawing.Font("Delivery", 8.249999F);
             this.txtShipperEMailAddress.Location = new System.Drawing.Point(76, 70);
             this.txtShipperEMailAddress.Name = "txtShipperEMailAddress";
-            this.txtShipperEMailAddress.Size = new System.Drawing.Size(144, 20);
+            this.txtShipperEMailAddress.Size = new System.Drawing.Size(144, 21);
             this.txtShipperEMailAddress.TabIndex = 3;
             // 
             // txtShipperName
             // 
+            this.txtShipperName.Font = new System.Drawing.Font("Delivery", 8.249999F);
             this.txtShipperName.Location = new System.Drawing.Point(76, 42);
             this.txtShipperName.Name = "txtShipperName";
-            this.txtShipperName.Size = new System.Drawing.Size(144, 20);
+            this.txtShipperName.Size = new System.Drawing.Size(144, 21);
             this.txtShipperName.TabIndex = 2;
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.cbxShipmentDDP);
             this.groupBox3.Controls.Add(this.cbxShipmentRequestPickup);
             this.groupBox3.Controls.Add(this.cmbProductCode);
             this.groupBox3.Controls.Add(this.cmbShipmentDimsUOM);
@@ -366,7 +414,6 @@
             this.groupBox3.Controls.Add(this.label31);
             this.groupBox3.Controls.Add(this.label28);
             this.groupBox3.Controls.Add(this.label27);
-            this.groupBox3.Controls.Add(this.btnShip);
             this.groupBox3.Controls.Add(this.label26);
             this.groupBox3.Controls.Add(this.label25);
             this.groupBox3.Controls.Add(this.label33);
@@ -374,6 +421,7 @@
             this.groupBox3.Controls.Add(this.label29);
             this.groupBox3.Controls.Add(this.label24);
             this.groupBox3.Controls.Add(this.label36);
+            this.groupBox3.Controls.Add(this.label38);
             this.groupBox3.Controls.Add(this.label35);
             this.groupBox3.Controls.Add(this.label23);
             this.groupBox3.Controls.Add(this.txtShipmentDepth);
@@ -384,9 +432,10 @@
             this.groupBox3.Controls.Add(this.txtShipmentDimWeight);
             this.groupBox3.Controls.Add(this.txtShipmentWeight);
             this.groupBox3.Controls.Add(this.txtDutyAccountNumber);
+            this.groupBox3.Controls.Add(this.txtShipmentReference);
             this.groupBox3.Controls.Add(this.txtShipperAccountNumber);
             this.groupBox3.Controls.Add(this.txtShipmentContents);
-            this.groupBox3.Font = new System.Drawing.Font("Frutiger", 8.249999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox3.Font = new System.Drawing.Font("Delivery Cd Light", 9F);
             this.groupBox3.Location = new System.Drawing.Point(476, 13);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(427, 207);
@@ -394,23 +443,14 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "SHIPMENT";
             // 
-            // cbxShipmentDDP
-            // 
-            this.cbxShipmentDDP.AutoSize = true;
-            this.cbxShipmentDDP.Location = new System.Drawing.Point(346, 181);
-            this.cbxShipmentDDP.Name = "cbxShipmentDDP";
-            this.cbxShipmentDDP.Size = new System.Drawing.Size(54, 18);
-            this.cbxShipmentDDP.TabIndex = 32;
-            this.cbxShipmentDDP.Text = "DDP?";
-            this.cbxShipmentDDP.UseVisualStyleBackColor = true;
-            // 
             // cbxShipmentRequestPickup
             // 
             this.cbxShipmentRequestPickup.AutoSize = true;
+            this.cbxShipmentRequestPickup.Font = new System.Drawing.Font("Delivery", 8.249999F);
             this.cbxShipmentRequestPickup.Location = new System.Drawing.Point(39, 131);
             this.cbxShipmentRequestPickup.Name = "cbxShipmentRequestPickup";
-            this.cbxShipmentRequestPickup.Size = new System.Drawing.Size(107, 18);
-            this.cbxShipmentRequestPickup.TabIndex = 26;
+            this.cbxShipmentRequestPickup.Size = new System.Drawing.Size(105, 17);
+            this.cbxShipmentRequestPickup.TabIndex = 32;
             this.cbxShipmentRequestPickup.Text = "Request Pickup?";
             this.cbxShipmentRequestPickup.UseVisualStyleBackColor = true;
             // 
@@ -419,11 +459,12 @@
             this.cmbProductCode.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.cmbProductCode.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cmbProductCode.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbProductCode.Font = new System.Drawing.Font("Delivery", 8.249999F);
             this.cmbProductCode.FormattingEnabled = true;
             this.cmbProductCode.Location = new System.Drawing.Point(279, 129);
             this.cmbProductCode.Name = "cmbProductCode";
-            this.cmbProductCode.Size = new System.Drawing.Size(61, 22);
-            this.cmbProductCode.TabIndex = 30;
+            this.cmbProductCode.Size = new System.Drawing.Size(61, 21);
+            this.cmbProductCode.TabIndex = 31;
             this.cmbProductCode.SelectedIndexChanged += new System.EventHandler(this.CmbProductCode_SelectedIndexChanged);
             // 
             // cmbShipmentDimsUOM
@@ -431,10 +472,11 @@
             this.cmbShipmentDimsUOM.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.cmbShipmentDimsUOM.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cmbShipmentDimsUOM.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbShipmentDimsUOM.Font = new System.Drawing.Font("Delivery", 8.249999F);
             this.cmbShipmentDimsUOM.FormattingEnabled = true;
-            this.cmbShipmentDimsUOM.Location = new System.Drawing.Point(279, 101);
+            this.cmbShipmentDimsUOM.Location = new System.Drawing.Point(279, 102);
             this.cmbShipmentDimsUOM.Name = "cmbShipmentDimsUOM";
-            this.cmbShipmentDimsUOM.Size = new System.Drawing.Size(61, 22);
+            this.cmbShipmentDimsUOM.Size = new System.Drawing.Size(61, 21);
             this.cmbShipmentDimsUOM.TabIndex = 30;
             // 
             // cmbShipmentWeightUOM
@@ -442,214 +484,275 @@
             this.cmbShipmentWeightUOM.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.cmbShipmentWeightUOM.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cmbShipmentWeightUOM.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbShipmentWeightUOM.Font = new System.Drawing.Font("Delivery", 8.249999F);
             this.cmbShipmentWeightUOM.FormattingEnabled = true;
-            this.cmbShipmentWeightUOM.Location = new System.Drawing.Point(149, 47);
+            this.cmbShipmentWeightUOM.Location = new System.Drawing.Point(149, 48);
             this.cmbShipmentWeightUOM.Name = "cmbShipmentWeightUOM";
-            this.cmbShipmentWeightUOM.Size = new System.Drawing.Size(77, 22);
-            this.cmbShipmentWeightUOM.TabIndex = 24;
+            this.cmbShipmentWeightUOM.Size = new System.Drawing.Size(77, 21);
+            this.cmbShipmentWeightUOM.TabIndex = 25;
             // 
             // label31
             // 
             this.label31.AutoSize = true;
-            this.label31.Location = new System.Drawing.Point(199, 133);
+            this.label31.Font = new System.Drawing.Font("Delivery", 8.249999F);
+            this.label31.Location = new System.Drawing.Point(204, 133);
             this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(77, 14);
+            this.label31.Size = new System.Drawing.Size(71, 13);
             this.label31.TabIndex = 0;
             this.label31.Text = "Product Code";
             // 
             // label28
             // 
             this.label28.AutoSize = true;
-            this.label28.Location = new System.Drawing.Point(249, 105);
+            this.label28.Font = new System.Drawing.Font("Delivery", 8.249999F);
+            this.label28.Location = new System.Drawing.Point(248, 106);
             this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(27, 14);
+            this.label28.Size = new System.Drawing.Size(27, 13);
             this.label28.TabIndex = 0;
             this.label28.Text = "Unit";
             // 
             // label27
             // 
             this.label27.AutoSize = true;
-            this.label27.Location = new System.Drawing.Point(238, 79);
+            this.label27.Font = new System.Drawing.Font("Delivery", 8.249999F);
+            this.label27.Location = new System.Drawing.Point(239, 80);
             this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(38, 14);
+            this.label27.Size = new System.Drawing.Size(36, 13);
             this.label27.TabIndex = 0;
             this.label27.Text = "Depth";
             // 
             // label26
             // 
             this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(239, 51);
+            this.label26.Font = new System.Drawing.Font("Delivery", 8.249999F);
+            this.label26.Location = new System.Drawing.Point(239, 52);
             this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(37, 14);
+            this.label26.Size = new System.Drawing.Size(36, 13);
             this.label26.TabIndex = 0;
             this.label26.Text = "Width";
             // 
             // label25
             // 
             this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(235, 23);
+            this.label25.Font = new System.Drawing.Font("Delivery", 8.249999F);
+            this.label25.Location = new System.Drawing.Point(235, 24);
             this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(41, 14);
+            this.label25.Size = new System.Drawing.Size(40, 13);
             this.label25.TabIndex = 0;
             this.label25.Text = "Height";
             // 
             // label33
             // 
             this.label33.AutoSize = true;
+            this.label33.Font = new System.Drawing.Font("Delivery", 8.249999F);
             this.label33.Location = new System.Drawing.Point(154, 85);
             this.label33.Name = "label33";
-            this.label33.Size = new System.Drawing.Size(51, 14);
+            this.label33.Size = new System.Drawing.Size(50, 13);
             this.label33.TabIndex = 0;
             this.label33.Text = "Currency";
             // 
             // label32
             // 
             this.label32.AutoSize = true;
-            this.label32.Location = new System.Drawing.Point(18, 105);
+            this.label32.Font = new System.Drawing.Font("Delivery", 8.249999F);
+            this.label32.Location = new System.Drawing.Point(20, 106);
             this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(61, 14);
+            this.label32.Size = new System.Drawing.Size(58, 13);
             this.label32.TabIndex = 0;
             this.label32.Text = "Dec. Value";
             // 
             // label29
             // 
             this.label29.AutoSize = true;
-            this.label29.Location = new System.Drawing.Point(13, 79);
+            this.label29.Font = new System.Drawing.Font("Delivery", 8.249999F);
+            this.label29.Location = new System.Drawing.Point(14, 80);
             this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(66, 14);
+            this.label29.Size = new System.Drawing.Size(64, 13);
             this.label29.TabIndex = 0;
             this.label29.Text = "Dim Weight";
             // 
             // label24
             // 
             this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(36, 51);
+            this.label24.Font = new System.Drawing.Font("Delivery", 8.249999F);
+            this.label24.Location = new System.Drawing.Point(36, 52);
             this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(43, 14);
+            this.label24.Size = new System.Drawing.Size(42, 13);
             this.label24.TabIndex = 0;
             this.label24.Text = "Weight";
             // 
             // label36
             // 
             this.label36.AutoSize = true;
-            this.label36.Location = new System.Drawing.Point(106, 183);
+            this.label36.Font = new System.Drawing.Font("Delivery", 8.249999F);
+            this.label36.Location = new System.Drawing.Point(21, 184);
             this.label36.Name = "label36";
-            this.label36.Size = new System.Drawing.Size(84, 14);
+            this.label36.Size = new System.Drawing.Size(78, 13);
             this.label36.TabIndex = 0;
             this.label36.Text = "Duty Account #";
+            // 
+            // label38
+            // 
+            this.label38.AutoSize = true;
+            this.label38.Font = new System.Drawing.Font("Delivery", 8.249999F);
+            this.label38.Location = new System.Drawing.Point(246, 157);
+            this.label38.Name = "label38";
+            this.label38.Size = new System.Drawing.Size(114, 13);
+            this.label38.TabIndex = 0;
+            this.label38.Text = "Shipment Reference #";
             // 
             // label35
             // 
             this.label35.AutoSize = true;
-            this.label35.Location = new System.Drawing.Point(90, 157);
+            this.label35.Font = new System.Drawing.Font("Delivery", 8.249999F);
+            this.label35.Location = new System.Drawing.Point(6, 158);
             this.label35.Name = "label35";
-            this.label35.Size = new System.Drawing.Size(100, 14);
+            this.label35.Size = new System.Drawing.Size(93, 13);
             this.label35.TabIndex = 0;
             this.label35.Text = "Shipper Account #";
             // 
             // label23
             // 
             this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(27, 23);
+            this.label23.Font = new System.Drawing.Font("Delivery", 8.249999F);
+            this.label23.Location = new System.Drawing.Point(27, 24);
             this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(52, 14);
+            this.label23.Size = new System.Drawing.Size(51, 13);
             this.label23.TabIndex = 0;
             this.label23.Text = "Contents";
             // 
             // txtShipmentDepth
             // 
+            this.txtShipmentDepth.Font = new System.Drawing.Font("Delivery", 8.249999F);
             this.txtShipmentDepth.Location = new System.Drawing.Point(279, 76);
             this.txtShipmentDepth.Name = "txtShipmentDepth";
-            this.txtShipmentDepth.Size = new System.Drawing.Size(61, 20);
+            this.txtShipmentDepth.Size = new System.Drawing.Size(61, 21);
             this.txtShipmentDepth.TabIndex = 29;
             this.txtShipmentDepth.TextChanged += new System.EventHandler(this.CalculateDImWeight);
             // 
             // txtShipmentWidth
             // 
+            this.txtShipmentWidth.Font = new System.Drawing.Font("Delivery", 8.249999F);
             this.txtShipmentWidth.Location = new System.Drawing.Point(279, 48);
             this.txtShipmentWidth.Name = "txtShipmentWidth";
-            this.txtShipmentWidth.Size = new System.Drawing.Size(61, 20);
+            this.txtShipmentWidth.Size = new System.Drawing.Size(61, 21);
             this.txtShipmentWidth.TabIndex = 28;
             this.txtShipmentWidth.TextChanged += new System.EventHandler(this.CalculateDImWeight);
             // 
             // txtShipmentDeclaredValueCurrency
             // 
+            this.txtShipmentDeclaredValueCurrency.Font = new System.Drawing.Font("Delivery", 8.249999F);
             this.txtShipmentDeclaredValueCurrency.Location = new System.Drawing.Point(149, 102);
             this.txtShipmentDeclaredValueCurrency.MaxLength = 3;
             this.txtShipmentDeclaredValueCurrency.Name = "txtShipmentDeclaredValueCurrency";
-            this.txtShipmentDeclaredValueCurrency.Size = new System.Drawing.Size(61, 20);
-            this.txtShipmentDeclaredValueCurrency.TabIndex = 25;
+            this.txtShipmentDeclaredValueCurrency.Size = new System.Drawing.Size(61, 21);
+            this.txtShipmentDeclaredValueCurrency.TabIndex = 26;
             // 
             // txtShipmentDeclaredValue
             // 
+            this.txtShipmentDeclaredValue.Font = new System.Drawing.Font("Delivery", 8.249999F);
             this.txtShipmentDeclaredValue.Location = new System.Drawing.Point(82, 102);
             this.txtShipmentDeclaredValue.Name = "txtShipmentDeclaredValue";
-            this.txtShipmentDeclaredValue.Size = new System.Drawing.Size(61, 20);
+            this.txtShipmentDeclaredValue.Size = new System.Drawing.Size(61, 21);
             this.txtShipmentDeclaredValue.TabIndex = 25;
             // 
             // txtShipmentHeight
             // 
+            this.txtShipmentHeight.Font = new System.Drawing.Font("Delivery", 8.249999F);
             this.txtShipmentHeight.Location = new System.Drawing.Point(279, 20);
             this.txtShipmentHeight.Name = "txtShipmentHeight";
-            this.txtShipmentHeight.Size = new System.Drawing.Size(61, 20);
+            this.txtShipmentHeight.Size = new System.Drawing.Size(61, 21);
             this.txtShipmentHeight.TabIndex = 27;
             this.txtShipmentHeight.TextChanged += new System.EventHandler(this.CalculateDImWeight);
             // 
             // txtShipmentDimWeight
             // 
+            this.txtShipmentDimWeight.Font = new System.Drawing.Font("Delivery", 8.249999F);
             this.txtShipmentDimWeight.Location = new System.Drawing.Point(82, 76);
             this.txtShipmentDimWeight.Name = "txtShipmentDimWeight";
-            this.txtShipmentDimWeight.Size = new System.Drawing.Size(61, 20);
-            this.txtShipmentDimWeight.TabIndex = 25;
+            this.txtShipmentDimWeight.Size = new System.Drawing.Size(61, 21);
+            this.txtShipmentDimWeight.TabIndex = 26;
+            this.txtShipmentDimWeight.TabStop = false;
             // 
             // txtShipmentWeight
             // 
+            this.txtShipmentWeight.Font = new System.Drawing.Font("Delivery", 8.249999F);
             this.txtShipmentWeight.Location = new System.Drawing.Point(82, 48);
             this.txtShipmentWeight.Name = "txtShipmentWeight";
-            this.txtShipmentWeight.Size = new System.Drawing.Size(61, 20);
-            this.txtShipmentWeight.TabIndex = 23;
+            this.txtShipmentWeight.Size = new System.Drawing.Size(61, 21);
+            this.txtShipmentWeight.TabIndex = 24;
             // 
             // txtDutyAccountNumber
             // 
-            this.txtDutyAccountNumber.Location = new System.Drawing.Point(196, 180);
+            this.txtDutyAccountNumber.Font = new System.Drawing.Font("Delivery", 8.249999F);
+            this.txtDutyAccountNumber.Location = new System.Drawing.Point(112, 180);
             this.txtDutyAccountNumber.Name = "txtDutyAccountNumber";
-            this.txtDutyAccountNumber.Size = new System.Drawing.Size(144, 20);
-            this.txtDutyAccountNumber.TabIndex = 22;
+            this.txtDutyAccountNumber.Size = new System.Drawing.Size(85, 21);
+            this.txtDutyAccountNumber.TabIndex = 34;
+            // 
+            // txtShipmentReference
+            // 
+            this.txtShipmentReference.Font = new System.Drawing.Font("Delivery", 8.249999F);
+            this.txtShipmentReference.Location = new System.Drawing.Point(222, 180);
+            this.txtShipmentReference.Name = "txtShipmentReference";
+            this.txtShipmentReference.Size = new System.Drawing.Size(163, 21);
+            this.txtShipmentReference.TabIndex = 35;
             // 
             // txtShipperAccountNumber
             // 
-            this.txtShipperAccountNumber.Location = new System.Drawing.Point(196, 154);
+            this.txtShipperAccountNumber.Font = new System.Drawing.Font("Delivery", 8.249999F);
+            this.txtShipperAccountNumber.Location = new System.Drawing.Point(112, 154);
             this.txtShipperAccountNumber.Name = "txtShipperAccountNumber";
-            this.txtShipperAccountNumber.Size = new System.Drawing.Size(144, 20);
-            this.txtShipperAccountNumber.TabIndex = 22;
+            this.txtShipperAccountNumber.Size = new System.Drawing.Size(85, 21);
+            this.txtShipperAccountNumber.TabIndex = 33;
             // 
             // txtShipmentContents
             // 
+            this.txtShipmentContents.Font = new System.Drawing.Font("Delivery", 8.249999F);
             this.txtShipmentContents.Location = new System.Drawing.Point(82, 20);
             this.txtShipmentContents.Name = "txtShipmentContents";
-            this.txtShipmentContents.Size = new System.Drawing.Size(144, 20);
-            this.txtShipmentContents.TabIndex = 22;
+            this.txtShipmentContents.Size = new System.Drawing.Size(144, 21);
+            this.txtShipmentContents.TabIndex = 23;
+            // 
+            // cbxShipmentDDP
+            // 
+            this.cbxShipmentDDP.AutoSize = true;
+            this.cbxShipmentDDP.Font = new System.Drawing.Font("Delivery", 8.249999F);
+            this.cbxShipmentDDP.Location = new System.Drawing.Point(323, 55);
+            this.cbxShipmentDDP.Name = "cbxShipmentDDP";
+            this.cbxShipmentDDP.Size = new System.Drawing.Size(51, 17);
+            this.cbxShipmentDDP.TabIndex = 43;
+            this.cbxShipmentDDP.Text = "DDP?";
+            this.cbxShipmentDDP.UseVisualStyleBackColor = true;
             // 
             // btnViewResponse
             // 
+            this.btnViewResponse.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(5)))), ((int)(((byte)(17)))));
+            this.btnViewResponse.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnViewResponse.Font = new System.Drawing.Font("Delivery Cd Light", 10F);
+            this.btnViewResponse.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(204)))), ((int)(((byte)(0)))));
             this.btnViewResponse.Location = new System.Drawing.Point(370, 87);
             this.btnViewResponse.Name = "btnViewResponse";
             this.btnViewResponse.Size = new System.Drawing.Size(51, 25);
-            this.btnViewResponse.TabIndex = 2;
+            this.btnViewResponse.TabIndex = 52;
             this.btnViewResponse.TabStop = false;
             this.btnViewResponse.Text = "RESP";
-            this.btnViewResponse.UseVisualStyleBackColor = true;
+            this.btnViewResponse.UseVisualStyleBackColor = false;
             this.btnViewResponse.Click += new System.EventHandler(this.BtnViewResponse_Click);
             // 
             // btnViewRequest
             // 
-            this.btnViewRequest.Location = new System.Drawing.Point(313, 87);
+            this.btnViewRequest.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(5)))), ((int)(((byte)(17)))));
+            this.btnViewRequest.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnViewRequest.Font = new System.Drawing.Font("Delivery Cd Light", 10F);
+            this.btnViewRequest.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(204)))), ((int)(((byte)(0)))));
+            this.btnViewRequest.Location = new System.Drawing.Point(370, 57);
             this.btnViewRequest.Name = "btnViewRequest";
             this.btnViewRequest.Size = new System.Drawing.Size(51, 25);
-            this.btnViewRequest.TabIndex = 2;
+            this.btnViewRequest.TabIndex = 51;
             this.btnViewRequest.TabStop = false;
             this.btnViewRequest.Text = "REQ";
-            this.btnViewRequest.UseVisualStyleBackColor = true;
+            this.btnViewRequest.UseVisualStyleBackColor = false;
             this.btnViewRequest.Click += new System.EventHandler(this.BtnViewRequest_Click);
             // 
             // groupBox2
@@ -676,7 +779,7 @@
             this.groupBox2.Controls.Add(this.txtConsigneeEMailAddress);
             this.groupBox2.Controls.Add(this.txtConsigneeName);
             this.groupBox2.Controls.Add(this.txtConsigneeCompany);
-            this.groupBox2.Font = new System.Drawing.Font("Frutiger", 8.249999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox2.Font = new System.Drawing.Font("Delivery Cd Light", 9F);
             this.groupBox2.Location = new System.Drawing.Point(244, 13);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(226, 331);
@@ -687,183 +790,216 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 297);
+            this.label2.Font = new System.Drawing.Font("Delivery", 8.249999F);
+            this.label2.Location = new System.Drawing.Point(9, 298);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(68, 14);
+            this.label2.Size = new System.Drawing.Size(64, 13);
             this.label2.TabIndex = 0;
             this.label2.Text = "Postal Code";
+            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(48, 269);
+            this.label13.Font = new System.Drawing.Font("Delivery", 8.249999F);
+            this.label13.Location = new System.Drawing.Point(47, 270);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(26, 14);
+            this.label13.Size = new System.Drawing.Size(26, 13);
             this.label13.TabIndex = 0;
             this.label13.Text = "City";
+            this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(17, 185);
+            this.label14.Font = new System.Drawing.Font("Delivery", 8.249999F);
+            this.label14.Location = new System.Drawing.Point(19, 186);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(57, 14);
+            this.label14.Size = new System.Drawing.Size(54, 13);
             this.label14.TabIndex = 0;
             this.label14.Text = "Address 3";
+            this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(25, 241);
+            this.label15.Font = new System.Drawing.Font("Delivery", 8.249999F);
+            this.label15.Location = new System.Drawing.Point(25, 242);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(49, 14);
+            this.label15.Size = new System.Drawing.Size(48, 13);
             this.label15.TabIndex = 0;
             this.label15.Text = "US State";
+            this.label15.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(17, 157);
+            this.label16.Font = new System.Drawing.Font("Delivery", 8.249999F);
+            this.label16.Location = new System.Drawing.Point(19, 158);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(57, 14);
+            this.label16.Size = new System.Drawing.Size(54, 13);
             this.label16.TabIndex = 0;
             this.label16.Text = "Address 2";
+            this.label16.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(28, 213);
+            this.label17.Font = new System.Drawing.Font("Delivery", 8.249999F);
+            this.label17.Location = new System.Drawing.Point(28, 214);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(46, 14);
+            this.label17.Size = new System.Drawing.Size(45, 13);
             this.label17.TabIndex = 0;
             this.label17.Text = "Country";
+            this.label17.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(17, 129);
+            this.label18.Font = new System.Drawing.Font("Delivery", 8.249999F);
+            this.label18.Location = new System.Drawing.Point(19, 130);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(57, 14);
+            this.label18.Size = new System.Drawing.Size(54, 13);
             this.label18.TabIndex = 0;
             this.label18.Text = "Address 1";
+            this.label18.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(31, 101);
+            this.label19.Font = new System.Drawing.Font("Delivery", 8.249999F);
+            this.label19.Location = new System.Drawing.Point(33, 102);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(43, 14);
+            this.label19.Size = new System.Drawing.Size(40, 13);
             this.label19.TabIndex = 0;
             this.label19.Text = "Mobile";
+            this.label19.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label20
             // 
             this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(35, 73);
+            this.label20.Font = new System.Drawing.Font("Delivery", 8.249999F);
+            this.label20.Location = new System.Drawing.Point(35, 74);
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(39, 14);
+            this.label20.Size = new System.Drawing.Size(38, 13);
             this.label20.TabIndex = 0;
             this.label20.Text = "E-Mail";
+            this.label20.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label21
             // 
             this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(39, 45);
+            this.label21.Font = new System.Drawing.Font("Delivery", 8.249999F);
+            this.label21.Location = new System.Drawing.Point(36, 46);
             this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(35, 14);
+            this.label21.Size = new System.Drawing.Size(37, 13);
             this.label21.TabIndex = 0;
             this.label21.Text = "Name";
+            this.label21.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // label22
             // 
             this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(20, 17);
+            this.label22.Font = new System.Drawing.Font("Delivery", 8.249999F);
+            this.label22.Location = new System.Drawing.Point(20, 18);
             this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(54, 14);
+            this.label22.Size = new System.Drawing.Size(53, 13);
             this.label22.TabIndex = 0;
             this.label22.Text = "Company";
+            this.label22.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // txtConsigneePostalCode
             // 
             this.txtConsigneePostalCode.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtConsigneePostalCode.Font = new System.Drawing.Font("Delivery", 8.249999F);
             this.txtConsigneePostalCode.Location = new System.Drawing.Point(76, 294);
             this.txtConsigneePostalCode.Name = "txtConsigneePostalCode";
-            this.txtConsigneePostalCode.Size = new System.Drawing.Size(144, 20);
-            this.txtConsigneePostalCode.TabIndex = 21;
+            this.txtConsigneePostalCode.Size = new System.Drawing.Size(144, 21);
+            this.txtConsigneePostalCode.TabIndex = 22;
             // 
             // txtConsigneeCity
             // 
             this.txtConsigneeCity.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtConsigneeCity.Font = new System.Drawing.Font("Delivery", 8.249999F);
             this.txtConsigneeCity.Location = new System.Drawing.Point(76, 266);
             this.txtConsigneeCity.Name = "txtConsigneeCity";
-            this.txtConsigneeCity.Size = new System.Drawing.Size(144, 20);
-            this.txtConsigneeCity.TabIndex = 20;
+            this.txtConsigneeCity.Size = new System.Drawing.Size(144, 21);
+            this.txtConsigneeCity.TabIndex = 21;
             // 
             // txtConsigneeAddress3
             // 
+            this.txtConsigneeAddress3.Font = new System.Drawing.Font("Delivery", 8.249999F);
             this.txtConsigneeAddress3.Location = new System.Drawing.Point(76, 182);
             this.txtConsigneeAddress3.Name = "txtConsigneeAddress3";
-            this.txtConsigneeAddress3.Size = new System.Drawing.Size(144, 20);
-            this.txtConsigneeAddress3.TabIndex = 17;
+            this.txtConsigneeAddress3.Size = new System.Drawing.Size(144, 21);
+            this.txtConsigneeAddress3.TabIndex = 18;
             // 
             // txtConsigneeState
             // 
             this.txtConsigneeState.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtConsigneeState.Font = new System.Drawing.Font("Delivery", 8.249999F);
             this.txtConsigneeState.Location = new System.Drawing.Point(76, 238);
             this.txtConsigneeState.Name = "txtConsigneeState";
-            this.txtConsigneeState.Size = new System.Drawing.Size(144, 20);
-            this.txtConsigneeState.TabIndex = 19;
+            this.txtConsigneeState.Size = new System.Drawing.Size(144, 21);
+            this.txtConsigneeState.TabIndex = 20;
             // 
             // txtConsigneeAddress2
             // 
+            this.txtConsigneeAddress2.Font = new System.Drawing.Font("Delivery", 8.249999F);
             this.txtConsigneeAddress2.Location = new System.Drawing.Point(76, 154);
             this.txtConsigneeAddress2.Name = "txtConsigneeAddress2";
-            this.txtConsigneeAddress2.Size = new System.Drawing.Size(144, 20);
-            this.txtConsigneeAddress2.TabIndex = 16;
+            this.txtConsigneeAddress2.Size = new System.Drawing.Size(144, 21);
+            this.txtConsigneeAddress2.TabIndex = 17;
             // 
             // txtConsigneeCountry
             // 
             this.txtConsigneeCountry.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtConsigneeCountry.Font = new System.Drawing.Font("Delivery", 8.249999F);
             this.txtConsigneeCountry.Location = new System.Drawing.Point(76, 210);
             this.txtConsigneeCountry.MaxLength = 2;
             this.txtConsigneeCountry.Name = "txtConsigneeCountry";
-            this.txtConsigneeCountry.Size = new System.Drawing.Size(144, 20);
-            this.txtConsigneeCountry.TabIndex = 18;
+            this.txtConsigneeCountry.Size = new System.Drawing.Size(144, 21);
+            this.txtConsigneeCountry.TabIndex = 19;
             // 
             // txtConsigneeAddress1
             // 
+            this.txtConsigneeAddress1.Font = new System.Drawing.Font("Delivery", 8.249999F);
             this.txtConsigneeAddress1.Location = new System.Drawing.Point(76, 126);
             this.txtConsigneeAddress1.Name = "txtConsigneeAddress1";
-            this.txtConsigneeAddress1.Size = new System.Drawing.Size(144, 20);
-            this.txtConsigneeAddress1.TabIndex = 15;
+            this.txtConsigneeAddress1.Size = new System.Drawing.Size(144, 21);
+            this.txtConsigneeAddress1.TabIndex = 16;
             // 
             // txtConsigneeMobileNumber
             // 
+            this.txtConsigneeMobileNumber.Font = new System.Drawing.Font("Delivery", 8.249999F);
             this.txtConsigneeMobileNumber.Location = new System.Drawing.Point(76, 98);
             this.txtConsigneeMobileNumber.Name = "txtConsigneeMobileNumber";
-            this.txtConsigneeMobileNumber.Size = new System.Drawing.Size(144, 20);
-            this.txtConsigneeMobileNumber.TabIndex = 14;
+            this.txtConsigneeMobileNumber.Size = new System.Drawing.Size(144, 21);
+            this.txtConsigneeMobileNumber.TabIndex = 15;
             // 
             // txtConsigneeEMailAddress
             // 
+            this.txtConsigneeEMailAddress.Font = new System.Drawing.Font("Delivery", 8.249999F);
             this.txtConsigneeEMailAddress.Location = new System.Drawing.Point(76, 70);
             this.txtConsigneeEMailAddress.Name = "txtConsigneeEMailAddress";
-            this.txtConsigneeEMailAddress.Size = new System.Drawing.Size(144, 20);
-            this.txtConsigneeEMailAddress.TabIndex = 13;
+            this.txtConsigneeEMailAddress.Size = new System.Drawing.Size(144, 21);
+            this.txtConsigneeEMailAddress.TabIndex = 14;
             // 
             // txtConsigneeName
             // 
+            this.txtConsigneeName.Font = new System.Drawing.Font("Delivery", 8.249999F);
             this.txtConsigneeName.Location = new System.Drawing.Point(76, 42);
             this.txtConsigneeName.Name = "txtConsigneeName";
-            this.txtConsigneeName.Size = new System.Drawing.Size(144, 20);
-            this.txtConsigneeName.TabIndex = 12;
+            this.txtConsigneeName.Size = new System.Drawing.Size(144, 21);
+            this.txtConsigneeName.TabIndex = 13;
             // 
             // txtConsigneeCompany
             // 
+            this.txtConsigneeCompany.Font = new System.Drawing.Font("Delivery", 8.249999F);
             this.txtConsigneeCompany.Location = new System.Drawing.Point(76, 14);
             this.txtConsigneeCompany.Name = "txtConsigneeCompany";
-            this.txtConsigneeCompany.Size = new System.Drawing.Size(144, 20);
-            this.txtConsigneeCompany.TabIndex = 11;
+            this.txtConsigneeCompany.Size = new System.Drawing.Size(144, 21);
+            this.txtConsigneeCompany.TabIndex = 12;
             // 
             // groupBox4
             // 
@@ -874,9 +1010,10 @@
             this.groupBox4.Controls.Add(this.txtResultPieces);
             this.groupBox4.Controls.Add(this.txtResultAWB);
             this.groupBox4.Controls.Add(this.btnViewRequest);
+            this.groupBox4.Controls.Add(this.btnShip);
             this.groupBox4.Controls.Add(this.btnViewResponse);
-            this.groupBox4.Font = new System.Drawing.Font("Frutiger", 8.249999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox4.Location = new System.Drawing.Point(476, 226);
+            this.groupBox4.Font = new System.Drawing.Font("Delivery Cd Light", 9F);
+            this.groupBox4.Location = new System.Drawing.Point(476, 314);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(427, 118);
             this.groupBox4.TabIndex = 5;
@@ -886,12 +1023,12 @@
             // llblAWB
             // 
             this.llblAWB.AutoSize = true;
-            this.llblAWB.Font = new System.Drawing.Font("Frutiger", 8.249999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.llblAWB.Font = new System.Drawing.Font("Delivery", 8.249999F);
             this.llblAWB.LinkBehavior = System.Windows.Forms.LinkBehavior.NeverUnderline;
             this.llblAWB.LinkColor = System.Drawing.Color.Black;
-            this.llblAWB.Location = new System.Drawing.Point(43, 22);
+            this.llblAWB.Location = new System.Drawing.Point(30, 22);
             this.llblAWB.Name = "llblAWB";
-            this.llblAWB.Size = new System.Drawing.Size(31, 14);
+            this.llblAWB.Size = new System.Drawing.Size(31, 13);
             this.llblAWB.TabIndex = 4;
             this.llblAWB.TabStop = true;
             this.llblAWB.Text = "AWB";
@@ -900,47 +1037,52 @@
             // label34
             // 
             this.label34.AutoSize = true;
-            this.label34.Location = new System.Drawing.Point(37, 48);
+            this.label34.Font = new System.Drawing.Font("Delivery", 8.249999F);
+            this.label34.Location = new System.Drawing.Point(24, 48);
             this.label34.Name = "label34";
-            this.label34.Size = new System.Drawing.Size(39, 14);
+            this.label34.Size = new System.Drawing.Size(38, 13);
             this.label34.TabIndex = 0;
             this.label34.Text = "Pieces";
             // 
             // label37
             // 
             this.label37.AutoSize = true;
-            this.label37.Location = new System.Drawing.Point(278, 22);
+            this.label37.Font = new System.Drawing.Font("Delivery", 8.249999F);
+            this.label37.Location = new System.Drawing.Point(224, 22);
             this.label37.Name = "label37";
-            this.label37.Size = new System.Drawing.Size(143, 14);
+            this.label37.Size = new System.Drawing.Size(141, 13);
             this.label37.TabIndex = 0;
             this.label37.Text = "Booking Reference Number";
             // 
             // txtResultBookingReferenceNumber
             // 
-            this.txtResultBookingReferenceNumber.Location = new System.Drawing.Point(277, 45);
+            this.txtResultBookingReferenceNumber.Font = new System.Drawing.Font("Delivery", 8.249999F);
+            this.txtResultBookingReferenceNumber.Location = new System.Drawing.Point(222, 45);
             this.txtResultBookingReferenceNumber.Name = "txtResultBookingReferenceNumber";
             this.txtResultBookingReferenceNumber.ReadOnly = true;
-            this.txtResultBookingReferenceNumber.Size = new System.Drawing.Size(144, 20);
+            this.txtResultBookingReferenceNumber.Size = new System.Drawing.Size(144, 21);
             this.txtResultBookingReferenceNumber.TabIndex = 3;
             this.txtResultBookingReferenceNumber.TabStop = false;
             // 
             // txtResultPieces
             // 
-            this.txtResultPieces.Location = new System.Drawing.Point(82, 45);
+            this.txtResultPieces.Font = new System.Drawing.Font("Delivery", 8.249999F);
+            this.txtResultPieces.Location = new System.Drawing.Point(69, 45);
             this.txtResultPieces.Multiline = true;
             this.txtResultPieces.Name = "txtResultPieces";
             this.txtResultPieces.ReadOnly = true;
             this.txtResultPieces.Size = new System.Drawing.Size(144, 59);
-            this.txtResultPieces.TabIndex = 3;
+            this.txtResultPieces.TabIndex = 50;
             this.txtResultPieces.TabStop = false;
             // 
             // txtResultAWB
             // 
-            this.txtResultAWB.Location = new System.Drawing.Point(82, 19);
+            this.txtResultAWB.Font = new System.Drawing.Font("Delivery", 8.249999F);
+            this.txtResultAWB.Location = new System.Drawing.Point(69, 19);
             this.txtResultAWB.Name = "txtResultAWB";
             this.txtResultAWB.ReadOnly = true;
-            this.txtResultAWB.Size = new System.Drawing.Size(144, 20);
-            this.txtResultAWB.TabIndex = 3;
+            this.txtResultAWB.Size = new System.Drawing.Size(144, 21);
+            this.txtResultAWB.TabIndex = 49;
             this.txtResultAWB.TabStop = false;
             // 
             // ToolTip1
@@ -954,14 +1096,18 @@
             // btnUploadLogo
             // 
             this.btnUploadLogo.AutoSize = true;
-            this.btnUploadLogo.Location = new System.Drawing.Point(3, 16);
+            this.btnUploadLogo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(5)))), ((int)(((byte)(17)))));
+            this.btnUploadLogo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnUploadLogo.Font = new System.Drawing.Font("Delivery", 9F);
+            this.btnUploadLogo.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(204)))), ((int)(((byte)(0)))));
+            this.btnUploadLogo.Location = new System.Drawing.Point(3, 17);
             this.btnUploadLogo.Name = "btnUploadLogo";
-            this.btnUploadLogo.Size = new System.Drawing.Size(94, 24);
-            this.btnUploadLogo.TabIndex = 0;
+            this.btnUploadLogo.Size = new System.Drawing.Size(96, 27);
+            this.btnUploadLogo.TabIndex = 44;
             this.btnUploadLogo.TabStop = false;
             this.btnUploadLogo.Text = "UPLOAD LOGO";
             this.ToolTip1.SetToolTip(this.btnUploadLogo, "Not implemented in GloWS yet.");
-            this.btnUploadLogo.UseVisualStyleBackColor = true;
+            this.btnUploadLogo.UseVisualStyleBackColor = false;
             this.btnUploadLogo.Click += new System.EventHandler(this.BtnUploadLogo_Click);
             // 
             // groupBox5
@@ -970,82 +1116,68 @@
             this.groupBox5.Controls.Add(this.lblLogoUploaded);
             this.groupBox5.Controls.Add(this.btnUploadInvoice);
             this.groupBox5.Controls.Add(this.btnUploadLogo);
+            this.groupBox5.Font = new System.Drawing.Font("Delivery Cd Light", 9F);
             this.groupBox5.Location = new System.Drawing.Point(12, 350);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Size = new System.Drawing.Size(226, 82);
             this.groupBox5.TabIndex = 6;
             this.groupBox5.TabStop = false;
-            this.groupBox5.Text = "Images Upload";
+            this.groupBox5.Text = "UPLOAD IMAGES";
             // 
             // lblInvoiceUploaded
             // 
             this.lblInvoiceUploaded.AutoSize = true;
-            this.lblInvoiceUploaded.Location = new System.Drawing.Point(109, 50);
+            this.lblInvoiceUploaded.Font = new System.Drawing.Font("Delivery", 8.249999F);
+            this.lblInvoiceUploaded.Location = new System.Drawing.Point(116, 53);
             this.lblInvoiceUploaded.Name = "lblInvoiceUploaded";
-            this.lblInvoiceUploaded.Size = new System.Drawing.Size(66, 14);
+            this.lblInvoiceUploaded.Size = new System.Drawing.Size(63, 13);
             this.lblInvoiceUploaded.TabIndex = 1;
             this.lblInvoiceUploaded.Text = "Not Loaded";
             // 
             // lblLogoUploaded
             // 
             this.lblLogoUploaded.AutoSize = true;
-            this.lblLogoUploaded.Location = new System.Drawing.Point(109, 21);
+            this.lblLogoUploaded.Font = new System.Drawing.Font("Delivery", 8.249999F);
+            this.lblLogoUploaded.Location = new System.Drawing.Point(116, 23);
             this.lblLogoUploaded.Name = "lblLogoUploaded";
-            this.lblLogoUploaded.Size = new System.Drawing.Size(66, 14);
+            this.lblLogoUploaded.Size = new System.Drawing.Size(63, 13);
             this.lblLogoUploaded.TabIndex = 1;
             this.lblLogoUploaded.Text = "Not Loaded";
             // 
             // btnUploadInvoice
             // 
             this.btnUploadInvoice.AutoSize = true;
-            this.btnUploadInvoice.Location = new System.Drawing.Point(3, 45);
+            this.btnUploadInvoice.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(5)))), ((int)(((byte)(17)))));
+            this.btnUploadInvoice.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnUploadInvoice.Font = new System.Drawing.Font("Delivery", 9F);
+            this.btnUploadInvoice.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(204)))), ((int)(((byte)(0)))));
+            this.btnUploadInvoice.Location = new System.Drawing.Point(3, 47);
             this.btnUploadInvoice.Name = "btnUploadInvoice";
-            this.btnUploadInvoice.Size = new System.Drawing.Size(107, 24);
-            this.btnUploadInvoice.TabIndex = 0;
+            this.btnUploadInvoice.Size = new System.Drawing.Size(109, 27);
+            this.btnUploadInvoice.TabIndex = 45;
             this.btnUploadInvoice.TabStop = false;
             this.btnUploadInvoice.Text = "UPLOAD INVOICE";
-            this.btnUploadInvoice.UseVisualStyleBackColor = true;
+            this.btnUploadInvoice.UseVisualStyleBackColor = false;
             this.btnUploadInvoice.Click += new System.EventHandler(this.BtnUploadInvoice_Click);
-            // 
-            // groupBox6
-            // 
-            this.groupBox6.Controls.Add(this.label38);
-            this.groupBox6.Controls.Add(this.label30);
-            this.groupBox6.Controls.Add(this.cbxShipmentRequestInsurance);
-            this.groupBox6.Controls.Add(this.txtShipmentInsuredCurrency);
-            this.groupBox6.Controls.Add(this.txtShipmentInsuredValue);
-            this.groupBox6.Location = new System.Drawing.Point(244, 350);
-            this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(226, 82);
-            this.groupBox6.TabIndex = 7;
-            this.groupBox6.TabStop = false;
-            this.groupBox6.Text = "Insurance";
-            // 
-            // label38
-            // 
-            this.label38.AutoSize = true;
-            this.label38.Location = new System.Drawing.Point(158, 29);
-            this.label38.Name = "label38";
-            this.label38.Size = new System.Drawing.Size(51, 14);
-            this.label38.TabIndex = 33;
-            this.label38.Text = "Currency";
             // 
             // label30
             // 
             this.label30.AutoSize = true;
-            this.label30.Location = new System.Drawing.Point(6, 50);
+            this.label30.Font = new System.Drawing.Font("Delivery", 8.249999F);
+            this.label30.Location = new System.Drawing.Point(6, 56);
             this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(74, 14);
+            this.label30.Size = new System.Drawing.Size(57, 13);
             this.label30.TabIndex = 33;
-            this.label30.Text = "Insured Value";
+            this.label30.Text = "Insurance:";
             // 
             // cbxShipmentRequestInsurance
             // 
             this.cbxShipmentRequestInsurance.AutoSize = true;
-            this.cbxShipmentRequestInsurance.Location = new System.Drawing.Point(6, 19);
+            this.cbxShipmentRequestInsurance.Font = new System.Drawing.Font("Delivery", 8.249999F);
+            this.cbxShipmentRequestInsurance.Location = new System.Drawing.Point(203, 55);
             this.cbxShipmentRequestInsurance.Name = "cbxShipmentRequestInsurance";
-            this.cbxShipmentRequestInsurance.Size = new System.Drawing.Size(121, 18);
-            this.cbxShipmentRequestInsurance.TabIndex = 33;
+            this.cbxShipmentRequestInsurance.Size = new System.Drawing.Size(120, 17);
+            this.cbxShipmentRequestInsurance.TabIndex = 41;
             this.cbxShipmentRequestInsurance.Tag = "II";
             this.cbxShipmentRequestInsurance.Text = "Request Insurance?";
             this.cbxShipmentRequestInsurance.UseVisualStyleBackColor = true;
@@ -1053,18 +1185,151 @@
             // 
             // txtShipmentInsuredCurrency
             // 
-            this.txtShipmentInsuredCurrency.Location = new System.Drawing.Point(153, 47);
+            this.txtShipmentInsuredCurrency.Font = new System.Drawing.Font("Delivery", 8.249999F);
+            this.txtShipmentInsuredCurrency.Location = new System.Drawing.Point(136, 53);
             this.txtShipmentInsuredCurrency.MaxLength = 3;
             this.txtShipmentInsuredCurrency.Name = "txtShipmentInsuredCurrency";
-            this.txtShipmentInsuredCurrency.Size = new System.Drawing.Size(61, 20);
-            this.txtShipmentInsuredCurrency.TabIndex = 34;
+            this.txtShipmentInsuredCurrency.Size = new System.Drawing.Size(61, 21);
+            this.txtShipmentInsuredCurrency.TabIndex = 40;
             // 
             // txtShipmentInsuredValue
             // 
-            this.txtShipmentInsuredValue.Location = new System.Drawing.Point(86, 47);
+            this.txtShipmentInsuredValue.Font = new System.Drawing.Font("Delivery", 8.249999F);
+            this.txtShipmentInsuredValue.Location = new System.Drawing.Point(69, 53);
             this.txtShipmentInsuredValue.Name = "txtShipmentInsuredValue";
-            this.txtShipmentInsuredValue.Size = new System.Drawing.Size(61, 20);
-            this.txtShipmentInsuredValue.TabIndex = 35;
+            this.txtShipmentInsuredValue.Size = new System.Drawing.Size(61, 21);
+            this.txtShipmentInsuredValue.TabIndex = 39;
+            // 
+            // groupBox7
+            // 
+            this.groupBox7.Controls.Add(this.cbxShipmentDDP);
+            this.groupBox7.Controls.Add(this.label41);
+            this.groupBox7.Controls.Add(this.label39);
+            this.groupBox7.Controls.Add(this.cbxShipmentRequestInsurance);
+            this.groupBox7.Controls.Add(this.label30);
+            this.groupBox7.Controls.Add(this.label40);
+            this.groupBox7.Controls.Add(this.txtShipmentInsuredCurrency);
+            this.groupBox7.Controls.Add(this.cbxRequestCoD);
+            this.groupBox7.Controls.Add(this.txtShipmentInsuredValue);
+            this.groupBox7.Controls.Add(this.cbxDataStaging);
+            this.groupBox7.Controls.Add(this.txtShipmentCoDCurrency);
+            this.groupBox7.Controls.Add(this.txtShipmentCoDValue);
+            this.groupBox7.Font = new System.Drawing.Font("Delivery Cd Light", 9F);
+            this.groupBox7.Location = new System.Drawing.Point(476, 226);
+            this.groupBox7.Name = "groupBox7";
+            this.groupBox7.Size = new System.Drawing.Size(427, 82);
+            this.groupBox7.TabIndex = 36;
+            this.groupBox7.TabStop = false;
+            this.groupBox7.Text = "SHIPMENT FEATURES";
+            // 
+            // label41
+            // 
+            this.label41.AutoSize = true;
+            this.label41.Font = new System.Drawing.Font("Delivery", 8.249999F);
+            this.label41.Location = new System.Drawing.Point(82, 13);
+            this.label41.Name = "label41";
+            this.label41.Size = new System.Drawing.Size(35, 13);
+            this.label41.TabIndex = 33;
+            this.label41.Text = "Value";
+            // 
+            // label39
+            // 
+            this.label39.AutoSize = true;
+            this.label39.Font = new System.Drawing.Font("Delivery", 8.249999F);
+            this.label39.Location = new System.Drawing.Point(141, 13);
+            this.label39.Name = "label39";
+            this.label39.Size = new System.Drawing.Size(50, 13);
+            this.label39.TabIndex = 33;
+            this.label39.Text = "Currency";
+            // 
+            // label40
+            // 
+            this.label40.AutoSize = true;
+            this.label40.Font = new System.Drawing.Font("Delivery", 8.249999F);
+            this.label40.Location = new System.Drawing.Point(31, 31);
+            this.label40.Name = "label40";
+            this.label40.Size = new System.Drawing.Size(30, 13);
+            this.label40.TabIndex = 33;
+            this.label40.Text = "CoD:";
+            // 
+            // cbxRequestCoD
+            // 
+            this.cbxRequestCoD.AutoSize = true;
+            this.cbxRequestCoD.Font = new System.Drawing.Font("Delivery", 8.249999F);
+            this.cbxRequestCoD.Location = new System.Drawing.Point(203, 30);
+            this.cbxRequestCoD.Name = "cbxRequestCoD";
+            this.cbxRequestCoD.Size = new System.Drawing.Size(93, 17);
+            this.cbxRequestCoD.TabIndex = 38;
+            this.cbxRequestCoD.Tag = "KB";
+            this.cbxRequestCoD.Text = "Request CoD?";
+            this.cbxRequestCoD.UseVisualStyleBackColor = true;
+            this.cbxRequestCoD.CheckedChanged += new System.EventHandler(this.CbxRequestCoD_CheckedChanged);
+            // 
+            // cbxDataStaging
+            // 
+            this.cbxDataStaging.AutoSize = true;
+            this.cbxDataStaging.Font = new System.Drawing.Font("Delivery", 8.249999F);
+            this.cbxDataStaging.Location = new System.Drawing.Point(323, 30);
+            this.cbxDataStaging.Name = "cbxDataStaging";
+            this.cbxDataStaging.Size = new System.Drawing.Size(93, 17);
+            this.cbxDataStaging.TabIndex = 42;
+            this.cbxDataStaging.Tag = "II";
+            this.cbxDataStaging.Text = "Data Staging?";
+            this.cbxDataStaging.UseVisualStyleBackColor = true;
+            this.cbxDataStaging.CheckedChanged += new System.EventHandler(this.CbxDataStaging_CheckedChanged);
+            // 
+            // txtShipmentCoDCurrency
+            // 
+            this.txtShipmentCoDCurrency.Enabled = false;
+            this.txtShipmentCoDCurrency.Font = new System.Drawing.Font("Delivery", 8.249999F);
+            this.txtShipmentCoDCurrency.Location = new System.Drawing.Point(136, 28);
+            this.txtShipmentCoDCurrency.MaxLength = 3;
+            this.txtShipmentCoDCurrency.Name = "txtShipmentCoDCurrency";
+            this.txtShipmentCoDCurrency.Size = new System.Drawing.Size(61, 21);
+            this.txtShipmentCoDCurrency.TabIndex = 37;
+            // 
+            // txtShipmentCoDValue
+            // 
+            this.txtShipmentCoDValue.Enabled = false;
+            this.txtShipmentCoDValue.Font = new System.Drawing.Font("Delivery", 8.249999F);
+            this.txtShipmentCoDValue.Location = new System.Drawing.Point(69, 28);
+            this.txtShipmentCoDValue.Name = "txtShipmentCoDValue";
+            this.txtShipmentCoDValue.Size = new System.Drawing.Size(61, 21);
+            this.txtShipmentCoDValue.TabIndex = 36;
+            // 
+            // groupBox6
+            // 
+            this.groupBox6.Controls.Add(this.cbxSendNotification);
+            this.groupBox6.Controls.Add(this.cbxExportDeclaration);
+            this.groupBox6.Font = new System.Drawing.Font("Delivery Cd Light", 9F);
+            this.groupBox6.Location = new System.Drawing.Point(244, 350);
+            this.groupBox6.Name = "groupBox6";
+            this.groupBox6.Size = new System.Drawing.Size(226, 82);
+            this.groupBox6.TabIndex = 7;
+            this.groupBox6.TabStop = false;
+            this.groupBox6.Text = "ADDITIONAL TESTS";
+            // 
+            // cbxSendNotification
+            // 
+            this.cbxSendNotification.AutoSize = true;
+            this.cbxSendNotification.Font = new System.Drawing.Font("Delivery", 8.249999F);
+            this.cbxSendNotification.Location = new System.Drawing.Point(9, 47);
+            this.cbxSendNotification.Name = "cbxSendNotification";
+            this.cbxSendNotification.Size = new System.Drawing.Size(109, 17);
+            this.cbxSendNotification.TabIndex = 47;
+            this.cbxSendNotification.Text = "Send Notification";
+            this.cbxSendNotification.UseVisualStyleBackColor = true;
+            // 
+            // cbxExportDeclaration
+            // 
+            this.cbxExportDeclaration.AutoSize = true;
+            this.cbxExportDeclaration.Font = new System.Drawing.Font("Delivery", 8.249999F);
+            this.cbxExportDeclaration.Location = new System.Drawing.Point(9, 24);
+            this.cbxExportDeclaration.Name = "cbxExportDeclaration";
+            this.cbxExportDeclaration.Size = new System.Drawing.Size(115, 17);
+            this.cbxExportDeclaration.TabIndex = 46;
+            this.cbxExportDeclaration.Text = "Export Declaration";
+            this.cbxExportDeclaration.UseVisualStyleBackColor = true;
             // 
             // Ship
             // 
@@ -1073,6 +1338,7 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(204)))), ((int)(((byte)(0)))));
             this.ClientSize = new System.Drawing.Size(918, 440);
             this.Controls.Add(this.groupBox6);
+            this.Controls.Add(this.groupBox7);
             this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox2);
@@ -1093,6 +1359,8 @@
             this.groupBox4.PerformLayout();
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
+            this.groupBox7.ResumeLayout(false);
+            this.groupBox7.PerformLayout();
             this.groupBox6.ResumeLayout(false);
             this.groupBox6.PerformLayout();
             this.ResumeLayout(false);
@@ -1191,11 +1459,22 @@
         private System.Windows.Forms.Button btnUploadInvoice;
         private System.Windows.Forms.Button btnUploadLogo;
         private System.Windows.Forms.CheckBox cbxShipmentDDP;
-        private System.Windows.Forms.GroupBox groupBox6;
-        private System.Windows.Forms.Label label38;
         private System.Windows.Forms.Label label30;
         private System.Windows.Forms.CheckBox cbxShipmentRequestInsurance;
         private System.Windows.Forms.TextBox txtShipmentInsuredCurrency;
         private System.Windows.Forms.TextBox txtShipmentInsuredValue;
+        private System.Windows.Forms.GroupBox groupBox7;
+        private System.Windows.Forms.Label label41;
+        private System.Windows.Forms.Label label39;
+        private System.Windows.Forms.Label label40;
+        private System.Windows.Forms.CheckBox cbxRequestCoD;
+        private System.Windows.Forms.CheckBox cbxDataStaging;
+        private System.Windows.Forms.TextBox txtShipmentCoDCurrency;
+        private System.Windows.Forms.TextBox txtShipmentCoDValue;
+        private System.Windows.Forms.GroupBox groupBox6;
+        private System.Windows.Forms.CheckBox cbxExportDeclaration;
+        private System.Windows.Forms.Label label38;
+        private System.Windows.Forms.TextBox txtShipmentReference;
+        private System.Windows.Forms.CheckBox cbxSendNotification;
     }
 }

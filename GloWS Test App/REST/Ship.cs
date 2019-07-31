@@ -1,7 +1,9 @@
 ﻿using MyDHLAPI_REST_Library;
 using MyDHLAPI_REST_Library.Objects;
 using MyDHLAPI_REST_Library.Objects.Common;
+using MyDHLAPI_REST_Library.Objects.Exceptions;
 using MyDHLAPI_REST_Library.Objects.Ship;
+using MyDHLAPI_REST_Library.Objects.Ship.Response;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -9,25 +11,24 @@ using System.Linq;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using System.IO;
-using MyDHLAPI_REST_Library.Objects.Exceptions;
-using MyDHLAPI_REST_Library.Objects.Ship.Response;
+using System.Web;
+using System.ComponentModel.DataAnnotations;
 
 namespace MyDHLAPI_Test_App.REST
 {
     public partial class Ship : Form
     {
         private List<string> _productCodes = new List<string> { "", "0", "1", "2", "3", "4", "5", "7", "8", "9", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z" };
-        private string GloWS_Request = string.Empty;
-        private string GloWS_Response = string.Empty;
+        private string MyDHLAPI_Request = string.Empty;
+        private string MyDHLAPI_Response = string.Empty;
 
         private bool _logoAvailable;
         private byte[] _logoData;
+        private string _logoMimeType;
         private bool _invoiceAvailable;
         private byte[] _invoiceData;
 
         private List<string> _generatedTempFiles = new List<string>();
-
-        //private string[] doxProducts = {}
 
         public Ship()
         {
@@ -102,6 +103,22 @@ namespace MyDHLAPI_Test_App.REST
                         txtShipmentDimWeight.Text = $"{preDivisor / 5000:#,##0.00}";
                     }
                 }
+
+                if (null != Common.Defaults.Insurance)
+                {
+                    var insurance = Common.Defaults.Insurance;
+                    Common.ApplyDefault(ref txtShipmentInsuredValue, insurance.InsuredAmount);
+                    Common.ApplyDefault(ref txtShipmentInsuredCurrency, insurance.InsuredCurrency);
+                    Common.ApplyDefault(ref cbxShipmentRequestInsurance, insurance.InsuranceEnabled);
+                }
+
+                if (null != Common.Defaults.CoD)
+                {
+                    var cod = Common.Defaults.CoD;
+                    Common.ApplyDefault(ref txtShipmentCoDValue, cod.CoDAmount);
+                    Common.ApplyDefault(ref txtShipmentCoDCurrency, cod.CoDCurrency);
+                    Common.ApplyDefault(ref cbxRequestCoD, cod.CoDEnabled);
+                }
             }
             else
             {
@@ -169,9 +186,26 @@ namespace MyDHLAPI_Test_App.REST
                 // Determine if this is a dox or non-dox shipment
                 bool isDox = !(new[] { "3", "4", "8", "E", "F", "H", "J", "M", "P", "Q", "V", "Y" }).Contains(cmbProductCode.SelectedValue.ToString());
                 bool isDomestic = "N" == cmbProductCode.Text;
+                bool isDataStaging = cbxDataStaging.Checked;
+
+                MyDHLAPI api = new MyDHLAPI_REST_Library.MyDHLAPI(Common.CurrentCredentials["Username"]
+                                                                  , Common.CurrentCredentials["Password"]
+                                                                  , Common.CurrentRestBaseUrl);
 
                 CreateShipmentRequest req = new CreateShipmentRequest();
-                
+
+                /*** Request Header ***/
+                req.ShipmentRequest.Request = new Request()
+                {
+                    ServiceHeader = new ServiceHeader()
+                    {
+                        ShippingSystemPlatform = "MyDHL API Test App"
+                        , ShippingSystemPlatformVersion = Application.ProductVersion
+                        , Plugin = "MyDHL API C# Library"
+                        , PluginVersion = api.GetVersion()
+                    }
+                };
+
 #pragma warning restore IDE0017 // Simplify object initialization
 
                 if (cbxShipmentRequestPickup.Checked)
@@ -189,6 +223,7 @@ namespace MyDHLAPI_Test_App.REST
                 /*** PLT ***/
                 if (!isDomestic
                     && !isDox
+                    && !isDataStaging
                     && _invoiceAvailable
                     && (pltCountries.Contains(txtShipperCountry.Text)
                         || pltCountries.Contains(txtConsigneeCountry.Text))
@@ -199,7 +234,7 @@ namespace MyDHLAPI_Test_App.REST
                     isPLT = true;
                 }
 
-                req.Data.ShipmentInfo.ProductCode = cmbProductCode.SelectedValue.ToString();
+                req.Data.ShipmentInfo.GlobalProductCode = cmbProductCode.SelectedValue.ToString();
                 
                 // SU = Standard (american) Units (LB, IN); SI = Standard International (KG, CM)
                 if ("KG" == cmbShipmentWeightUOM.SelectedValue.ToString())
@@ -214,18 +249,25 @@ namespace MyDHLAPI_Test_App.REST
                 // If the billing element is defined (it should be used anyway) then there is no need for the
                 // generic shipmentInfo.Account element to be populated.
                 //shipmentInfo.Account = txtShipperAccountNumber.Text;
-                req.Data.ShipmentInfo.Billing = new BillilngInfo(txtShipperAccountNumber.Text, txtShipperAccountNumber.Text, Enums.AccountRole.Shipper);
+                req.Data.ShipmentInfo.Billing = new BillilngInfo(txtShipperAccountNumber.Text
+                                                                 , txtShipperAccountNumber.Text
+                                                                 , Enums.AccountRole.Shipper
+                                                                 , txtDutyAccountNumber.Text);
 
-                if (!isDomestic && !isDox)
-                {
-                    // We have a non-dox shipment
-                    req.Data.ShipmentInfo.CurrencyCode = txtShipmentDeclaredValueCurrency.Text;
-                }
+                req.Data.ShipmentInfo.CurrencyCode = txtShipmentDeclaredValueCurrency.Text;
 
                 req.Data.ShipmentInfo.LabelFormat = Enums.LabelFormat.PDF;
-
-                req.Data.ShipmentInfo.NumberOfPieces = 1;
-
+                req.Data.ShipmentInfo.ShipmentReferences = new ShipmentReferences
+                {
+                    ShipmentReference = new List<ShipmentReference>
+                    {
+                        new ShipmentReference()
+                        {
+                            Reference = txtShipmentReference.Text,
+                            ShipmentReferenceType = Enums.ShipmentReferenceType.Consignor
+                        }
+                    }
+                };
                 DateTime timestamp;
 
                 if (DateTime.Now.TimeOfDay > new TimeSpan(18, 00, 00))
@@ -241,7 +283,7 @@ namespace MyDHLAPI_Test_App.REST
                 req.Data.Timestamp = timestamp;
                 //.RequestedShipment.ShipTimestamp = $"{timestamp:s} GMT{timestamp:zzz}";
 
-                if (!IsBlank(txtDutyAccountNumber))
+                if (!IsBlank(txtDutyAccountNumber) && cbxShipmentDDP.Checked)
                 {
                     req.Data.TermsOfTrade = Enums.TermsOfTrade.DDP;
                 }
@@ -255,17 +297,66 @@ namespace MyDHLAPI_Test_App.REST
                 {
                     req.Data.CustomsInformation.ShipmentType = Enums.ShipmentType.NonDocuments;
                     Commodity commodities = new Commodity();
-                    commodities.CustomsValue = 20M;
-                    commodities.COO = "AE";
-                    commodities.ShipmentContents = "Test Commoditiy";
-                    commodities.NumberOfPieces = 1;
-                    commodities.UnitPrice = 10M;
-                    commodities.Quantity = "2";
+                    commodities.CustomsValue = decimal.Parse(txtShipmentDeclaredValue.Text);
+                    //commodities.COO = "AE";
+                    commodities.ShipmentContents = txtShipmentContents.Text;
+                    //commodities.NumberOfPieces = 1;
+                    //commodities.UnitPrice = 10M;
+                    //commodities.Quantity = "2";
                     req.Data.CustomsInformation.Commodities = commodities;
+
+                    if (cbxExportDeclaration.Checked)
+                    {
+                        ExportDeclaration exportDeclaration = new ExportDeclaration
+                        {
+                            InvoiceNumber = DateTime.Now.Ticks.ToString()
+                            , InvoiceDate = DateTime.Now
+                            , TermsOfPayment = "45 days credit"
+                            , ExportLineItems = new ExportLineItems()
+                        };
+                        exportDeclaration.InvoiceSignatureDetails = new InvoiceSignatureDetails()
+                        {
+                            SignatureName = "James Deer"
+                            , SignatureTitle = "Managing Director"
+                        };
+                        exportDeclaration.ExportLineItems.ExportLineItem = new List<ExportLineItem>();
+                        exportDeclaration.ExportLineItems.ExportLineItem.Add(new ExportLineItem()
+                        {
+                            ItemNumber = 1
+                            , ItemDescription = "TEST ITEM 1"
+                            , Quantity = 10
+                            , QuantityUnitOfMeasurement = Enums.CustomsStatisticalUnitOfMeasurement.Pieces
+                            , UnitPrice = (decimal.Parse(txtShipmentDeclaredValue.Text) / 2) / 10
+                            , CommodityCode = "2345.65.15"
+                            , ExportReason = Enums.ExportReasonType.Permanent
+                            , NetWeight = (decimal.Parse(txtShipmentWeight.Text) / 2) / 10
+                            , GrossWeight = (decimal.Parse(txtShipmentWeight.Text) / 2) / 10
+                        });
+                        exportDeclaration.ExportLineItems.ExportLineItem.Add(new ExportLineItem()
+                        {
+                            ItemNumber = 2
+                            , ItemDescription = "TEST ITEM 2"
+                            , Quantity = 5
+                            , QuantityUnitOfMeasurement = Enums.CustomsStatisticalUnitOfMeasurement.Pieces
+                            , UnitPrice = (decimal.Parse(txtShipmentDeclaredValue.Text) / 2) / 5
+                            , CommodityCode = "9876.54.32"
+                            , ExportReason = Enums.ExportReasonType.Permanent
+                            , NetWeight = (decimal.Parse(txtShipmentWeight.Text) / 2) / 5
+                            , GrossWeight = (decimal.Parse(txtShipmentWeight.Text) / 2) / 5
+                        });
+                        req.Data.CustomsInformation.ExportDeclaration = exportDeclaration;
+                    }
                 }
                 else
                 {
                     req.Data.CustomsInformation.ShipmentType = Enums.ShipmentType.Documents;
+                    req.Data.CustomsInformation.Commodities = new Commodity()
+                    {
+                        ShipmentContents = txtShipmentContents.Text
+                        , CustomsValue = (string.IsNullOrWhiteSpace(txtShipmentDeclaredValue.Text)
+                                          ? 1.0M
+                                          : decimal.Parse(txtShipmentDeclaredValue.Text))
+                    };
                 }
 
 
@@ -325,17 +416,46 @@ namespace MyDHLAPI_Test_App.REST
                     req.Data.ShipmentAddresses.Pickup = req.Data.ShipmentAddresses.Shipper;
                 }
 
+                /*** Notification(s) ***/
+                if (cbxSendNotification.Checked)
+                {
+                    req.Data.ShipmentNotifications = new ShipmentNotifications()
+                    {
+                        ShipmentNotification = new List<ShipmentNotification>()
+                        {
+                            new ShipmentNotification()
+                            {
+                                EMailAddress = txtConsigneeEMailAddress.Text
+                                , NotificationMethod = Enums.ShipmentNotificationMethods.EMail
+                                , NotificationLanguage = Enums.ShipmentNotificationLanguages.English
+                                , LanguageCountryCode = Enums.ShipmentNotificationLanguageCountryCode.US
+                                , BespokeMessage = "Notification sent from the MyDHL API test app"
+                            }
+                            , new ShipmentNotification()
+                            {
+                                EMailAddress = txtShipperEMailAddress.Text
+                                , NotificationMethod = Enums.ShipmentNotificationMethods.EMail
+                                , NotificationLanguage = Enums.ShipmentNotificationLanguages.English
+                                , LanguageCountryCode = Enums.ShipmentNotificationLanguageCountryCode.US
+                                , BespokeMessage = "Notification sent from the MyDHL API test app"
+                            }
+                        }
+                    };
+                }
+
                 /*** PIECES ***/
 
                 Package singlePackage = new Package
                 {
                     Number = 1,
-                    Weight = decimal.Parse($"{txtShipmentWeight.Text}")
+                    Weight = decimal.Parse($"{txtShipmentWeight.Text}"),
+                    CustomerReferences = txtShipmentReference.Text,
+                    CustomerReferenceType = Enums.ShipmentReferenceType.Consignor                    
                 };
 
-                int height = GetDimension(ref txtShipmentHeight);
-                int width = GetDimension(ref txtShipmentWidth);
-                int depth = GetDimension(ref txtShipmentDepth);
+                decimal height = GetDimension(ref txtShipmentHeight);
+                decimal width = GetDimension(ref txtShipmentWidth);
+                decimal depth = GetDimension(ref txtShipmentDepth);
 
                 if (height > 0
                     && width > 0
@@ -350,6 +470,7 @@ namespace MyDHLAPI_Test_App.REST
                 singlePackage.CustomerReferences = $"{DateTime.Now.Ticks}";
 
                 req.Data.Packages.PackageList.Add(singlePackage);
+                //req.Data.ShipmentInfo.NumberOfPieces = req.Data.Packages.PackageList.Count;
 
                 /*** SPECIAL SEVICES ***/
 
@@ -358,14 +479,27 @@ namespace MyDHLAPI_Test_App.REST
                     Service = new List<SpecialService>()
                 };
 
-                if (isPLT)
+                if (isPLT && !isDataStaging)
                 {
                     req.Data.ShipmentInfo.SpecialServices.Service.Add(new SpecialService("WY"));
+                }
+
+                if (isDataStaging)
+                {
+                    req.Data.ShipmentInfo.SpecialServices.Service.Add(new SpecialService("PT"));
                 }
 
                 if (cbxShipmentDDP.Checked)
                 {
                     req.Data.ShipmentInfo.SpecialServices.Service.Add(new SpecialService("DD"));
+                }
+
+                if (cbxRequestCoD.Checked)
+                {
+                    req.Data.ShipmentInfo.SpecialServices.Service.Add(
+                        new SpecialService("KB"
+                                           , decimal.Parse(txtShipmentCoDValue.Text)
+                                           , txtShipmentCoDCurrency.Text));
                 }
 
                 if (cbxShipmentRequestInsurance.Checked)
@@ -381,21 +515,31 @@ namespace MyDHLAPI_Test_App.REST
                     req.Data.ShipmentInfo.SpecialServices = null;
                 }
 
-                /*** GENERATE SHIPMENT ***/
-                MyDHLAPI glows = new MyDHLAPI_REST_Library.MyDHLAPI(Common.CurrentCredentials["Username"]
-                                                           , Common.CurrentCredentials["Password"]
-                                                           , Common.CurrentRestBaseUrl);
+                if (_logoAvailable)
+                {
+                    if (null == req.Data.ShipmentInfo.LabelOptions)
+                    {
+                        req.Data.ShipmentInfo.LabelOptions = new LabelOptions();
+                    }
 
+                    req.Data.ShipmentInfo.LabelOptions.CustomerLogo = new CustomerLogo(_logoData, _logoMimeType);
+                }
+
+                /*** GENERATE SHIPMENT ***/
                 CreateShipmentResponse resp;
 
                 try
                 {
-                    resp = glows.RequestShipment(req);
+                    resp = api.RequestShipment(req);
                 }
-                catch (GloWSValidationException gvx)
+                catch (MyDHLAPIValidationException gvx)
                 {
                     MessageBox.Show(gvx.Message, "GVX");
                     txtResultAWB.Text = "VALIDATION ERROR!";
+                    if (gvx.Data.Contains("ValidationResults"))
+                    {
+                        txtResultPieces.Text = MyDHLAPIValidationException.PrintResults((List<ValidationResult>)gvx.Data["ValidationResults"]);
+                    }
                     return;
                 }
                 catch (Exception ex)
@@ -405,8 +549,8 @@ namespace MyDHLAPI_Test_App.REST
                     return;
                 }
 
-                GloWS_Request = glows.LastJSONRequest;
-                GloWS_Response = glows.LastJSONResponse;
+                MyDHLAPI_Request = api.LastJSONRequest;
+                MyDHLAPI_Response = api.LastJSONResponse;
 
                 if (null == resp || null == resp.Data)
                 {
@@ -597,16 +741,16 @@ namespace MyDHLAPI_Test_App.REST
 
         private void CalculateDImWeight(object sender, EventArgs e)
         {
-            int height = GetDimension(ref txtShipmentHeight);
-            int width = GetDimension(ref txtShipmentWidth);
-            int depth = GetDimension(ref txtShipmentDepth);
+            decimal height = GetDimension(ref txtShipmentHeight);
+            decimal width = GetDimension(ref txtShipmentWidth);
+            decimal depth = GetDimension(ref txtShipmentDepth);
 
             if (height > 0
                 && width > 0
                 && depth > 0)
             {
                 // Keep the divisor at 5000.0, this forces .NET to treate the result as a float and not an integer.
-                txtShipmentDimWeight.Text = $"{(height * width * depth) / 5000.0}";
+                txtShipmentDimWeight.Text = $"{(height * width * depth) / 5000.0M}";
             }
             else
             {
@@ -614,7 +758,7 @@ namespace MyDHLAPI_Test_App.REST
             }
         }
 
-        private int GetDimension(ref TextBox tbx)
+        private decimal GetDimension(ref TextBox tbx)
         {
             ClearError(ref tbx);
 
@@ -622,17 +766,17 @@ namespace MyDHLAPI_Test_App.REST
             {
                 return -1;
             }
-            if (!Regex.IsMatch(tbx.Text, "^\\d+$"))
+            if (!Regex.IsMatch(tbx.Text, "^\\d+(\\.\\d{1,2})?$"))
             {
                 IndicateError(ref tbx, "Please enter a valid whole number.");
                 return 0;
             }
             try
             {
-                int dim = int.Parse(tbx.Text);
+                decimal dim = decimal.Parse(tbx.Text);
                 if (0 >= dim)
                 {
-                    IndicateError(ref tbx, "Please enter a non-zero positive whole number.");
+                    IndicateError(ref tbx, "Please enter a non-zero positive number.");
                     return 0;
                 }
                 return dim;
@@ -645,13 +789,13 @@ namespace MyDHLAPI_Test_App.REST
 
         private void BtnViewRequest_Click(object sender, EventArgs e)
         {
-            JSONViewer frm = new JSONViewer(GloWS_Request);
+            JSONViewer frm = new JSONViewer(MyDHLAPI_Request);
             frm.ShowDialog();
         }
 
         private void BtnViewResponse_Click(object sender, EventArgs e)
         {
-            JSONViewer frm = new JSONViewer(GloWS_Response);
+            JSONViewer frm = new JSONViewer(MyDHLAPI_Response);
             frm.ShowDialog();
         }
 
@@ -666,12 +810,13 @@ namespace MyDHLAPI_Test_App.REST
         private void BtnUploadLogo_Click(object sender, EventArgs e)
         {
             OpenFileDialog dlg = new OpenFileDialog();
-            dlg.Filter = "Image Files|*.jpg;*.jpeg;*.png";
+            dlg.Filter = "Image Files|*.gif;*.jpg;*.jpeg;*.png";
             dlg.Multiselect = false;
             dlg.CheckFileExists = true;
 
             if (DialogResult.OK == dlg.ShowDialog())
             {
+                _logoMimeType = MimeMapping.GetMimeMapping(dlg.FileName);
                 _logoData = File.ReadAllBytes(dlg.FileName);
                 _logoAvailable = true;
                 lblLogoUploaded.Text = "Loaded!";
@@ -719,13 +864,9 @@ namespace MyDHLAPI_Test_App.REST
                 case "U":
                 case "W":
                 case "X":
-                    txtShipmentDeclaredValue.Enabled = false;
-                    txtShipmentDeclaredValueCurrency.Enabled = false;
                     cbxShipmentRequestInsurance.Tag = "IB";
                     break;
                 default:
-                    txtShipmentDeclaredValue.Enabled = true;
-                    txtShipmentDeclaredValueCurrency.Enabled = true;
                     cbxShipmentRequestInsurance.Tag = "II";
                     break;
             }
@@ -737,6 +878,20 @@ namespace MyDHLAPI_Test_App.REST
 
             txtShipmentInsuredValue.Enabled = cbx.Checked;
             txtShipmentInsuredCurrency.Enabled = cbx.Checked;
+        }
+
+        private void CbxRequestCoD_CheckedChanged(object sender, EventArgs e)
+        {
+            CheckBox cbx = (CheckBox)sender;
+            txtShipmentCoDValue.Enabled = cbx.Checked;
+            txtShipmentCoDCurrency.Enabled = cbx.Checked;
+        }
+
+        private void CbxDataStaging_CheckedChanged(object sender, EventArgs e)
+        {
+            CheckBox cbx = (CheckBox)sender;
+            btnUploadInvoice.Enabled = !cbx.Checked;
+            lblInvoiceUploaded.Enabled = !cbx.Checked;
         }
     }
 }

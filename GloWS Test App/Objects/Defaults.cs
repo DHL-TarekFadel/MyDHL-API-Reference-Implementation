@@ -29,5 +29,9 @@ namespace MyDHLAPI_Test_App.Objects
         public string TrackingAWBNumber { get; set; }
 
         public DefaultEPOD EPOD { get; set; }
+
+        public Insurance Insurance { get; set; }
+
+        public CoD CoD { get; set; }
     }
 }

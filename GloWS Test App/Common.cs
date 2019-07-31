@@ -18,8 +18,8 @@ namespace MyDHLAPI_Test_App
         public static string restSandpitBaseUrl = "https://wsbexpress.dhl.com/rest/sndpt";
         public static string restE2EBaseUrl = "https://wsbexpressuat.dhl.com/rest/gbl";
 
-        public static GloWSEnvironment CurrentEnvironment = GloWSEnvironment.Sandpit;
-        public static Dictionary<GloWSEnvironment, Dictionary<string, string>> Credentials = new Dictionary<GloWSEnvironment, Dictionary<string, string>>();
+        public static MyDHLAPIEnvironment CurrentEnvironment = MyDHLAPIEnvironment.Sandpit;
+        public static Dictionary<MyDHLAPIEnvironment, Dictionary<string, string>> Credentials = new Dictionary<MyDHLAPIEnvironment, Dictionary<string, string>>();
         public static string CurrentRestBaseUrl = restSandpitBaseUrl;
         public static string CurrentSoapBaseUrl = soapSandpitBaseUrl;
 
@@ -99,9 +99,14 @@ namespace MyDHLAPI_Test_App
         {
             textBox.Value = (defaultValue ?? backupValue);
         }
+
+        public static void ApplyDefault(ref System.Windows.Forms.CheckBox checkBox, bool? defaultValue, bool backupValue = false)
+        {
+            checkBox.Checked = (defaultValue ?? backupValue);
+        }
         #endregion
 
-        public enum GloWSEnvironment
+        public enum MyDHLAPIEnvironment
         {
             Sandpit
             , Production

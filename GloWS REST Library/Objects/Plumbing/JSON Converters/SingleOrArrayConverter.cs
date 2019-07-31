@@ -3,7 +3,7 @@ using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 
-namespace MyDHLAPI_REST_Library.Objects.Plumbing
+namespace MyDHLAPI_REST_Library.Objects.Plumbing.JSON_Converters
 {
     public class SingleOrArrayConverter<T> : JsonConverter
     {

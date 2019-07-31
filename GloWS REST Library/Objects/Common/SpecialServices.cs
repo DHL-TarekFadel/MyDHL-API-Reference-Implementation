@@ -21,13 +21,6 @@ namespace MyDHLAPI_REST_Library.Objects.Common {
         public string ServiceType { get; set; }
 
         /// <summary>
-        /// The DHL local or country specific Product Code used to ship the items
-        /// </summary>
-        [StringLength(3, MinimumLength = 2)]
-        [JsonProperty("LocalServiceType", NullValueHandling = NullValueHandling.Ignore)]
-        public string LocalServiceType { get; set; }
-
-        /// <summary>
         /// Monetary value of service (e.g. Insured Value) – this is needed if you wish to get a quote on Insurance with your prospect shipment
         /// </summary>
         [JsonProperty("ServiceValue", NullValueHandling = NullValueHandling.Ignore)]
@@ -45,19 +38,21 @@ namespace MyDHLAPI_REST_Library.Objects.Common {
         /// </summary>
         [JsonIgnore]
         [StringLength(3, MinimumLength = 3)]
-        [JsonProperty("PaymentCode")]
+        [JsonProperty("PaymentCode", NullValueHandling = NullValueHandling.Ignore)]
         public string PaymentCode { get; set; }
 
         /// <summary>
         /// For future use
         /// </summary>
         [JsonIgnore]
+        [JsonProperty("StartDate", NullValueHandling = NullValueHandling.Ignore)]
         public DateTime StartDate { get; set; }
 
         /// <summary>
         /// For future use
         /// </summary>
         [JsonIgnore]
+        [JsonProperty("EndDate", NullValueHandling = NullValueHandling.Ignore)]
         public DateTime EndDate { get; set; }
 
         /// <summary>
@@ -65,6 +60,7 @@ namespace MyDHLAPI_REST_Library.Objects.Common {
         /// </summary>
         [JsonIgnore]
         [StringLength(50)]
+        [JsonProperty("TextInstruction", NullValueHandling = NullValueHandling.Ignore)]
         public string TextInstruction { get; set; }
 
         public SpecialService() { }

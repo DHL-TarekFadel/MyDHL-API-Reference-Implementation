@@ -146,71 +146,58 @@ namespace MyDHLAPI_REST_Library.Objects.Common
             /// Cost & Freight
             /// </summary>
             CFR,
-
             /// <summary>
             /// Cost, Insurance and Freight
             /// </summary>
             CIF,
-
             /// <summary>
 			/// Carriage and Insurance Paid to [consignee address]
 			/// </summary>
             CIP,
-
             /// <summary>
 			/// Carriage paid to [consignee address]
 			/// </summary>
             CPT,
-
             /// <summary>
 			/// Delivered at Frontier
 			/// </summary>
             DAF,
-
             /// <summary>
             /// Duties and Taxes Paid
             /// </summary>
             DDP,
-
             /// <summary>
             /// Duties and Taxes Unpaid
             /// </summary>
             DDU,
-
             /// <summary>
             /// Deliver at place (Duties and Taxes Paid)
             /// </summary>
             DAP,
-
             /// <summary>
 			/// Delivered Ex Quay (duty paid)
 			/// </summary>
             DEQ,
-
             /// <summary>
 			/// Delivered Ex Ship-(named port of destination) 
 			/// </summary>
             DES,
-
             /// <summary>
             /// Ex-works
             /// </summary>
             EXW,
-
             /// <summary>
 			/// Free Alongside Ship
 			/// </summary>
             FAS,
-
             /// <summary>
 			/// Free Carrier
 			/// </summary>
             FCA,
-
             /// <summary>
             /// Freight On Board
             /// </summary>
-            FOB,
+            FOB
         }
         // ReSharper restore InconsistentNaming
 
@@ -367,7 +354,82 @@ namespace MyDHLAPI_REST_Library.Objects.Common
             /// Currently on VAT is acceptaed
             /// </summary>
             [EnumMember(Value = "VAT")]
-            VAT
+            VAT,
+            /// <summary>
+            /// Employer Identifiaction Number
+            /// </summary>
+            [EnumMember(Value = "EIN")]
+            EmployerIDNumber,
+            /// <summary>
+            /// Goods and Service Tax
+            /// </summary>
+            [EnumMember(Value = "GST")]
+            GST,
+            /// <summary>
+            /// Social Sercurity Number
+            /// </summary>
+            [EnumMember(Value = "SSN")]
+            SSN,
+            /// <summary>
+            /// Social Sercurity Number
+            /// </summary>
+            [EnumMember(Value = "SSN")]
+            SocialSecurityNumber,
+            /// <summary>
+            /// European Union Registration and Identification
+            /// </summary>
+            [EnumMember(Value = "EOR")]
+            EOR,
+            /// <summary>
+            /// Data Universal Numbering System
+            /// </summary>
+            [EnumMember(Value = "DUN")]
+            DUN,
+            /// <summary>
+            /// Federal Tax ID
+            /// </summary>
+            [EnumMember(Value = "FED")]
+            FederalTaxID,
+            /// <summary>
+            /// State Tax ID
+            /// </summary>
+            [EnumMember(Value = "STA")]
+            StateTaxID,
+            /// <summary>
+            /// Brazil CNPJ/CPF Federal Tax
+            /// </summary>
+            [EnumMember(Value = "CNP")]
+            CNP,
+            /// <summary>
+            /// Brazil type IE/RG Federal Tax
+            /// </summary>
+            [EnumMember(Value = "IE")]
+            IE,
+            /// <summary>
+            /// Russia bank details section - INN
+            /// </summary>
+            [EnumMember(Value = "INN")]
+            INN,
+            /// <summary>
+            /// Russia bank details section - KPP
+            /// </summary>
+            [EnumMember(Value = "KPP")]
+            KPP,
+            /// <summary>
+            /// Russia bank details section - OGRN
+            /// </summary>
+            [EnumMember(Value = "OGR")]
+            OGRN,
+            /// <summary>
+            /// Russia bank details section – OKPO
+            /// </summary>
+            [EnumMember(Value = "OKP")]
+            OKPO,
+            /// <summary>
+            /// Germany Movement Reference Number
+            /// </summary>
+            [EnumMember(Value = "MRN")]
+            MRN
         }
         // ReSharper restore StringLiteralTypo
         // ReSharper restore CommentTypo
@@ -377,17 +439,17 @@ namespace MyDHLAPI_REST_Library.Objects.Common
         public enum ODDOption
         {
             /// <summary>
-            /// TV
+            /// Deliver to a DHL Express Servicepoint
             /// </summary>
             [EnumMember(Value = "TV")]
             TV,
             /// <summary>
-            /// SW
+            /// Leave with neighbour
             /// </summary>
             [EnumMember(Value = "SW")]
             SW,
             /// <summary>
-            /// SX
+            /// Signature release
             /// </summary>
             [EnumMember(Value = "SX")]
             SX
@@ -440,21 +502,96 @@ namespace MyDHLAPI_REST_Library.Objects.Common
         // ReSharper disable StringLiteralTypo
         public enum PackageTypeCode
         {
+            ///// <summary>
+            ///// 
+            ///// </summary>
+            //[EnumMember(Value = "1CE")]
+            //DayDefinite,
+            ///// <summary>
+            ///// 
+            ///// </summary>
+            //[EnumMember(Value = "2BC")]
+            //DayDefinite,
+            ///// <summary>
+            ///// 
+            ///// </summary>
+            //[EnumMember(Value = "2BP")]
+            //DayDefinite,
             /// <summary>
-            /// Both Time Definite and Day Definite products will be returned
+            /// DHL Express Box Type 2 (Flat) [34 x 33 x 6]
             /// </summary>
-            [EnumMember(Value = "AL")]
-            All,
+            [EnumMember(Value = "2BX")]
+            DHLBoxType2,
             /// <summary>
-            /// Return only Day Definite products
+            /// DHL Express Box Type 3 [33.7 x 32.2 x 10]
             /// </summary>
-            [EnumMember(Value = "DD")]
-            DayDefinite,
+            [EnumMember(Value = "3BX")]
+            DHLBoxType3,
             /// <summary>
-            /// Return only Time Definite products
+            /// DHL Express Box Type 4 [33.7 x 32.2 x 18]
             /// </summary>
-            [EnumMember(Value = "TD")]
-            TimeDefinite
+            [EnumMember(Value = "4BX")]
+            DHLBoxType4,
+            /// <summary>
+            /// DHL Express Box Type 5 (Jumbo Small) [34 x 33 x 35]
+            /// </summary>
+            [EnumMember(Value = "5BX")]
+            DHLBoxType5,
+            /// <summary>
+            /// DHL Express Box Type 6 [41.7 x 35.9 x 36.9]
+            /// </summary>
+            [EnumMember(Value = "6BX")]
+            DHLBoxType6,
+            /// <summary>
+            /// DHL Express Box Type 7 [48.1 x 40.4 x 38.9]
+            /// </summary>
+            [EnumMember(Value = "7BX")]
+            DHLBoxType7,
+            /// <summary>
+            /// DHL Express Box Type 8 (Jumbo Large) (33.7x32.2x10)
+            /// </summary>
+            [EnumMember(Value = "8BX")]
+            DHLBoxType8,
+            ///// <summary>
+            ///// 
+            ///// </summary>
+            //[EnumMember(Value = "CE1")]
+            //DayDefinite,
+            /// <summary>
+            /// DHL Drawing Tube (Large)
+            /// </summary>
+            [EnumMember(Value = "TBL")]
+            DHLDrawingTubeLarge,
+            /// <summary>
+            /// DHL Drawing Tube (Small)
+            /// </summary>
+            [EnumMember(Value = "TBS")]
+            DHLDrawingTubeSmall,
+            /// <summary>
+            /// DHL Wine Box Type 1
+            /// </summary>
+            [EnumMember(Value = "WB1")]
+            DHLWineBoxType1,
+            /// <summary>
+            /// DHL Wine Box Type 2
+            /// </summary>
+            [EnumMember(Value = "WB2")]
+            DHLWineBoxType2,
+            /// <summary>
+            /// DHL Wine Box Type 3
+            /// </summary>
+            [EnumMember(Value = "WB3")]
+            DHLWineBoxType3,
+            /// <summary>
+            /// DHL Wine Box Type 6
+            /// </summary>
+            [EnumMember(Value = "WB6")]
+            DHLWineBoxType6,
+            ///// <summary>
+            ///// 
+            ///// </summary>
+            //[EnumMember(Value = "XPD")]
+            //DayDefinite,
         }
         // ReSharper restore StringLiteralTypo
         // ReSharper restore CommentTypo
@@ -568,8 +705,355 @@ namespace MyDHLAPI_REST_Library.Objects.Common
         // ReSharper disable StringLiteralTypo
         public enum ShipmentReferenceType
         {
+            /// <summary>
+            /// Receiver/Consignee
+            /// </summary>
+            [EnumMember(Value = "AAO")]
+            Receiver,
+            /// <summary>
+            /// Shipper/Consignor
+            /// </summary>
             [EnumMember(Value = "CU")]
-            Consignor
+            Consignor,
+            /// <summary>
+            /// Freight Forwarder
+            /// </summary>
+            [EnumMember(Value = "FF")]
+            FreightForwarder,
+            /// <summary>
+            /// Freight bill number for ## ex works invoice number ##
+            /// </summary>
+            [EnumMember(Value = "FN")]
+            FreightBillNumber,
+            /// <summary>
+            /// Inbound center reference number
+            /// </summary>
+            [EnumMember(Value = "IBC")]
+            InboundCenter,
+            /// <summary>
+            /// load list reference for ## 10-digit Shipment ID ##
+            /// </summary>
+            [EnumMember(Value = "LLR")]
+            LoadList,
+            /// <summary>
+            /// Outbound center reference number for ## SHIPMENT IDENTIFIER (COUNTRY OF ORIGIN) ##
+            /// </summary>
+            [EnumMember(Value = "OBC")]
+            OutboundCenter,
+            /// <summary>
+            /// Pickup request number for ## BOOKING REFERENCE NUMBER ##
+            /// </summary>
+            [EnumMember(Value = "PRN")]
+            PickupRequestNumber,
+            /// <summary>
+            /// Local payer account number
+            /// </summary>
+            [EnumMember(Value = "ACP")]
+            LocalPayerAccountNumber,
+            /// <summary>
+            /// Local shipper account number
+            /// </summary>
+            [EnumMember(Value = "ACS")]
+            LocalShipperAccountNumber,
+            /// <summary>
+            /// Local receiver account number
+            /// </summary>
+            [EnumMember(Value = "ACR")]
+            LocalReceiverAccountNumber,
+            /// <summary>
+            /// Customs declaration number
+            /// </summary>
+            [EnumMember(Value = "CDN")]
+            CustomsDeclarationNumber,
+            /// <summary>
+            /// Eurolog 15-digit shipment ID
+            /// </summary>
+            [EnumMember(Value = "STD")]
+            EurologShimpentID,
+            /// <summary>
+            /// Buyers order number
+            /// </summary>
+            [EnumMember(Value = "CO")]
+            OrderNumber
+        }
+        // ReSharper restore StringLiteralTypo
+        // ReSharper restore CommentTypo
+
+
+        // ReSharper disable CommentTypo
+        // ReSharper disable StringLiteralTypo
+        public enum PrinterDPI
+        {
+            [EnumMember(Value = "200")]
+            DPI_200, 
+            [EnumMember(Value = "300")]
+            DPI_300
+        }
+        // ReSharper restore StringLiteralTypo
+        // ReSharper restore CommentTypo
+
+
+        // ReSharper disable CommentTypo
+        // ReSharper disable StringLiteralTypo
+        public enum ISO3DigitLanguageCodes
+        {
+            [EnumMember(Value = "eng")]
+            English,
+            [EnumMember(Value = "bul")]
+            Bugalrian,
+            [EnumMember(Value = "cze")]
+            Czech,
+            [EnumMember(Value = "dan")]
+            Danish,
+            [EnumMember(Value = "ger")]
+            German,
+            [EnumMember(Value = "gre")]
+            Greek,
+            [EnumMember(Value = "est")]
+            Estonian,
+            [EnumMember(Value = "fin")]
+            Finnish,
+            [EnumMember(Value = "fre")]
+            French,
+            [EnumMember(Value = "hun")]
+            Hungaria,
+            [EnumMember(Value = "ice")]
+            Icelandic,
+            [EnumMember(Value = "ita")]
+            Italian,
+            [EnumMember(Value = "lit")]
+            Lithuanian,
+            [EnumMember(Value = "lav")]
+            Latvian,
+            [EnumMember(Value = "dut")]
+            Dutch,
+            [EnumMember(Value = "nno")]
+            Norwegian,
+            [EnumMember(Value = "pol")]
+            Polish,
+            [EnumMember(Value = "por")]
+            Portuguse,
+            [EnumMember(Value = "rum")]
+            Romanian,
+            [EnumMember(Value = "rus")]
+            Russian,
+            [EnumMember(Value = "slv")]
+            Slovenian,
+            [EnumMember(Value = "slo")]
+            Slovak,
+            [EnumMember(Value = "spa")]
+            Spanish
+        }
+        // ReSharper restore StringLiteralTypo
+        // ReSharper restore CommentTypo
+
+
+        // ReSharper disable CommentTypo
+        // ReSharper disable StringLiteralTypo
+        public enum CustomsInvoiceType
+        {
+            [EnumMember(Value = "COMMERCIAL_INVOICE")]
+            CommercialInvoice,
+            [EnumMember(Value = "PROFORMA_INVOICE")]
+            ProformaInvoice
+        }
+        // ReSharper restore StringLiteralTypo
+        // ReSharper restore CommentTypo
+
+
+        // ReSharper disable CommentTypo
+        // ReSharper disable StringLiteralTypo
+        public enum LogoImageFormat
+        {
+            [EnumMember(Value = "GIF")]
+            GIF,
+            [EnumMember(Value = "JPEG")]
+            JPEG,
+            [EnumMember(Value = "PNG")]
+            PNG
+        }
+        // ReSharper restore StringLiteralTypo
+        // ReSharper restore CommentTypo
+
+
+        // ReSharper disable CommentTypo
+        // ReSharper disable StringLiteralTypo
+        public enum CustomerBarcodeType
+        {
+            [EnumMember(Value = "39")]
+            Code39,
+            [EnumMember(Value = "93")]
+            Code93,
+            [EnumMember(Value = "128")]
+            Code128
+        }
+        // ReSharper restore StringLiteralTypo
+        // ReSharper restore CommentTypo
+
+
+        // ReSharper disable CommentTypo
+        // ReSharper disable StringLiteralTypo
+        public enum ExportReasonType
+        {
+            [EnumMember(Value = "PERMANENT")]
+            Permanent,
+            [EnumMember(Value = "TEMPORARY")]
+            Temporary,
+            [EnumMember(Value = "RETURN")]
+            Return
+        }
+        // ReSharper restore StringLiteralTypo
+        // ReSharper restore CommentTypo
+
+
+        // ReSharper disable CommentTypo
+        // ReSharper disable StringLiteralTypo
+        public enum CustomsStatisticalUnitOfMeasurement
+        {
+            [EnumMember(Value = "BOX")]
+            Box,
+            [EnumMember(Value = "2GM")]
+            Centigram,
+            [EnumMember(Value = "2M")]
+            Centimeters,
+            [EnumMember(Value = "2M3")]
+            CubicCentimeters,
+            [EnumMember(Value = "3M3")]
+            CubicFeet,
+            [EnumMember(Value = "M3")]
+            CubicMeters,
+            [EnumMember(Value = "DPR")]
+            DozenPairs,
+            [EnumMember(Value = "DOZ")]
+            Dozen,
+            [EnumMember(Value = "2NO")]
+            Each,
+            [EnumMember(Value = "PCS")]
+            Pieces,
+            [EnumMember(Value = "GM")]
+            Grams,
+            [EnumMember(Value = "GRS")]
+            Gross,
+            [EnumMember(Value = "KG")]
+            Kilograms,
+            [EnumMember(Value = "L")]
+            Liters,
+            [EnumMember(Value = "M")]
+            Meters,
+            [EnumMember(Value = "3GM")]
+            Milligrams,
+            [EnumMember(Value = "3L")]
+            Milliliters,
+            [EnumMember(Value = "X")]
+            NoUnitRequired,
+            [EnumMember(Value = "NO")]
+            Number,
+            [EnumMember(Value = "2KG")]
+            Ounces,
+            [EnumMember(Value = "PRS")]
+            Pairs,
+            [EnumMember(Value = "2L")]
+            Gallons,
+            [EnumMember(Value = "3KG")]
+            Pounds,
+            [EnumMember(Value = "CM2")]
+            SquareCentimeters,
+            [EnumMember(Value = "2M2")]
+            SquareFeet,
+            [EnumMember(Value = "3M2")]
+            SquareInches,
+            [EnumMember(Value = "M2")]
+            SquareMeters,
+            [EnumMember(Value = "4M2")]
+            SquareYards,
+            [EnumMember(Value = "3M")]
+            Yards
+        }
+        // ReSharper restore StringLiteralTypo
+        // ReSharper restore CommentTypo
+
+
+        // ReSharper disable CommentTypo
+        // ReSharper disable StringLiteralTypo
+        public enum AdditionalImageType
+        {
+            [EnumMember(Value = "INV")]
+            Invoice,
+            [EnumMember(Value = "CIN")]
+            CommercialInvoice,
+            [EnumMember(Value = "PNV")]
+            ProformaInvoice,
+            [EnumMember(Value = "COO")]
+            CertificateOfOrigin,
+            [EnumMember(Value = "NAF")]
+            NAFTACertificateOfOrigin,
+            [EnumMember(Value = "DCL")]
+            CustomsDeclaration,
+            /// <summary>
+            /// Air Waybill and Waybill/archive Document
+            /// </summary>
+            [EnumMember(Value = "AWB")]
+            Waybill
+        }
+        // ReSharper restore StringLiteralTypo
+        // ReSharper restore CommentTypo
+
+
+        // ReSharper disable CommentTypo
+        // ReSharper disable StringLiteralTypo
+        public enum AdditionalImageFormat
+        {
+            [EnumMember(Value = "PDF")]
+            PDF,
+            [EnumMember(Value = "PNG")]
+            PNG,
+            [EnumMember(Value = "TIFF")]
+            TIFF,
+            [EnumMember(Value = "GIF")]
+            GIF,
+            [EnumMember(Value = "JPEG")]
+            JPEG
+        }
+        // ReSharper restore StringLiteralTypo
+        // ReSharper restore CommentTypo
+
+
+        // ReSharper disable CommentTypo
+        // ReSharper disable StringLiteralTypo
+        public enum ShipmentNotificationMethods
+        {
+            [EnumMember(Value = "EMAIL")]
+            EMail
+        }
+        // ReSharper restore StringLiteralTypo
+        // ReSharper restore CommentTypo
+
+
+        // ReSharper disable CommentTypo
+        // ReSharper disable StringLiteralTypo
+        public enum ShipmentNotificationLanguages
+        {
+            [EnumMember(Value = "eng")]
+            English,
+            [EnumMember(Value = "zho")]
+            TraditionalChinese,
+            [EnumMember(Value = "chi")]
+            SimplifiedChinese
+        }
+        // ReSharper restore StringLiteralTypo
+        // ReSharper restore CommentTypo
+
+
+        // ReSharper disable CommentTypo
+        // ReSharper disable StringLiteralTypo
+        public enum ShipmentNotificationLanguageCountryCode
+        {
+            [EnumMember(Value = "US")]
+            US,
+            [EnumMember(Value = "GB")]
+            UK,
+            [EnumMember(Value = "CN")]
+            CN
         }
         // ReSharper restore StringLiteralTypo
         // ReSharper restore CommentTypo

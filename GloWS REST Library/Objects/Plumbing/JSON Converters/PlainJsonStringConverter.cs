@@ -1,7 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System;
 
-namespace MyDHLAPI_REST_Library.Objects.Plumbing
+namespace MyDHLAPI_REST_Library.Objects.Plumbing.JSON_Converters
 {
     public class PlainJsonStringConverter : JsonConverter
     {

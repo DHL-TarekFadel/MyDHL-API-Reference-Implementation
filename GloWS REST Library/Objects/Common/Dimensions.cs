@@ -7,21 +7,21 @@ namespace MyDHLAPI_REST_Library.Objects.Common {
         /// Piece height/length
         /// </summary>
         [Required]
-        [PositiveDecimal]
+        [PositiveDecimal("0.5")]
         public decimal Length { get; set; }
 
         /// <summary>
         /// Piece width
         /// </summary>
         [Required]
-        [PositiveDecimal]
+        [PositiveDecimal("0.5")]
         public decimal Width { get; set; }
 
         /// <summary>
         /// Piece height/depth
         /// </summary>
         [Required]
-        [PositiveDecimal]
+        [PositiveDecimal("0.5")]
         public decimal Height { get; set; }
 
         public Dimensions() { }

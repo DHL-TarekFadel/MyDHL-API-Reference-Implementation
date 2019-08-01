@@ -10,6 +10,9 @@ namespace MyDHLAPI_REST_Library.Objects.Ship.Response
         [JsonProperty("GraphicImage")]
         public byte[] ImageData { get; set; }
 
+        [JsonProperty("HTMLImage")]
+        public byte[] HTMLImage { get; set; }
+
         public override string ToString()
         {
             return $"Type: {this.ImageFormat}, Filesize: {this.ImageData.Length} bytes";

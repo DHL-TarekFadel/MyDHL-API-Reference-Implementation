@@ -17,7 +17,8 @@ namespace MyDHLAPI_Test_App.REST
         {
             if (string.IsNullOrEmpty(_textToShow)) return;
 
-            txtXMLDisplay.Text = _textToShow.Replace("\n", Environment.NewLine);
+            txtXMLDisplay.Text = _textToShow.Replace("\r", string.Empty).Replace("\n", Environment.NewLine);
+
             txtXMLDisplay.Select(0, 0);
         }
 

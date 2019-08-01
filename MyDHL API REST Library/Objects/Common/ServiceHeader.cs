@@ -40,6 +40,13 @@ namespace MyDHLAPI_REST_Library.Objects.Common
         [JsonProperty("PlugInVersion", NullValueHandling = NullValueHandling.Ignore)]
         public string PluginVersion { get; set; }
 
+        /// <summary>
+        /// This element will get populate when existing or new customers has provided the <Request> element in the request message.
+        /// This information will get populate in Response in all Error and Success scenarios.
+        /// </summary>
+        [JsonProperty("ServiceInvocationID", NullValueHandling = NullValueHandling.Ignore)]
+        public string ServiceInvocationID { get; set; }
+
         public override string ToString()
         {
             return $"{MessageTime:yyyy-MM-dd HH:mm:sszzz} {MessageReference}";

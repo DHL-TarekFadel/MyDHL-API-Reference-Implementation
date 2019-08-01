@@ -525,6 +525,10 @@ namespace MyDHLAPI_Test_App.REST
                     req.Data.ShipmentInfo.LabelOptions.CustomerLogo = new CustomerLogo(_logoData, _logoMimeType);
                 }
 
+                req.Data.ShipmentInfo.RequestAdditionalInformation = Enums.YesNo.Yes;
+                req.Data.RequestODDUrl = Enums.YesNo.Yes;
+                req.Data.GetRateEstimates = Enums.YesNo.Yes;
+
                 /*** GENERATE SHIPMENT ***/
                 CreateShipmentResponse resp;
 

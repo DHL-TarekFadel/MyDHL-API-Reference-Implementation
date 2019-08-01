@@ -337,7 +337,7 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\GloWS REST Library\MyDHL API REST Library.csproj">
+    <ProjectReference Include="..\MyDHL API REST Library\MyDHL API REST Library.csproj">
       <Project>{780faa01-f809-47ad-ae7b-963ab028bfc0}</Project>
       <Name>MyDHL API REST Library</Name>
     </ProjectReference>

@@ -22,7 +22,9 @@ namespace MyDHLAPI_Test_App.Objects
 
         public string DeclaredCurrency { get; set; }
 
-        public string Contents { get; set; }
+        public string ShipmentContents { get; set; }
+
+        public string ShipmentReference { get; set; }
 
         public List<DefaultPiece> Pieces { get; set; }
 

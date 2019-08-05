@@ -70,29 +70,43 @@ namespace MyDHLAPI_Test_App
 
         public static void ApplyDefault(ref System.Windows.Forms.ComboBox comboBox, object defaultValue, object backupValue = null)
         {
-            if (null == defaultValue)
+            comboBox.SelectedItem = (defaultValue ?? backupValue);
+        }
+
+        public static void ApplyDefault(ref System.Windows.Forms.TextBox textBox, string defaultValue, string backupValue = "", bool setTag = false)
+        {
+            if (setTag)
             {
-                comboBox.SelectedItem = backupValue;
+                textBox.Tag = (string.IsNullOrEmpty(defaultValue) ? backupValue : defaultValue);
             }
             else
             {
-                comboBox.SelectedItem = defaultValue;
+                textBox.Text = (string.IsNullOrEmpty(defaultValue) ? backupValue : defaultValue);
             }
         }
 
-        public static void ApplyDefault(ref System.Windows.Forms.TextBox textBox, string defaultValue, string backupValue = "")
+        public static void ApplyDefault(ref System.Windows.Forms.TextBox textBox, decimal? defaultValue, decimal backupValue = 0.5M, bool setTag = false)
         {
-            textBox.Text = (string.IsNullOrEmpty(defaultValue) ? backupValue : defaultValue);
+            if (setTag)
+            {
+                textBox.Tag = (null == defaultValue ? $"{backupValue:0.00}" : $"{defaultValue:0.00}");
+            }
+            else
+            {
+                textBox.Text = (null == defaultValue ? $"{backupValue:0.00}" : $"{defaultValue:0.00}");
+            }
         }
 
-        public static void ApplyDefault(ref System.Windows.Forms.TextBox textBox, decimal? defaultValue, decimal backupValue = 0.5M)
+        public static void ApplyDefault(ref System.Windows.Forms.TextBox textBox, int? defaultValue, int backupValue = 1, bool setTag = false)
         {
-            textBox.Text = (null == defaultValue ? $"{backupValue:0.00}" : $"{defaultValue:0.00}");
-        }
-
-        public static void ApplyDefault(ref System.Windows.Forms.TextBox textBox, int? defaultValue, int backupValue = 1)
-        {
-            textBox.Text = (null == defaultValue ? $"{backupValue}" : $"{defaultValue}");
+            if (setTag)
+            {
+                textBox.Text = (null == defaultValue ? $"{backupValue}" : $"{defaultValue}");
+            }
+            else
+            {
+                textBox.Text = (null == defaultValue ? $"{backupValue}" : $"{defaultValue}");
+            }
         }
 
         public static void ApplyDefault(ref System.Windows.Forms.NumericUpDown textBox, decimal? defaultValue, decimal backupValue = 0M)

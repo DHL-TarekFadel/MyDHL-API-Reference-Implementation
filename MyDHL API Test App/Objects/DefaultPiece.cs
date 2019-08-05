@@ -9,5 +9,6 @@
         public int? Depth { get; set; }
         public string WeightUnit { get; set; }
         public string DimUnit { get; set; }
+        public string PieceContents { get; set; }
     }
 }

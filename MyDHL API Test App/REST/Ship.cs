@@ -47,7 +47,8 @@ namespace MyDHLAPI_Test_App.REST
                 Common.ApplyDefault(ref txtDutyAccountNumber, Common.Defaults.DutyAccountNumber);
                 Common.ApplyDefault(ref txtShipmentDeclaredValue, Common.Defaults.DeclaredValue, 0M);
                 Common.ApplyDefault(ref txtShipmentDeclaredValueCurrency, Common.Defaults.DeclaredCurrency);
-                Common.ApplyDefault(ref txtShipmentContents, Common.Defaults.Contents);
+                Common.ApplyDefault(ref txtShipmentContents, Common.Defaults.ShipmentContents);
+                Common.ApplyDefault(ref txtShipmentReference, Common.Defaults.ShipmentReference);
 
                 if (null != Common.Defaults.From)
                 {
@@ -102,6 +103,7 @@ namespace MyDHLAPI_Test_App.REST
 
                         txtShipmentDimWeight.Text = $"{preDivisor / 5000:#,##0.00}";
                     }
+                    Common.ApplyDefault(ref txtShipmentContents, piece.PieceContents, string.Empty, true);
                 }
 
                 if (null != Common.Defaults.Insurance)
@@ -257,6 +259,10 @@ namespace MyDHLAPI_Test_App.REST
                 req.Data.ShipmentInfo.CurrencyCode = txtShipmentDeclaredValueCurrency.Text;
 
                 req.Data.ShipmentInfo.LabelFormat = Enums.LabelFormat.PDF;
+                //req.Data.ShipmentInfo.LabelFormat = Enums.LabelFormat.ZPL;
+                //req.Data.ShipmentInfo.LabelTemplate = "ECOM26_84_001";
+                req.Data.ShipmentInfo.LabelOptions = new LabelOptions();
+                req.Data.ShipmentInfo.LabelOptions.HideAccountInWaybillDocument = Enums.YesNo.Yes;
                 req.Data.ShipmentInfo.ShipmentReferences = new ShipmentReferences
                 {
                     ShipmentReference = new List<ShipmentReference>
@@ -465,7 +471,8 @@ namespace MyDHLAPI_Test_App.REST
                     singlePackage.Dimensions = new Dimensions(height, width, depth);
                 }
 
-                singlePackage.PieceContents = req.Data.CustomsInformation.Commodities.ShipmentContents;
+                singlePackage.PieceContents = (string.IsNullOrEmpty((string)txtShipmentContents.Tag) ? txtShipmentContents.Text : (string)txtShipmentContents.Tag);
+                //singlePackage.PieceContents = null;
 
                 singlePackage.CustomerReferences = $"{DateTime.Now.Ticks}";
 

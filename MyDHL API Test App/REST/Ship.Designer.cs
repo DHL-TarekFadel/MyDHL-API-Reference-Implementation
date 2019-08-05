@@ -1106,7 +1106,6 @@
             this.btnUploadLogo.TabIndex = 44;
             this.btnUploadLogo.TabStop = false;
             this.btnUploadLogo.Text = "UPLOAD LOGO";
-            this.ToolTip1.SetToolTip(this.btnUploadLogo, "Not implemented in GloWS yet.");
             this.btnUploadLogo.UseVisualStyleBackColor = false;
             this.btnUploadLogo.Click += new System.EventHandler(this.BtnUploadLogo_Click);
             // 

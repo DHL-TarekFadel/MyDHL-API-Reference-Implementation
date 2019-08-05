@@ -7,6 +7,7 @@
     "PersonName": "Shipper Name",
     "Address1": "Shipper Address 1",
     "Address2": "Shipper Address 2",
+    "Address3": "Shipper Address 3",
     "City": "Dubai",
     "CountryCode": "AE",
     "PostalCode": "00000",
@@ -19,6 +20,7 @@
     "PersonName": "Consignee Name",
     "Address1": "Consignee Address 1",
     "Address2": "Consignee Address 2",
+    "Address3": "Consignee Address 3",
     "City": "Denton",
     "USState": "TX",
     "CountryCode": "US",
@@ -29,7 +31,8 @@
   },
   "DeclaredValue": "150",
   "DeclaredCurrency": "USD",
-  "Contents": "Test Shipment",
+  "ShipmentContents": "Test Shipment",
+  "ShipmentReference": "Shipment Reference",
   "Pieces": [
     {
       "PieceID": 1,
@@ -38,12 +41,23 @@
       "Width": 20,
       "Depth": 30,
       "WeightUnit": "KG",
-      "DimUnit": "CM"
+      "DimUnit": "CM",
+      "PieceContents": "Piece Contents"
     }
   ],
   "TrackingAWBNumber": "1234567891",
   "EPOD": {
     "AccountNumber": "000000000",
     "AWBNumber": "1234567891"
+  },
+  "Insurance": {
+    "InsuredAmount": 150,
+    "InsuredCurrency": "USD",
+    "InsuranceEnabled": false
+  },
+  "CoD": {
+    "CoDAmount": 150,
+    "CoDCurrency": "AED",
+    "CoDEnabled": true
   }
 }

@@ -21,6 +21,8 @@ namespace MyDHLAPI_Test_App.REST
         private List<string> _productCodes = new List<string> { "", "0", "1", "2", "3", "4", "5", "7", "8", "9", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z" };
         private string MyDHLAPI_Request = string.Empty;
         private string MyDHLAPI_Response = string.Empty;
+        private string MyDHLAPI_RateQuery_Request = string.Empty;
+        private string MyDHLAPI_RateQuery_Response = string.Empty;
 
         private bool _logoAvailable;
         private byte[] _logoData;
@@ -481,40 +483,163 @@ namespace MyDHLAPI_Test_App.REST
 
                 /*** SPECIAL SEVICES ***/
 
+                RateQueryRequest quote = null;
+                RateQueryResponse rateQueryResponse = null;
+                bool checkSpecialServices = false;
+                // check if we need are requesting any special services
+                if (isPLT || isDataStaging || cbxShipmentDDP.Checked || cbxRequestCoD.Checked || cbxShipmentRequestInsurance.Checked)
+                {
+                    checkSpecialServices = true;
+                    // We will be requesting special services, do a query to ensure that the special service we need is available
+                    quote = new RateQueryRequest
+                    {
+                        RateRequest = new MyDHLAPI_REST_Library.Objects.RateQuery.RateRequest
+                        {
+                            Request = req.ShipmentRequest.Request,
+                            RequestedShipment = new MyDHLAPI_REST_Library.Objects.RateQuery.RequestedShipment
+                            {
+                                GetRateEstimate = Enums.YesNo.No,
+                                GetDetailedRateBreakdown = Enums.YesNo.No,
+                                RequestValueAddedServices = Enums.YesNo.Yes,
+                                NextBusinessDay = Enums.YesNo.Yes,
+                                ServiceType = req.Data.ShipmentInfo.GlobalProductCode,
+                                ShipTimestamp = DateTime.Now.AddMinutes(5),
+                                UnitOfMeasurement = Enums.UnitOfMeasurement.SI,
+                                DeclaredValue = req.Data.CustomsInformation.Commodities.CustomsValue,
+                                DeclaredValueCurrencyCode = req.Data.ShipmentInfo.CurrencyCode,
+                                PaymentInfo = req.Data.TermsOfTrade,
+                                Account = (req.Data.ShipmentInfo.AccountNumber ?? req.Data.ShipmentInfo.Billing.ShipperAccount),
+                                Content = req.Data.CustomsInformation.ShipmentType,
+                                Packages = new MyDHLAPI_REST_Library.Objects.RateQuery.Packages()
+                                {
+                                    RequestedPackages = new List<MyDHLAPI_REST_Library.Objects.RateQuery.RequestedPackages>()
+                                },
+                                Ship = new MyDHLAPI_REST_Library.Objects.RateQuery.Ship
+                                {
+                                    Shipper = req.Data.ShipmentAddresses.Shipper.Address,
+                                    Recipient = req.Data.ShipmentAddresses.Consignee.Address
+                                },
+
+                            }
+                        }
+                    };
+                    req.Data.Packages.PackageList.ForEach(p => quote.RateRequest.RequestedShipment.Packages.RequestedPackages.Add(p));
+
+                    try
+                    {
+                        rateQueryResponse = api.RateQuery(quote);
+                    }
+                    catch
+                    {
+                        // do nothing
+                    }
+                    finally
+                    {
+                        MyDHLAPI_RateQuery_Request = api.LastJSONRequest;
+                        MyDHLAPI_RateQuery_Response = api.LastJSONResponse;
+                    }
+                }
+
+                MyDHLAPI_REST_Library.Objects.RateQuery.Response.Charges availableChargeCodes = null;
+                if (checkSpecialServices)
+                {
+                    if (null == rateQueryResponse.Services)
+                    {
+                        txtResultAWB.Text = "Rate Query Error!";
+                        return;
+                    }
+                    else
+                    {
+                        availableChargeCodes = rateQueryResponse.Services.First().Charges;
+                    }
+                }
+
                 req.Data.ShipmentInfo.SpecialServices = new SpecialServices
                 {
                     Service = new List<SpecialService>()
                 };
 
+                List<string> invalidServices = new List<string>();
+
                 if (isPLT && !isDataStaging)
                 {
-                    req.Data.ShipmentInfo.SpecialServices.Service.Add(new SpecialService("WY"));
+                    if (availableChargeCodes.HasCharge("WY"))
+                    {
+                        req.Data.ShipmentInfo.SpecialServices.Service.Add(new SpecialService("WY"));
+                    }
+                    else
+                    {
+                        invalidServices.Add("PLT");
+                    }
                 }
 
                 if (isDataStaging)
                 {
-                    req.Data.ShipmentInfo.SpecialServices.Service.Add(new SpecialService("PT"));
+                    if (availableChargeCodes.HasCharge("PT"))
+                    {
+                        req.Data.ShipmentInfo.SpecialServices.Service.Add(new SpecialService("PT"));
+                    }
+                    else
+                    {
+                        invalidServices.Add("Data Staging");
+                    }
                 }
 
                 if (cbxShipmentDDP.Checked)
                 {
-                    req.Data.ShipmentInfo.SpecialServices.Service.Add(new SpecialService("DD"));
+                    if (availableChargeCodes.HasCharge("DD"))
+                    {
+                        req.Data.ShipmentInfo.SpecialServices.Service.Add(new SpecialService("DD"));
+                    }
+                    else
+                    {
+                        invalidServices.Add("Duties & Taxes Paid (DDP)");
+                    }
                 }
 
                 if (cbxRequestCoD.Checked)
                 {
-                    req.Data.ShipmentInfo.SpecialServices.Service.Add(
-                        new SpecialService("KB"
-                                           , decimal.Parse(txtShipmentCoDValue.Text)
-                                           , txtShipmentCoDCurrency.Text));
+                    if (availableChargeCodes.HasCharge("KB"))
+                    {
+                        req.Data.ShipmentInfo.SpecialServices.Service.Add(
+                            new SpecialService("KB"
+                                               , decimal.Parse(txtShipmentCoDValue.Text)
+                                               , txtShipmentCoDCurrency.Text));
+                    }
+                    else
+                    {
+                        invalidServices.Add("Cash on Delivery");
+                    }
                 }
 
                 if (cbxShipmentRequestInsurance.Checked)
                 {
-                    req.Data.ShipmentInfo.SpecialServices.Service.Add(
-                        new SpecialService(cbxShipmentRequestInsurance.Tag.ToString()
-                                           , decimal.Parse(txtShipmentInsuredValue.Text)
-                                           , txtShipmentInsuredCurrency.Text));
+                    if (availableChargeCodes.HasCharge(cbxShipmentRequestInsurance.Tag.ToString()))
+                    {
+                        req.Data.ShipmentInfo.SpecialServices.Service.Add(
+                            new SpecialService(cbxShipmentRequestInsurance.Tag.ToString()
+                                               , decimal.Parse(txtShipmentInsuredValue.Text)
+                                               , txtShipmentInsuredCurrency.Text));
+                    }
+                    else
+                    {
+                        invalidServices.Add($"Insurance ({cbxShipmentRequestInsurance.Tag})");
+                    }
+                }
+
+                if (invalidServices.Any())
+                {
+                    string listSeparator = $"{Environment.NewLine}- ";
+                    if (DialogResult.No
+                        == MessageBox.Show($"The services below are invalid between origin and destination:{listSeparator}{string.Join(listSeparator, invalidServices.ToArray())}{Environment.NewLine}{Environment.NewLine}Would you like to continue anyway?"
+                                           , "Invalid Services Detected"
+                                           , MessageBoxButtons.YesNo
+                                           , MessageBoxIcon.Warning
+                                           , MessageBoxDefaultButton.Button2))
+                    {
+                        txtResultAWB.Text = "Check Services!";
+                        return;
+                    }
                 }
 
                 if (!req.Data.ShipmentInfo.SpecialServices.Service.Any())

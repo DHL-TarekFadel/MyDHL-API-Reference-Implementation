@@ -47,19 +47,6 @@ namespace MyDHLAPI_REST_Library.Objects.RateQuery
         public Enums.YesNo? NextBusinessDay { get; set; }
 
         /// <summary>
-        /// Shipper/Consignee information
-        /// </summary>
-        [Required]
-        [ValidateObject]
-        public Ship Ship { get; set; }
-
-        /// <summary>
-        /// Packages/Shipment pieces
-        /// </summary>
-        [ValidateObject]
-        public Packages Packages { get; set; }
-
-        /// <summary>
         /// This timestamp identifies the ready date and time of the rated shipment.
         /// </summary>
         [Required]
@@ -124,17 +111,6 @@ namespace MyDHLAPI_REST_Library.Objects.RateQuery
         public string PayerCountryCode { get; set; }
 
         /// <summary>
-        /// How will this shipment be billed (use Account if shipper will be paying)
-        /// </summary>
-        [ValidateObject]
-        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public Billing Billing { get; set; }
-
-        [ValidateObject]
-        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public SpecialServices SpecialServices { get; set; }
-
-        /// <summary>
         /// Yes: all the additional services available for the product selected will be returned (default No)
         /// </summary>
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
@@ -175,6 +151,34 @@ namespace MyDHLAPI_REST_Library.Objects.RateQuery
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
         [JsonConverter(typeof(StringEnumConverter))]
         public Enums.YesNo? ValidateReadyTime { get; set; }
+
+        /// <summary>
+        /// Shipper/Consignee information
+        /// </summary>
+        [Required]
+        [ValidateObject]
+        public Ship Ship { get; set; }
+
+        /// <summary>
+        /// Packages/Shipment pieces
+        /// </summary>
+        [ValidateObject]
+        public Packages Packages { get; set; }
+
+        /// <summary>
+        /// How will this shipment be billed (use Account if shipper will be paying)
+        /// </summary>
+        [ValidateObject]
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+        public Billing Billing { get; set; }
+
+        [ValidateObject]
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+        public SpecialServices SpecialServices { get; set; }
+
+        [ValidateObject]
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+        public ProductsAndServices ProductsAndServices { get; set; }
 
         [ValidateObject]
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]

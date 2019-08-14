@@ -259,5 +259,5 @@ paket-files/
 # Python Tools for Visual Studio (PTVS)
 __pycache__/
 *.pyc
-/GloWS Test App/Credentials.txt
-/GloWS Test App/Defaults.json
+MyDHL API Test App/[Cc]redentials.txt
+MyDHL API Test App/[Dd]efaults.json

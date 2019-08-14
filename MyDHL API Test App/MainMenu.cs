@@ -24,13 +24,13 @@ namespace MyDHLAPI_Test_App
                     Common.CurrentRestBaseUrl = Common.restProductionBaseUrl;
                     break;
                 case Common.MyDHLAPIEnvironment.Production:
-                    if (Common.Credentials.ContainsKey(Common.MyDHLAPIEnvironment.E2E))
+                    if (Common.Credentials.ContainsKey(Common.MyDHLAPIEnvironment.E2ESandpit))
                     {
-                        lblMode.Text = "E2E";
+                        lblMode.Text = "E2E Sandpit";
                         lblMode.Font = new Font(lblMode.Font, FontStyle.Italic);
-                        Common.CurrentEnvironment = Common.MyDHLAPIEnvironment.E2E;
-                        Common.CurrentSoapBaseUrl = Common.soapE2EBaseUrl;
-                        Common.CurrentRestBaseUrl = Common.restE2EBaseUrl;
+                        Common.CurrentEnvironment = Common.MyDHLAPIEnvironment.E2ESandpit;
+                        Common.CurrentSoapBaseUrl = Common.soapE2ESandpitBaseUrl;
+                        Common.CurrentRestBaseUrl = Common.restE2ESandpitBaseUrl;
                     }
                     else
                     {
@@ -41,7 +41,14 @@ namespace MyDHLAPI_Test_App
                         Common.CurrentRestBaseUrl = Common.restSandpitBaseUrl;
                     }
                     break;
-                case Common.MyDHLAPIEnvironment.E2E:
+                case Common.MyDHLAPIEnvironment.E2ESandpit:
+                    lblMode.Text = "E2E Production";
+                    lblMode.Font = new Font(lblMode.Font, FontStyle.Regular);
+                    Common.CurrentEnvironment = Common.MyDHLAPIEnvironment.E2EProduction;
+                    Common.CurrentSoapBaseUrl = Common.soapE2EProductionBaseUrl;
+                    Common.CurrentRestBaseUrl = Common.restE2EProductionBaseUrl;
+                    break;
+                case Common.MyDHLAPIEnvironment.E2EProduction:
                     lblMode.Text = "Sandpit";
                     lblMode.Font = new Font(lblMode.Font, FontStyle.Regular);
                     Common.CurrentEnvironment = Common.MyDHLAPIEnvironment.Sandpit;

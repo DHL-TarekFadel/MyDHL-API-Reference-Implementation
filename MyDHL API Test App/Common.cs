@@ -13,10 +13,12 @@ namespace MyDHLAPI_Test_App
     {
         public static string soapProductionBaseUrl = "https://wsbexpress.dhl.com/gbl";
         public static string soapSandpitBaseUrl = "https://wsbexpress.dhl.com/sndpt";
-        public static string soapE2EBaseUrl = "https://wsbexpressuat.dhl.com/gbl";
+        public static string soapE2ESandpitBaseUrl = "https://wsbexpressuat.dhl.com/sndpt";
+        public static string soapE2EProductionBaseUrl = "https://wsbexpressuat.dhl.com/gbl";
         public static string restProductionBaseUrl = "https://wsbexpress.dhl.com/rest/gbl";
         public static string restSandpitBaseUrl = "https://wsbexpress.dhl.com/rest/sndpt";
-        public static string restE2EBaseUrl = "https://wsbexpressuat.dhl.com/rest/gbl";
+        public static string restE2ESandpitBaseUrl = "https://wsbexpressuat.dhl.com/rest/sndpt";
+        public static string restE2EProductionBaseUrl = "https://wsbexpressuat.dhl.com/rest/gbl";
 
         public static MyDHLAPIEnvironment CurrentEnvironment = MyDHLAPIEnvironment.Sandpit;
         public static Dictionary<MyDHLAPIEnvironment, Dictionary<string, string>> Credentials = new Dictionary<MyDHLAPIEnvironment, Dictionary<string, string>>();
@@ -28,7 +30,7 @@ namespace MyDHLAPI_Test_App
         public static Defaults Defaults;
 
         /// <summary>
-        /// Prepares the GloWS Auth using WSSE
+        /// Prepares the MyDHLAPI Auth using WSSE
         /// </summary>
         /// <returns>Tuple(EndpointAddress, BasicHttpBinding, username, password)</returns>
         public static Tuple<EndpointAddress, BindingElementCollection, string, string> PrepareGlowsAuth(string endpoint)
@@ -124,7 +126,8 @@ namespace MyDHLAPI_Test_App
         {
             Sandpit
             , Production
-            , E2E
+            , E2ESandpit
+            , E2EProduction
         }
     }
 

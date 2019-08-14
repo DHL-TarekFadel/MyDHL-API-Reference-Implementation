@@ -46,7 +46,7 @@ namespace MyDHLAPI_Test_App
                     Common.Credentials.Add(Common.MyDHLAPIEnvironment.Production, production);
 
                     // E2E/UAT Credentials
-                    if (credentials.Length == 4)
+                    if (credentials.Length >= 4)
                     {
 
                         Dictionary<string, string> e2e = new Dictionary<string, string>
@@ -54,7 +54,8 @@ namespace MyDHLAPI_Test_App
                             { "Username", credentials[2] },
                             { "Password", credentials[3] }
                         };
-                        Common.Credentials.Add(Common.MyDHLAPIEnvironment.E2E, e2e);
+                        Common.Credentials.Add(Common.MyDHLAPIEnvironment.E2ESandpit, e2e);
+                        Common.Credentials.Add(Common.MyDHLAPIEnvironment.E2EProduction, e2e);
                     }
                 }
             }

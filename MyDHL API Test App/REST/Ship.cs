@@ -833,6 +833,26 @@ namespace MyDHLAPI_Test_App.REST
                 lblLogoUploaded.Text = "Loaded!";
                 lblLogoUploaded.Font = new Font(lblLogoUploaded.Font, FontStyle.Bold);
             }
+            else
+            {
+                if (_logoAvailable)
+                {
+                    if (DialogResult.Yes ==
+                        MessageBox.Show("No logo selected, would you like to remove the existing one?"
+                                        , "Remove previous logo?"
+                                        , MessageBoxButtons.YesNo
+                                        , MessageBoxIcon.Question
+                                        , MessageBoxDefaultButton.Button2))
+                    {
+                        _logoMimeType = string.Empty;
+                        _logoData = null;
+                        _logoAvailable = false;
+                        lblLogoUploaded.Text = "Not Loaded";
+                        lblLogoUploaded.Font = new Font(lblLogoUploaded.Font, FontStyle.Regular);
+                    }
+
+                }
+            }
         }
 
         private void BtnUploadInvoice_Click(object sender, EventArgs e)
@@ -848,6 +868,25 @@ namespace MyDHLAPI_Test_App.REST
                 _invoiceAvailable = true;
                 lblInvoiceUploaded.Text = "Loaded!";
                 lblInvoiceUploaded.Font = new Font(lblLogoUploaded.Font, FontStyle.Bold);
+            }
+            else
+            {
+                if (_invoiceAvailable)
+                {
+                    if (DialogResult.Yes ==
+                        MessageBox.Show("No invoice selected, would you like to remove the existing one?"
+                                        , "Remove previous invoice?"
+                                        , MessageBoxButtons.YesNo
+                                        , MessageBoxIcon.Question
+                                        , MessageBoxDefaultButton.Button2))
+                    {
+                        _invoiceData = null;
+                        _invoiceAvailable = false;
+                        lblInvoiceUploaded.Text = "Not Loaded";
+                        lblInvoiceUploaded.Font = new Font(lblLogoUploaded.Font, FontStyle.Regular);
+                    }
+
+                }
             }
         }
 

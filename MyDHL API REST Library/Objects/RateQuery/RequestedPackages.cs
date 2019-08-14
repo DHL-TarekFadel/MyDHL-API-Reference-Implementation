@@ -17,5 +17,16 @@ namespace MyDHLAPI_REST_Library.Objects.RateQuery {
         public Weight Weight { get; set; }
 
         public Dimensions Dimensions { get; set; }
+
+        public RequestedPackages() { }
+
+        public RequestedPackages(int pieceNumber, decimal weight, decimal height, decimal width, decimal depth)
+        {
+            this.PieceNumber = pieceNumber;
+            this.Weight = new Weight() { Value = weight };
+            this.Dimensions = new Dimensions(height, width, depth);
+        }
+
+        public static implicit operator RequestedPackages(MyDHLAPI_REST_Library.Objects.Ship.Package p) => new RequestedPackages(p.Number, p.Weight, p.Dimensions.Height, p.Dimensions.Width, p.Dimensions.Length);
     }
 }

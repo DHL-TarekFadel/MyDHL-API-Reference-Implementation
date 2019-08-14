@@ -67,5 +67,23 @@ namespace MyDHLAPI_REST_Library.Objects.RateQuery {
         [Required]
         [StringLength(2, MinimumLength = 2)]
         public string CountryCode { get; set; }
+
+        public static implicit operator Address(Objects.Ship.Address shipAddress)
+        {
+            var retval = new Address()
+            {
+                StreetLines = shipAddress.AddressLine1,
+                StreetLines2 = shipAddress.AddressLine2,
+                StreetLines3 = shipAddress.AddressLine3,
+                StreetName = shipAddress.StreetName,
+                StreetNumber = shipAddress.StreetNumber,
+                City = shipAddress.CityName,
+                PostalCode = shipAddress.PostalOrZipCode,
+                USSateCode = shipAddress.USStateCode,
+                CountryCode = shipAddress.CountryCode
+            };
+
+            return retval;
+        }
     }
 }

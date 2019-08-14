@@ -1057,5 +1057,83 @@ namespace MyDHLAPI_REST_Library.Objects.Common
         }
         // ReSharper restore StringLiteralTypo
         // ReSharper restore CommentTypo
+
+
+        // ReSharper disable CommentTypo
+        // ReSharper disable StringLiteralTypo
+        public enum LandedCostShipmentPurpose
+        {
+            [EnumMember(Value = "COMMERCIAL")]
+            BusinessToBusiness,
+            [EnumMember(Value = "PERSONAL")]
+            BusinessToConsumer
+        }
+        // ReSharper restore StringLiteralTypo
+        // ReSharper restore CommentTypo
+
+
+        // ReSharper disable CommentTypo
+        // ReSharper disable StringLiteralTypo
+        public enum LandedCostModeOfTransportType
+        {
+            [EnumMember(Value = "AIR")]
+            Air,
+            [EnumMember(Value = "OCEAN")]
+            Sea,
+            [EnumMember(Value = "GROUND")]
+            Road
+        }
+        // ReSharper restore StringLiteralTypo
+        // ReSharper restore CommentTypo
+
+
+        // ReSharper disable CommentTypo
+        // ReSharper disable StringLiteralTypo
+        public enum LandedCostCarrierName
+        {
+            [EnumMember(Value = "DHL")]
+            DHL,
+            [EnumMember(Value = "FEDEX")]
+            FedEx,
+            [EnumMember(Value = "POST")]
+            Post,
+            [EnumMember(Value = "TNT")]
+            TNT,
+            [EnumMember(Value = "UPS")]
+            UPS,
+            [EnumMember(Value = "OTHERS")]
+            Other
+        }
+        // ReSharper restore StringLiteralTypo
+        // ReSharper restore CommentTypo
+
+
+        // ReSharper disable CommentTypo
+        // ReSharper disable StringLiteralTypo
+        public enum LandedCostQuantityType
+        {
+            [EnumMember(Value = "BOX")]
+            Box,
+            [EnumMember(Value = "PRT")]
+            PartOrArticle
+        }
+        // ReSharper restore StringLiteralTypo
+        // ReSharper restore CommentTypo
+
+
+        // ReSharper disable CommentTypo
+        // ReSharper disable StringLiteralTypo
+        public enum LandedCostChargeType
+        {
+            [EnumMember(Value = "FREIGHT")]
+            Freight,
+            [EnumMember(Value = "ADDITIONAL_CHARGE")]
+            AdditionalCharge,
+            [EnumMember(Value = "INSURANCE")]
+            Insurance
+        }
+        // ReSharper restore StringLiteralTypo
+        // ReSharper restore CommentTypo
+
     }
 }

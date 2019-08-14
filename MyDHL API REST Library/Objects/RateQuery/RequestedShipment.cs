@@ -176,5 +176,8 @@ namespace MyDHLAPI_REST_Library.Objects.RateQuery
         [JsonConverter(typeof(StringEnumConverter))]
         public Enums.YesNo? ValidateReadyTime { get; set; }
 
+        [ValidateObject]
+        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
+        public LandedCost LandedCost { get; set; }
     }
 }

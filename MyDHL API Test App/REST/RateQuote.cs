@@ -112,12 +112,25 @@ namespace MyDHLAPI_Test_App.REST {
                 this.Cursor = Cursors.WaitCursor;
                 this.UseWaitCursor = true;
 
-                MyDHLAPI glows = new MyDHLAPI(Common.CurrentCredentials["Username"]
-                                        , Common.CurrentCredentials["Password"]
-                                        , Common.CurrentRestBaseUrl);
+                MyDHLAPI api = new MyDHLAPI(Common.CurrentCredentials["Username"]
+                                            , Common.CurrentCredentials["Password"]
+                                            , Common.CurrentRestBaseUrl);
 
                 RateQueryRequest rqr = new RateQueryRequest();
                 RateRequest rr = new RateRequest();
+
+                /*** Request Header ***/
+                rr.Request = new Request()
+                {
+                    ServiceHeader = new ServiceHeader()
+                    {
+                        ShippingSystemPlatform = "MyDHL API Test App"
+                        , ShippingSystemPlatformVersion = Application.ProductVersion
+                        , Plugin = "MyDHL API C# Library"
+                        , PluginVersion = api.GetVersion()
+                    }
+                };
+
                 RequestedShipment rs = new RequestedShipment
                 {
                     DropOffType = (cmbRequestCourier.SelectedIndex == 0 ? Enums.DropOffType.RequestCourier : Enums.DropOffType.RegularPickup)
@@ -190,10 +203,10 @@ namespace MyDHLAPI_Test_App.REST {
                 rr.RequestedShipment = rs;
                 rqr.RateRequest = rr;
 
-                RateQueryResponse result = glows.RateQuery(rqr);
+                RateQueryResponse result = api.RateQuery(rqr);
 
-                _lastJsonRequest = glows.LastJSONRequest;
-                _lastJsonResponse = glows.LastJSONResponse;
+                _lastJsonRequest = api.LastJSONRequest;
+                _lastJsonResponse = api.LastJSONResponse;
 
                 tvResult.Nodes.Clear();
 

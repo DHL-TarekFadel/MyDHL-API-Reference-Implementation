@@ -125,13 +125,6 @@ namespace MyDHLAPI_REST_Library.Objects.RateQuery
         public string ServiceType { get; set; }
 
         /// <summary>
-        /// DHL “local / country specific” Product Code used to ship the items
-        /// </summary>
-        [StringLength(1, MinimumLength = 1)]
-        [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]
-        public string LocalServiceType { get; set; }
-
-        /// <summary>
         /// The NetworkTypeCode field is used to filter facility network type code.
         /// </summary>
         [JsonProperty(NullValueHandling = NullValueHandling.Ignore)]

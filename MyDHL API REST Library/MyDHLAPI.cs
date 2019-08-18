@@ -24,9 +24,29 @@ namespace MyDHLAPI_REST_Library
         private readonly string _username;
         private readonly string _password;
 
+        #region "JSON Request and Response properties
+
+        // General
         public string LastJSONRequest { get; set; }
         public string LastJSONResponse { get; set; }
 
+        // Rate Query
+        public string LastRateQueryJSONRequest { get; set; }
+        public string LastRateQueryJSONResponse { get; set; }
+
+        // Ship
+        public string LastShipJSONRequest { get; set; }
+        public string LastShipJSONResponse { get; set; }
+
+        // Tracking
+        public string LastTrackingJSONRequest { get; set; }
+        public string LastTrackingJSONResponse { get; set; }
+
+        //ePoD
+        public string LastEPoDJSONRequest { get; set; }
+        public string LastEPoDJSONResponse { get; set; }
+
+        #endregion
         public MyDHLAPI(string username, string password, string baseUrl)
         {
             _username = username;
@@ -116,7 +136,9 @@ namespace MyDHLAPI_REST_Library
             }
 
             LastJSONRequest = JsonConvert.SerializeObject(KnownTrackingRequest.DecorateRequest(ktr), Formatting.Indented);
+            LastTrackingJSONRequest = LastJSONRequest;
             LastJSONResponse = SendRequestAndReceiveResponse(LastJSONRequest, "TrackingRequest");
+            LastTrackingJSONResponse = LastJSONResponse;
 
             KnownTrackingResponse retval;
 
@@ -156,7 +178,9 @@ namespace MyDHLAPI_REST_Library
             }
 
             LastJSONRequest = JsonConvert.SerializeObject(rqr, Formatting.Indented);
+            LastRateQueryJSONRequest = LastJSONResponse;
             LastJSONResponse = SendRequestAndReceiveResponse(LastJSONRequest, "RateRequest");
+            LastRateQueryJSONResponse = LastJSONResponse;
 
             RateQueryResponse retval;
 
@@ -221,7 +245,9 @@ namespace MyDHLAPI_REST_Library
             }
 
             LastJSONRequest = JsonConvert.SerializeObject(req, Formatting.Indented);
+            LastEPoDJSONRequest = LastJSONRequest;
             LastJSONResponse = SendRequestAndReceiveResponse(LastJSONRequest, "getePOD");
+            LastEPoDJSONResponse = LastJSONResponse;
 
             EPodResponse retval;
 
@@ -264,7 +290,9 @@ namespace MyDHLAPI_REST_Library
             }
 
             LastJSONRequest = JsonConvert.SerializeObject(req, Formatting.Indented);
+            LastShipJSONRequest = LastJSONRequest;
             LastJSONResponse = SendRequestAndReceiveResponse(LastJSONRequest, "ShipmentRequest");
+            LastShipJSONResponse = LastJSONResponse;
 
             CreateShipmentResponse retval;
 

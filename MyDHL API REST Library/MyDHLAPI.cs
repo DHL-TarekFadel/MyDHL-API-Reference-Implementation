@@ -13,6 +13,7 @@ using System.Text;
 using MyDHLAPI_REST_Library.Objects.ePOD;
 using System.Reflection;
 using System.Diagnostics;
+using System.Threading.Tasks;
 
 namespace MyDHLAPI_REST_Library
 {
@@ -36,6 +37,11 @@ namespace MyDHLAPI_REST_Library
         public string GetVersion()
         {
             return FileVersionInfo.GetVersionInfo(Assembly.GetAssembly(this.GetType()).Location).ProductVersion;
+        }
+
+        public Task<string> SendRequestAndReceiveResponseAsync(string req, string endpoint)
+        {
+            return Task.Run(() => SendRequestAndReceiveResponse(req, endpoint));
         }
 
         public string SendRequestAndReceiveResponse(string req, string endpoint)
@@ -69,7 +75,14 @@ namespace MyDHLAPI_REST_Library
             }
 
             return respString;
+        }
 
+        public Task<KnownTrackingResponse> KnownAWBTrackingAsync(List<string> AWBs
+                                                                , Enums.LevelOfDetails levelOfDetails = Enums.LevelOfDetails.AllCheckpoints
+                                                                , Enums.PiecesEnabled detailsRequested = Enums.PiecesEnabled.ShipmentOnly
+                                                                , Enums.EstimatedDeliveryDateEnabled eddEnabled = Enums.EstimatedDeliveryDateEnabled.No)
+        {
+            return Task.Run(() => KnownAWBTracking(AWBs, levelOfDetails, detailsRequested, eddEnabled));
         }
 
         // ReSharper disable once InconsistentNaming
@@ -128,6 +141,11 @@ namespace MyDHLAPI_REST_Library
             return retval;
         }
 
+        public Task<RateQueryResponse> RateQueryAsync(RateQueryRequest rqr)
+        {
+            return Task.Run(() => RateQuery(rqr));
+        }
+
         public RateQueryResponse RateQuery(RateQueryRequest rqr)
         {
             // Validate the request
@@ -159,6 +177,11 @@ namespace MyDHLAPI_REST_Library
             }
 
             return retval;
+        }
+
+        public Task<EPodResponse> GetEPoDAsync(string awbNumber, string accountNumber, Enums.EPodType ePodType)
+        {
+            return Task.Run(() => GetEPod(awbNumber, accountNumber, ePodType));
         }
 
         public EPodResponse GetEPod(string awbNumber, string accountNumber, Enums.EPodType ePodType)
@@ -222,6 +245,11 @@ namespace MyDHLAPI_REST_Library
             }
 
             return retval;
+        }
+
+        public Task<CreateShipmentResponse> RequestShipmentAsync(CreateShipmentRequest req)
+        {
+            return Task.Run(() => RequestShipment(req));
         }
 
         public CreateShipmentResponse RequestShipment(CreateShipmentRequest req)

@@ -136,6 +136,16 @@
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.cbxSendNotification = new System.Windows.Forms.CheckBox();
             this.cbxExportDeclaration = new System.Windows.Forms.CheckBox();
+            this.ssStatusBar = new System.Windows.Forms.StatusStrip();
+            this.tsslStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
+            this.tspbProgressBar = new System.Windows.Forms.ToolStripProgressBar();
+            this.ttsslSpring = new System.Windows.Forms.ToolStripStatusLabel();
+            this.tsslRateQueryTimeLabel = new System.Windows.Forms.ToolStripStatusLabel();
+            this.tsslRateQueryTime = new System.Windows.Forms.ToolStripStatusLabel();
+            this.tsslShipTimeLabel = new System.Windows.Forms.ToolStripStatusLabel();
+            this.tsslShipTime = new System.Windows.Forms.ToolStripStatusLabel();
+            this.tsslTotalTimeLabel = new System.Windows.Forms.ToolStripStatusLabel();
+            this.tsslTotalTime = new System.Windows.Forms.ToolStripStatusLabel();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -143,6 +153,7 @@
             this.groupBox5.SuspendLayout();
             this.groupBox7.SuspendLayout();
             this.groupBox6.SuspendLayout();
+            this.ssStatusBar.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -1330,12 +1341,99 @@
             this.cbxExportDeclaration.Text = "Export Declaration";
             this.cbxExportDeclaration.UseVisualStyleBackColor = true;
             // 
+            // ssStatusBar
+            // 
+            this.ssStatusBar.Font = new System.Drawing.Font("Delivery", 9F);
+            this.ssStatusBar.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsslStatusLabel,
+            this.tspbProgressBar,
+            this.ttsslSpring,
+            this.tsslRateQueryTimeLabel,
+            this.tsslRateQueryTime,
+            this.tsslShipTimeLabel,
+            this.tsslShipTime,
+            this.tsslTotalTimeLabel,
+            this.tsslTotalTime});
+            this.ssStatusBar.Location = new System.Drawing.Point(0, 437);
+            this.ssStatusBar.Name = "ssStatusBar";
+            this.ssStatusBar.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
+            this.ssStatusBar.Size = new System.Drawing.Size(918, 22);
+            this.ssStatusBar.TabIndex = 37;
+            this.ssStatusBar.Text = "Status:";
+            // 
+            // tsslStatusLabel
+            // 
+            this.tsslStatusLabel.Name = "tsslStatusLabel";
+            this.tsslStatusLabel.Size = new System.Drawing.Size(43, 17);
+            this.tsslStatusLabel.Text = "Ready!";
+            // 
+            // tspbProgressBar
+            // 
+            this.tspbProgressBar.Name = "tspbProgressBar";
+            this.tspbProgressBar.Size = new System.Drawing.Size(100, 16);
+            this.tspbProgressBar.Visible = false;
+            // 
+            // ttsslSpring
+            // 
+            this.ttsslSpring.Name = "ttsslSpring";
+            this.ttsslSpring.Size = new System.Drawing.Size(352, 17);
+            this.ttsslSpring.Spring = true;
+            // 
+            // tsslRateQueryTimeLabel
+            // 
+            this.tsslRateQueryTimeLabel.Name = "tsslRateQueryTimeLabel";
+            this.tsslRateQueryTimeLabel.Size = new System.Drawing.Size(68, 17);
+            this.tsslRateQueryTimeLabel.Text = "Rate Query:";
+            this.tsslRateQueryTimeLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.tsslRateQueryTimeLabel.Visible = false;
+            // 
+            // tsslRateQueryTime
+            // 
+            this.tsslRateQueryTime.Name = "tsslRateQueryTime";
+            this.tsslRateQueryTime.Size = new System.Drawing.Size(79, 17);
+            this.tsslRateQueryTime.Text = "00:00:00.000";
+            this.tsslRateQueryTime.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.tsslRateQueryTime.Visible = false;
+            // 
+            // tsslShipTimeLabel
+            // 
+            this.tsslShipTimeLabel.Name = "tsslShipTimeLabel";
+            this.tsslShipTimeLabel.Size = new System.Drawing.Size(34, 17);
+            this.tsslShipTimeLabel.Text = "Ship:";
+            this.tsslShipTimeLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.tsslShipTimeLabel.Visible = false;
+            // 
+            // tsslShipTime
+            // 
+            this.tsslShipTime.Name = "tsslShipTime";
+            this.tsslShipTime.Size = new System.Drawing.Size(79, 17);
+            this.tsslShipTime.Text = "00:00:00.000";
+            this.tsslShipTime.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.tsslShipTime.Visible = false;
+            // 
+            // tsslTotalTimeLabel
+            // 
+            this.tsslTotalTimeLabel.Name = "tsslTotalTimeLabel";
+            this.tsslTotalTimeLabel.Size = new System.Drawing.Size(36, 17);
+            this.tsslTotalTimeLabel.Text = "Total:";
+            this.tsslTotalTimeLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.tsslTotalTimeLabel.Visible = false;
+            // 
+            // tsslTotalTime
+            // 
+            this.tsslTotalTime.Name = "tsslTotalTime";
+            this.tsslTotalTime.Size = new System.Drawing.Size(79, 17);
+            this.tsslTotalTime.Text = "00:00:00.000";
+            this.tsslTotalTime.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.tsslTotalTime.Visible = false;
+            // 
             // Ship
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(204)))), ((int)(((byte)(0)))));
-            this.ClientSize = new System.Drawing.Size(918, 440);
+            this.ClientSize = new System.Drawing.Size(918, 459);
+            this.Controls.Add(this.ssStatusBar);
             this.Controls.Add(this.groupBox6);
             this.Controls.Add(this.groupBox7);
             this.Controls.Add(this.groupBox5);
@@ -1344,6 +1442,9 @@
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox1);
             this.Font = new System.Drawing.Font("Frutiger", 8.249999F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MaximizeBox = false;
+            this.MaximumSize = new System.Drawing.Size(934, 498);
+            this.MinimumSize = new System.Drawing.Size(934, 498);
             this.Name = "Ship";
             this.Text = "SHIP";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Ship_FormClosing);
@@ -1362,7 +1463,10 @@
             this.groupBox7.PerformLayout();
             this.groupBox6.ResumeLayout(false);
             this.groupBox6.PerformLayout();
+            this.ssStatusBar.ResumeLayout(false);
+            this.ssStatusBar.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -1475,5 +1579,15 @@
         private System.Windows.Forms.Label label38;
         private System.Windows.Forms.TextBox txtShipmentReference;
         private System.Windows.Forms.CheckBox cbxSendNotification;
+        private System.Windows.Forms.StatusStrip ssStatusBar;
+        private System.Windows.Forms.ToolStripStatusLabel tsslStatusLabel;
+        private System.Windows.Forms.ToolStripProgressBar tspbProgressBar;
+        private System.Windows.Forms.ToolStripStatusLabel ttsslSpring;
+        private System.Windows.Forms.ToolStripStatusLabel tsslRateQueryTimeLabel;
+        private System.Windows.Forms.ToolStripStatusLabel tsslRateQueryTime;
+        private System.Windows.Forms.ToolStripStatusLabel tsslShipTimeLabel;
+        private System.Windows.Forms.ToolStripStatusLabel tsslShipTime;
+        private System.Windows.Forms.ToolStripStatusLabel tsslTotalTimeLabel;
+        private System.Windows.Forms.ToolStripStatusLabel tsslTotalTime;
     }
 }

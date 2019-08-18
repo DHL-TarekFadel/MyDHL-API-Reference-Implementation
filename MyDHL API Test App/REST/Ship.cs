@@ -162,10 +162,20 @@ namespace MyDHLAPI_Test_App.REST
         {
             ClearInputErrors();
 
+            SetStatusText("Validating inputs...", true, true, 0);
+
+            // Set our time counters
+            DateTime processStart = DateTime.Now;
+            DateTime rateQueryRequestStart = DateTime.Now;
+            DateTime rateQueryRequestEnd = DateTime.Now;
+            DateTime shipRequestStart = DateTime.Now;
+            DateTime shipRequestEnd = DateTime.Now;
+
             // Validate all our inputs
             if (!ValidateInputs())
             {
                 MessageBox.Show("Please fix the issues on the inputs marked in red.");
+                SetStatusText("Input validation failed!", false);
                 return;
             }
 
@@ -191,6 +201,8 @@ namespace MyDHLAPI_Test_App.REST
                 bool isDox = !(new[] { "3", "4", "8", "E", "F", "H", "J", "M", "P", "Q", "V", "Y" }).Contains(cmbProductCode.SelectedValue.ToString());
                 bool isDomestic = "N" == cmbProductCode.Text;
                 bool isDataStaging = cbxDataStaging.Checked;
+
+                SetStatusText("Preparing request...", true, true, 10);
 
                 MyDHLAPI api = new MyDHLAPI_REST_Library.MyDHLAPI(Common.CurrentCredentials["Username"]
                                                                   , Common.CurrentCredentials["Password"]
@@ -261,10 +273,11 @@ namespace MyDHLAPI_Test_App.REST
                 req.Data.ShipmentInfo.CurrencyCode = txtShipmentDeclaredValueCurrency.Text;
 
                 req.Data.ShipmentInfo.LabelFormat = Enums.LabelFormat.PDF;
-                //req.Data.ShipmentInfo.LabelFormat = Enums.LabelFormat.ZPL;
-                //req.Data.ShipmentInfo.LabelTemplate = "ECOM26_84_001";
-                req.Data.ShipmentInfo.LabelOptions = new LabelOptions();
-                req.Data.ShipmentInfo.LabelOptions.HideAccountInWaybillDocument = Enums.YesNo.Yes;
+                req.Data.ShipmentInfo.LabelOptions = new LabelOptions
+                {
+                    HideAccountInWaybillDocument = Enums.YesNo.Yes
+                };
+
                 req.Data.ShipmentInfo.ShipmentReferences = new ShipmentReferences
                 {
                     ShipmentReference = new List<ShipmentReference>
@@ -304,14 +317,11 @@ namespace MyDHLAPI_Test_App.REST
                 if (!isDox && !isDomestic)
                 {
                     req.Data.CustomsInformation.ShipmentType = Enums.ShipmentType.NonDocuments;
-                    Commodity commodities = new Commodity();
-                    commodities.CustomsValue = decimal.Parse(txtShipmentDeclaredValue.Text);
-                    //commodities.COO = "AE";
-                    commodities.ShipmentContents = txtShipmentContents.Text;
-                    //commodities.NumberOfPieces = 1;
-                    //commodities.UnitPrice = 10M;
-                    //commodities.Quantity = "2";
-                    req.Data.CustomsInformation.Commodities = commodities;
+                    req.Data.CustomsInformation.Commodities = new Commodity
+                    {
+                        CustomsValue = decimal.Parse(txtShipmentDeclaredValue.Text),
+                        ShipmentContents = txtShipmentContents.Text
+                    };
 
                     if (cbxExportDeclaration.Checked)
                     {
@@ -327,31 +337,33 @@ namespace MyDHLAPI_Test_App.REST
                             SignatureName = "James Deer"
                             , SignatureTitle = "Managing Director"
                         };
-                        exportDeclaration.ExportLineItems.ExportLineItem = new List<ExportLineItem>();
-                        exportDeclaration.ExportLineItems.ExportLineItem.Add(new ExportLineItem()
+                        exportDeclaration.ExportLineItems.ExportLineItem = new List<ExportLineItem>
                         {
-                            ItemNumber = 1
-                            , ItemDescription = "TEST ITEM 1"
-                            , Quantity = 10
-                            , QuantityUnitOfMeasurement = Enums.CustomsStatisticalUnitOfMeasurement.Pieces
-                            , UnitPrice = (decimal.Parse(txtShipmentDeclaredValue.Text) / 2) / 10
-                            , CommodityCode = "2345.65.15"
-                            , ExportReason = Enums.ExportReasonType.Permanent
-                            , NetWeight = (decimal.Parse(txtShipmentWeight.Text) / 2) / 10
-                            , GrossWeight = (decimal.Parse(txtShipmentWeight.Text) / 2) / 10
-                        });
-                        exportDeclaration.ExportLineItems.ExportLineItem.Add(new ExportLineItem()
-                        {
-                            ItemNumber = 2
-                            , ItemDescription = "TEST ITEM 2"
-                            , Quantity = 5
-                            , QuantityUnitOfMeasurement = Enums.CustomsStatisticalUnitOfMeasurement.Pieces
-                            , UnitPrice = (decimal.Parse(txtShipmentDeclaredValue.Text) / 2) / 5
-                            , CommodityCode = "9876.54.32"
-                            , ExportReason = Enums.ExportReasonType.Permanent
-                            , NetWeight = (decimal.Parse(txtShipmentWeight.Text) / 2) / 5
-                            , GrossWeight = (decimal.Parse(txtShipmentWeight.Text) / 2) / 5
-                        });
+                            new ExportLineItem()
+                            {
+                                ItemNumber = 1 ,
+                                ItemDescription = "TEST ITEM 1",
+                                Quantity = 10,
+                                QuantityUnitOfMeasurement = Enums.CustomsStatisticalUnitOfMeasurement.Pieces,
+                                UnitPrice = (decimal.Parse(txtShipmentDeclaredValue.Text) / 2) / 10,
+                                CommodityCode = "2345.65.15",
+                                ExportReason = Enums.ExportReasonType.Permanent,
+                                NetWeight = (decimal.Parse(txtShipmentWeight.Text) / 2) / 10,
+                                GrossWeight = (decimal.Parse(txtShipmentWeight.Text) / 2) / 10
+                            },
+                            new ExportLineItem()
+                            {
+                                ItemNumber = 2,
+                                ItemDescription = "TEST ITEM 2",
+                                Quantity = 5,
+                                QuantityUnitOfMeasurement = Enums.CustomsStatisticalUnitOfMeasurement.Pieces,
+                                UnitPrice = (decimal.Parse(txtShipmentDeclaredValue.Text) / 2) / 5,
+                                CommodityCode = "9876.54.32",
+                                ExportReason = Enums.ExportReasonType.Permanent,
+                                NetWeight = (decimal.Parse(txtShipmentWeight.Text) / 2) / 5,
+                                GrossWeight = (decimal.Parse(txtShipmentWeight.Text) / 2) / 5
+                            }
+                        };
                         req.Data.CustomsInformation.ExportDeclaration = exportDeclaration;
                     }
                 }
@@ -474,14 +486,14 @@ namespace MyDHLAPI_Test_App.REST
                 }
 
                 singlePackage.PieceContents = (string.IsNullOrEmpty((string)txtShipmentContents.Tag) ? txtShipmentContents.Text : (string)txtShipmentContents.Tag);
-                //singlePackage.PieceContents = null;
 
                 singlePackage.CustomerReferences = $"{DateTime.Now.Ticks}";
 
                 req.Data.Packages.PackageList.Add(singlePackage);
-                //req.Data.ShipmentInfo.NumberOfPieces = req.Data.Packages.PackageList.Count;
 
                 /*** SPECIAL SEVICES ***/
+
+                SetStatusText("Getting services list...", true, true, 20);
 
                 RateQueryRequest quote = null;
                 RateQueryResponse rateQueryResponse = null;
@@ -527,14 +539,16 @@ namespace MyDHLAPI_Test_App.REST
 
                     try
                     {
-                        rateQueryResponse = api.RateQuery(quote);
+                        rateQueryRequestStart = DateTime.Now;
+                        rateQueryResponse = api.RateQueryAsync(quote).Result;
                     }
                     catch
                     {
-                        // do nothing
+                        // Do nothing, we'll handle this later.
                     }
                     finally
                     {
+                        rateQueryRequestEnd = DateTime.Now;
                         MyDHLAPI_RateQuery_Request = api.LastJSONRequest;
                         MyDHLAPI_RateQuery_Response = api.LastJSONResponse;
                     }
@@ -546,6 +560,7 @@ namespace MyDHLAPI_Test_App.REST
                     if (null == rateQueryResponse.Services)
                     {
                         txtResultAWB.Text = "Rate Query Error!";
+                        SetStatusText($"Rate query Error! Took {(DateTime.Now - processStart):hh\\:mm\\:ss}", false);
                         return;
                     }
                     else
@@ -553,6 +568,8 @@ namespace MyDHLAPI_Test_App.REST
                         availableChargeCodes = rateQueryResponse.Services.First().Charges;
                     }
                 }
+
+                SetStatusText("Received list of services.", true, true, 30);
 
                 req.Data.ShipmentInfo.SpecialServices = new SpecialServices
                 {
@@ -630,6 +647,7 @@ namespace MyDHLAPI_Test_App.REST
                 if (invalidServices.Any())
                 {
                     string listSeparator = $"{Environment.NewLine}- ";
+                    SetStatusText("Confirm removal of invalid services...", true, false);
                     if (DialogResult.No
                         == MessageBox.Show($"The services below are invalid between origin and destination:{listSeparator}{string.Join(listSeparator, invalidServices.ToArray())}{Environment.NewLine}{Environment.NewLine}Would you like to continue anyway?"
                                            , "Invalid Services Detected"
@@ -638,6 +656,7 @@ namespace MyDHLAPI_Test_App.REST
                                            , MessageBoxDefaultButton.Button2))
                     {
                         txtResultAWB.Text = "Check Services!";
+                        SetStatusText($"Check requested services! Took {(DateTime.Now - processStart):hh\\:mm\\:ss}", false);
                         return;
                     }
                 }
@@ -664,9 +683,12 @@ namespace MyDHLAPI_Test_App.REST
                 /*** GENERATE SHIPMENT ***/
                 CreateShipmentResponse resp;
 
+                SetStatusText("Sending shipment request...", true, true, 40);
+
                 try
                 {
-                    resp = api.RequestShipment(req);
+                    shipRequestStart = DateTime.Now;
+                    resp = api.RequestShipmentAsync(req).Result;
                 }
                 catch (MyDHLAPIValidationException gvx)
                 {
@@ -676,13 +698,19 @@ namespace MyDHLAPI_Test_App.REST
                     {
                         txtResultPieces.Text = MyDHLAPIValidationException.PrintResults((List<ValidationResult>)gvx.Data["ValidationResults"]);
                     }
+                    SetStatusText($"Shipment contains validation errors! Took {(DateTime.Now - processStart):hh\\:mm\\:ss}", false);
                     return;
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message, "EX");
                     txtResultAWB.Text = "ERROR!";
+                    SetStatusText($"Shipment error! Took {(DateTime.Now - processStart):hh\\:mm\\:ss}", false);
                     return;
+                }
+                finally
+                {
+                    shipRequestEnd = DateTime.Now;
                 }
 
                 MyDHLAPI_Request = api.LastJSONRequest;
@@ -691,8 +719,11 @@ namespace MyDHLAPI_Test_App.REST
                 if (null == resp || null == resp.Data)
                 {
                     MessageBox.Show("There was an error in generating the shipment.");
+                    SetStatusText($"Shipment generation failed! Took {(DateTime.Now - processStart):HH:mm:ss}", false);
                     return;
                 }
+
+                SetStatusText($"Shipment generated, displaying results...", true, true, 50);
 
                 // Display our results
 
@@ -738,11 +769,50 @@ namespace MyDHLAPI_Test_App.REST
                         }
                     }
                 }
+
+                DateTime processEnd = DateTime.Now;
+
+                SetStatusTimeText(ref tsslRateQueryTimeLabel, ref tsslRateQueryTime, rateQueryRequestStart, rateQueryRequestEnd);
+                SetStatusTimeText(ref tsslShipTimeLabel, ref tsslShipTime, shipRequestStart, shipRequestEnd);
+                SetStatusTimeText(ref tsslTotalTimeLabel, ref tsslTotalTime, processStart, processEnd);
+                SetStatusText("Process complete.", false);
             }
             finally
             {
                 this.Enabled = true;
             }
+        }
+
+        private void SetStatusText(string newStatus, bool showProgress = false, bool setProgress = false, int newProgress = 0)
+        {
+            tsslStatusLabel.Text = newStatus;
+            tspbProgressBar.Visible = showProgress;
+            if (setProgress)
+            {
+                tspbProgressBar.Value = newProgress;
+            }
+        }
+
+        private void SetStatusTimeText(ref ToolStripStatusLabel label, ref ToolStripStatusLabel time, DateTime start, DateTime end)
+        {
+            time.Text = TimeDiffString(start, end);
+            label.Visible = true;
+            time.Visible = true;
+        }
+
+        private string TimeDiffString(DateTime start, DateTime? end)
+        {
+            if (null == end)
+            {
+                end = DateTime.Now;
+            }
+
+            if (start == end)
+            {
+                return "-- none --";
+            }
+
+            return $"{end - start:hh\\:mm\\:ss\\.fff}";
         }
 
         private void ClearInputErrors()

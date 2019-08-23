@@ -122,7 +122,7 @@
             this.btnViewResponse.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnViewResponse.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(204)))), ((int)(((byte)(0)))));
             this.btnViewResponse.Location = new System.Drawing.Point(243, 37);
-            this.btnViewResponse.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnViewResponse.Margin = new System.Windows.Forms.Padding(2);
             this.btnViewResponse.Name = "btnViewResponse";
             this.btnViewResponse.Size = new System.Drawing.Size(50, 25);
             this.btnViewResponse.TabIndex = 28;
@@ -140,7 +140,7 @@
             this.btnViewRequest.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnViewRequest.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(204)))), ((int)(((byte)(0)))));
             this.btnViewRequest.Location = new System.Drawing.Point(243, 12);
-            this.btnViewRequest.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnViewRequest.Margin = new System.Windows.Forms.Padding(2);
             this.btnViewRequest.Name = "btnViewRequest";
             this.btnViewRequest.Size = new System.Drawing.Size(50, 25);
             this.btnViewRequest.TabIndex = 27;
@@ -194,6 +194,7 @@
             this.Controls.Add(this.btnGo);
             this.Name = "ePOD";
             this.Text = "ePOD";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.EPOD_FormClosing);
             this.Load += new System.EventHandler(this.EPOD_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

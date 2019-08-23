@@ -1,7 +1,7 @@
 ﻿using Newtonsoft.Json;
 using System;
 
-namespace MyDHLAPI_REST_Library.Objects.ePOD
+namespace MyDHLAPI_REST_Library.Objects.ePOD.Response
 {
     public class ResponseHeader
     {

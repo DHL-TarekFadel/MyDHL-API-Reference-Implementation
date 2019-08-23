@@ -1,4 +1,5 @@
 ﻿using MyDHLAPI_REST_Library.Objects.ePOD;
+using MyDHLAPI_REST_Library.Objects.ePOD.Response;
 using Newtonsoft.Json;
 
 namespace MyDHLAPI_REST_Library.Objects
@@ -17,7 +18,9 @@ namespace MyDHLAPI_REST_Library.Objects
         public ShipmentImage EPod => ResponseBody.ShipmentDetail.ShipmentInputDocument.ShipmentDocument.ShipmentImage;
     }
 
+#pragma warning disable IDE1006 // Naming Styles
     public class shipmentDocumentRetrieveResp
+#pragma warning restore IDE1006 // Naming Styles
     {
         [JsonProperty("MSG")]
         public ResponseMessage ResponseMessage {get;set;}

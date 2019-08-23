@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace MyDHLAPI_REST_Library.Objects.ePOD
+namespace MyDHLAPI_REST_Library.Objects.ePOD.Response
 {
     public class ResponseBody
     {

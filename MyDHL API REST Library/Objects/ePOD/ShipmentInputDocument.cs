@@ -8,6 +8,6 @@ namespace MyDHLAPI_REST_Library.Objects.ePOD
 
         [ValidateObject]
         [JsonProperty("SDoc")]
-        public ShipmentDocument ShipmentDocument { get; set; } = new ShipmentDocument();
+        public ShipmentDocument ShipmentDocument { get; protected set; } = new ShipmentDocument();
     }
 }

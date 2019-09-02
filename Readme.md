@@ -16,18 +16,36 @@ RESTful Library
 Implemented RESTful Operations
 ------------------------------
 
-* Tracking
 * Rate Query
 * Shipment Generation
+* Pickup Request
+* Cancel/Delete Pickup
+* Tracking
 * ePOD Retrieve
+
+Pending RESTful Operations
+--------------------------
+
+* Update Shipment
 
 SOAP Library
 ============
 
-Implemented Operations
+Implemented SOAP Operations
 ----------------------
 
 --none--
+
+Pending SOAP Operations
+-----------------------
+
+* Rate Query
+* Shipment Generation
+* Update Shipment
+* Pickup Request
+* Cancel/Delete Pickup
+* Tracking
+* ePOD Retrieve
 
 Usage
 =====

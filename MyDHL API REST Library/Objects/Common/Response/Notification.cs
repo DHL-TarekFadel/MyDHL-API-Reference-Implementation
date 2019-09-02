@@ -29,7 +29,7 @@ namespace MyDHLAPI_REST_Library.Objects.Common.Response {
             {
                 if (!string.IsNullOrWhiteSpace(notification.Message))
                 {
-                    retval = $"{prefix}({notification.Code}) {notification.Message}";
+                    retval += $"{prefix}({notification.Code}) {notification.Message}";
                     prefix = separator;
                 }
             }

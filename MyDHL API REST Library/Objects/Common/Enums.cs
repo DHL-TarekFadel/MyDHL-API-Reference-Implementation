@@ -1137,5 +1137,30 @@ namespace MyDHLAPI_REST_Library.Objects.Common
         // ReSharper restore StringLiteralTypo
         // ReSharper restore CommentTypo
 
+
+        // ReSharper disable CommentTypo
+        // ReSharper disable StringLiteralTypo
+        public enum DeletePickupRequestReason
+        {
+            [EnumMember(Value = "001")]
+            PackageNotReady,
+            [EnumMember(Value = "002")]
+            RatesTooHigh,
+            [EnumMember(Value = "003")]
+            TransitTimeTooSlow,
+            [EnumMember(Value = "004")]
+            DroppedOffInPerson,
+            [EnumMember(Value = "005")]
+            CommitmentTimeNotMet,
+            [EnumMember(Value = "006")]
+            ReasonNotGiven,
+            [EnumMember(Value = "007")]
+            OtherUnspecified,
+            [EnumMember(Value = "008")]
+            PickupModified
+        }
+        // ReSharper restore StringLiteralTypo
+        // ReSharper restore CommentTypo
+
     }
 }

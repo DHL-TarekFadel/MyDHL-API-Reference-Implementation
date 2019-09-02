@@ -38,9 +38,13 @@ namespace MyDHLAPI_REST_Library
         public string LastShipJSONRequest { get; set; }
         public string LastShipJSONResponse { get; set; }
 
-        // Pickup Request
+        // Request Pickup
         public string LastNewPickupJSONRequest { get; set;}
         public string LastNewPickupJSONResponse { get; set; }
+
+        // Delete Pickup
+        public string LastDeletePickupJSONRequest { get; set; }
+        public string LastDeletePickupJSONResponse { get; set; }
 
         // Tracking
         public string LastTrackingJSONRequest { get; set; }
@@ -363,6 +367,52 @@ namespace MyDHLAPI_REST_Library
             catch
             {
                 retval = new CreatePickupResponse();
+            }
+
+            return retval;
+        }
+
+        public Task<DeletePickupResponse> RequestDeletePickupAsync(DeletePickupRequest req)
+        {
+            return Task.Run(() => RequestDeletePickup(req));
+        }
+
+        public DeletePickupResponse RequestDeletePickup(DeletePickupRequest req)
+        {
+            // Validate the request
+
+            List<ValidationResult> validationResult = Common.Validate(ref req);
+            if (validationResult.Any())
+            {
+                string errors = MyDHLAPIValidationException.PrintResults(validationResult);
+                throw new MyDHLAPIValidationException(validationResult);
+            }
+
+            LastJSONRequest = JsonConvert.SerializeObject(req, Formatting.Indented);
+            LastDeletePickupJSONRequest = LastJSONRequest;
+            LastJSONResponse = SendRequestAndReceiveResponse(LastJSONRequest, "DeleteShipment");
+            LastDeletePickupJSONResponse = LastJSONResponse;
+
+            DeletePickupResponse retval;
+
+            try
+            {
+                // Deserialize the result back to an object.
+                List<string> errors = new List<string>();
+
+                retval = JsonConvert.DeserializeObject<DeletePickupResponse>(LastJSONResponse
+                                                                             , new JsonSerializerSettings()
+                                                                             {
+                                                                                 Error = delegate (object sender, Newtonsoft.Json.Serialization.ErrorEventArgs args)
+                                                                                 {
+                                                                                     errors.Add(args.ErrorContext.Error.Message);
+                                                                                     args.ErrorContext.Handled = true;
+                                                                                 }
+                                                                             });
+            }
+            catch
+            {
+                retval = new DeletePickupResponse();
             }
 
             return retval;

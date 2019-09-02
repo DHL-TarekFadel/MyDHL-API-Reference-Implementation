@@ -122,6 +122,25 @@ namespace MyDHLAPI_Test_App
         {
             checkBox.Checked = (defaultValue ?? backupValue);
         }
+
+        public static void ApplyDefault(ref System.Windows.Forms.DateTimePicker dateTimePicker, DateTime? defaultValue, DateTime? backupValue = null)
+        {
+            if (null == defaultValue)
+            {
+                if (null == backupValue)
+                {
+                    dateTimePicker.Value = DateTime.Now;
+                }
+                else
+                {
+                    dateTimePicker.Value = backupValue.Value;
+                }
+            }
+            else
+            {
+                dateTimePicker.Value = defaultValue.Value;
+            }
+        }
         #endregion
 
         public enum MyDHLAPIEnvironment

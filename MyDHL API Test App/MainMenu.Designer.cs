@@ -43,6 +43,7 @@
             this.btnREST_RateQuery = new System.Windows.Forms.Button();
             this.btnAdHoc = new System.Windows.Forms.Button();
             this.btnREST_CreatePickup = new System.Windows.Forms.Button();
+            this.btnREST_DeletePickup = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnSOAP_Track
@@ -130,7 +131,7 @@
             this.btnREST_Track.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnREST_Track.Font = new System.Drawing.Font("Delivery Cd Light", 14F);
             this.btnREST_Track.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(204)))), ((int)(((byte)(0)))));
-            this.btnREST_Track.Location = new System.Drawing.Point(172, 253);
+            this.btnREST_Track.Location = new System.Drawing.Point(172, 294);
             this.btnREST_Track.Name = "btnREST_Track";
             this.btnREST_Track.Size = new System.Drawing.Size(99, 35);
             this.btnREST_Track.TabIndex = 5;
@@ -158,7 +159,7 @@
             this.btnREST_ePOD.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnREST_ePOD.Font = new System.Drawing.Font("Delivery Cd Light", 14F);
             this.btnREST_ePOD.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(204)))), ((int)(((byte)(0)))));
-            this.btnREST_ePOD.Location = new System.Drawing.Point(172, 294);
+            this.btnREST_ePOD.Location = new System.Drawing.Point(172, 335);
             this.btnREST_ePOD.Name = "btnREST_ePOD";
             this.btnREST_ePOD.Size = new System.Drawing.Size(99, 35);
             this.btnREST_ePOD.TabIndex = 8;
@@ -206,7 +207,7 @@
             this.btnAdHoc.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAdHoc.Font = new System.Drawing.Font("Delivery Cd Light", 14F);
             this.btnAdHoc.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(204)))), ((int)(((byte)(0)))));
-            this.btnAdHoc.Location = new System.Drawing.Point(104, 335);
+            this.btnAdHoc.Location = new System.Drawing.Point(104, 376);
             this.btnAdHoc.Name = "btnAdHoc";
             this.btnAdHoc.Size = new System.Drawing.Size(99, 35);
             this.btnAdHoc.TabIndex = 9;
@@ -228,12 +229,27 @@
             this.btnREST_CreatePickup.UseVisualStyleBackColor = false;
             this.btnREST_CreatePickup.Click += new System.EventHandler(this.BtnREST_CreatePickup_Click);
             // 
+            // btnREST_DeletePickup
+            // 
+            this.btnREST_DeletePickup.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(5)))), ((int)(((byte)(17)))));
+            this.btnREST_DeletePickup.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnREST_DeletePickup.Font = new System.Drawing.Font("Delivery Cd Light", 10F);
+            this.btnREST_DeletePickup.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(204)))), ((int)(((byte)(0)))));
+            this.btnREST_DeletePickup.Location = new System.Drawing.Point(172, 253);
+            this.btnREST_DeletePickup.Name = "btnREST_DeletePickup";
+            this.btnREST_DeletePickup.Size = new System.Drawing.Size(99, 35);
+            this.btnREST_DeletePickup.TabIndex = 10;
+            this.btnREST_DeletePickup.Text = "DEL  PICKUP";
+            this.btnREST_DeletePickup.UseVisualStyleBackColor = false;
+            this.btnREST_DeletePickup.Click += new System.EventHandler(this.BtnREST_DeletePickup_Click);
+            // 
             // MainMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(204)))), ((int)(((byte)(0)))));
-            this.ClientSize = new System.Drawing.Size(306, 375);
+            this.ClientSize = new System.Drawing.Size(306, 423);
+            this.Controls.Add(this.btnREST_DeletePickup);
             this.Controls.Add(this.btnREST_CreatePickup);
             this.Controls.Add(this.btnAdHoc);
             this.Controls.Add(this.btnREST_RateQuery);
@@ -273,6 +289,7 @@
         private System.Windows.Forms.Button btnREST_RateQuery;
         private System.Windows.Forms.Button btnAdHoc;
         private System.Windows.Forms.Button btnREST_CreatePickup;
+        private System.Windows.Forms.Button btnREST_DeletePickup;
     }
 }
 

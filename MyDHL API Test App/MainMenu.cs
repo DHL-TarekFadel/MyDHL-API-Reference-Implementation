@@ -96,6 +96,12 @@ namespace MyDHLAPI_Test_App
             frm.Show();
         }
 
+        private void BtnREST_DeletePickup_Click(object sender, EventArgs e)
+        {
+            Form frm = new REST.DeletePickup();
+            frm.Show();
+        }
+
         private void BtnREST_Track_Click(object sender, EventArgs e)
         {
             Form frm = new REST.Track();

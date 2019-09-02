@@ -22,4 +22,8 @@
     <PackageReference Include="System.ComponentModel.Annotations" Version="4.5.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Objects\PickupDelete\" />
+  </ItemGroup>
+
 </Project>

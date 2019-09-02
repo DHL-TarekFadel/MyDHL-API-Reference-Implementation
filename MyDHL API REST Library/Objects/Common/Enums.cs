@@ -695,7 +695,9 @@ namespace MyDHLAPI_REST_Library.Objects.Common
             [EnumMember(Value = "SCH")]
             Surcharge,
             [EnumMember(Value = "NRI")]
-            NonRevenueItem
+            NonRevenueItem,
+            [EnumMember(Value = "TEC")]
+            TEC
         }
         // ReSharper restore StringLiteralTypo
         // ReSharper restore CommentTypo

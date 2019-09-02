@@ -42,6 +42,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.btnREST_RateQuery = new System.Windows.Forms.Button();
             this.btnAdHoc = new System.Windows.Forms.Button();
+            this.btnREST_CreatePickup = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnSOAP_Track
@@ -51,7 +52,7 @@
             this.btnSOAP_Track.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSOAP_Track.Font = new System.Drawing.Font("Delivery Cd Light", 14F);
             this.btnSOAP_Track.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(204)))), ((int)(((byte)(0)))));
-            this.btnSOAP_Track.Location = new System.Drawing.Point(36, 130);
+            this.btnSOAP_Track.Location = new System.Drawing.Point(36, 253);
             this.btnSOAP_Track.Name = "btnSOAP_Track";
             this.btnSOAP_Track.Size = new System.Drawing.Size(99, 35);
             this.btnSOAP_Track.TabIndex = 2;
@@ -76,7 +77,7 @@
             this.btnSOAP_Ship.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSOAP_Ship.Font = new System.Drawing.Font("Delivery Cd Light", 14F);
             this.btnSOAP_Ship.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(204)))), ((int)(((byte)(0)))));
-            this.btnSOAP_Ship.Location = new System.Drawing.Point(36, 214);
+            this.btnSOAP_Ship.Location = new System.Drawing.Point(36, 171);
             this.btnSOAP_Ship.Name = "btnSOAP_Ship";
             this.btnSOAP_Ship.Size = new System.Drawing.Size(99, 35);
             this.btnSOAP_Ship.TabIndex = 3;
@@ -91,7 +92,7 @@
             this.btnSOAP_EPOD.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSOAP_EPOD.Font = new System.Drawing.Font("Delivery Cd Light", 14F);
             this.btnSOAP_EPOD.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(204)))), ((int)(((byte)(0)))));
-            this.btnSOAP_EPOD.Location = new System.Drawing.Point(36, 257);
+            this.btnSOAP_EPOD.Location = new System.Drawing.Point(36, 294);
             this.btnSOAP_EPOD.Name = "btnSOAP_EPOD";
             this.btnSOAP_EPOD.Size = new System.Drawing.Size(99, 35);
             this.btnSOAP_EPOD.TabIndex = 4;
@@ -129,7 +130,7 @@
             this.btnREST_Track.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnREST_Track.Font = new System.Drawing.Font("Delivery Cd Light", 14F);
             this.btnREST_Track.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(204)))), ((int)(((byte)(0)))));
-            this.btnREST_Track.Location = new System.Drawing.Point(172, 130);
+            this.btnREST_Track.Location = new System.Drawing.Point(172, 253);
             this.btnREST_Track.Name = "btnREST_Track";
             this.btnREST_Track.Size = new System.Drawing.Size(99, 35);
             this.btnREST_Track.TabIndex = 5;
@@ -143,7 +144,7 @@
             this.btnREST_Ship.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnREST_Ship.Font = new System.Drawing.Font("Delivery Cd Light", 14F);
             this.btnREST_Ship.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(204)))), ((int)(((byte)(0)))));
-            this.btnREST_Ship.Location = new System.Drawing.Point(172, 214);
+            this.btnREST_Ship.Location = new System.Drawing.Point(172, 171);
             this.btnREST_Ship.Name = "btnREST_Ship";
             this.btnREST_Ship.Size = new System.Drawing.Size(99, 35);
             this.btnREST_Ship.TabIndex = 7;
@@ -157,7 +158,7 @@
             this.btnREST_ePOD.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnREST_ePOD.Font = new System.Drawing.Font("Delivery Cd Light", 14F);
             this.btnREST_ePOD.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(204)))), ((int)(((byte)(0)))));
-            this.btnREST_ePOD.Location = new System.Drawing.Point(172, 257);
+            this.btnREST_ePOD.Location = new System.Drawing.Point(172, 294);
             this.btnREST_ePOD.Name = "btnREST_ePOD";
             this.btnREST_ePOD.Size = new System.Drawing.Size(99, 35);
             this.btnREST_ePOD.TabIndex = 8;
@@ -191,7 +192,7 @@
             this.btnREST_RateQuery.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnREST_RateQuery.Font = new System.Drawing.Font("Delivery Cd Light", 14F);
             this.btnREST_RateQuery.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(204)))), ((int)(((byte)(0)))));
-            this.btnREST_RateQuery.Location = new System.Drawing.Point(172, 171);
+            this.btnREST_RateQuery.Location = new System.Drawing.Point(172, 130);
             this.btnREST_RateQuery.Name = "btnREST_RateQuery";
             this.btnREST_RateQuery.Size = new System.Drawing.Size(99, 35);
             this.btnREST_RateQuery.TabIndex = 6;
@@ -205,7 +206,7 @@
             this.btnAdHoc.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAdHoc.Font = new System.Drawing.Font("Delivery Cd Light", 14F);
             this.btnAdHoc.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(204)))), ((int)(((byte)(0)))));
-            this.btnAdHoc.Location = new System.Drawing.Point(104, 298);
+            this.btnAdHoc.Location = new System.Drawing.Point(104, 335);
             this.btnAdHoc.Name = "btnAdHoc";
             this.btnAdHoc.Size = new System.Drawing.Size(99, 35);
             this.btnAdHoc.TabIndex = 9;
@@ -213,12 +214,27 @@
             this.btnAdHoc.UseVisualStyleBackColor = false;
             this.btnAdHoc.Click += new System.EventHandler(this.BtnAdHoc_Click);
             // 
+            // btnREST_CreatePickup
+            // 
+            this.btnREST_CreatePickup.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(5)))), ((int)(((byte)(17)))));
+            this.btnREST_CreatePickup.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnREST_CreatePickup.Font = new System.Drawing.Font("Delivery Cd Light", 14F);
+            this.btnREST_CreatePickup.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(204)))), ((int)(((byte)(0)))));
+            this.btnREST_CreatePickup.Location = new System.Drawing.Point(172, 212);
+            this.btnREST_CreatePickup.Name = "btnREST_CreatePickup";
+            this.btnREST_CreatePickup.Size = new System.Drawing.Size(99, 35);
+            this.btnREST_CreatePickup.TabIndex = 10;
+            this.btnREST_CreatePickup.Text = "PICKUP";
+            this.btnREST_CreatePickup.UseVisualStyleBackColor = false;
+            this.btnREST_CreatePickup.Click += new System.EventHandler(this.BtnREST_CreatePickup_Click);
+            // 
             // MainMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(204)))), ((int)(((byte)(0)))));
-            this.ClientSize = new System.Drawing.Size(306, 339);
+            this.ClientSize = new System.Drawing.Size(306, 375);
+            this.Controls.Add(this.btnREST_CreatePickup);
             this.Controls.Add(this.btnAdHoc);
             this.Controls.Add(this.btnREST_RateQuery);
             this.Controls.Add(this.label3);
@@ -256,6 +272,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button btnREST_RateQuery;
         private System.Windows.Forms.Button btnAdHoc;
+        private System.Windows.Forms.Button btnREST_CreatePickup;
     }
 }
 

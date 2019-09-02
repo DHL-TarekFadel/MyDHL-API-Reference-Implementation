@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using MyDHLAPI_REST_Library.Objects.Common;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Text;

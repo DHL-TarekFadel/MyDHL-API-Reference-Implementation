@@ -38,6 +38,10 @@ namespace MyDHLAPI_REST_Library
         public string LastShipJSONRequest { get; set; }
         public string LastShipJSONResponse { get; set; }
 
+        // Pickup Request
+        public string LastNewPickupJSONRequest { get; set;}
+        public string LastNewPickupJSONResponse { get; set; }
+
         // Tracking
         public string LastTrackingJSONRequest { get; set; }
         public string LastTrackingJSONResponse { get; set; }
@@ -178,7 +182,7 @@ namespace MyDHLAPI_REST_Library
             }
 
             LastJSONRequest = JsonConvert.SerializeObject(rqr, Formatting.Indented);
-            LastRateQueryJSONRequest = LastJSONResponse;
+            LastRateQueryJSONRequest = LastJSONRequest;
             LastJSONResponse = SendRequestAndReceiveResponse(LastJSONRequest, "RateRequest");
             LastRateQueryJSONResponse = LastJSONResponse;
 
@@ -313,6 +317,52 @@ namespace MyDHLAPI_REST_Library
             catch
             {
                 retval = new CreateShipmentResponse();
+            }
+
+            return retval;
+        }
+
+        public Task<CreatePickupResponse> RequestNewPickupAsync(CreatePickupRequest req)
+        {
+            return Task.Run(() => RequestNewPickup(req));
+        }
+
+        public CreatePickupResponse RequestNewPickup(CreatePickupRequest req)
+        {
+            // Validate the request
+
+            List<ValidationResult> validationResult = Common.Validate(ref req);
+            if (validationResult.Any())
+            {
+                string errors = MyDHLAPIValidationException.PrintResults(validationResult);
+                throw new MyDHLAPIValidationException(validationResult);
+            }
+
+            LastJSONRequest = JsonConvert.SerializeObject(req, Formatting.Indented);
+            LastNewPickupJSONRequest = LastJSONRequest;
+            LastJSONResponse = SendRequestAndReceiveResponse(LastJSONRequest, "PickupRequest");
+            LastNewPickupJSONResponse = LastJSONResponse;
+
+            CreatePickupResponse retval;
+
+            try
+            {
+                // Deserialize the result back to an object.
+                List<string> errors = new List<string>();
+
+                retval = JsonConvert.DeserializeObject<CreatePickupResponse>(LastJSONResponse
+                                                                             , new JsonSerializerSettings()
+                {
+                    Error = delegate (object sender, Newtonsoft.Json.Serialization.ErrorEventArgs args)
+                    {
+                        errors.Add(args.ErrorContext.Error.Message);
+                        args.ErrorContext.Handled = true;
+                    }
+                });
+            }
+            catch
+            {
+                retval = new CreatePickupResponse();
             }
 
             return retval;

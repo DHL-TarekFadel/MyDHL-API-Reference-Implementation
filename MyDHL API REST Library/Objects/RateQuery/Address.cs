@@ -68,7 +68,7 @@ namespace MyDHLAPI_REST_Library.Objects.RateQuery {
         [StringLength(2, MinimumLength = 2)]
         public string CountryCode { get; set; }
 
-        public static implicit operator Address(Objects.Ship.Address shipAddress)
+        public static implicit operator Address(Common.Address shipAddress)
         {
             var retval = new Address()
             {

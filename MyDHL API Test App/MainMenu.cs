@@ -78,25 +78,33 @@ namespace MyDHLAPI_Test_App
             frm.Show();
         }
 
-        private void BtnREST_Track_Click(object sender, EventArgs e)
+        private void BtnREST_RateQuery_Click(object sender, EventArgs e)
         {
-            Form frm = new REST.Track();
-            frm.Show();
-        }
-
-        private void BtnREST_RateQuery_Click(object sender, EventArgs e) {
             Form frm = new REST.RateQuote();
-            frm.Show();
-        }
-
-        private void BtnREST_ePOD_Click(object sender, EventArgs e) {
-            Form frm = new REST.ePOD();
             frm.Show();
         }
 
         private void BtnREST_Ship_Click(object sender, EventArgs e)
         {
             Form frm = new REST.Ship();
+            frm.Show();
+        }
+
+        private void BtnREST_CreatePickup_Click(object sender, EventArgs e)
+        {
+            Form frm = new REST.CreatePickup();
+            frm.Show();
+        }
+
+        private void BtnREST_Track_Click(object sender, EventArgs e)
+        {
+            Form frm = new REST.Track();
+            frm.Show();
+        }
+
+        private void BtnREST_ePOD_Click(object sender, EventArgs e)
+        {
+            Form frm = new REST.ePOD();
             frm.Show();
         }
 

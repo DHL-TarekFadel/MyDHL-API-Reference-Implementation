@@ -144,7 +144,7 @@ namespace MyDHLAPI_Test_App.REST {
                     , Content = (cmbDutiable.SelectedIndex == 0 ? Enums.ShipmentType.Documents : Enums.ShipmentType.NonDocuments)
                 };
                 MyDHLAPI_REST_Library.Objects.RateQuery.Ship s = new MyDHLAPI_REST_Library.Objects.RateQuery.Ship();
-                Address sa = new Address
+                MyDHLAPI_REST_Library.Objects.RateQuery.Address sa = new MyDHLAPI_REST_Library.Objects.RateQuery.Address
                 {
                     City = txtShipperCity.Text.Trim()
                     , PostalCode = txtShipperPostalCode.Text.Trim()
@@ -152,7 +152,7 @@ namespace MyDHLAPI_Test_App.REST {
                     , CountryCode = txtShipperCountry.Text.Trim()
                 };
                 s.Shipper = sa;
-                Address ra = new Address
+                MyDHLAPI_REST_Library.Objects.RateQuery.Address ra = new MyDHLAPI_REST_Library.Objects.RateQuery.Address
                 {
                     City = txtConsigneeCity.Text.Trim()
                     , PostalCode = txtConsigneePostalCode.Text.Trim()
@@ -242,8 +242,7 @@ namespace MyDHLAPI_Test_App.REST {
                             foreach (Charge charge in service.Charges.Charge)
                             {
                                 TreeNode ctn =
-                                    new TreeNode(
-                                        $"{charge.ChargeType}");
+                                    new TreeNode($"({charge.ChargeCode}) {charge.ChargeType}");
                                 TreeNode cctn =
                                     new TreeNode($"{service.Charges.Currency} {charge.ChargeAmount:#,##0.00}");
                                 ctn.Nodes.Add(cctn);
@@ -263,6 +262,21 @@ namespace MyDHLAPI_Test_App.REST {
                 this.Enabled = true;
                 this.Cursor = Cursors.Default;
                 this.UseWaitCursor = false;
+            }
+        }
+
+        private void btnFind_Click(object sender, EventArgs e)
+        {
+            if (string.IsNullOrWhiteSpace(txtFindInList.Text))
+            {
+                return;
+            }
+
+            var foundNodes = tvResult.Nodes.Find(txtFindInList.Text, true);
+
+            if (foundNodes.Any())
+            {
+                tvResult.SelectedNode = foundNodes.First();
             }
         }
     }

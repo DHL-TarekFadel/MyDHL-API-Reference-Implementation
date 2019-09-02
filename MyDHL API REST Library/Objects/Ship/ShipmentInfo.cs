@@ -145,7 +145,7 @@ namespace MyDHLAPI_REST_Library.Objects.Ship
         /// </summary>
         [ValidateObject]
         [JsonProperty("Billing")]
-        public BillilngInfo Billing { get; set; }
+        public BillingInfo Billing { get; set; }
 
         [ValidateObject]
         [JsonProperty("DocumentImages", NullValueHandling = NullValueHandling.Ignore)]

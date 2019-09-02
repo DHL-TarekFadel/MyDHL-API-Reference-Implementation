@@ -265,7 +265,7 @@ namespace MyDHLAPI_Test_App.REST
                 // If the billing element is defined (it should be used anyway) then there is no need for the
                 // generic shipmentInfo.Account element to be populated.
                 //shipmentInfo.Account = txtShipperAccountNumber.Text;
-                req.Data.ShipmentInfo.Billing = new BillilngInfo(txtShipperAccountNumber.Text
+                req.Data.ShipmentInfo.Billing = new BillingInfo(txtShipperAccountNumber.Text
                                                                  , txtShipperAccountNumber.Text
                                                                  , Enums.AccountRole.Shipper
                                                                  , txtDutyAccountNumber.Text);

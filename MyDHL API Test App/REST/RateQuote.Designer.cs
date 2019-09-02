@@ -80,6 +80,8 @@
             this.label22 = new System.Windows.Forms.Label();
             this.btnViewRequest = new System.Windows.Forms.Button();
             this.btnViewResponse = new System.Windows.Forms.Button();
+            this.txtFindInList = new System.Windows.Forms.TextBox();
+            this.btnFind = new System.Windows.Forms.Button();
             this.gbShipper.SuspendLayout();
             this.gbShipment.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ntxtHeight)).BeginInit();
@@ -793,7 +795,7 @@
             this.tvResult.Location = new System.Drawing.Point(375, 70);
             this.tvResult.Margin = new System.Windows.Forms.Padding(2);
             this.tvResult.Name = "tvResult";
-            this.tvResult.Size = new System.Drawing.Size(186, 228);
+            this.tvResult.Size = new System.Drawing.Size(186, 198);
             this.tvResult.TabIndex = 4;
             this.tvResult.TabStop = false;
             // 
@@ -844,12 +846,41 @@
             this.btnViewResponse.UseVisualStyleBackColor = false;
             this.btnViewResponse.Click += new System.EventHandler(this.BtnViewResponse_Click);
             // 
+            // txtFindInList
+            // 
+            this.txtFindInList.Location = new System.Drawing.Point(375, 277);
+            this.txtFindInList.Margin = new System.Windows.Forms.Padding(2);
+            this.txtFindInList.MaxLength = 255;
+            this.txtFindInList.Name = "txtFindInList";
+            this.txtFindInList.Size = new System.Drawing.Size(155, 20);
+            this.txtFindInList.TabIndex = 9;
+            this.txtFindInList.Visible = false;
+            // 
+            // btnFind
+            // 
+            this.btnFind.AutoSize = true;
+            this.btnFind.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(5)))), ((int)(((byte)(17)))));
+            this.btnFind.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnFind.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFind.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(204)))), ((int)(((byte)(0)))));
+            this.btnFind.Location = new System.Drawing.Point(534, 274);
+            this.btnFind.Margin = new System.Windows.Forms.Padding(2);
+            this.btnFind.Name = "btnFind";
+            this.btnFind.Size = new System.Drawing.Size(26, 25);
+            this.btnFind.TabIndex = 27;
+            this.btnFind.Text = "?";
+            this.btnFind.UseVisualStyleBackColor = false;
+            this.btnFind.Visible = false;
+            this.btnFind.Click += new System.EventHandler(this.btnFind_Click);
+            // 
             // RateQuote
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(204)))), ((int)(((byte)(0)))));
             this.ClientSize = new System.Drawing.Size(568, 305);
+            this.Controls.Add(this.btnFind);
+            this.Controls.Add(this.txtFindInList);
             this.Controls.Add(this.tvResult);
             this.Controls.Add(this.gbBilling);
             this.Controls.Add(this.gbShipment);
@@ -940,5 +971,7 @@
         private System.Windows.Forms.Button btnViewRequest;
         private System.Windows.Forms.Button btnViewResponse;
         private System.Windows.Forms.CheckBox cbxShowAllServices;
+        private System.Windows.Forms.TextBox txtFindInList;
+        private System.Windows.Forms.Button btnFind;
     }
 }

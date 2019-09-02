@@ -29,6 +29,8 @@ namespace MyDHLAPI_Test_App
 
         public static Defaults Defaults;
 
+        public static List<SuccessfulPickupRequest> SuccessfulPickupRequests = new List<SuccessfulPickupRequest>();
+
         /// <summary>
         /// Prepares the MyDHLAPI Auth using WSSE
         /// </summary>

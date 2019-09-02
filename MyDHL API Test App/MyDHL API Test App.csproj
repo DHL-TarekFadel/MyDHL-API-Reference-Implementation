@@ -92,6 +92,7 @@
     </Compile>
     <Compile Include="Objects\CoD.cs" />
     <Compile Include="Objects\Insurance.cs" />
+    <Compile Include="Objects\SuccessfulPickupRequest.cs" />
     <Compile Include="REST\CreatePickup.cs">
       <SubType>Form</SubType>
     </Compile>

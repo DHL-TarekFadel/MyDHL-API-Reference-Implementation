@@ -374,6 +374,16 @@ namespace MyDHLAPI_Test_App.REST
 
                 DateTime processEnd = DateTime.Now;
 
+                /*** Save for cancelation ***/
+                Common.SuccessfulPickupRequests.Add(new Objects.SuccessfulPickupRequest()
+                {
+                    PickupDate = req.PickUpRequest.PickUpShipment.PickupTimestamp
+                    , PickupCountry = req.PickUpRequest.PickUpShipment.Addresses.Pickup.Address.CountryCode
+                    , RequestorName = req.PickUpRequest.PickUpShipment.Addresses.BookingRequestor.Contact.PersonName
+                    , PickupRequestNumber = resp.PickupRequestNumber
+                });
+
+                /*** Set status bar time sections ***/
                 SetStatusTimeText(ref tsslPickupTimeLabel, ref tsslPickupTime, pickupRequestStart, pickupRequestEnd);
                 SetStatusTimeText(ref tsslTotalTimeLabel, ref tsslTotalTime, processStart, processEnd);
                 SetStatusText("Process complete.", false);

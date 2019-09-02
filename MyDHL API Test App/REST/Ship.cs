@@ -728,7 +728,20 @@ namespace MyDHLAPI_Test_App.REST
                 // Display our results
 
                 txtResultAWB.Text = (resp.Data.AWB ?? String.Empty);
-                txtResultBookingReferenceNumber.Text = (resp.Data.BookingReferenceNumber ?? string.Empty);
+
+                if (null != resp.Data.BookingReferenceNumber)
+                {
+                    txtResultBookingReferenceNumber.Text = resp.Data.BookingReferenceNumber;
+
+                    /*** Save for cancelation ***/
+                    Common.SuccessfulPickupRequests.Add(new Objects.SuccessfulPickupRequest()
+                    {
+                        PickupDate = req.Data.Timestamp
+                        , PickupCountry = req.Data.ShipmentAddresses.Pickup.Address.CountryCode
+                        , RequestorName = req.Data.ShipmentAddresses.Shipper.Contact.PersonName
+                        , PickupRequestNumber = resp.Data.BookingReferenceNumber
+                    });
+                }
 
                 if (null != resp.Data.Pieces
                     && resp.Data.Pieces.Any())

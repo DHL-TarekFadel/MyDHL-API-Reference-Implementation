@@ -203,10 +203,21 @@ namespace MyDHLAPI_Test_App.REST {
                 rr.RequestedShipment = rs;
                 rqr.RateRequest = rr;
 
-                RateQueryResponse result = api.RateQuery(rqr);
+                RateQueryResponse result = null;
+                try
+                {
+                    result = api.RateQuery(rqr);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"{ex.Message}", "Exception", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    _lastJsonRequest = api.LastRateQueryJSONRequest;
+                    _lastJsonResponse = api.LastRateQueryJSONResponse;
+                    return;
+                }
 
-                _lastJsonRequest = api.LastJSONRequest;
-                _lastJsonResponse = api.LastJSONResponse;
+                _lastJsonRequest = api.LastRateQueryJSONRequest;
+                _lastJsonResponse = api.LastRateQueryJSONResponse;
 
                 tvResult.Nodes.Clear();
 

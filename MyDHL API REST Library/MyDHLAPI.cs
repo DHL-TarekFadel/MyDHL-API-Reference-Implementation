@@ -29,30 +29,44 @@ namespace MyDHLAPI_REST_Library
         // General
         public string LastJSONRequest { get; set; }
         public string LastJSONResponse { get; set; }
+        public string LastHTTPRequest { get; set; }
+        public string LastHTTPResponse { get; set; }
 
         // Rate Query
         public string LastRateQueryJSONRequest { get; set; }
         public string LastRateQueryJSONResponse { get; set; }
+        public string LastRateQueryHTTPRequest { get; set; }
+        public string LastRateQueryHTTPResponse { get; set; }
 
         // Ship
         public string LastShipJSONRequest { get; set; }
         public string LastShipJSONResponse { get; set; }
+        public string LastShipHTTPRequest { get; set; }
+        public string LastShipHTTPResponse { get; set; }
 
         // Request Pickup
         public string LastNewPickupJSONRequest { get; set;}
         public string LastNewPickupJSONResponse { get; set; }
+        public string LastNewPickupHTTPRequest { get; set; }
+        public string LastNewPickupHTTPResponse { get; set; }
 
         // Delete Pickup
         public string LastDeletePickupJSONRequest { get; set; }
         public string LastDeletePickupJSONResponse { get; set; }
+        public string LastDeletePickupHTTPRequest { get; set; }
+        public string LastDeletePickupHTTPResponse { get; set; }
 
         // Tracking
         public string LastTrackingJSONRequest { get; set; }
         public string LastTrackingJSONResponse { get; set; }
+        public string LastTrackingHTTPRequest { get; set; }
+        public string LastTrackingHTTPResponse { get; set; }
 
         //ePoD
         public string LastEPoDJSONRequest { get; set; }
         public string LastEPoDJSONResponse { get; set; }
+        public string LastEPoDHTTPRequest { get; set; }
+        public string LastEPoDHTTPResponse { get; set; }
 
         #endregion
         public MyDHLAPI(string username, string password, string baseUrl)
@@ -93,6 +107,8 @@ namespace MyDHLAPI_REST_Library
 
             try
             {
+                System.Diagnostics.HttpRawTraceListener.Initialize();
+                System.Diagnostics.HttpRawTraceListener.FinishedCommunication += HttpRawTraceListener_FinishedCommunication;
                 WebResponse resp = request.GetResponse();
                 StreamReader respReader = new StreamReader(resp.GetResponseStream());
                 respString = respReader.ReadToEnd();
@@ -103,6 +119,12 @@ namespace MyDHLAPI_REST_Library
             }
 
             return respString;
+        }
+
+        private void HttpRawTraceListener_FinishedCommunication(object sender, CommunicationEventArgs e)
+        {
+            LastHTTPRequest = $"{e.Communication.HTTPRequestHeaders}{Environment.NewLine}{e.Communication.HTTPRequestBodyString}";
+            LastHTTPResponse = $"{e.Communication.HTTPResponseHeaders}{Environment.NewLine}{e.Communication.HTTPResponseBodyString}";
         }
 
         public Task<KnownTrackingResponse> KnownAWBTrackingAsync(List<string> AWBs
@@ -189,6 +211,8 @@ namespace MyDHLAPI_REST_Library
             LastRateQueryJSONRequest = LastJSONRequest;
             LastJSONResponse = SendRequestAndReceiveResponse(LastJSONRequest, "RateRequest");
             LastRateQueryJSONResponse = LastJSONResponse;
+            LastRateQueryHTTPRequest = LastHTTPRequest;
+            LastRateQueryHTTPResponse = LastHTTPResponse;
 
             RateQueryResponse retval;
 

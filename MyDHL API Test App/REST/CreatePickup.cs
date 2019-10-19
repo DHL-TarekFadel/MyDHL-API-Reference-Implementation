@@ -9,7 +9,6 @@ using System.Linq;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
 using System.IO;
-using System.Web;
 using System.ComponentModel.DataAnnotations;
 using MyDHLAPI_REST_Library.Objects.Pickup;
 using MyDHLAPI_REST_Library.Objects.Common.Response;
@@ -32,9 +31,76 @@ namespace MyDHLAPI_Test_App.REST
 
         private List<string> _generatedTempFiles = new List<string>();
 
+        private Dictionary<string, Dictionary<string, TextBox>> _addressInputs = new Dictionary<string, Dictionary<string, TextBox>>();
+
         public CreatePickup()
         {
             InitializeComponent();
+
+            Dictionary<string, TextBox> shipperInputs = new Dictionary<string, TextBox>
+            {
+                { "Company", txtShipperCompany },
+                { "Person", txtShipperName },
+                { "EMail", txtShipperEMailAddress },
+                { "Mobile", txtShipperMobileNumber },
+                { "Address1", txtShipperAddress1 },
+                { "Address2", txtShipperAddress2 },
+                { "Address3", txtShipperAddress3 },
+                { "Country", txtShipperCountry },
+                { "State", txtShipperState },
+                { "City", txtShipperCity },
+                { "PostalCode", txtShipperPostalCode }
+            };
+
+            Dictionary<string, TextBox> pickupInputs = new Dictionary<string, TextBox>
+            {
+                { "Company", txtPickupCompany },
+                { "Person", txtPickupName },
+                { "EMail", txtPickupEMailAddress },
+                { "Mobile", txtPickupMobileNumber },
+                { "Address1", txtPickupAddress1 },
+                { "Address2", txtPickupAddress2 },
+                { "Address3", txtPickupAddress3 },
+                { "Country", txtPickupCountry },
+                { "State", txtPickupState },
+                { "City", txtPickupCity },
+                { "PostalCode", txtPickupPostalCode }
+            };
+
+            Dictionary<string, TextBox> receiverInputs = new Dictionary<string, TextBox>
+            {
+                { "Company", txtConsigneeCompany },
+                { "Person", txtConsigneeName },
+                { "EMail", txtConsigneeEMailAddress },
+                { "Mobile", txtConsigneeMobileNumber },
+                { "Address1", txtConsigneeAddress1 },
+                { "Address2", txtConsigneeAddress2 },
+                { "Address3", txtConsigneeAddress3 },
+                { "Country", txtConsigneeCountry },
+                { "State", txtConsigneeState },
+                { "City", txtConsigneeCity },
+                { "PostalCode", txtConsigneePostalCode }
+            };
+
+            Dictionary<string, TextBox> requestorInputs = new Dictionary<string, TextBox>
+            {
+                { "Company", txtRequestorCompany },
+                { "Person", txtRequestorName },
+                { "EMail", txtRequestorEMailAddress },
+                { "Mobile", txtRequestorMobileNumber },
+                { "Address1", txtRequestorAddress1 },
+                { "Address2", txtRequestorAddress2 },
+                { "Address3", txtRequestorAddress3 },
+                { "Country", txtRequestorCountry },
+                { "State", txtRequestorState },
+                { "City", txtRequestorCity },
+                { "PostalCode", txtRequestorPostalCode }
+            };
+
+            _addressInputs.Add("Shipper", shipperInputs);
+            _addressInputs.Add("Pickup", pickupInputs);
+            _addressInputs.Add("Receiver", receiverInputs);
+            _addressInputs.Add("Requestor", requestorInputs);
         }
 
         private void CreatePickup_Load(object sender, EventArgs e)
@@ -138,7 +204,7 @@ namespace MyDHLAPI_Test_App.REST
             }
         }
 
-        private void BtnShip_Click(object sender, EventArgs e)
+        private void BtnRequestPickup_Click(object sender, EventArgs e)
         {
             ClearInputErrors();
 
@@ -196,25 +262,26 @@ namespace MyDHLAPI_Test_App.REST
 #pragma warning restore IDE0017 // Simplify object initialization
                 req.PickUpRequest = new PickUpRequest();
                 req.PickUpRequest.PickUpShipment = new PickUpShipment();
-                req.PickUpRequest.PickUpShipment.ShipmentInfo = new ShipmentInfo();
+                req.PickUpRequest.PickUpShipment.ShipmentDetails = new ShipmentDetails();
 
-                req.PickUpRequest.PickUpShipment.ShipmentInfo.ShippingProductCode = cmbProductCode.SelectedValue.ToString();
-                
+                req.PickUpRequest.PickUpShipment.ShipmentDetails.ShipmentDetail.ServiceType = cmbProductCode.SelectedValue.ToString();
+                req.PickUpRequest.PickUpShipment.ShipmentDetails.ShipmentDetail.LocalServiceType = cmbProductCode.SelectedValue.ToString();
+
                 // SU = Standard (american) Units (LB, IN); SI = Standard International (KG, CM)
                 if ("KG" == cmbShipmentWeightUOM.SelectedValue.ToString())
                 {
-                    req.PickUpRequest.PickUpShipment.ShipmentInfo.UnitOfMeasurement = Enums.UnitOfMeasurement.SI;
+                    req.PickUpRequest.PickUpShipment.ShipmentDetails.ShipmentDetail.UnitOfMeasurement = Enums.UnitOfMeasurement.SI;
                 }
                 else
                 {
-                    req.PickUpRequest.PickUpShipment.ShipmentInfo.UnitOfMeasurement = Enums.UnitOfMeasurement.SU;
+                    req.PickUpRequest.PickUpShipment.ShipmentDetails.ShipmentDetail.UnitOfMeasurement = Enums.UnitOfMeasurement.SU;
                 }
 
                 // If the billing element is defined (it should be used anyway) then there is no need for the
                 // generic shipmentInfo.Account element to be populated.
                 //shipmentInfo.Account = txtShipperAccountNumber.Text;
-                req.PickUpRequest.PickUpShipment.ShipmentInfo.Billing = new Billing(txtShipperAccountNumber.Text
-                                                                                    , Enums.PaymentTypes.Shipper);
+                req.PickUpRequest.PickUpShipment.Billing = new Billing(txtShipperAccountNumber.Text
+                                                                       , Enums.PaymentTypes.Shipper);
                 DateTime timestamp;
 
                 if (DateTime.Now.TimeOfDay > new TimeSpan(18, 00, 00))
@@ -230,16 +297,9 @@ namespace MyDHLAPI_Test_App.REST
                 req.PickUpRequest.PickUpShipment.PickupTimestamp = timestamp;
                 req.PickUpRequest.PickUpShipment.PickupLocationCloseTime = timestamp.AddHours(4).TimeOfDay;
 
-
-                req.PickUpRequest.PickUpShipment.InternationalDetail = new InternationalDetail
-                {
-                    Commodities = new Commodities()
-                    {
-                        ShipmentContentsDescription = txtShipmentContents.Text
-                    }
-                };
-
                 req.PickUpRequest.PickUpShipment.Addresses = new AddressInformation();
+
+                req.PickUpRequest.PickUpShipment.Remarks = txtRemarks.Text;
 
                 /*** SHIPPER ***/
                 AddressData shipper = new AddressData();
@@ -318,11 +378,11 @@ namespace MyDHLAPI_Test_App.REST
                     singlePackage.Dimensions = new Dimensions(height, width, depth);
                 }
 
-                req.PickUpRequest.PickUpShipment.Packages = new Packages();
-                req.PickUpRequest.PickUpShipment.Packages.PackageList = new List<Package>();
-                req.PickUpRequest.PickUpShipment.Packages.PackageList.Add(singlePackage);
+                req.PickUpRequest.PickUpShipment.ShipmentDetails.ShipmentDetail.Packages = new Packages();
+                req.PickUpRequest.PickUpShipment.ShipmentDetails.ShipmentDetail.Packages.PackageList = new List<Package>();
+                req.PickUpRequest.PickUpShipment.ShipmentDetails.ShipmentDetail.Packages.PackageList.Add(singlePackage);
 
-                /*** GENERATE SHIPMENT ***/
+                /*** GENERATE PICKUP ***/
                 CreatePickupResponse resp;
 
                 SetStatusText("Sending shipment request...", true, true, 40);
@@ -361,7 +421,7 @@ namespace MyDHLAPI_Test_App.REST
                 if (null == resp || !Notification.HasSuccessCode(resp.Notifications))
                 {
                     MessageBox.Show("There was an error in requesting the pickup.");
-                    SetStatusText($"Pickup generation failed! Took {(DateTime.Now - processStart):HH:mm:ss}", false);
+                    SetStatusText($"Pickup generation failed! Took {(DateTime.Now - processStart):c}", false);
                     return;
                 }
 
@@ -614,6 +674,27 @@ namespace MyDHLAPI_Test_App.REST
         {
             JSONViewer frm = new JSONViewer(MyDHLAPI_Response);
             frm.ShowDialog();
+        }
+
+        private void BtnCopyFrom_Click(object sender, EventArgs e)
+        {
+            Button btn = (Button)sender;
+
+            string[] toFrom = ((string)btn.Tag).Split('|');
+
+            string to = toFrom[0];
+            string from = toFrom[1];
+
+            foreach(KeyValuePair<string, TextBox> tbx in _addressInputs[from])
+            {
+                CopyTexboxValue(tbx.Value, _addressInputs[to][tbx.Key]);
+            }
+
+        }
+
+        private void CopyTexboxValue(TextBox from, TextBox to)
+        {
+            to.Text = from.Text;
         }
     }
 }

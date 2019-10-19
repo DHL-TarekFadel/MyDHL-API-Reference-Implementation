@@ -107,8 +107,8 @@ namespace MyDHLAPI_REST_Library
 
             try
             {
-                System.Diagnostics.HttpRawTraceListener.Initialize();
-                System.Diagnostics.HttpRawTraceListener.FinishedCommunication += HttpRawTraceListener_FinishedCommunication;
+                //System.Diagnostics.HttpRawTraceListener.Initialize();
+                //System.Diagnostics.HttpRawTraceListener.FinishedCommunication += HttpRawTraceListener_FinishedCommunication;
                 WebResponse resp = request.GetResponse();
                 StreamReader respReader = new StreamReader(resp.GetResponseStream());
                 respString = respReader.ReadToEnd();

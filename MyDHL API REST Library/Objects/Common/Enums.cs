@@ -1140,6 +1140,19 @@ namespace MyDHLAPI_REST_Library.Objects.Common
 
         // ReSharper disable CommentTypo
         // ReSharper disable StringLiteralTypo
+        public enum PickupLocationType
+        {
+            [EnumMember(Value = "COMMERCIAL")]
+            Commercial,
+            [EnumMember(Value = "RESIDENTIAL")]
+            Residential
+        }
+        // ReSharper restore StringLiteralTypo
+        // ReSharper restore CommentTypo
+
+
+        // ReSharper disable CommentTypo
+        // ReSharper disable StringLiteralTypo
         public enum DeletePickupRequestReason
         {
             [EnumMember(Value = "001")]

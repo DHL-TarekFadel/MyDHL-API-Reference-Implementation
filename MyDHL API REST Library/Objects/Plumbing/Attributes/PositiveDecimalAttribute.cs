@@ -21,8 +21,13 @@ namespace MyDHLAPI_REST_Library.Objects.Plumbing.Attributes
         protected override ValidationResult IsValid(object value, ValidationContext validationContext)
         {
             ErrorMessage = ErrorMessageString;
-            var currentValue = (decimal) value;
 
+            if (null == value)
+            { // This is a nullable decimal, so a null value is a success
+                return ValidationResult.Success;
+            }
+
+            var currentValue = (decimal) value;
             if (currentValue > _minimumValue)
             {
                 return ValidationResult.Success;

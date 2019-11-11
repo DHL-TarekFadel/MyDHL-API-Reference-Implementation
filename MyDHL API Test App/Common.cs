@@ -22,7 +22,13 @@ namespace MyDHLAPI_Test_App
 
         public static MyDHLAPIEnvironment CurrentEnvironment = MyDHLAPIEnvironment.Sandpit;
         public static Dictionary<MyDHLAPIEnvironment, Dictionary<string, string>> Credentials = new Dictionary<MyDHLAPIEnvironment, Dictionary<string, string>>();
+        /// <summary>
+        /// Base URL for RESTful requests (no trailing "/")
+        /// </summary>
         public static string CurrentRestBaseUrl = restSandpitBaseUrl;
+        /// <summary>
+        /// Base URL for SOAP requests (no trailing "/")
+        /// </summary>
         public static string CurrentSoapBaseUrl = soapSandpitBaseUrl;
 
         public static Dictionary<string, string> CurrentCredentials = new Dictionary<string, string>();

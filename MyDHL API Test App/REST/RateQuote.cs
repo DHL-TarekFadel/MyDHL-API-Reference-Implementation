@@ -245,25 +245,55 @@ namespace MyDHLAPI_Test_App.REST {
                 }
                 else
                 {
+                    TreeNode servicesOkToShow = new TreeNode("Show on website");
+                    TreeNode servicesNeedingAgreement = new TreeNode("Pre-agreement required");
                     foreach (Service service in result.Services)
                     {
                         TreeNode tn = new TreeNode($"{service.ProductCode}: {service.TotalNet.Currency} {service.TotalNet.Amount:#,##0.00}");
+                        tn.Nodes.Add($"Transit time: {service.TotalTransitDays} day(s)");
                         if (null != service.Charges)
                         {
                             foreach (Charge charge in service.Charges.Charge)
                             {
-                                TreeNode ctn =
-                                    new TreeNode($"({charge.ChargeCode}) {charge.ChargeType}");
-                                TreeNode cctn =
-                                    new TreeNode($"{service.Charges.Currency} {charge.ChargeAmount:#,##0.00}");
-                                ctn.Nodes.Add(cctn);
+                                TreeNode ctn = null;
+                                if (string.IsNullOrEmpty(charge.ChargeCode))
+                                {
+                                    ctn = new TreeNode($"{charge.ChargeType}");
+                                }
+                                else
+                                {
+                                    ctn = new TreeNode($"({charge.ChargeCode}) {charge.ChargeType}");
+                                }
+
+                                if (! string.IsNullOrEmpty(service.Charges.Currency)
+                                    && null != charge.ChargeAmount)
+                                {
+                                    TreeNode cctn =
+                                        new TreeNode($"{service.Charges.Currency} {charge.ChargeAmount:#,##0.00}");
+                                    ctn.Nodes.Add(cctn);
+                                }
                                 tn.Nodes.Add(ctn);
                             }
                         }
 
                         tn.ExpandAll();
-                        tvResult.Nodes.Add(tn);
+
+                        if (service.CustomerAgreementInd == Enums.YesNo.No)
+                        {
+                            servicesOkToShow.Nodes.Add(tn);
+                        }
+                        else
+                        {
+                            servicesNeedingAgreement.Nodes.Add(tn);
+                        }
+
                     }
+
+                    servicesOkToShow.ExpandAll();
+                    servicesNeedingAgreement.ExpandAll();
+
+                    tvResult.Nodes.Add(servicesOkToShow);
+                    tvResult.Nodes.Add(servicesNeedingAgreement);
                 }
 
                 tvResult.Nodes[0].EnsureVisible();

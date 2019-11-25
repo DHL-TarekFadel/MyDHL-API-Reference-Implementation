@@ -795,7 +795,7 @@
             this.tvResult.Location = new System.Drawing.Point(375, 70);
             this.tvResult.Margin = new System.Windows.Forms.Padding(2);
             this.tvResult.Name = "tvResult";
-            this.tvResult.Size = new System.Drawing.Size(186, 198);
+            this.tvResult.Size = new System.Drawing.Size(377, 198);
             this.tvResult.TabIndex = 4;
             this.tvResult.TabStop = false;
             // 
@@ -818,7 +818,7 @@
             this.btnViewRequest.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnViewRequest.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnViewRequest.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(204)))), ((int)(((byte)(0)))));
-            this.btnViewRequest.Location = new System.Drawing.Point(510, 14);
+            this.btnViewRequest.Location = new System.Drawing.Point(701, 14);
             this.btnViewRequest.Margin = new System.Windows.Forms.Padding(2);
             this.btnViewRequest.Name = "btnViewRequest";
             this.btnViewRequest.Size = new System.Drawing.Size(50, 25);
@@ -836,7 +836,7 @@
             this.btnViewResponse.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnViewResponse.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnViewResponse.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(204)))), ((int)(((byte)(0)))));
-            this.btnViewResponse.Location = new System.Drawing.Point(510, 39);
+            this.btnViewResponse.Location = new System.Drawing.Point(701, 39);
             this.btnViewResponse.Margin = new System.Windows.Forms.Padding(2);
             this.btnViewResponse.Name = "btnViewResponse";
             this.btnViewResponse.Size = new System.Drawing.Size(50, 25);
@@ -848,22 +848,25 @@
             // 
             // txtFindInList
             // 
+            this.txtFindInList.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.txtFindInList.Location = new System.Drawing.Point(375, 277);
             this.txtFindInList.Margin = new System.Windows.Forms.Padding(2);
             this.txtFindInList.MaxLength = 255;
             this.txtFindInList.Name = "txtFindInList";
-            this.txtFindInList.Size = new System.Drawing.Size(155, 20);
+            this.txtFindInList.Size = new System.Drawing.Size(346, 20);
             this.txtFindInList.TabIndex = 9;
             this.txtFindInList.Visible = false;
             // 
             // btnFind
             // 
+            this.btnFind.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.btnFind.AutoSize = true;
             this.btnFind.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(5)))), ((int)(((byte)(17)))));
             this.btnFind.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnFind.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnFind.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(204)))), ((int)(((byte)(0)))));
-            this.btnFind.Location = new System.Drawing.Point(534, 274);
+            this.btnFind.Location = new System.Drawing.Point(725, 274);
             this.btnFind.Margin = new System.Windows.Forms.Padding(2);
             this.btnFind.Name = "btnFind";
             this.btnFind.Size = new System.Drawing.Size(26, 25);
@@ -878,7 +881,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(204)))), ((int)(((byte)(0)))));
-            this.ClientSize = new System.Drawing.Size(568, 305);
+            this.ClientSize = new System.Drawing.Size(759, 305);
             this.Controls.Add(this.btnFind);
             this.Controls.Add(this.txtFindInList);
             this.Controls.Add(this.tvResult);

@@ -1,4 +1,5 @@
 ﻿using MyDHLAPI_REST_Library.Objects.Common;
+using MyDHLAPI_REST_Library.Objects.Plumbing.JSON_Converters;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
 
@@ -16,7 +17,7 @@ namespace MyDHLAPI_REST_Library.Objects.RateQuery.Response {
 
         public string ChargeCurrencyCode { get; set; }
 
-        [JsonConverter(typeof(StringEnumConverter))]
+        [JsonConverter(typeof(StringEnumWithDefaultConverter), Enums.ChargeTypeCode.Unknown)]
         public Enums.ChargeTypeCode? ChargeCodeTypeCode { get; set; }
 
         /// <summary>

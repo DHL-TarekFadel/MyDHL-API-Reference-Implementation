@@ -696,8 +696,11 @@ namespace MyDHLAPI_REST_Library.Objects.Common
             Surcharge,
             [EnumMember(Value = "NRI")]
             NonRevenueItem,
-            [EnumMember(Value = "TEC")]
-            TEC
+            /// <summary>
+            /// Used when the ChargeTypeCode is not accounted for (handles new types of charge codes)
+            /// </summary>
+            [EnumMember(Value = "Unknown")]
+            Unknown
         }
         // ReSharper restore StringLiteralTypo
         // ReSharper restore CommentTypo

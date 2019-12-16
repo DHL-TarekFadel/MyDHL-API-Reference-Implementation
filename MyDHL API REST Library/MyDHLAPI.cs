@@ -107,8 +107,6 @@ namespace MyDHLAPI_REST_Library
 
             try
             {
-                //System.Diagnostics.HttpRawTraceListener.Initialize();
-                //System.Diagnostics.HttpRawTraceListener.FinishedCommunication += HttpRawTraceListener_FinishedCommunication;
                 WebResponse resp = request.GetResponse();
                 StreamReader respReader = new StreamReader(resp.GetResponseStream());
                 respString = respReader.ReadToEnd();
@@ -119,12 +117,6 @@ namespace MyDHLAPI_REST_Library
             }
 
             return respString;
-        }
-
-        private void HttpRawTraceListener_FinishedCommunication(object sender, CommunicationEventArgs e)
-        {
-            LastHTTPRequest = $"{e.Communication.HTTPRequestHeaders}{Environment.NewLine}{e.Communication.HTTPRequestBodyString}";
-            LastHTTPResponse = $"{e.Communication.HTTPResponseHeaders}{Environment.NewLine}{e.Communication.HTTPResponseBodyString}";
         }
 
         public Task<KnownTrackingResponse> KnownAWBTrackingAsync(List<string> AWBs

@@ -17,6 +17,7 @@
     <ApplicationIcon />
     <OutputType>Library</OutputType>
     <StartupObject />
+    <PackageTags>shipping, DHL</PackageTags>
   </PropertyGroup>
 
   <ItemGroup>

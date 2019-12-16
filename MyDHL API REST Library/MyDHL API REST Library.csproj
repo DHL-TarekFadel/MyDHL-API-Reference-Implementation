@@ -7,7 +7,7 @@
     <Authors>Tarek Fadel</Authors>
     <Company>DHL Express</Company>
     <Description>This .NET library allows customers leverage the DHL Express MyDHL API in their own applications.</Description>
-    <Copyright>2018 DHL Express</Copyright>
+    <Copyright>2018-2020 DHL Express</Copyright>
     <SignAssembly>true</SignAssembly>
     <AssemblyOriginatorKeyFile>DHL AE Code Signing Key.pfx</AssemblyOriginatorKeyFile>
     <DelaySign>false</DelaySign>

@@ -6,13 +6,13 @@
     <AssemblyName>MyDHL API REST Library</AssemblyName>
     <Authors>Tarek Fadel</Authors>
     <Company>DHL Express</Company>
-    <Description>This .NET standard library allows customers leverage the DHL Express Global WebServices API in their own applications.</Description>
+    <Description>This .NET library allows customers leverage the DHL Express MyDHL API in their own applications.</Description>
     <Copyright>2018 DHL Express</Copyright>
     <SignAssembly>true</SignAssembly>
     <AssemblyOriginatorKeyFile>DHL AE Code Signing Key.pfx</AssemblyOriginatorKeyFile>
     <DelaySign>false</DelaySign>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <PackageId>DHL.GloWS.RESTLibrary</PackageId>
+    <PackageId>DHL.MyDHL_API.RESTLibrary</PackageId>
     <FileVersion>1.2.19127.3</FileVersion>
     <ApplicationIcon />
     <OutputType>Library</OutputType>

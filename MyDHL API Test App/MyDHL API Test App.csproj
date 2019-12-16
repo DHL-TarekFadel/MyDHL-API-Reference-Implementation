@@ -105,6 +105,12 @@
     <Compile Include="REST\DeletePickup.Designer.cs">
       <DependentUpon>DeletePickup.cs</DependentUpon>
     </Compile>
+    <Compile Include="REST\MultiTrack.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="REST\MultiTrack.Designer.cs">
+      <DependentUpon>MultiTrack.cs</DependentUpon>
+    </Compile>
     <Compile Include="SOAP\ePOD.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -182,6 +188,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="REST\DeletePickup.resx">
       <DependentUpon>DeletePickup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="REST\MultiTrack.resx">
+      <DependentUpon>MultiTrack.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SOAP\ePOD.resx">
       <DependentUpon>ePOD.cs</DependentUpon>

@@ -9,11 +9,13 @@ namespace MyDHLAPI_REST_Library.Objects.Tracking
 
         public string LicensePlate { get; set; }
 
-        public decimal ActualDepth { get; set; }
+        public decimal? ActualDepth { get; set; }
 
-        public decimal ActualWidth { get; set; }
+        public decimal? ActualWidth { get; set; }
 
-        public decimal ActualHeight { get; set; }
+        public decimal? ActualHeight { get; set; }
+
+        public decimal? ActualWeight { get; set; }
 
         public decimal Depth { get; set; }
 
@@ -27,7 +29,7 @@ namespace MyDHLAPI_REST_Library.Objects.Tracking
 
         public decimal DimWeight { get; set; }
 
-        public decimal CalculatedActualDimWeight => (ActualDepth * ActualHeight * ActualWidth) / 5000;
+        public decimal CalculatedActualDimWeight => ((ActualDepth * ActualHeight * ActualWidth) ?? 0) / 5000;
 
         public decimal CaluclatedDimWeight => (Depth * Height * Width) / 5000;
 

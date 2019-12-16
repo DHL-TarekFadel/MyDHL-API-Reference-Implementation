@@ -146,6 +146,10 @@
             this.tsslShipTime = new System.Windows.Forms.ToolStripStatusLabel();
             this.tsslTotalTimeLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.tsslTotalTime = new System.Windows.Forms.ToolStripStatusLabel();
+            this.groupBox8 = new System.Windows.Forms.GroupBox();
+            this.cbxDGShipment = new System.Windows.Forms.CheckBox();
+            this.cmbDGSpecialServiceCode = new System.Windows.Forms.ComboBox();
+            this.txtDGClassification = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -154,6 +158,7 @@
             this.groupBox7.SuspendLayout();
             this.groupBox6.SuspendLayout();
             this.ssStatusBar.SuspendLayout();
+            this.groupBox8.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -1314,7 +1319,7 @@
             this.groupBox6.Font = new System.Drawing.Font("Delivery Cd Light", 9F);
             this.groupBox6.Location = new System.Drawing.Point(244, 350);
             this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(226, 82);
+            this.groupBox6.Size = new System.Drawing.Size(126, 82);
             this.groupBox6.TabIndex = 7;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "ADDITIONAL TESTS";
@@ -1376,7 +1381,7 @@
             // ttsslSpring
             // 
             this.ttsslSpring.Name = "ttsslSpring";
-            this.ttsslSpring.Size = new System.Drawing.Size(352, 17);
+            this.ttsslSpring.Size = new System.Drawing.Size(860, 17);
             this.ttsslSpring.Spring = true;
             // 
             // tsslRateQueryTimeLabel
@@ -1427,12 +1432,69 @@
             this.tsslTotalTime.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.tsslTotalTime.Visible = false;
             // 
+            // groupBox8
+            // 
+            this.groupBox8.Controls.Add(this.txtDGClassification);
+            this.groupBox8.Controls.Add(this.cmbDGSpecialServiceCode);
+            this.groupBox8.Controls.Add(this.cbxDGShipment);
+            this.groupBox8.Font = new System.Drawing.Font("Delivery Cd Light", 9F);
+            this.groupBox8.Location = new System.Drawing.Point(376, 350);
+            this.groupBox8.Name = "groupBox8";
+            this.groupBox8.Size = new System.Drawing.Size(94, 82);
+            this.groupBox8.TabIndex = 38;
+            this.groupBox8.TabStop = false;
+            this.groupBox8.Text = "DG";
+            // 
+            // cbxDGShipment
+            // 
+            this.cbxDGShipment.AutoSize = true;
+            this.cbxDGShipment.Location = new System.Drawing.Point(6, 12);
+            this.cbxDGShipment.Name = "cbxDGShipment";
+            this.cbxDGShipment.Size = new System.Drawing.Size(73, 19);
+            this.cbxDGShipment.TabIndex = 0;
+            this.cbxDGShipment.Text = "Enable DG";
+            this.cbxDGShipment.UseVisualStyleBackColor = true;
+            this.cbxDGShipment.CheckedChanged += new System.EventHandler(this.CbxDGShipment_CheckedChanged);
+            // 
+            // cmbDGSpecialServiceCode
+            // 
+            this.cmbDGSpecialServiceCode.Enabled = false;
+            this.cmbDGSpecialServiceCode.FormattingEnabled = true;
+            this.cmbDGSpecialServiceCode.Items.AddRange(new object[] {
+            "HB",
+            "HC",
+            "HD",
+            "HE",
+            "HG",
+            "HH",
+            "HI",
+            "HK",
+            "HL",
+            "HM",
+            "HN",
+            "HV",
+            "HW",
+            "HY"});
+            this.cmbDGSpecialServiceCode.Location = new System.Drawing.Point(6, 30);
+            this.cmbDGSpecialServiceCode.Name = "cmbDGSpecialServiceCode";
+            this.cmbDGSpecialServiceCode.Size = new System.Drawing.Size(82, 23);
+            this.cmbDGSpecialServiceCode.TabIndex = 1;
+            // 
+            // txtDGClassification
+            // 
+            this.txtDGClassification.Enabled = false;
+            this.txtDGClassification.Location = new System.Drawing.Point(6, 54);
+            this.txtDGClassification.Name = "txtDGClassification";
+            this.txtDGClassification.Size = new System.Drawing.Size(82, 22);
+            this.txtDGClassification.TabIndex = 2;
+            // 
             // Ship
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(204)))), ((int)(((byte)(0)))));
             this.ClientSize = new System.Drawing.Size(918, 459);
+            this.Controls.Add(this.groupBox8);
             this.Controls.Add(this.ssStatusBar);
             this.Controls.Add(this.groupBox6);
             this.Controls.Add(this.groupBox7);
@@ -1465,6 +1527,8 @@
             this.groupBox6.PerformLayout();
             this.ssStatusBar.ResumeLayout(false);
             this.ssStatusBar.PerformLayout();
+            this.groupBox8.ResumeLayout(false);
+            this.groupBox8.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1589,5 +1653,9 @@
         private System.Windows.Forms.ToolStripStatusLabel tsslShipTime;
         private System.Windows.Forms.ToolStripStatusLabel tsslTotalTimeLabel;
         private System.Windows.Forms.ToolStripStatusLabel tsslTotalTime;
+        private System.Windows.Forms.GroupBox groupBox8;
+        private System.Windows.Forms.TextBox txtDGClassification;
+        private System.Windows.Forms.ComboBox cmbDGSpecialServiceCode;
+        private System.Windows.Forms.CheckBox cbxDGShipment;
     }
 }

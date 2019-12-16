@@ -661,6 +661,24 @@ namespace MyDHLAPI_Test_App.REST
                     }
                 }
 
+                // DG Shipment
+                if (cbxDGShipment.Checked)
+                {
+                    req.Data.ShipmentInfo.SpecialServices.Service.Add(
+                        new SpecialService(cmbDGSpecialServiceCode.SelectedItem.ToString())
+                    );
+                    req.Data.DG = new DangerousGoods
+                    {
+                        DangerousGood = new List<DangerousGood>
+                        {
+                            new DangerousGood()
+                            {
+                                ContentId = txtDGClassification.Text
+                            }
+                        }
+                    };
+                }
+
                 if (!req.Data.ShipmentInfo.SpecialServices.Service.Any())
                 {
                     req.Data.ShipmentInfo.SpecialServices = null;
@@ -1150,6 +1168,14 @@ namespace MyDHLAPI_Test_App.REST
             CheckBox cbx = (CheckBox)sender;
             btnUploadInvoice.Enabled = !cbx.Checked;
             lblInvoiceUploaded.Enabled = !cbx.Checked;
+        }
+
+        private void CbxDGShipment_CheckedChanged(object sender, EventArgs e)
+        {
+            CheckBox cbx = (CheckBox)sender;
+
+            cmbDGSpecialServiceCode.Enabled = cbx.Checked;
+            txtDGClassification.Enabled = cbx.Checked;
         }
     }
 }

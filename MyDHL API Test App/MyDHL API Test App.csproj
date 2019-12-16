@@ -32,7 +32,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>MyDHLAPI 64 &amp; 32.ico</ApplicationIcon>
+    <ApplicationIcon>MyDHL API.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
@@ -172,6 +172,7 @@
     <Compile Include="SOAP\XMLViewer.Designer.cs">
       <DependentUpon>XMLViewer.cs</DependentUpon>
     </Compile>
+    <Content Include="MyDHL API.ico" />
     <Content Include="MyDHLAPI 64 &amp; 32.ico" />
     <EmbeddedResource Include="AdHoc.resx">
       <DependentUpon>AdHoc.cs</DependentUpon>

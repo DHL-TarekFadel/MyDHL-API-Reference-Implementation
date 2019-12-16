@@ -20,13 +20,5 @@ namespace MyDHLAPI_REST_Library.Objects.Ship
         [ValidateObject]
         [JsonProperty("ExportDeclaration", NullValueHandling = NullValueHandling.Ignore)]
         public ExportDeclaration ExportDeclaration { get; set; }
-
-        ///// <summary>
-        ///// Export Reference field, appears on label
-        ///// </summary>
-        //[StringLength(40)]
-        //[JsonProperty("ExportReference", NullValueHandling = NullValueHandling.Ignore)]
-        //public string ExportReference { get; set; }
-
     }
 }

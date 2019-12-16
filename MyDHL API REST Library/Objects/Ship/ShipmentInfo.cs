@@ -7,9 +7,6 @@ namespace MyDHLAPI_REST_Library.Objects.Ship
 {
     public class ShipmentInfo
     {
-        //[JsonProperty("@provider")]
-        //public string Provider => "DHL";
-
         /// <summary>
         /// Possible values:
         /// - REGULAR_PICKUP
@@ -129,7 +126,6 @@ namespace MyDHLAPI_REST_Library.Objects.Ship
 
         /// <summary>
         /// Additional information will be returned
-        // @TODO figure out what that is.
         /// </summary>
         [JsonProperty("RequestAdditionalInformation", NullValueHandling = NullValueHandling.Ignore)]
         [JsonConverter(typeof(StringEnumConverter))]
@@ -163,10 +159,6 @@ namespace MyDHLAPI_REST_Library.Objects.Ship
         [ValidateObject]
         [JsonProperty("SpecialServices", NullValueHandling = NullValueHandling.Ignore)]
         public SpecialServices SpecialServices { get; set; }
-
-        //[JsonProperty("SendPackage", NullValueHandling = NullValueHandling.Ignore)]
-        //[JsonConverter(typeof(StringEnumConverter))]
-        //public Enums.YesNo? SendPackage { get; set; }
 
         public ShipmentInfo() { }
 

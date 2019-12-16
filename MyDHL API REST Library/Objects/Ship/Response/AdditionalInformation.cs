@@ -2,7 +2,6 @@
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace MyDHLAPI_REST_Library.Objects.Ship.Response
 {

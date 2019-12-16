@@ -1,8 +1,6 @@
 ﻿using MyDHLAPI_REST_Library.Objects.Pickup;
 using MyDHLAPI_REST_Library.Objects.Plumbing.Attributes;
 using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace MyDHLAPI_REST_Library.Objects
 {

@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace MyDHLAPI_REST_Library.Objects.RateQuery.Response
+﻿namespace MyDHLAPI_REST_Library.Objects.RateQuery.Response
 {
     public class ServiceArea
     {

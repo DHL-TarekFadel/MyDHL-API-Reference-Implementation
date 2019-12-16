@@ -1,7 +1,5 @@
 ﻿using MyDHLAPI_REST_Library.Objects.Common;
 using MyDHLAPI_REST_Library.Objects.Plumbing.Interfaces;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
 
 namespace MyDHLAPI_REST_Library.Objects.ePOD
 {

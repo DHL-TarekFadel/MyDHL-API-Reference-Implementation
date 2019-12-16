@@ -2,7 +2,6 @@
 using MyDHLAPI_REST_Library.Objects.Plumbing.Attributes;
 using MyDHLAPI_REST_Library.Objects.Ship;
 using Newtonsoft.Json;
-using System.ComponentModel.DataAnnotations;
 
 namespace MyDHLAPI_REST_Library.Objects
 {

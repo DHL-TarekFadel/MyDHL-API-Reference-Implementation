@@ -1,6 +1,4 @@
-﻿using MyDHLAPI_REST_Library.Objects.Common;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Converters;
+﻿using Newtonsoft.Json;
 using System.ComponentModel.DataAnnotations;
 
 namespace MyDHLAPI_REST_Library.Objects.Ship

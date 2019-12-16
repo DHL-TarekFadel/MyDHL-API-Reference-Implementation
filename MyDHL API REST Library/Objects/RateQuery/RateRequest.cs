@@ -1,6 +1,5 @@
 ﻿using MyDHLAPI_REST_Library.Objects.Common;
 using MyDHLAPI_REST_Library.Objects.Plumbing.Attributes;
-using Newtonsoft.Json;
 
 namespace MyDHLAPI_REST_Library.Objects.RateQuery
 {

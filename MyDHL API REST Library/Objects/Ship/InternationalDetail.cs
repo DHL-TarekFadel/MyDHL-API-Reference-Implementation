@@ -2,14 +2,12 @@
 using MyDHLAPI_REST_Library.Objects.Plumbing.Attributes;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Converters;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace MyDHLAPI_REST_Library.Objects.Ship
 {
     public class InternationalDetail
     {
-
         [Required]
         [JsonProperty("Content")]
         [JsonConverter(typeof(StringEnumConverter))]

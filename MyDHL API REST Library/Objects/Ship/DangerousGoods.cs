@@ -28,10 +28,10 @@ namespace MyDHLAPI_REST_Library.Objects.Ship
         /// This is a numeric string with up to 7 char (i.e. 1000,00 or 1000.00)
         /// </summary>
         [StringLength(7, MinimumLength = 1)]
-        [JsonProperty("DryIceTotalNetWeight")]
+        [JsonProperty("DryIceTotalNetWeight", NullValueHandling = NullValueHandling.Ignore)]
         public string DryIceTotalNetWeightString
         {
-            get { return $"{this.DryIceTotalNetWeight:###0.00}"; }
+            get { return (this.DryIceTotalNetWeight == null ? null : $"{this.DryIceTotalNetWeight:###0.00}"); }
             set { this.DryIceTotalNetWeight = decimal.Parse(value); }
         }
 
@@ -40,12 +40,12 @@ namespace MyDHLAPI_REST_Library.Objects.Ship
         /// </summary>
         [Range(0.1d, 1000d)]
         [JsonIgnore]
-        public decimal DryIceTotalNetWeight { get; set; }
+        public decimal? DryIceTotalNetWeight { get; set; }
 
         /// <summary>
         /// Comma separated UN codes – eg. “UN-7843268473”, “7843268473,123”
         /// </summary>
-        [JsonProperty("UNCode")]
+        [JsonProperty("UNCode", NullValueHandling = NullValueHandling.Ignore)]
         public string UNCode { get; set; }
     }
 }

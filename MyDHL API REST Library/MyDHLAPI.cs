@@ -144,10 +144,6 @@ namespace MyDHLAPI_REST_Library
                 LevelOfDetails = levelOfDetails,
                 EstimatedDeliveryDateEnabled = eddEnabled                
             };
-            //foreach (string awb in AWBs)
-            //{
-            //    ktr.AWBNumber.ArrayOfAWBNumberItem.Add(new AWBNumber(awb));
-            //}
 
             // Validate the request
 

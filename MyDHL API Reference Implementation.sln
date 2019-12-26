@@ -10,10 +10,11 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{0D7E5EE1-A9D2-4455-B7AE-A59DAA1491A2}"
 	ProjectSection(SolutionItems) = preProject
 		LICENSE.txt = LICENSE.txt
+		MyDHL API Logo.png = MyDHL API Logo.png
 		Readme.md = Readme.md
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MYDHL API Native REST", "MYDHL API Native REST\MYDHL API Native REST.csproj", "{2C77D4FF-0C56-4F76-9F24-02BBB5199395}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MYDHL API Native REST", "MYDHL API Native REST\MYDHL API Native REST.csproj", "{2C77D4FF-0C56-4F76-9F24-02BBB5199395}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

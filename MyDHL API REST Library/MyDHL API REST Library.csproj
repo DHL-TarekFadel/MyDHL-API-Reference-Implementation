@@ -19,6 +19,13 @@
     <StartupObject />
     <PackageTags>shipping, DHL</PackageTags>
     <Version>1.5.0</Version>
+    <PackageLicenseUrl>https://github.com/DHL-TarekFadel/MyDHL-API-Reference-Implementation/blob/master/LICENSE.txt</PackageLicenseUrl>
+    <PackageProjectUrl>https://github.com/DHL-TarekFadel/MyDHL-API-Reference-Implementation</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/DHL-TarekFadel/MyDHL-API-Reference-Implementation</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageIconUrl>https://github.com/DHL-TarekFadel/MyDHL-API-Reference-Implementation/blob/master/MyDHL API Logo.png</PackageIconUrl>
+    <PackageReleaseNotes>Initial public release.</PackageReleaseNotes>
+    <NeutralLanguage>en-US</NeutralLanguage>
   </PropertyGroup>
 
   <ItemGroup>

@@ -162,7 +162,17 @@ namespace MyDHLAPI_Test_App
                 this.Cursor = Cursors.WaitCursor;
                 this.Enabled = false;
 
-                JToken jsonObject = GetJTokenFromString(jsonTextbox.Text);
+                JToken jsonObject;
+                try
+                {
+
+                    jsonObject = GetJTokenFromString(jsonTextbox.Text);
+                }
+                catch (Exception ex)
+                {
+                    SetResultText(ex.Message, Lexer.Null, false);
+                    return;
+                }
 
                 var methodProperty = ((JObject)jsonObject).Properties().First().Name;
 
@@ -195,11 +205,7 @@ namespace MyDHLAPI_Test_App
                     {
                         JToken respJson = GetJTokenFromString(resp.Content.ReadAsStringAsync().Result);
 
-                        InitCodeEditor(ref resultTextbox, Lexer.Json);
-                        InitSyntaxHighlighting(ref resultTextbox);
-                        resultTextbox.ReadOnly = false;
-                        resultTextbox.Text = respJson.ToString();
-                        resultTextbox.ReadOnly = true;
+                        SetResultText(respJson.ToString());
                     }
                 }
                 catch (WebException wex)
@@ -216,6 +222,20 @@ namespace MyDHLAPI_Test_App
                 this.Cursor = Cursors.Default;
             }
             return;
+        }
+
+        private void SetResultText(string result, Lexer lexer = Lexer.Json, bool setSyntaxHighlighting = true)
+        {
+            InitCodeEditor(ref resultTextbox, lexer);
+
+            if (setSyntaxHighlighting)
+            {
+                InitSyntaxHighlighting(ref resultTextbox);
+            }
+
+            resultTextbox.ReadOnly = false;
+            resultTextbox.Text = result;
+            resultTextbox.ReadOnly = true;
         }
 
         private JToken GetJTokenFromString(string json)

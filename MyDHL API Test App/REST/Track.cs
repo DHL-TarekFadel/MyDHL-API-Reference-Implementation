@@ -17,6 +17,9 @@ namespace MyDHLAPI_Test_App.REST
         private string _myDHLAPIRequest;
         private string _myDHLAPIResponse;
 
+        private AWBInfoItem[] _shipments;
+        private int _currentShipmentIndex;
+
         public Track()
         {
             InitializeComponent();
@@ -46,6 +49,8 @@ namespace MyDHLAPI_Test_App.REST
             // We rely on AWB numbers being exactly 10 digits, trim the field.
             txtTrackingNumber.Text = txtTrackingNumber.Text.Trim();
 
+            // Disable the next button
+            BtnNextShipment.Enabled = false;
 #pragma warning disable IDE0017 // Simplify object initialization
             try
             {
@@ -95,119 +100,140 @@ namespace MyDHLAPI_Test_App.REST
 
                 if (resp.ActualResponse.AWBInfo.ArrayOfAWBInfoItem.Any(a => null != a.ShipmentInfo))
                 {
-                    // Get the most recent AWB Info (this is a common issue due to AWB reuse)
-                    shipment = resp.ActualResponse.AWBInfo.ArrayOfAWBInfoItem.Where(a => null != a.ShipmentInfo)
-                                                                             .Aggregate((a1, a2) => a1.ShipmentInfo.ShipmentDate > a2.ShipmentInfo.ShipmentDate ? a1 : a2);
+                    _shipments = resp.ActualResponse.AWBInfo.ArrayOfAWBInfoItem.ToArray();
+                    _currentShipmentIndex = 0;
+                    shipment = _shipments[_currentShipmentIndex];
+                    BtnNextShipment.Enabled = true;
                 }
 
                 if (null == shipment
-                    || shipment.Status.ActionStatus.ToLower() != "success")
+                    || !_shipments.Any(s => s.Status.ActionStatus.ToLower().Equals("success")))
                 {
                     MessageBox.Show("There was an error in tracking.");
                     return;
                 }
 
-                //if (string.IsNullOrWhiteSpace(shipment.AWBNumber)
-                //    || "No Shipments Found" == shipment.Status.ActionStatus)
-                //{
-                //    MessageBox.Show("No shipment found with that AWB number");
-                //    return;
-                //}
-
-                SetTextboxText(ref txtShipper, shipment.ShipmentInfo.ShipperName);
-                SetTextboxText(ref txtConsignee, shipment.ShipmentInfo.ConsigneeName);
-                SetTextboxText(ref txtShipmentDate, shipment.ShipmentInfo.ShipmentDate);
-                SetTextboxText(ref txtNumberOfPieces, shipment.ShipmentInfo.Pieces);
-                SetTextboxText(ref txtShipmentWeight, shipment.ShipmentInfo.Weight, true);
-                if (null != shipment.ShipmentInfo.ShipperReference)
-                {
-                    SetTextboxText(ref txtShipmentReference, shipment.ShipmentInfo.ShipperReference.ReferenceID);
-                }
-
-                List<string> lastCheckpoints = new List<string>();
-                foreach (PieceInfoItem piece in shipment.PieceInfo)
-                {
-                    if (null == piece.PieceEvents)
-                    {
-                        continue;
-                    }
-                    if (piece.PieceEvents.Any())
-                    {
-                        var lastCheckpoint = piece.PieceEvents.Aggregate((p1, p2) => p1.Date > p2.Date ? p1 : p2).ServiceEvent.EventCode;
-                        lastCheckpoints.Add(lastCheckpoint);
-                    }
-                    else
-                    {
-                        lastCheckpoints.Add("NONE");
-                    }
-                }
-
-                SetTextboxText(ref txtShipmentLastCheckpoint, string.Join(" | ", lastCheckpoints));
-
-                // Set up our tracking data list for display
-                List<TrackingEventData> eventData = new List<TrackingEventData>();
-
-                if (null != shipment.ShipmentInfo.ShipmentEvent)
-                {
-                    List<TrackingEventData> shipmentEvents = new List<TrackingEventData>();
-                    foreach (EventItem shipmentEvent in shipment.ShipmentInfo.ShipmentEvents)
-                    {
-                        shipmentEvents.Add(new TrackingEventData(shipment.AWBNumber, shipmentEvent));
-                    }
-                    shipmentEvents.Sort((x, y) => x.Date.CompareTo(y.Date));
-                    eventData.AddRange(shipmentEvents);
-                }
-
-                if (null != shipment.Pieces
-                    && null != shipment.Pieces.PieceInfo)
-                {
-                    List<TrackingEventData> pieceEvents;
-                    foreach (PieceInfoItem piece in shipment.PieceInfo)
-                    {
-                        if (null != piece.PieceEvents)
-                        {
-                            pieceEvents = new List<TrackingEventData>();
-                            foreach (EventItem pieceEvent in piece.PieceEvents)
-                            {
-                                pieceEvents.Add(new TrackingEventData(piece.PieceDetails.LicensePlate, pieceEvent));
-                            }
-                            pieceEvents.Sort((x, y) => x.Date.CompareTo(y.Date));
-                            eventData.AddRange(pieceEvents);
-                        }
-                    }
-                }
-
-                dgvTrackingData.DataSource = eventData;
-
-                dgvTrackingData.RowHeadersVisible = false;
-                dgvTrackingData.AllowUserToOrderColumns = true;
-                dgvTrackingData.AllowUserToResizeColumns = true;
-                dgvTrackingData.AllowUserToResizeRows = false;
-
-                // Set the column order(s)
-                dgvTrackingData.Columns["Date"].DisplayIndex = 0;
-                dgvTrackingData.Columns["TrackingNumber"].DisplayIndex = 1;
-                dgvTrackingData.Columns["Code"].DisplayIndex = 2;
-                dgvTrackingData.Columns["Description"].DisplayIndex = 3;
-                dgvTrackingData.Columns["ServiceAreaCode"].DisplayIndex = 4;
-                dgvTrackingData.Columns["ServiceAreaName"].DisplayIndex = 5;
-
-                // Set the column headers(s)
-                dgvTrackingData.Columns["TrackingNumber"].HeaderText = "AWB / LPN";
-                dgvTrackingData.Columns["ServiceAreaCode"].HeaderText = "S.A.";
-                dgvTrackingData.Columns["ServiceAreaName"].HeaderText = "S.A. Name";
-
-                foreach (DataGridViewColumn col in dgvTrackingData.Columns)
-                {
-                    col.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
-                }
-
-                dgvTrackingData.Refresh();
-                dgvTrackingData.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+                ShowShipment(shipment);
             }
             finally
             {
                 this.Enabled = true;
+            }
+        }
+
+        private void ShowShipment(AWBInfoItem shipment)
+        {
+            SetShipmentInfo(shipment.ShipmentInfo);
+
+            List<string> lastCheckpoints = new List<string>();
+            foreach (PieceInfoItem piece in shipment.PieceInfo)
+            {
+                if (null == piece.PieceEvents)
+                {
+                    continue;
+                }
+                if (piece.PieceEvents.Any())
+                {
+                    var lastCheckpoint = piece.PieceEvents.Aggregate((p1, p2) => p1.Date > p2.Date ? p1 : p2).ServiceEvent.EventCode;
+                    lastCheckpoints.Add(lastCheckpoint);
+                }
+                else
+                {
+                    lastCheckpoints.Add("NONE");
+                }
+            }
+
+            SetTextboxText(ref txtShipmentLastCheckpoint, string.Join(" | ", lastCheckpoints));
+
+            // Set up our tracking data list for display
+            List<TrackingEventData> eventData = new List<TrackingEventData>();
+
+            if (null != shipment.ShipmentInfo
+                && null != shipment.ShipmentInfo.ShipmentEvent)
+            {
+                List<TrackingEventData> shipmentEvents = new List<TrackingEventData>();
+                foreach (EventItem shipmentEvent in shipment.ShipmentInfo.ShipmentEvents)
+                {
+                    shipmentEvents.Add(new TrackingEventData(shipment.AWBNumber, shipmentEvent));
+                }
+                shipmentEvents.Sort((x, y) => x.Date.CompareTo(y.Date));
+                eventData.AddRange(shipmentEvents);
+            }
+
+            if (null != shipment.Pieces
+                && null != shipment.Pieces.PieceInfo)
+            {
+                List<TrackingEventData> pieceEvents;
+                foreach (PieceInfoItem piece in shipment.PieceInfo)
+                {
+                    if (null != piece.PieceEvents)
+                    {
+                        pieceEvents = new List<TrackingEventData>();
+                        foreach (EventItem pieceEvent in piece.PieceEvents)
+                        {
+                            pieceEvents.Add(new TrackingEventData(piece.PieceDetails.LicensePlate, pieceEvent));
+                        }
+                        pieceEvents.Sort((x, y) => x.Date.CompareTo(y.Date));
+                        eventData.AddRange(pieceEvents);
+                    }
+                }
+            }
+
+            dgvTrackingData.DataSource = eventData;
+
+            dgvTrackingData.RowHeadersVisible = false;
+            dgvTrackingData.AllowUserToOrderColumns = true;
+            dgvTrackingData.AllowUserToResizeColumns = true;
+            dgvTrackingData.AllowUserToResizeRows = false;
+
+            // Set the column order(s)
+            dgvTrackingData.Columns["Date"].DisplayIndex = 0;
+            dgvTrackingData.Columns["TrackingNumber"].DisplayIndex = 1;
+            dgvTrackingData.Columns["Code"].DisplayIndex = 2;
+            dgvTrackingData.Columns["Description"].DisplayIndex = 3;
+            dgvTrackingData.Columns["ServiceAreaCode"].DisplayIndex = 4;
+            dgvTrackingData.Columns["ServiceAreaName"].DisplayIndex = 5;
+
+            // Set the column headers(s)
+            dgvTrackingData.Columns["TrackingNumber"].HeaderText = "AWB / LPN";
+            dgvTrackingData.Columns["ServiceAreaCode"].HeaderText = "S.A.";
+            dgvTrackingData.Columns["ServiceAreaName"].HeaderText = "S.A. Name";
+
+            foreach (DataGridViewColumn col in dgvTrackingData.Columns)
+            {
+                col.AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+            }
+
+            dgvTrackingData.Refresh();
+            dgvTrackingData.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+        }
+
+        private void SetShipmentInfo(ShipmentInfo shipmentInfo)
+        {
+            if (null == shipmentInfo)
+            {
+                SetTextboxText(ref txtShipper, "**MISSING**");
+                SetTextboxText(ref txtConsignee, "**MISSING**");
+                SetTextboxText(ref txtShipmentDate, "**MISSING**");
+                SetTextboxText(ref txtNumberOfPieces, "**MISSING**");
+                SetTextboxText(ref txtShipmentWeight, "0", true);
+                SetTextboxText(ref txtShipmentReference, "**MISSING**");
+            }
+            else
+            {
+                SetTextboxText(ref txtShipper, shipmentInfo.ShipperName);
+                SetTextboxText(ref txtConsignee, shipmentInfo.ConsigneeName);
+                SetTextboxText(ref txtShipmentDate, shipmentInfo.ShipmentDate);
+                SetTextboxText(ref txtNumberOfPieces, shipmentInfo.Pieces);
+                SetTextboxText(ref txtShipmentWeight, shipmentInfo.Weight, true);
+                if (null != shipmentInfo.ShipperReference)
+                {
+                    SetTextboxText(ref txtShipmentReference, shipmentInfo.ShipperReference.ReferenceID);
+                }
+                else
+                {
+                    SetTextboxText(ref txtShipmentReference, "**MISSING**");
+                }
             }
         }
 
@@ -271,6 +297,19 @@ namespace MyDHLAPI_Test_App.REST
                 BtnTrack_Click(btnTrack, new System.EventArgs());
                 e.SuppressKeyPress = true;
                 e.Handled = true;
+            }
+        }
+
+        private void BtnNextShipment_Click(object sender, EventArgs e)
+        {
+            if (++_currentShipmentIndex > _shipments.Length-1)
+            {
+                _currentShipmentIndex = 0;
+                ShowShipment(_shipments[_currentShipmentIndex]);
+            }
+            else
+            {
+                ShowShipment(_shipments[_currentShipmentIndex]);
             }
         }
     }

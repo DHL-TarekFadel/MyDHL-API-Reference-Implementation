@@ -52,6 +52,7 @@
             this.dgvTrackingData = new System.Windows.Forms.DataGridView();
             this.cmbTrackingType = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
+            this.BtnNextShipment = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTrackingData)).BeginInit();
             this.SuspendLayout();
             // 
@@ -80,7 +81,7 @@
             this.btnTrack.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnTrack.Font = new System.Drawing.Font("Delivery Cd Light", 10F);
             this.btnTrack.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(204)))), ((int)(((byte)(0)))));
-            this.btnTrack.Location = new System.Drawing.Point(507, 19);
+            this.btnTrack.Location = new System.Drawing.Point(496, 20);
             this.btnTrack.Name = "btnTrack";
             this.btnTrack.Size = new System.Drawing.Size(78, 25);
             this.btnTrack.TabIndex = 3;
@@ -300,6 +301,22 @@
             this.label9.TabIndex = 5;
             this.label9.Text = "Tracking Type:";
             // 
+            // BtnNextShipment
+            // 
+            this.BtnNextShipment.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.BtnNextShipment.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(121)))), ((int)(((byte)(5)))), ((int)(((byte)(17)))));
+            this.BtnNextShipment.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnNextShipment.Font = new System.Drawing.Font("Delivery Cd Light", 10F);
+            this.BtnNextShipment.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(204)))), ((int)(((byte)(0)))));
+            this.BtnNextShipment.Location = new System.Drawing.Point(576, 20);
+            this.BtnNextShipment.Name = "BtnNextShipment";
+            this.BtnNextShipment.Size = new System.Drawing.Size(49, 25);
+            this.BtnNextShipment.TabIndex = 4;
+            this.BtnNextShipment.TabStop = false;
+            this.BtnNextShipment.Text = "NEXT";
+            this.BtnNextShipment.UseVisualStyleBackColor = false;
+            this.BtnNextShipment.Click += new System.EventHandler(this.BtnNextShipment_Click);
+            // 
             // Track
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -310,6 +327,7 @@
             this.Controls.Add(this.cmbTrackingType);
             this.Controls.Add(this.dgvTrackingData);
             this.Controls.Add(this.btnViewResponse);
+            this.Controls.Add(this.BtnNextShipment);
             this.Controls.Add(this.btnViewRequest);
             this.Controls.Add(this.btnTrack);
             this.Controls.Add(this.txtConsignee);
@@ -362,5 +380,6 @@
         private System.Windows.Forms.DataGridView dgvTrackingData;
         private System.Windows.Forms.ComboBox cmbTrackingType;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Button BtnNextShipment;
     }
 }

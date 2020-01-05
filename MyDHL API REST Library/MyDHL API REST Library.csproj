@@ -4,6 +4,8 @@
     <TargetFrameworks>net461;netstandard2.0</TargetFrameworks>
     <RootNamespace>MyDHLAPI_REST_Library</RootNamespace>
     <AssemblyName>MyDHL API REST Library</AssemblyName>
+    <Title>MyDHL API REST Library</Title>
+    <Summary>For use with DHL Express's MyDHL API.</Summary>
     <Authors>Tarek Fadel</Authors>
     <Company>DHL Express</Company>
     <Description>This .NET library allows customers leverage the DHL Express MyDHL API in their own applications.</Description>
@@ -14,16 +16,16 @@
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageId>DHL.MyDHL_API.RESTLibrary</PackageId>
     <FileVersion>1.3.19127.3</FileVersion>
-    <ApplicationIcon />
+    <ApplicationIcon>MyDHL API.ico</ApplicationIcon>
     <OutputType>Library</OutputType>
     <StartupObject />
     <PackageTags>shipping, DHL</PackageTags>
-    <Version>1.5.0</Version>
-    <PackageLicenseUrl>https://github.com/DHL-TarekFadel/MyDHL-API-Reference-Implementation/blob/master/LICENSE.txt</PackageLicenseUrl>
+    <Version>1.5.0-rc</Version>
+    <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
     <PackageProjectUrl>https://github.com/DHL-TarekFadel/MyDHL-API-Reference-Implementation</PackageProjectUrl>
     <RepositoryUrl>https://github.com/DHL-TarekFadel/MyDHL-API-Reference-Implementation</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
-    <PackageIconUrl>https://github.com/DHL-TarekFadel/MyDHL-API-Reference-Implementation/blob/master/MyDHL API Logo.png</PackageIconUrl>
+    <PackageIcon>MyDHL API Logo.png</PackageIcon>
     <PackageReleaseNotes>Initial public release.</PackageReleaseNotes>
     <NeutralLanguage>en-US</NeutralLanguage>
   </PropertyGroup>
@@ -38,4 +40,12 @@
     <Folder Include="Objects\PickupDelete\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Include="..\MyDHL API Logo.png" Pack="true" PackagePath="\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\LICENSE.txt" Pack="true" PackagePath="\" />
+  </ItemGroup>
+  
 </Project>

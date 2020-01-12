@@ -352,13 +352,60 @@ namespace MyDHLAPI_Test_App.REST
                 req.PickUpRequest.PickUpShipment.Addresses.Recipient = consignee;
 
                 /*** PICKUP ***/
-                req.PickUpRequest.PickUpShipment.Addresses.Pickup = req.PickUpRequest.PickUpShipment.Addresses.Shipper;
+                AddressData pickupAddress = new AddressData();
+
+                if (!IsBlank(txtPickupCompany))
+                {
+                    pickupAddress.Contact.CompanyName = txtPickupCompany.Text;
+                }
+                else
+                {
+                    pickupAddress.Contact.CompanyName = txtPickupName.Text;
+                }
+                pickupAddress.Contact.PersonName = txtPickupName.Text;
+                pickupAddress.Contact.EMailAddress = txtPickupEMailAddress.Text;
+                pickupAddress.Contact.PhoneNumber = txtPickupMobileNumber.Text;
+
+                pickupAddress.Address.AddressLine1 = txtPickupAddress1.Text;
+                pickupAddress.Address.AddressLine2 = txtPickupAddress2.Text;
+                pickupAddress.Address.AddressLine3 = txtPickupAddress3.Text;
+                pickupAddress.Address.CityName = txtPickupCity.Text;
+                pickupAddress.Address.USStateCode = txtPickupState.Text;
+                pickupAddress.Address.CountryCode = txtPickupCountry.Text;
+                pickupAddress.Address.PostalOrZipCode = txtPickupPostalCode.Text;
+
+                req.PickUpRequest.PickUpShipment.Addresses.Pickup = pickupAddress;
 
                 /*** REQUESTOR ***/
-                req.PickUpRequest.PickUpShipment.Addresses.BookingRequestor = req.PickUpRequest.PickUpShipment.Addresses.Recipient;
+                if (!cbxIgnoreRequestor.Checked)
+                {
+
+                    AddressData requestorAddress = new AddressData();
+
+                    if (!IsBlank(txtRequestorCompany))
+                    {
+                        requestorAddress.Contact.CompanyName = txtRequestorCompany.Text;
+                    }
+                    else
+                    {
+                        requestorAddress.Contact.CompanyName = txtRequestorName.Text;
+                    }
+                    requestorAddress.Contact.PersonName = txtRequestorName.Text;
+                    requestorAddress.Contact.EMailAddress = txtRequestorEMailAddress.Text;
+                    requestorAddress.Contact.PhoneNumber = txtRequestorMobileNumber.Text;
+
+                    requestorAddress.Address.AddressLine1 = txtRequestorAddress1.Text;
+                    requestorAddress.Address.AddressLine2 = txtRequestorAddress2.Text;
+                    requestorAddress.Address.AddressLine3 = txtRequestorAddress3.Text;
+                    requestorAddress.Address.CityName = txtRequestorCity.Text;
+                    requestorAddress.Address.USStateCode = txtRequestorState.Text;
+                    requestorAddress.Address.CountryCode = txtRequestorCountry.Text;
+                    requestorAddress.Address.PostalOrZipCode = txtRequestorPostalCode.Text;
+
+                    req.PickUpRequest.PickUpShipment.Addresses.BookingRequestor = requestorAddress;
+                }
 
                 /*** PIECES ***/
-
                 Package singlePackage = new Package
                 {
                     PackageNumber = 1,
@@ -439,7 +486,9 @@ namespace MyDHLAPI_Test_App.REST
                 {
                     PickupDate = req.PickUpRequest.PickUpShipment.PickupTimestamp
                     , PickupCountry = req.PickUpRequest.PickUpShipment.Addresses.Pickup.Address.CountryCode
-                    , RequestorName = req.PickUpRequest.PickUpShipment.Addresses.BookingRequestor.Contact.PersonName
+                    , RequestorName = (null == req.PickUpRequest.PickUpShipment.Addresses.BookingRequestor
+                                       ? req.PickUpRequest.PickUpShipment.Addresses.Pickup.Contact.PersonName
+                                       : req.PickUpRequest.PickUpShipment.Addresses.BookingRequestor.Contact.PersonName)
                     , PickupRequestNumber = resp.PickupRequestNumber
                 });
 
@@ -685,11 +734,22 @@ namespace MyDHLAPI_Test_App.REST
             string to = toFrom[0];
             string from = toFrom[1];
 
-            foreach(KeyValuePair<string, TextBox> tbx in _addressInputs[from])
+            foreach (KeyValuePair<string, TextBox> tbx in _addressInputs[from])
             {
                 CopyTexboxValue(tbx.Value, _addressInputs[to][tbx.Key]);
             }
 
+            if (to.Equals("Requestor"))
+            {
+                if (from.Equals("Shipper"))
+                {
+                    cbxIgnoreRequestor.Checked = true;
+                }
+                else
+                {
+                    cbxIgnoreRequestor.Checked = false;
+                }
+            }
         }
 
         private void CopyTexboxValue(TextBox from, TextBox to)

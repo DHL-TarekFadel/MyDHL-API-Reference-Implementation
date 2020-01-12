@@ -58,6 +58,8 @@
             this.txtShipperEMailAddress = new System.Windows.Forms.TextBox();
             this.txtShipperName = new System.Windows.Forms.TextBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.label59 = new System.Windows.Forms.Label();
+            this.txtRemarks = new System.Windows.Forms.TextBox();
             this.cmbProductCode = new System.Windows.Forms.ComboBox();
             this.cmbShipmentDimsUOM = new System.Windows.Forms.ComboBox();
             this.cmbShipmentWeightUOM = new System.Windows.Forms.ComboBox();
@@ -182,8 +184,7 @@
             this.txtRequestorEMailAddress = new System.Windows.Forms.TextBox();
             this.txtRequestorName = new System.Windows.Forms.TextBox();
             this.txtRequestorCompany = new System.Windows.Forms.TextBox();
-            this.label59 = new System.Windows.Forms.Label();
-            this.txtRemarks = new System.Windows.Forms.TextBox();
+            this.cbxIgnoreRequestor = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.groupBox8.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -232,6 +233,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.groupBox1.Controls.Add(this.groupBox8);
             this.groupBox1.Controls.Add(this.label12);
             this.groupBox1.Controls.Add(this.label11);
@@ -258,17 +261,18 @@
             this.groupBox1.Font = new System.Drawing.Font("Delivery Cd Light", 9F);
             this.groupBox1.Location = new System.Drawing.Point(12, 13);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(226, 381);
+            this.groupBox1.Size = new System.Drawing.Size(226, 405);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "SHIPPER";
             // 
             // groupBox8
             // 
+            this.groupBox8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.groupBox8.Controls.Add(this.btnShipperCopyRequestor);
             this.groupBox8.Controls.Add(this.btnShipperCopyReceiver);
             this.groupBox8.Controls.Add(this.btnShipperCopyPickup);
-            this.groupBox8.Location = new System.Drawing.Point(6, 321);
+            this.groupBox8.Location = new System.Drawing.Point(6, 345);
             this.groupBox8.Name = "groupBox8";
             this.groupBox8.Size = new System.Drawing.Size(214, 54);
             this.groupBox8.TabIndex = 56;
@@ -556,6 +560,24 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "SHIPMENT";
             // 
+            // label59
+            // 
+            this.label59.AutoSize = true;
+            this.label59.Font = new System.Drawing.Font("Delivery", 8.249999F);
+            this.label59.Location = new System.Drawing.Point(6, 186);
+            this.label59.Name = "label59";
+            this.label59.Size = new System.Drawing.Size(51, 13);
+            this.label59.TabIndex = 36;
+            this.label59.Text = "Remarks";
+            // 
+            // txtRemarks
+            // 
+            this.txtRemarks.Font = new System.Drawing.Font("Delivery", 8.249999F);
+            this.txtRemarks.Location = new System.Drawing.Point(63, 182);
+            this.txtRemarks.Name = "txtRemarks";
+            this.txtRemarks.Size = new System.Drawing.Size(226, 21);
+            this.txtRemarks.TabIndex = 37;
+            // 
             // cmbProductCode
             // 
             this.cmbProductCode.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
@@ -829,7 +851,8 @@
             // 
             // groupBox4
             // 
-            this.groupBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.groupBox4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.groupBox4.Controls.Add(this.label34);
             this.groupBox4.Controls.Add(this.label37);
             this.groupBox4.Controls.Add(this.txtMessages);
@@ -840,7 +863,7 @@
             this.groupBox4.Font = new System.Drawing.Font("Delivery Cd Light", 9F);
             this.groupBox4.Location = new System.Drawing.Point(939, 227);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(369, 167);
+            this.groupBox4.Size = new System.Drawing.Size(369, 191);
             this.groupBox4.TabIndex = 5;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "RESULT";
@@ -867,12 +890,14 @@
             // 
             // txtMessages
             // 
+            this.txtMessages.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.txtMessages.Font = new System.Drawing.Font("Delivery", 8.249999F);
             this.txtMessages.Location = new System.Drawing.Point(70, 41);
             this.txtMessages.Multiline = true;
             this.txtMessages.Name = "txtMessages";
             this.txtMessages.ReadOnly = true;
-            this.txtMessages.Size = new System.Drawing.Size(230, 120);
+            this.txtMessages.Size = new System.Drawing.Size(230, 144);
             this.txtMessages.TabIndex = 3;
             this.txtMessages.TabStop = false;
             // 
@@ -907,7 +932,7 @@
             this.tsslPickupTime,
             this.tsslTotalTimeLabel,
             this.tsslTotalTime});
-            this.ssStatusBar.Location = new System.Drawing.Point(0, 397);
+            this.ssStatusBar.Location = new System.Drawing.Point(0, 421);
             this.ssStatusBar.Name = "ssStatusBar";
             this.ssStatusBar.RenderMode = System.Windows.Forms.ToolStripRenderMode.Professional;
             this.ssStatusBar.Size = new System.Drawing.Size(1322, 22);
@@ -1196,6 +1221,8 @@
             // 
             // groupBox2
             // 
+            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.groupBox2.Controls.Add(this.groupBox9);
             this.groupBox2.Controls.Add(this.label2);
             this.groupBox2.Controls.Add(this.label13);
@@ -1222,17 +1249,18 @@
             this.groupBox2.Font = new System.Drawing.Font("Delivery Cd Light", 9F);
             this.groupBox2.Location = new System.Drawing.Point(476, 13);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(226, 381);
+            this.groupBox2.Size = new System.Drawing.Size(226, 405);
             this.groupBox2.TabIndex = 4;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "CONSIGNEE";
             // 
             // groupBox9
             // 
+            this.groupBox9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.groupBox9.Controls.Add(this.btnReceiverCopyRequestor);
             this.groupBox9.Controls.Add(this.brnRecceiverCopyPickup);
             this.groupBox9.Controls.Add(this.btnReceiverCopyShipper);
-            this.groupBox9.Location = new System.Drawing.Point(6, 321);
+            this.groupBox9.Location = new System.Drawing.Point(6, 345);
             this.groupBox9.Name = "groupBox9";
             this.groupBox9.Size = new System.Drawing.Size(214, 54);
             this.groupBox9.TabIndex = 56;
@@ -1289,6 +1317,8 @@
             // 
             // groupBox5
             // 
+            this.groupBox5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.groupBox5.Controls.Add(this.groupBox10);
             this.groupBox5.Controls.Add(this.label30);
             this.groupBox5.Controls.Add(this.label36);
@@ -1315,17 +1345,18 @@
             this.groupBox5.Font = new System.Drawing.Font("Delivery Cd Light", 9F);
             this.groupBox5.Location = new System.Drawing.Point(244, 13);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(226, 381);
+            this.groupBox5.Size = new System.Drawing.Size(226, 405);
             this.groupBox5.TabIndex = 23;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "PICKUP";
             // 
             // groupBox10
             // 
+            this.groupBox10.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.groupBox10.Controls.Add(this.btnPickupCopyRequestor);
             this.groupBox10.Controls.Add(this.btnPickupCopyReceiver);
             this.groupBox10.Controls.Add(this.btnPickupCopyShipper);
-            this.groupBox10.Location = new System.Drawing.Point(6, 321);
+            this.groupBox10.Location = new System.Drawing.Point(6, 345);
             this.groupBox10.Name = "groupBox10";
             this.groupBox10.Size = new System.Drawing.Size(214, 54);
             this.groupBox10.TabIndex = 56;
@@ -1596,6 +1627,9 @@
             // 
             // groupBox6
             // 
+            this.groupBox6.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.groupBox6.Controls.Add(this.cbxIgnoreRequestor);
             this.groupBox6.Controls.Add(this.label48);
             this.groupBox6.Controls.Add(this.groupBox7);
             this.groupBox6.Controls.Add(this.label49);
@@ -1622,7 +1656,7 @@
             this.groupBox6.Font = new System.Drawing.Font("Delivery Cd Light", 9F);
             this.groupBox6.Location = new System.Drawing.Point(708, 13);
             this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(226, 381);
+            this.groupBox6.Size = new System.Drawing.Size(226, 405);
             this.groupBox6.TabIndex = 23;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "REQUESTOR";
@@ -1640,10 +1674,11 @@
             // 
             // groupBox7
             // 
+            this.groupBox7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.groupBox7.Controls.Add(this.btnRequestorCopyReceiver);
             this.groupBox7.Controls.Add(this.btnRequestorCopyPickup);
             this.groupBox7.Controls.Add(this.btnRequestorCopyShipper);
-            this.groupBox7.Location = new System.Drawing.Point(6, 321);
+            this.groupBox7.Location = new System.Drawing.Point(6, 345);
             this.groupBox7.Name = "groupBox7";
             this.groupBox7.Size = new System.Drawing.Size(214, 54);
             this.groupBox7.TabIndex = 54;
@@ -1901,30 +1936,24 @@
             this.txtRequestorCompany.Size = new System.Drawing.Size(144, 21);
             this.txtRequestorCompany.TabIndex = 12;
             // 
-            // label59
+            // cbxIgnoreRequestor
             // 
-            this.label59.AutoSize = true;
-            this.label59.Font = new System.Drawing.Font("Delivery", 8.249999F);
-            this.label59.Location = new System.Drawing.Point(6, 186);
-            this.label59.Name = "label59";
-            this.label59.Size = new System.Drawing.Size(51, 13);
-            this.label59.TabIndex = 36;
-            this.label59.Text = "Remarks";
-            // 
-            // txtRemarks
-            // 
-            this.txtRemarks.Font = new System.Drawing.Font("Delivery", 8.249999F);
-            this.txtRemarks.Location = new System.Drawing.Point(63, 182);
-            this.txtRemarks.Name = "txtRemarks";
-            this.txtRemarks.Size = new System.Drawing.Size(226, 21);
-            this.txtRemarks.TabIndex = 37;
+            this.cbxIgnoreRequestor.AutoSize = true;
+            this.cbxIgnoreRequestor.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.cbxIgnoreRequestor.Font = new System.Drawing.Font("Delivery", 8.249999F);
+            this.cbxIgnoreRequestor.Location = new System.Drawing.Point(34, 321);
+            this.cbxIgnoreRequestor.Name = "cbxIgnoreRequestor";
+            this.cbxIgnoreRequestor.Size = new System.Drawing.Size(57, 17);
+            this.cbxIgnoreRequestor.TabIndex = 55;
+            this.cbxIgnoreRequestor.Text = "Ignore";
+            this.cbxIgnoreRequestor.UseVisualStyleBackColor = true;
             // 
             // CreatePickup
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 14F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(204)))), ((int)(((byte)(0)))));
-            this.ClientSize = new System.Drawing.Size(1322, 419);
+            this.ClientSize = new System.Drawing.Size(1322, 443);
             this.Controls.Add(this.groupBox6);
             this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.ssStatusBar);
@@ -2118,5 +2147,6 @@
         private System.Windows.Forms.Button btnPickupCopyShipper;
         private System.Windows.Forms.Label label59;
         private System.Windows.Forms.TextBox txtRemarks;
+        private System.Windows.Forms.CheckBox cbxIgnoreRequestor;
     }
 }

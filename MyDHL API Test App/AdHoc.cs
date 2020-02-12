@@ -176,6 +176,11 @@ namespace MyDHLAPI_Test_App
 
                 var methodProperty = ((JObject)jsonObject).Properties().First().Name;
 
+                if (methodProperty.Equals("PickUpRequest"))
+                {
+                    methodProperty = "PickupRequest";
+                }
+
                 string jsonText = string.Empty;
 
                 using (StringWriter sw = new StringWriter())

@@ -352,30 +352,32 @@ namespace MyDHLAPI_Test_App.REST
                 req.PickUpRequest.PickUpShipment.Addresses.Recipient = consignee;
 
                 /*** PICKUP ***/
-                AddressData pickupAddress = new AddressData();
-
-                if (!IsBlank(txtPickupCompany))
+                if (!cbxIgnorePickupSection.Checked)
                 {
-                    pickupAddress.Contact.CompanyName = txtPickupCompany.Text;
+                    AddressData pickupAddress = new AddressData();
+
+                    if (!IsBlank(txtPickupCompany))
+                    {
+                        pickupAddress.Contact.CompanyName = txtPickupCompany.Text;
+                    }
+                    else
+                    {
+                        pickupAddress.Contact.CompanyName = txtPickupName.Text;
+                    }
+                    pickupAddress.Contact.PersonName = txtPickupName.Text;
+                    pickupAddress.Contact.EMailAddress = txtPickupEMailAddress.Text;
+                    pickupAddress.Contact.PhoneNumber = txtPickupMobileNumber.Text;
+
+                    pickupAddress.Address.AddressLine1 = txtPickupAddress1.Text;
+                    pickupAddress.Address.AddressLine2 = txtPickupAddress2.Text;
+                    pickupAddress.Address.AddressLine3 = txtPickupAddress3.Text;
+                    pickupAddress.Address.CityName = txtPickupCity.Text;
+                    pickupAddress.Address.USStateCode = txtPickupState.Text;
+                    pickupAddress.Address.CountryCode = txtPickupCountry.Text;
+                    pickupAddress.Address.PostalOrZipCode = txtPickupPostalCode.Text;
+
+                    req.PickUpRequest.PickUpShipment.Addresses.Pickup = pickupAddress;
                 }
-                else
-                {
-                    pickupAddress.Contact.CompanyName = txtPickupName.Text;
-                }
-                pickupAddress.Contact.PersonName = txtPickupName.Text;
-                pickupAddress.Contact.EMailAddress = txtPickupEMailAddress.Text;
-                pickupAddress.Contact.PhoneNumber = txtPickupMobileNumber.Text;
-
-                pickupAddress.Address.AddressLine1 = txtPickupAddress1.Text;
-                pickupAddress.Address.AddressLine2 = txtPickupAddress2.Text;
-                pickupAddress.Address.AddressLine3 = txtPickupAddress3.Text;
-                pickupAddress.Address.CityName = txtPickupCity.Text;
-                pickupAddress.Address.USStateCode = txtPickupState.Text;
-                pickupAddress.Address.CountryCode = txtPickupCountry.Text;
-                pickupAddress.Address.PostalOrZipCode = txtPickupPostalCode.Text;
-
-                req.PickUpRequest.PickUpShipment.Addresses.Pickup = pickupAddress;
-
                 /*** REQUESTOR ***/
                 if (!cbxIgnoreRequestor.Checked)
                 {
@@ -452,6 +454,19 @@ namespace MyDHLAPI_Test_App.REST
                 }
                 catch (Exception ex)
                 {
+                    if (null != ex.InnerException
+                        && ex.InnerException is MyDHLAPIValidationException)
+                    {
+                        MyDHLAPIValidationException gvx = (MyDHLAPIValidationException) ex.InnerException;
+                        txtResultBookingReferenceNumber.Text = "VALIDATION ERROR!";
+                        if (gvx.Data.Contains("ValidationResults"))
+                        {
+                            txtMessages.Text = MyDHLAPIValidationException.PrintResults((List<ValidationResult>)gvx.Data["ValidationResults"]);
+                        }
+                        SetStatusText($"Shipment contains validation errors! Took {(DateTime.Now - processStart):hh\\:mm\\:ss}", false);
+                        return;
+                    }
+
                     MessageBox.Show(ex.Message, "EX");
                     txtResultBookingReferenceNumber.Text = "ERROR!";
                     SetStatusText($"Shipment error! Took {(DateTime.Now - processStart):hh\\:mm\\:ss}", false);
@@ -482,13 +497,13 @@ namespace MyDHLAPI_Test_App.REST
                 DateTime processEnd = DateTime.Now;
 
                 /*** Save for cancelation ***/
+                AddressData pickupSection = (req.PickUpRequest.PickUpShipment.Addresses.Pickup ?? req.PickUpRequest.PickUpShipment.Addresses.Shipper);
+                AddressData bookingRequestorSection = (req.PickUpRequest.PickUpShipment.Addresses.BookingRequestor ?? pickupSection);
                 Common.SuccessfulPickupRequests.Add(new Objects.SuccessfulPickupRequest()
                 {
                     PickupDate = req.PickUpRequest.PickUpShipment.PickupTimestamp
-                    , PickupCountry = req.PickUpRequest.PickUpShipment.Addresses.Pickup.Address.CountryCode
-                    , RequestorName = (null == req.PickUpRequest.PickUpShipment.Addresses.BookingRequestor
-                                       ? req.PickUpRequest.PickUpShipment.Addresses.Pickup.Contact.PersonName
-                                       : req.PickUpRequest.PickUpShipment.Addresses.BookingRequestor.Contact.PersonName)
+                    , PickupCountry = pickupSection.Address.CountryCode
+                    , RequestorName = bookingRequestorSection.Contact.PersonName
                     , PickupRequestNumber = resp.PickupRequestNumber
                 });
 
@@ -739,7 +754,8 @@ namespace MyDHLAPI_Test_App.REST
                 CopyTexboxValue(tbx.Value, _addressInputs[to][tbx.Key]);
             }
 
-            if (to.Equals("Requestor"))
+            if (to.Equals("Requestor")
+                || to.Equals("Pickup"))
             {
                 if (from.Equals("Shipper"))
                 {

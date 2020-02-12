@@ -158,6 +158,7 @@
             this.txtPickupName = new System.Windows.Forms.TextBox();
             this.txtPickupCompany = new System.Windows.Forms.TextBox();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.cbxIgnoreRequestor = new System.Windows.Forms.CheckBox();
             this.label48 = new System.Windows.Forms.Label();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
             this.btnRequestorCopyReceiver = new System.Windows.Forms.Button();
@@ -184,7 +185,7 @@
             this.txtRequestorEMailAddress = new System.Windows.Forms.TextBox();
             this.txtRequestorName = new System.Windows.Forms.TextBox();
             this.txtRequestorCompany = new System.Windows.Forms.TextBox();
-            this.cbxIgnoreRequestor = new System.Windows.Forms.CheckBox();
+            this.cbxIgnorePickupSection = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.groupBox8.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -1319,6 +1320,7 @@
             // 
             this.groupBox5.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
+            this.groupBox5.Controls.Add(this.cbxIgnorePickupSection);
             this.groupBox5.Controls.Add(this.groupBox10);
             this.groupBox5.Controls.Add(this.label30);
             this.groupBox5.Controls.Add(this.label36);
@@ -1661,6 +1663,21 @@
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "REQUESTOR";
             // 
+            // cbxIgnoreRequestor
+            // 
+            this.cbxIgnoreRequestor.AutoSize = true;
+            this.cbxIgnoreRequestor.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.cbxIgnoreRequestor.Checked = true;
+            this.cbxIgnoreRequestor.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.cbxIgnoreRequestor.Font = new System.Drawing.Font("Delivery", 8.249999F);
+            this.cbxIgnoreRequestor.Location = new System.Drawing.Point(34, 321);
+            this.cbxIgnoreRequestor.Name = "cbxIgnoreRequestor";
+            this.cbxIgnoreRequestor.Size = new System.Drawing.Size(57, 17);
+            this.cbxIgnoreRequestor.TabIndex = 55;
+            this.cbxIgnoreRequestor.Tag = "Requestor";
+            this.cbxIgnoreRequestor.Text = "Ignore";
+            this.cbxIgnoreRequestor.UseVisualStyleBackColor = true;
+            // 
             // label48
             // 
             this.label48.AutoSize = true;
@@ -1936,17 +1953,20 @@
             this.txtRequestorCompany.Size = new System.Drawing.Size(144, 21);
             this.txtRequestorCompany.TabIndex = 12;
             // 
-            // cbxIgnoreRequestor
+            // cbxIgnorePickupSection
             // 
-            this.cbxIgnoreRequestor.AutoSize = true;
-            this.cbxIgnoreRequestor.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.cbxIgnoreRequestor.Font = new System.Drawing.Font("Delivery", 8.249999F);
-            this.cbxIgnoreRequestor.Location = new System.Drawing.Point(34, 321);
-            this.cbxIgnoreRequestor.Name = "cbxIgnoreRequestor";
-            this.cbxIgnoreRequestor.Size = new System.Drawing.Size(57, 17);
-            this.cbxIgnoreRequestor.TabIndex = 55;
-            this.cbxIgnoreRequestor.Text = "Ignore";
-            this.cbxIgnoreRequestor.UseVisualStyleBackColor = true;
+            this.cbxIgnorePickupSection.AutoSize = true;
+            this.cbxIgnorePickupSection.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.cbxIgnorePickupSection.Checked = true;
+            this.cbxIgnorePickupSection.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.cbxIgnorePickupSection.Font = new System.Drawing.Font("Delivery", 8.249999F);
+            this.cbxIgnorePickupSection.Location = new System.Drawing.Point(33, 321);
+            this.cbxIgnorePickupSection.Name = "cbxIgnorePickupSection";
+            this.cbxIgnorePickupSection.Size = new System.Drawing.Size(57, 17);
+            this.cbxIgnorePickupSection.TabIndex = 55;
+            this.cbxIgnorePickupSection.Tag = "Pickup";
+            this.cbxIgnorePickupSection.Text = "Ignore";
+            this.cbxIgnorePickupSection.UseVisualStyleBackColor = true;
             // 
             // CreatePickup
             // 
@@ -2148,5 +2168,6 @@
         private System.Windows.Forms.Label label59;
         private System.Windows.Forms.TextBox txtRemarks;
         private System.Windows.Forms.CheckBox cbxIgnoreRequestor;
+        private System.Windows.Forms.CheckBox cbxIgnorePickupSection;
     }
 }

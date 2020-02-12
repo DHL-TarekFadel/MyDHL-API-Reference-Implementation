@@ -23,6 +23,7 @@ namespace MyDHLAPI_Test_App.REST
         private string MyDHLAPI_Response = string.Empty;
         private string MyDHLAPI_RateQuery_Request = string.Empty;
         private string MyDHLAPI_RateQuery_Response = string.Empty;
+        private string MyDHLAPI_ValidationError = string.Empty;
 
         private bool _logoAvailable;
         private byte[] _logoData;
@@ -721,6 +722,19 @@ namespace MyDHLAPI_Test_App.REST
                 }
                 catch (Exception ex)
                 {
+                    if (ex.InnerException?.GetType() == typeof(MyDHLAPIValidationException))
+                    {
+                        MyDHLAPIValidationException gvx = (MyDHLAPIValidationException)ex.InnerException;
+                        MessageBox.Show(gvx.Message, "GVX");
+                        txtResultAWB.Text = "VALIDATION ERROR!";
+                        if (gvx.Data.Contains("ValidationResults"))
+                        {
+                            txtResultPieces.Text = MyDHLAPIValidationException.PrintResults((List<ValidationResult>)gvx.Data["ValidationResults"]);
+                        }
+                        SetStatusText($"Shipment contains validation errors! Took {(DateTime.Now - processStart):hh\\:mm\\:ss}", false);
+                        return;
+                    }
+
                     MessageBox.Show(ex.Message, "EX");
                     txtResultAWB.Text = "ERROR!";
                     SetStatusText($"Shipment error! Took {(DateTime.Now - processStart):hh\\:mm\\:ss}", false);
@@ -1176,6 +1190,11 @@ namespace MyDHLAPI_Test_App.REST
 
             cmbDGSpecialServiceCode.Enabled = cbx.Checked;
             txtDGClassification.Enabled = cbx.Checked;
+        }
+
+        private void BtnViewError_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

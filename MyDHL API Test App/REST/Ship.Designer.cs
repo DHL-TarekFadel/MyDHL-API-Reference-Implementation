@@ -147,9 +147,10 @@
             this.tsslTotalTimeLabel = new System.Windows.Forms.ToolStripStatusLabel();
             this.tsslTotalTime = new System.Windows.Forms.ToolStripStatusLabel();
             this.groupBox8 = new System.Windows.Forms.GroupBox();
-            this.cbxDGShipment = new System.Windows.Forms.CheckBox();
-            this.cmbDGSpecialServiceCode = new System.Windows.Forms.ComboBox();
             this.txtDGClassification = new System.Windows.Forms.TextBox();
+            this.cmbDGSpecialServiceCode = new System.Windows.Forms.ComboBox();
+            this.cbxDGShipment = new System.Windows.Forms.CheckBox();
+            this.BtnViewError = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -1025,6 +1026,7 @@
             this.groupBox4.Controls.Add(this.txtResultBookingReferenceNumber);
             this.groupBox4.Controls.Add(this.txtResultPieces);
             this.groupBox4.Controls.Add(this.txtResultAWB);
+            this.groupBox4.Controls.Add(this.BtnViewError);
             this.groupBox4.Controls.Add(this.btnViewRequest);
             this.groupBox4.Controls.Add(this.btnShip);
             this.groupBox4.Controls.Add(this.btnViewResponse);
@@ -1445,16 +1447,13 @@
             this.groupBox8.TabStop = false;
             this.groupBox8.Text = "DG";
             // 
-            // cbxDGShipment
+            // txtDGClassification
             // 
-            this.cbxDGShipment.AutoSize = true;
-            this.cbxDGShipment.Location = new System.Drawing.Point(6, 12);
-            this.cbxDGShipment.Name = "cbxDGShipment";
-            this.cbxDGShipment.Size = new System.Drawing.Size(73, 19);
-            this.cbxDGShipment.TabIndex = 0;
-            this.cbxDGShipment.Text = "Enable DG";
-            this.cbxDGShipment.UseVisualStyleBackColor = true;
-            this.cbxDGShipment.CheckedChanged += new System.EventHandler(this.CbxDGShipment_CheckedChanged);
+            this.txtDGClassification.Enabled = false;
+            this.txtDGClassification.Location = new System.Drawing.Point(6, 54);
+            this.txtDGClassification.Name = "txtDGClassification";
+            this.txtDGClassification.Size = new System.Drawing.Size(82, 22);
+            this.txtDGClassification.TabIndex = 2;
             // 
             // cmbDGSpecialServiceCode
             // 
@@ -1480,13 +1479,31 @@
             this.cmbDGSpecialServiceCode.Size = new System.Drawing.Size(82, 23);
             this.cmbDGSpecialServiceCode.TabIndex = 1;
             // 
-            // txtDGClassification
+            // cbxDGShipment
             // 
-            this.txtDGClassification.Enabled = false;
-            this.txtDGClassification.Location = new System.Drawing.Point(6, 54);
-            this.txtDGClassification.Name = "txtDGClassification";
-            this.txtDGClassification.Size = new System.Drawing.Size(82, 22);
-            this.txtDGClassification.TabIndex = 2;
+            this.cbxDGShipment.AutoSize = true;
+            this.cbxDGShipment.Location = new System.Drawing.Point(6, 12);
+            this.cbxDGShipment.Name = "cbxDGShipment";
+            this.cbxDGShipment.Size = new System.Drawing.Size(73, 19);
+            this.cbxDGShipment.TabIndex = 0;
+            this.cbxDGShipment.Text = "Enable DG";
+            this.cbxDGShipment.UseVisualStyleBackColor = true;
+            this.cbxDGShipment.CheckedChanged += new System.EventHandler(this.CbxDGShipment_CheckedChanged);
+            // 
+            // BtnViewError
+            // 
+            this.BtnViewError.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(5)))), ((int)(((byte)(17)))));
+            this.BtnViewError.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnViewError.Font = new System.Drawing.Font("Delivery Cd Light", 10F);
+            this.BtnViewError.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(204)))), ((int)(((byte)(0)))));
+            this.BtnViewError.Location = new System.Drawing.Point(371, 10);
+            this.BtnViewError.Name = "BtnViewError";
+            this.BtnViewError.Size = new System.Drawing.Size(51, 25);
+            this.BtnViewError.TabIndex = 51;
+            this.BtnViewError.TabStop = false;
+            this.BtnViewError.Text = "ERR";
+            this.BtnViewError.UseVisualStyleBackColor = false;
+            this.BtnViewError.Click += new System.EventHandler(this.BtnViewError_Click);
             // 
             // Ship
             // 
@@ -1657,5 +1674,6 @@
         private System.Windows.Forms.TextBox txtDGClassification;
         private System.Windows.Forms.ComboBox cmbDGSpecialServiceCode;
         private System.Windows.Forms.CheckBox cbxDGShipment;
+        private System.Windows.Forms.Button BtnViewError;
     }
 }

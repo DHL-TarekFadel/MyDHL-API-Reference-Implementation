@@ -18,7 +18,7 @@ namespace MyDHLAPI_Test_App.REST
 {
     public partial class Ship : Form
     {
-        private List<string> _productCodes = new List<string> { "", "0", "1", "2", "3", "4", "5", "7", "8", "9", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z" };
+        private readonly List<string> _productCodes = new List<string> { "", "0", "1", "2", "3", "4", "5", "7", "8", "9", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z" };
         private string MyDHLAPI_Request = string.Empty;
         private string MyDHLAPI_Response = string.Empty;
         private string MyDHLAPI_RateQuery_Request = string.Empty;
@@ -1061,10 +1061,12 @@ namespace MyDHLAPI_Test_App.REST
 
         private void BtnUploadLogo_Click(object sender, EventArgs e)
         {
-            OpenFileDialog dlg = new OpenFileDialog();
-            dlg.Filter = "Image Files|*.gif;*.jpg;*.jpeg;*.png";
-            dlg.Multiselect = false;
-            dlg.CheckFileExists = true;
+            OpenFileDialog dlg = new OpenFileDialog
+            {
+                Filter = "Image Files|*.gif;*.jpg;*.jpeg;*.png",
+                Multiselect = false,
+                CheckFileExists = true
+            };
 
             if (DialogResult.OK == dlg.ShowDialog())
             {
@@ -1098,10 +1100,12 @@ namespace MyDHLAPI_Test_App.REST
 
         private void BtnUploadInvoice_Click(object sender, EventArgs e)
         {
-            OpenFileDialog dlg = new OpenFileDialog();
-            dlg.Filter = "Image Files|*.jpg;*.jpeg;*.png|PDF Files|*.pdf";
-            dlg.Multiselect = false;
-            dlg.CheckFileExists = true;
+            OpenFileDialog dlg = new OpenFileDialog
+            {
+                Filter = "Image Files|*.jpg;*.jpeg;*.png|PDF Files|*.pdf",
+                Multiselect = false,
+                CheckFileExists = true
+            };
 
             if (DialogResult.OK == dlg.ShowDialog())
             {

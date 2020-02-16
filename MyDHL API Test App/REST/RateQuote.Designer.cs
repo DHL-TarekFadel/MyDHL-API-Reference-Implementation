@@ -874,7 +874,7 @@
             this.btnFind.Text = "?";
             this.btnFind.UseVisualStyleBackColor = false;
             this.btnFind.Visible = false;
-            this.btnFind.Click += new System.EventHandler(this.btnFind_Click);
+            this.btnFind.Click += new System.EventHandler(this.BtnFind_Click);
             // 
             // RateQuote
             // 

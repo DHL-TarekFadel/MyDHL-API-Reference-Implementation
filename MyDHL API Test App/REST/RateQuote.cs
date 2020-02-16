@@ -117,17 +117,19 @@ namespace MyDHLAPI_Test_App.REST {
                                             , Common.CurrentRestBaseUrl);
 
                 RateQueryRequest rqr = new RateQueryRequest();
-                RateRequest rr = new RateRequest();
-
-                /*** Request Header ***/
-                rr.Request = new Request()
+                RateRequest rr = new RateRequest
                 {
-                    ServiceHeader = new ServiceHeader()
+
+                    /*** Request Header ***/
+                    Request = new Request()
                     {
-                        ShippingSystemPlatform = "MyDHL API Test App"
-                        , ShippingSystemPlatformVersion = Application.ProductVersion
-                        , Plugin = "MyDHL API C# Library"
-                        , PluginVersion = api.GetVersion()
+                        ServiceHeader = new ServiceHeader()
+                        {
+                            ShippingSystemPlatform = "MyDHL API Test App",
+                            ShippingSystemPlatformVersion = Application.ProductVersion,
+                            Plugin = "MyDHL API C# Library",
+                            PluginVersion = api.GetVersion()
+                        }
                     }
                 };
 
@@ -306,7 +308,7 @@ namespace MyDHLAPI_Test_App.REST {
             }
         }
 
-        private void btnFind_Click(object sender, EventArgs e)
+        private void BtnFind_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(txtFindInList.Text))
             {

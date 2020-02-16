@@ -8,6 +8,7 @@ using System.Xml.Linq;
 
 namespace MyDHLAPI_Test_App.SOAP
 {
+    [System.Diagnostics.CodeAnalysis.SuppressMessage("Style", "IDE1006:Naming Styles", Justification = "<Pending>")]
     public partial class ePOD : Form
     {
         private string GloWS_Request;
@@ -18,7 +19,7 @@ namespace MyDHLAPI_Test_App.SOAP
             InitializeComponent();
         }
 
-        private void btnGo_Click(object sender, EventArgs e)
+        private void BtnGo_Click(object sender, EventArgs e)
         {
             //try
             //{

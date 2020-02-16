@@ -17,21 +17,13 @@ namespace MyDHLAPI_Test_App.REST
 {
     public partial class CreatePickup : Form
     {
-        private List<string> _productCodes = new List<string> { "", "0", "1", "2", "3", "4", "5", "7", "8", "9", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z" };
+        private readonly List<string> _productCodes = new List<string> { "", "0", "1", "2", "3", "4", "5", "7", "8", "9", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z" };
         private string MyDHLAPI_Request = string.Empty;
         private string MyDHLAPI_Response = string.Empty;
-        private string MyDHLAPI_RateQuery_Request = string.Empty;
-        private string MyDHLAPI_RateQuery_Response = string.Empty;
 
-        private bool _logoAvailable;
-        private byte[] _logoData;
-        private string _logoMimeType;
-        private bool _invoiceAvailable;
-        private byte[] _invoiceData;
+        private readonly List<string> _generatedTempFiles = new List<string>();
 
-        private List<string> _generatedTempFiles = new List<string>();
-
-        private Dictionary<string, Dictionary<string, TextBox>> _addressInputs = new Dictionary<string, Dictionary<string, TextBox>>();
+        private readonly Dictionary<string, Dictionary<string, TextBox>> _addressInputs = new Dictionary<string, Dictionary<string, TextBox>>();
 
         public CreatePickup()
         {
@@ -212,10 +204,6 @@ namespace MyDHLAPI_Test_App.REST
 
             // Set our time counters
             DateTime processStart = DateTime.Now;
-            DateTime rateQueryRequestStart = DateTime.Now;
-            DateTime rateQueryRequestEnd = DateTime.Now;
-            DateTime pickupRequestStart = DateTime.Now;
-            DateTime pickupRequestEnd = DateTime.Now;
 
             // Validate all our inputs
             if (!ValidateInputs())
@@ -260,12 +248,20 @@ namespace MyDHLAPI_Test_App.REST
                 //};
 
 #pragma warning restore IDE0017 // Simplify object initialization
-                req.PickUpRequest = new PickUpRequest();
-                req.PickUpRequest.PickUpShipment = new PickUpShipment();
-                req.PickUpRequest.PickUpShipment.ShipmentDetails = new ShipmentDetails();
-
-                req.PickUpRequest.PickUpShipment.ShipmentDetails.ShipmentDetail.ServiceType = cmbProductCode.SelectedValue.ToString();
-                req.PickUpRequest.PickUpShipment.ShipmentDetails.ShipmentDetail.LocalServiceType = cmbProductCode.SelectedValue.ToString();
+                req.PickUpRequest = new PickUpRequest
+                {
+                    PickUpShipment = new PickUpShipment
+                    {
+                        ShipmentDetails = new ShipmentDetails()
+                        {
+                            ShipmentDetail = new ShipmentDetail()
+                            {
+                                ServiceType = cmbProductCode.SelectedValue.ToString(),
+                                LocalServiceType = cmbProductCode.SelectedValue.ToString()
+                            }
+                        }
+                    }
+                };
 
                 // SU = Standard (american) Units (LB, IN); SI = Standard International (KG, CM)
                 if ("KG" == cmbShipmentWeightUOM.SelectedValue.ToString())
@@ -427,15 +423,21 @@ namespace MyDHLAPI_Test_App.REST
                     singlePackage.Dimensions = new Dimensions(height, width, depth);
                 }
 
-                req.PickUpRequest.PickUpShipment.ShipmentDetails.ShipmentDetail.Packages = new Packages();
-                req.PickUpRequest.PickUpShipment.ShipmentDetails.ShipmentDetail.Packages.PackageList = new List<Package>();
-                req.PickUpRequest.PickUpShipment.ShipmentDetails.ShipmentDetail.Packages.PackageList.Add(singlePackage);
+                req.PickUpRequest.PickUpShipment.ShipmentDetails.ShipmentDetail.Packages = new Packages
+                {
+                    PackageList = new List<Package>
+                    {
+                        singlePackage
+                    }
+                };
 
                 /*** GENERATE PICKUP ***/
                 CreatePickupResponse resp;
 
                 SetStatusText("Sending shipment request...", true, true, 40);
 
+                DateTime pickupRequestStart = DateTime.Now;
+                DateTime pickupRequestEnd = DateTime.Now;
                 try
                 {
                     pickupRequestStart = DateTime.Now;
@@ -457,7 +459,7 @@ namespace MyDHLAPI_Test_App.REST
                     if (null != ex.InnerException
                         && ex.InnerException is MyDHLAPIValidationException)
                     {
-                        MyDHLAPIValidationException gvx = (MyDHLAPIValidationException) ex.InnerException;
+                        MyDHLAPIValidationException gvx = (MyDHLAPIValidationException)ex.InnerException;
                         txtResultBookingReferenceNumber.Text = "VALIDATION ERROR!";
                         if (gvx.Data.Contains("ValidationResults"))
                         {

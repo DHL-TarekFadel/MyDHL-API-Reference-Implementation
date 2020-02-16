@@ -15,7 +15,7 @@ namespace MyDHLAPI_Test_App.REST
         private string _lastJsonRequest;
         private string _lastJsonResponse;
 
-        private List<string> tempFilenames = new List<string>();
+        private readonly List<string> tempFilenames = new List<string>();
 
         public ePOD()
         {

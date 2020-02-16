@@ -26,6 +26,8 @@ namespace MyDHLAPI_Test_App.Objects
 
         public string ShipmentReference { get; set; }
 
+        public bool? RequestODDLink { get; set; }
+
         public List<DefaultPiece> Pieces { get; set; }
 
         public string TrackingAWBNumber { get; set; }

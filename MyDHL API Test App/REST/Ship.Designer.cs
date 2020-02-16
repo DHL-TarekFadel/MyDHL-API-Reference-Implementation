@@ -115,6 +115,7 @@
             this.txtResultBookingReferenceNumber = new System.Windows.Forms.TextBox();
             this.txtResultPieces = new System.Windows.Forms.TextBox();
             this.txtResultAWB = new System.Windows.Forms.TextBox();
+            this.BtnViewError = new System.Windows.Forms.Button();
             this.ToolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.btnUploadLogo = new System.Windows.Forms.Button();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
@@ -150,7 +151,7 @@
             this.txtDGClassification = new System.Windows.Forms.TextBox();
             this.cmbDGSpecialServiceCode = new System.Windows.Forms.ComboBox();
             this.cbxDGShipment = new System.Windows.Forms.CheckBox();
-            this.BtnViewError = new System.Windows.Forms.Button();
+            this.cbxRequestODDLink = new System.Windows.Forms.CheckBox();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -478,7 +479,7 @@
             this.cmbProductCode.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbProductCode.Font = new System.Drawing.Font("Delivery", 8.249999F);
             this.cmbProductCode.FormattingEnabled = true;
-            this.cmbProductCode.Location = new System.Drawing.Point(279, 129);
+            this.cmbProductCode.Location = new System.Drawing.Point(324, 133);
             this.cmbProductCode.Name = "cmbProductCode";
             this.cmbProductCode.Size = new System.Drawing.Size(61, 21);
             this.cmbProductCode.TabIndex = 31;
@@ -491,7 +492,7 @@
             this.cmbShipmentDimsUOM.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbShipmentDimsUOM.Font = new System.Drawing.Font("Delivery", 8.249999F);
             this.cmbShipmentDimsUOM.FormattingEnabled = true;
-            this.cmbShipmentDimsUOM.Location = new System.Drawing.Point(279, 102);
+            this.cmbShipmentDimsUOM.Location = new System.Drawing.Point(324, 106);
             this.cmbShipmentDimsUOM.Name = "cmbShipmentDimsUOM";
             this.cmbShipmentDimsUOM.Size = new System.Drawing.Size(61, 21);
             this.cmbShipmentDimsUOM.TabIndex = 30;
@@ -512,7 +513,7 @@
             // 
             this.label31.AutoSize = true;
             this.label31.Font = new System.Drawing.Font("Delivery", 8.249999F);
-            this.label31.Location = new System.Drawing.Point(204, 133);
+            this.label31.Location = new System.Drawing.Point(249, 137);
             this.label31.Name = "label31";
             this.label31.Size = new System.Drawing.Size(71, 13);
             this.label31.TabIndex = 0;
@@ -522,7 +523,7 @@
             // 
             this.label28.AutoSize = true;
             this.label28.Font = new System.Drawing.Font("Delivery", 8.249999F);
-            this.label28.Location = new System.Drawing.Point(248, 106);
+            this.label28.Location = new System.Drawing.Point(293, 110);
             this.label28.Name = "label28";
             this.label28.Size = new System.Drawing.Size(27, 13);
             this.label28.TabIndex = 0;
@@ -532,7 +533,7 @@
             // 
             this.label27.AutoSize = true;
             this.label27.Font = new System.Drawing.Font("Delivery", 8.249999F);
-            this.label27.Location = new System.Drawing.Point(239, 80);
+            this.label27.Location = new System.Drawing.Point(284, 84);
             this.label27.Name = "label27";
             this.label27.Size = new System.Drawing.Size(36, 13);
             this.label27.TabIndex = 0;
@@ -542,7 +543,7 @@
             // 
             this.label26.AutoSize = true;
             this.label26.Font = new System.Drawing.Font("Delivery", 8.249999F);
-            this.label26.Location = new System.Drawing.Point(239, 52);
+            this.label26.Location = new System.Drawing.Point(284, 56);
             this.label26.Name = "label26";
             this.label26.Size = new System.Drawing.Size(36, 13);
             this.label26.TabIndex = 0;
@@ -552,7 +553,7 @@
             // 
             this.label25.AutoSize = true;
             this.label25.Font = new System.Drawing.Font("Delivery", 8.249999F);
-            this.label25.Location = new System.Drawing.Point(235, 24);
+            this.label25.Location = new System.Drawing.Point(280, 28);
             this.label25.Name = "label25";
             this.label25.Size = new System.Drawing.Size(40, 13);
             this.label25.TabIndex = 0;
@@ -641,7 +642,7 @@
             // txtShipmentDepth
             // 
             this.txtShipmentDepth.Font = new System.Drawing.Font("Delivery", 8.249999F);
-            this.txtShipmentDepth.Location = new System.Drawing.Point(279, 76);
+            this.txtShipmentDepth.Location = new System.Drawing.Point(324, 80);
             this.txtShipmentDepth.Name = "txtShipmentDepth";
             this.txtShipmentDepth.Size = new System.Drawing.Size(61, 21);
             this.txtShipmentDepth.TabIndex = 29;
@@ -650,7 +651,7 @@
             // txtShipmentWidth
             // 
             this.txtShipmentWidth.Font = new System.Drawing.Font("Delivery", 8.249999F);
-            this.txtShipmentWidth.Location = new System.Drawing.Point(279, 48);
+            this.txtShipmentWidth.Location = new System.Drawing.Point(324, 52);
             this.txtShipmentWidth.Name = "txtShipmentWidth";
             this.txtShipmentWidth.Size = new System.Drawing.Size(61, 21);
             this.txtShipmentWidth.TabIndex = 28;
@@ -676,7 +677,7 @@
             // txtShipmentHeight
             // 
             this.txtShipmentHeight.Font = new System.Drawing.Font("Delivery", 8.249999F);
-            this.txtShipmentHeight.Location = new System.Drawing.Point(279, 20);
+            this.txtShipmentHeight.Location = new System.Drawing.Point(324, 24);
             this.txtShipmentHeight.Name = "txtShipmentHeight";
             this.txtShipmentHeight.Size = new System.Drawing.Size(61, 21);
             this.txtShipmentHeight.TabIndex = 27;
@@ -1103,6 +1104,21 @@
             this.txtResultAWB.TabIndex = 49;
             this.txtResultAWB.TabStop = false;
             // 
+            // BtnViewError
+            // 
+            this.BtnViewError.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(5)))), ((int)(((byte)(17)))));
+            this.BtnViewError.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnViewError.Font = new System.Drawing.Font("Delivery Cd Light", 10F);
+            this.BtnViewError.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(204)))), ((int)(((byte)(0)))));
+            this.BtnViewError.Location = new System.Drawing.Point(371, 10);
+            this.BtnViewError.Name = "BtnViewError";
+            this.BtnViewError.Size = new System.Drawing.Size(51, 25);
+            this.BtnViewError.TabIndex = 51;
+            this.BtnViewError.TabStop = false;
+            this.BtnViewError.Text = "ERR";
+            this.BtnViewError.UseVisualStyleBackColor = false;
+            this.BtnViewError.Click += new System.EventHandler(this.BtnViewError_Click);
+            // 
             // ToolTip1
             // 
             this.ToolTip1.AutoPopDelay = 15000;
@@ -1316,6 +1332,7 @@
             // 
             // groupBox6
             // 
+            this.groupBox6.Controls.Add(this.cbxRequestODDLink);
             this.groupBox6.Controls.Add(this.cbxSendNotification);
             this.groupBox6.Controls.Add(this.cbxExportDeclaration);
             this.groupBox6.Font = new System.Drawing.Font("Delivery Cd Light", 9F);
@@ -1330,7 +1347,7 @@
             // 
             this.cbxSendNotification.AutoSize = true;
             this.cbxSendNotification.Font = new System.Drawing.Font("Delivery", 8.249999F);
-            this.cbxSendNotification.Location = new System.Drawing.Point(9, 47);
+            this.cbxSendNotification.Location = new System.Drawing.Point(9, 56);
             this.cbxSendNotification.Name = "cbxSendNotification";
             this.cbxSendNotification.Size = new System.Drawing.Size(109, 17);
             this.cbxSendNotification.TabIndex = 47;
@@ -1341,7 +1358,7 @@
             // 
             this.cbxExportDeclaration.AutoSize = true;
             this.cbxExportDeclaration.Font = new System.Drawing.Font("Delivery", 8.249999F);
-            this.cbxExportDeclaration.Location = new System.Drawing.Point(9, 24);
+            this.cbxExportDeclaration.Location = new System.Drawing.Point(9, 14);
             this.cbxExportDeclaration.Name = "cbxExportDeclaration";
             this.cbxExportDeclaration.Size = new System.Drawing.Size(115, 17);
             this.cbxExportDeclaration.TabIndex = 46;
@@ -1490,20 +1507,16 @@
             this.cbxDGShipment.UseVisualStyleBackColor = true;
             this.cbxDGShipment.CheckedChanged += new System.EventHandler(this.CbxDGShipment_CheckedChanged);
             // 
-            // BtnViewError
+            // cbxRequestODDLink
             // 
-            this.BtnViewError.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(5)))), ((int)(((byte)(17)))));
-            this.BtnViewError.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnViewError.Font = new System.Drawing.Font("Delivery Cd Light", 10F);
-            this.BtnViewError.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(204)))), ((int)(((byte)(0)))));
-            this.BtnViewError.Location = new System.Drawing.Point(371, 10);
-            this.BtnViewError.Name = "BtnViewError";
-            this.BtnViewError.Size = new System.Drawing.Size(51, 25);
-            this.BtnViewError.TabIndex = 51;
-            this.BtnViewError.TabStop = false;
-            this.BtnViewError.Text = "ERR";
-            this.BtnViewError.UseVisualStyleBackColor = false;
-            this.BtnViewError.Click += new System.EventHandler(this.BtnViewError_Click);
+            this.cbxRequestODDLink.AutoSize = true;
+            this.cbxRequestODDLink.Font = new System.Drawing.Font("Delivery", 8.249999F);
+            this.cbxRequestODDLink.Location = new System.Drawing.Point(9, 35);
+            this.cbxRequestODDLink.Name = "cbxRequestODDLink";
+            this.cbxRequestODDLink.Size = new System.Drawing.Size(76, 17);
+            this.cbxRequestODDLink.TabIndex = 47;
+            this.cbxRequestODDLink.Text = "ODD Link?";
+            this.cbxRequestODDLink.UseVisualStyleBackColor = true;
             // 
             // Ship
             // 
@@ -1675,5 +1688,6 @@
         private System.Windows.Forms.ComboBox cmbDGSpecialServiceCode;
         private System.Windows.Forms.CheckBox cbxDGShipment;
         private System.Windows.Forms.Button BtnViewError;
+        private System.Windows.Forms.CheckBox cbxRequestODDLink;
     }
 }

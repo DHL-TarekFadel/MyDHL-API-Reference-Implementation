@@ -52,6 +52,7 @@ namespace MyDHLAPI_Test_App.REST
                 Common.ApplyDefault(ref txtShipmentDeclaredValueCurrency, Common.Defaults.DeclaredCurrency);
                 Common.ApplyDefault(ref txtShipmentContents, Common.Defaults.ShipmentContents);
                 Common.ApplyDefault(ref txtShipmentReference, Common.Defaults.ShipmentReference);
+                Common.ApplyDefault(ref cbxRequestODDLink, Common.Defaults.RequestODDLink);
 
                 if (null != Common.Defaults.From)
                 {
@@ -696,7 +697,7 @@ namespace MyDHLAPI_Test_App.REST
                 }
 
                 req.Data.ShipmentInfo.RequestAdditionalInformation = Enums.YesNo.Yes;
-                req.Data.RequestODDUrl = Enums.YesNo.Yes;
+                req.Data.RequestODDUrl = (cbxRequestODDLink.Checked ? Enums.YesNo.Yes : Enums.YesNo.No);
                 req.Data.GetRateEstimates = Enums.YesNo.Yes;
 
                 /*** GENERATE SHIPMENT ***/

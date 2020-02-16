@@ -709,30 +709,18 @@ namespace MyDHLAPI_Test_App.REST
                 {
                     shipRequestStart = DateTime.Now;
                     resp = api.RequestShipmentAsync(req).Result;
+                    BtnViewError.Enabled = false;
                 }
                 catch (MyDHLAPIValidationException gvx)
                 {
-                    MessageBox.Show(gvx.Message, "GVX");
-                    txtResultAWB.Text = "VALIDATION ERROR!";
-                    if (gvx.Data.Contains("ValidationResults"))
-                    {
-                        txtResultPieces.Text = MyDHLAPIValidationException.PrintResults((List<ValidationResult>)gvx.Data["ValidationResults"]);
-                    }
-                    SetStatusText($"Shipment contains validation errors! Took {(DateTime.Now - processStart):hh\\:mm\\:ss}", false);
+                    ProcessValidationError(gvx, processStart);
                     return;
                 }
                 catch (Exception ex)
                 {
                     if (ex.InnerException?.GetType() == typeof(MyDHLAPIValidationException))
                     {
-                        MyDHLAPIValidationException gvx = (MyDHLAPIValidationException)ex.InnerException;
-                        MessageBox.Show(gvx.Message, "GVX");
-                        txtResultAWB.Text = "VALIDATION ERROR!";
-                        if (gvx.Data.Contains("ValidationResults"))
-                        {
-                            txtResultPieces.Text = MyDHLAPIValidationException.PrintResults((List<ValidationResult>)gvx.Data["ValidationResults"]);
-                        }
-                        SetStatusText($"Shipment contains validation errors! Took {(DateTime.Now - processStart):hh\\:mm\\:ss}", false);
+                        ProcessValidationError((MyDHLAPIValidationException)ex.InnerException, processStart);
                         return;
                     }
 
@@ -837,6 +825,19 @@ namespace MyDHLAPI_Test_App.REST
             {
                 tspbProgressBar.Value = newProgress;
             }
+        }
+
+        private void ProcessValidationError(MyDHLAPIValidationException validationException, DateTime processStart)
+        {
+            MessageBox.Show(validationException.Message, "Validation Exception");
+            txtResultAWB.Text = "VALIDATION ERROR!";
+            if (validationException.Data.Contains("ValidationResults"))
+            {
+                MyDHLAPI_ValidationError = MyDHLAPIValidationException.PrintResults((List<ValidationResult>)validationException.Data["ValidationResults"]);
+                txtResultPieces.Text = MyDHLAPI_ValidationError;
+                BtnViewError.Enabled = true;
+            }
+            SetStatusText($"Shipment contains validation errors! Took {(DateTime.Now - processStart):hh\\:mm\\:ss}", false);
         }
 
         private void SetStatusTimeText(ref ToolStripStatusLabel label, ref ToolStripStatusLabel time, DateTime start, DateTime end)
@@ -1051,6 +1052,12 @@ namespace MyDHLAPI_Test_App.REST
             frm.ShowDialog();
         }
 
+        private void BtnViewError_Click(object sender, EventArgs e)
+        {
+            JSONViewer viewer = new JSONViewer(MyDHLAPI_ValidationError);
+            viewer.ShowDialog();
+        }
+
         private void LlblAWB_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             if (!string.IsNullOrEmpty(llblAWB.Tag.ToString()))
@@ -1195,11 +1202,6 @@ namespace MyDHLAPI_Test_App.REST
 
             cmbDGSpecialServiceCode.Enabled = cbx.Checked;
             txtDGClassification.Enabled = cbx.Checked;
-        }
-
-        private void BtnViewError_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

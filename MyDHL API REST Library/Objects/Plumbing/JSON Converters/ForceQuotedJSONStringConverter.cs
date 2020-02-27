@@ -7,12 +7,18 @@ namespace MyDHLAPI_REST_Library.Objects.Plumbing.JSON_Converters
     {
         public override bool CanConvert(Type objectType)
         {
+            System.Diagnostics.Contracts.Contract.Requires(null != objectType);
+
             return objectType.IsPrimitive;
         }
 
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Globalization", "CA1308:Normalize strings to uppercase", Justification = "The result must be lower case.")]
         public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
         {
-            writer.WriteValue(value.ToString().ToLower());
+            System.Diagnostics.Contracts.Contract.Requires(null != writer);
+            System.Diagnostics.Contracts.Contract.Requires(null != value);
+
+            writer.WriteValue(value.ToString().ToLower(System.Globalization.CultureInfo.InvariantCulture));
         }
 
         public override bool CanRead

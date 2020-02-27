@@ -5,8 +5,8 @@ namespace MyDHLAPI_REST_Library.Objects.Plumbing.Attributes
 {
     public class IntegerBetweenAttribute : ValidationAttribute
     {
-        protected int _Minimum;
-        protected int _Maximum;
+        internal int _Minimum;
+        internal int _Maximum;
 
         public IntegerBetweenAttribute(int minimum, int maximum)
             : base($"Integer value must be between {minimum} and {maximum} (inclusive).")

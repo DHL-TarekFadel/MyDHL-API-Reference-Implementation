@@ -12,7 +12,7 @@ namespace MyDHLAPI_REST_Library.Objects.ePOD {
         /// </summary>
         [StringLength(20)]
         [JsonProperty("@Id")]
-        public string Id { get; set; } = Guid.NewGuid().ToString("N").Substring(12);
+        public string Id { get; set; } = Guid.NewGuid().ToString("N", System.Globalization.CultureInfo.InvariantCulture).Substring(12);
 
         /// <summary>
         /// Always use this value: 1.038

@@ -18,6 +18,9 @@ namespace MyDHLAPI_REST_Library.Objects.Plumbing.Attributes
 
         protected override ValidationResult IsValid(object value, ValidationContext validationContext)
         {
+            System.Diagnostics.Contracts.Contract.Requires(null != value);
+            System.Diagnostics.Contracts.Contract.Requires(null != validationContext);
+
             ErrorMessage = $"{validationContext.DisplayName} {ErrorMessageString}";
 
             if (0 == MinLength && null == value)
@@ -37,13 +40,11 @@ namespace MyDHLAPI_REST_Library.Objects.Plumbing.Attributes
                 return new ValidationResult($"{validationContext.DisplayName} is of the wrong type.");
             }
 
-            if (collection.Count < MinLength
-                || collection.Count > MaxLength)
-            {
-                return new ValidationResult(ErrorMessage);
-            }
-
-            return ValidationResult.Success;
+            return null == collection 
+                   || collection.Count < MinLength
+                   || collection.Count > MaxLength
+                   ? new ValidationResult(ErrorMessage)
+                   : ValidationResult.Success;
         }
     }
 }

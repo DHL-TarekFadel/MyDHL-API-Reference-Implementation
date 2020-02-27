@@ -6,6 +6,8 @@ namespace MyDHLAPI_REST_Library.Objects.Ship
 {
     public class CustomerLogo
     {
+
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Performance", "CA1819:Properties should not return arrays", Justification = "This is a special case where a byte array is expected.")]
         public byte[] LogoImage { get; set; }
 
         [JsonProperty("LogoImageFormat")]

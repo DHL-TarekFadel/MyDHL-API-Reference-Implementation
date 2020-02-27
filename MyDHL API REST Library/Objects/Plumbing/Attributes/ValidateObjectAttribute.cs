@@ -9,6 +9,8 @@ namespace MyDHLAPI_REST_Library.Objects.Plumbing.Attributes
     {
         protected override ValidationResult IsValid(object value, ValidationContext validationContext)
         {
+            System.Diagnostics.Contracts.Contract.Requires(null != validationContext);
+
             var results = new List<ValidationResult>();
             if (null == value)
             {
@@ -38,7 +40,7 @@ namespace MyDHLAPI_REST_Library.Objects.Plumbing.Attributes
 
             if (results.Count != 0)
             {
-                var compositeResults = new CompositeValidationResult(String.Format("Validation for {0} failed!", validationContext.DisplayName));
+                var compositeResults = new CompositeValidationResult(String.Format(System.Globalization.CultureInfo.InvariantCulture, "Validation for {0} failed!", validationContext.DisplayName));
                 results.ForEach(compositeResults.AddResult);
 
                 return compositeResults;

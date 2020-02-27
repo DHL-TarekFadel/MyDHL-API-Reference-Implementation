@@ -27,6 +27,12 @@ namespace MyDHLAPI_REST_Library.Objects.RateQuery {
             this.Dimensions = new Dimensions(height, width, depth);
         }
 
-        public static implicit operator RequestedPackages(MyDHLAPI_REST_Library.Objects.Ship.Package p) => new RequestedPackages(p.Number, p.Weight, p.Dimensions.Height, p.Dimensions.Width, p.Dimensions.Length);
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Usage", "CA2225:Operator overloads have named alternates", Justification = "Would cause braking change.")]
+        public static implicit operator RequestedPackages(Objects.Ship.Package p)
+        {
+            System.Diagnostics.Contracts.Contract.Requires(null != p);
+
+            return new RequestedPackages(p.Number, p.Weight, p.Dimensions.Height, p.Dimensions.Width, p.Dimensions.Length);
+        }
     }
 }

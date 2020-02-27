@@ -14,7 +14,7 @@ namespace MyDHLAPI_REST_Library.Objects.Common
 
         [Required]
         [StringLength(35, MinimumLength = 28)]
-        public string MessageReference { get; set; } = Guid.NewGuid().ToString("N");
+        public string MessageReference { get; set; } = Guid.NewGuid().ToString("N", System.Globalization.CultureInfo.InvariantCulture);
 
         [StringLength(20)]
         [JsonProperty("WebstorePlatform", NullValueHandling = NullValueHandling.Ignore)]

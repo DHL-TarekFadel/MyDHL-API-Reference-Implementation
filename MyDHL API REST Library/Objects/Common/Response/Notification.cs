@@ -23,6 +23,11 @@ namespace MyDHLAPI_REST_Library.Objects.Common.Response {
 
         public static string GetAllNotifications (List<Notification> notifications, string separator)
         {
+            if (null == notifications)
+            {
+                return string.Empty;
+            }
+
             string retval = string.Empty;
             string prefix = string.Empty;
             foreach (Notification notification in notifications)

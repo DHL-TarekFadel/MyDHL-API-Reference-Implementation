@@ -69,6 +69,7 @@ namespace MyDHLAPI_REST_Library
         public string LastEPoDHTTPResponse { get; set; }
 
         #endregion
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Design", "CA1054:Uri parameters should not be strings", Justification = "This is the base URL which will have the method appended to it. Also this would be a breaking change.")]
         public MyDHLAPI(string username, string password, string baseUrl)
         {
             _username = username;
@@ -88,7 +89,7 @@ namespace MyDHLAPI_REST_Library
 
         public string SendRequestAndReceiveResponse(string req, string endpoint)
         {
-            WebRequest request = WebRequest.Create($"{_baseURL}/{endpoint}");
+            WebRequest request = WebRequest.Create(new Uri($"{_baseURL}/{endpoint}"));
             request.Credentials = new NetworkCredential(_username, _password);
             request.ContentType = "application/json";
             request.PreAuthenticate = true;
@@ -108,8 +109,10 @@ namespace MyDHLAPI_REST_Library
             try
             {
                 WebResponse resp = request.GetResponse();
-                StreamReader respReader = new StreamReader(resp.GetResponseStream());
-                respString = respReader.ReadToEnd();
+                using (StreamReader respReader = new StreamReader(resp.GetResponseStream()))
+                {
+                    respString = respReader.ReadToEnd();
+                }
             }
             catch (Exception)
             {
@@ -230,6 +233,15 @@ namespace MyDHLAPI_REST_Library
 
         public EPodResponse GetEPod(string awbNumber, string accountNumber, Enums.EPodType ePodType)
         {
+            if (string.IsNullOrEmpty(awbNumber))
+            {
+                throw new ArgumentNullException(nameof(awbNumber));
+            }
+            if (string.IsNullOrEmpty(accountNumber))
+            {
+                throw new ArgumentNullException(nameof(accountNumber));
+            }
+
             // Trim our numbers
             awbNumber = awbNumber.Trim();
             accountNumber = accountNumber.Trim();

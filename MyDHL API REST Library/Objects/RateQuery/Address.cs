@@ -68,8 +68,11 @@ namespace MyDHLAPI_REST_Library.Objects.RateQuery {
         [StringLength(2, MinimumLength = 2)]
         public string CountryCode { get; set; }
 
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Usage", "CA2225:Operator overloads have named alternates", Justification = "Would cause braking change.")]
         public static implicit operator Address(Common.Address shipAddress)
         {
+            System.Diagnostics.Contracts.Contract.Requires(null != shipAddress);
+
             var retval = new Address()
             {
                 StreetLines = shipAddress.AddressLine1,

@@ -5,7 +5,9 @@ using System.ComponentModel.DataAnnotations;
 
 namespace MyDHLAPI_REST_Library.Objects.Exceptions
 {
-    public class MyDHLAPIValidationException : System.Exception
+    [System.Diagnostics.CodeAnalysis.SuppressMessage("Usage", "CA2237:Mark ISerializable types with serializable", Justification = "This is a special Exception which requires additional data to be present.")]
+    [System.Diagnostics.CodeAnalysis.SuppressMessage("Design", "CA1032:Implement standard exception constructors", Justification = "This is a special Exception which requires additional data to be present.")]
+    public class MyDHLAPIValidationException : Exception
     {
         private const string _msg = "Validation errors were found. Please refer to the Exception data for more information.";
 
@@ -20,8 +22,19 @@ namespace MyDHLAPI_REST_Library.Objects.Exceptions
             return (List<ValidationResult>) base.Data["ValidationResults"];
         }
 
+        /// <summary>
+        /// Pretty prints validation errors
+        /// </summary>
+        /// <param name="results">Validation errors to print</param>
+        /// <param name="indentationLevel">Number of spaces to indent child errors</param>
+        /// <returns>Pretty printed validation errors</returns>
         public static string PrintResults(IEnumerable<ValidationResult> results, int indentationLevel = 0)
         {
+            if (null == results)
+            {
+                throw new ArgumentNullException(nameof(results));
+            }
+
             string retval = string.Empty;
             string prefix = string.Empty;
             foreach (var validationResult in results)

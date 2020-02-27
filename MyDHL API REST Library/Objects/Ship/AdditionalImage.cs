@@ -13,6 +13,7 @@ namespace MyDHLAPI_REST_Library.Objects.Ship
 
         [Required]
         [JsonProperty("DocumentImage")]
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Performance", "CA1819:Properties should not return arrays", Justification = "This is a special case where a byte array is expected.")]
         public byte[] ImageContent { get; set; }
 
         [JsonProperty("DocumentImageFormat", NullValueHandling = NullValueHandling.Ignore)]

@@ -32,7 +32,7 @@ namespace MyDHLAPI_REST_Library.Objects.Ship
         public string DryIceTotalNetWeightString
         {
             get { return (this.DryIceTotalNetWeight == null ? null : $"{this.DryIceTotalNetWeight:###0.00}"); }
-            set { this.DryIceTotalNetWeight = decimal.Parse(value); }
+            set { this.DryIceTotalNetWeight = decimal.Parse(value, System.Globalization.CultureInfo.InvariantCulture); }
         }
 
         /// <summary>

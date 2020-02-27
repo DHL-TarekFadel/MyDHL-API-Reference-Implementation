@@ -19,6 +19,7 @@ namespace MyDHLAPI_REST_Library.Objects.Ship
     {
         [Required]
         [JsonConverter(typeof(StringEnumConverter))]
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Design", "CA1051:Do not declare visible instance fields", Justification = "There is currently only 1 possible value. Also this would be a breaking change.")]
         public Enums.ShipmentNotificationMethods NotificationMethod = Enums.ShipmentNotificationMethods.EMail;
 
         /// <summary>

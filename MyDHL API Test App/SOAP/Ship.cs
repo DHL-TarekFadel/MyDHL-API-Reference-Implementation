@@ -13,12 +13,12 @@ namespace MyDHLAPI_Test_App.SOAP
     public partial class Ship : Form
     {
         private List<string> _productCodes = new List<string> { "", "0", "1", "2", "3", "4", "5", "7", "8", "9", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z" };
-        private string GloWS_Request;
-        private string GloWS_Response;
+        //private string GloWS_Request;
+        //private string GloWS_Response;
 
-        private bool _logoAvailable;
+        //private bool _logoAvailable;
         private byte[] _logoData;
-        private bool _invoiceAvailable;
+        //private bool _invoiceAvailable;
         private byte[] _invoiceData;
 
         private List<string> _generatedTempFiles = new List<string>();
@@ -606,14 +606,14 @@ namespace MyDHLAPI_Test_App.SOAP
 
         private void BtnViewRequest_Click(object sender, EventArgs e)
         {
-            XMLViewer frm = new XMLViewer(GloWS_Request);
-            frm.ShowDialog();
+            //XMLViewer frm = new XMLViewer(GloWS_Request);
+            //frm.ShowDialog();
         }
 
         private void BtnViewResponse_Click(object sender, EventArgs e)
         {
-            XMLViewer frm = new XMLViewer(GloWS_Response);
-            frm.ShowDialog();
+            //XMLViewer frm = new XMLViewer(GloWS_Response);
+            //frm.ShowDialog();
         }
 
         private void LlblAWB_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -634,7 +634,7 @@ namespace MyDHLAPI_Test_App.SOAP
             if (DialogResult.OK == dlg.ShowDialog())
             {
                 _logoData = File.ReadAllBytes(dlg.FileName);
-                _logoAvailable = true;
+                //_logoAvailable = true;
                 lblLogoUploaded.Text = "Loaded!";
                 lblLogoUploaded.Font = new Font(lblLogoUploaded.Font, FontStyle.Bold);
             }
@@ -650,7 +650,7 @@ namespace MyDHLAPI_Test_App.SOAP
             if (DialogResult.OK == dlg.ShowDialog())
             {
                 _invoiceData = File.ReadAllBytes(dlg.FileName);
-                _invoiceAvailable = true;
+                //_invoiceAvailable = true;
                 lblInvoiceUploaded.Text = "Loaded!";
                 lblInvoiceUploaded.Font = new Font(lblLogoUploaded.Font, FontStyle.Bold);
             }

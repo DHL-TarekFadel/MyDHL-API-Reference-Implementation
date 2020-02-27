@@ -132,6 +132,7 @@ namespace MyDHLAPI_REST_Library.Objects.Ship
         public Enums.YesNo? RequestAdditionalInformation { get; set; }
 
         [JsonProperty("PaperlessTradeImage", NullValueHandling = NullValueHandling.Ignore)]
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Performance", "CA1819:Properties should not return arrays", Justification = "This is a special case where a byte array is expected.")]
         public byte[] PaperlessTradeImage { get; set; }
 
         /// <summary>

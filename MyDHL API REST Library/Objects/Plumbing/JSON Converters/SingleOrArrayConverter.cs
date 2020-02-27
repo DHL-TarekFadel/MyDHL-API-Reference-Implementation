@@ -28,6 +28,10 @@ namespace MyDHLAPI_REST_Library.Objects.Plumbing.JSON_Converters
         }
         public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
         {
+            System.Diagnostics.Contracts.Contract.Requires(null != writer);
+            System.Diagnostics.Contracts.Contract.Requires(null != value);
+            System.Diagnostics.Contracts.Contract.Requires(null != serializer);
+
             List<T> list = (List<T>)value;
             if (list.Count == 1)
             {

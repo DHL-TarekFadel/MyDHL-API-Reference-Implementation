@@ -3,14 +3,14 @@ using System.ComponentModel.DataAnnotations;
 
 namespace MyDHLAPI_REST_Library.Objects.Common
 {
-    public class Common
+    public static class Common
     {
-        public static List<ValidationResult> Validate<T>(ref T obj)
+        public static List<ValidationResult> Validate<T>(ref T requestObject)
         {
-            ValidationContext context = new ValidationContext(obj, serviceProvider: null, items: null);
+            ValidationContext context = new ValidationContext(requestObject, serviceProvider: null, items: null);
             List<ValidationResult> results = new List<ValidationResult>();
 
-            bool isValid = Validator.TryValidateObject(obj, context, results, true);
+            bool isValid = Validator.TryValidateObject(requestObject, context, results, true);
 
             return results;
         }

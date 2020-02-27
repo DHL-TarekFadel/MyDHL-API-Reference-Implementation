@@ -20,7 +20,7 @@ namespace MyDHLAPI_REST_Library.Objects
 
         public PickUpRequest()
         {
-            this.MessageId = Guid.NewGuid().ToString("N");
+            this.MessageId = Guid.NewGuid().ToString("N", System.Globalization.CultureInfo.InvariantCulture);
         }
     }
 }

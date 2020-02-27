@@ -9,10 +9,11 @@ using System.Xml.Linq;
 namespace MyDHLAPI_Test_App.SOAP
 {
     [System.Diagnostics.CodeAnalysis.SuppressMessage("Style", "IDE1006:Naming Styles", Justification = "<Pending>")]
+    [System.Diagnostics.CodeAnalysis.SuppressMessage("Style", "IDE0044:Add readonly modifier", Justification = "<Pending>")]
     public partial class ePOD : Form
     {
-        private string GloWS_Request;
-        private string GloWS_Response;
+        //private string GloWS_Request;
+        //private string GloWS_Response;
 
         public ePOD()
         {

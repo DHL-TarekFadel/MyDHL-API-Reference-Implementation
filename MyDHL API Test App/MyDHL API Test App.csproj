@@ -232,6 +232,9 @@
     <EmbeddedResource Include="SOAP\XMLViewer.resx">
       <DependentUpon>XMLViewer.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="..\.editorconfig">
+      <Link>.editorconfig</Link>
+    </None>
     <None Include="Connected Services\com.dhl.wsbexpress.epod\GWSManagement DocumentRetrieve %28updated%29.wsdl" />
     <None Include="Connected Services\com.dhl.wsbexpress.epod\MyDHLAPI_Test_App.com.dhl.wsbexpress.epod.shipmentDocumentRetrieveRespMSG.datasource">
       <DependentUpon>Reference.svcmap</DependentUpon>

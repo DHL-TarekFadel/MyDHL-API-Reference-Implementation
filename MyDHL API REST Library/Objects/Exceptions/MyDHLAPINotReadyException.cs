@@ -1,5 +1,6 @@
 ﻿namespace MyDHLAPI_REST_Library.Objects.Exceptions
 {
+    [System.Serializable]
     public class MyDHLAPINotReadyException : System.Exception
     {
         private const string _msg = "The object hasn't been initialized with the MyDHL API parameters.";
@@ -18,6 +19,10 @@
 
         public MyDHLAPINotReadyException(System.Exception innerException)
             : base(_msg, innerException)
+        { }
+
+        protected MyDHLAPINotReadyException(System.Runtime.Serialization.SerializationInfo serializationInfo, System.Runtime.Serialization.StreamingContext streamingContext)
+            : base (serializationInfo, streamingContext)
         { }
     }
 }

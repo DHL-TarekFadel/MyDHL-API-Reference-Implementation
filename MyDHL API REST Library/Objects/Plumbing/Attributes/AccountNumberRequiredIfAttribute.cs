@@ -24,6 +24,11 @@ namespace MyDHLAPI_REST_Library.Objects.Plumbing.Attributes
 
         protected override ValidationResult IsValid(object value, ValidationContext validationContext)
         {
+            if(null == validationContext)
+            {
+                throw new System.ArgumentNullException(nameof(validationContext));
+            }
+
             if (UseFieldName)
             {
                 ErrorMessage = $"{validationContext.DisplayName} {ErrorMessageString}";

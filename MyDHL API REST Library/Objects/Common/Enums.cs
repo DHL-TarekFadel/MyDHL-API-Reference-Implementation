@@ -4,7 +4,7 @@ using System.Runtime.Serialization;
 
 namespace MyDHLAPI_REST_Library.Objects.Common
 {
-    public class Enums
+    public static class Enums
     {
         public enum YesNo
         {

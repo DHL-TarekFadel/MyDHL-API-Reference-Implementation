@@ -11,6 +11,7 @@ namespace MyDHLAPI_REST_Library.Objects.ePOD
         public string Base64Image { get; set; }
 
         [JsonIgnore]
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Performance", "CA1819:Properties should not return arrays", Justification = "This is a special case where a byte array is expected.")]
         public byte[] Image
         {
             get

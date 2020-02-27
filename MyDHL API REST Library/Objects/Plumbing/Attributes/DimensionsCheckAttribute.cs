@@ -19,6 +19,9 @@ namespace MyDHLAPI_REST_Library.Objects.Plumbing.Attributes
 
         protected override ValidationResult IsValid(object value, ValidationContext validationContext)
         {
+            System.Diagnostics.Contracts.Contract.Requires(null != value);
+            System.Diagnostics.Contracts.Contract.Requires(null != validationContext);
+
             ErrorMessage = ErrorMessageString;
 
             int? thisDimensionValue = (int?)value;

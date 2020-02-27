@@ -32,7 +32,7 @@ namespace MyDHLAPI_REST_Library.Objects.Plumbing.Attributes
                 if (results.Any(r => !r.Value))
                 {
                     // We have errors
-                    return new ValidationResult(string.Format(ErrorMessage, string.Join(", ", results.Where(r => !r.Value).Select(r => r.Key))));
+                    return new ValidationResult(string.Format(System.Globalization.CultureInfo.InvariantCulture, ErrorMessage, string.Join(", ", results.Where(r => !r.Value).Select(r => r.Key))));
                 }
                 else
                 {
@@ -53,19 +53,24 @@ namespace MyDHLAPI_REST_Library.Objects.Plumbing.Attributes
                     return ValidationResult.Success;
                 }
 
-                return new ValidationResult(string.Format(ErrorMessage, awbNumber));
+                return new ValidationResult(string.Format(System.Globalization.CultureInfo.InvariantCulture, ErrorMessage, awbNumber));
             }
         }
 
-        public bool ValidateAWBValue(string testValue)
+        public static bool ValidateAWBValue(string testValue)
         {
+            if(null == testValue)
+            {
+                return false;
+            }
+
             try
             {
                 string waybillValue = testValue.Substring(0, 9);
                 string checkDigit = testValue.Substring(9);
 
-                int waybillNumericValue = int.Parse(waybillValue);
-                int checkDigitNumericValue = int.Parse(checkDigit);
+                int waybillNumericValue = int.Parse(waybillValue, System.Globalization.CultureInfo.InvariantCulture);
+                int checkDigitNumericValue = int.Parse(checkDigit, System.Globalization.CultureInfo.InvariantCulture);
 
                 var quotient = System.Math.DivRem(waybillNumericValue, 7, out int result);
 

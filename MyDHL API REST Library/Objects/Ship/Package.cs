@@ -129,6 +129,7 @@ namespace MyDHLAPI_REST_Library.Objects.Ship
         public int BarcodeNumber { get; set; }
 
         [JsonConverter(typeof(StringEnumConverter))]
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Design", "CA1051:Do not declare visible instance fields", Justification = "Would be a breaking change.")]
         public Enums.CustomerBarcodeType BarcodeType = Enums.CustomerBarcodeType.Code128;
 
         [Required]

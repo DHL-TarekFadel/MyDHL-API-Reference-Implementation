@@ -104,7 +104,7 @@ namespace MyDHLAPI_Test_App.REST
                 _lastJsonRequest = api.LastEPoDJSONRequest;
                 _lastJsonResponse = api.LastEPoDJSONResponse;
                 
-                if (null != ePod)
+                if (null != ePod && null != ePod.EPod)
                 {
                     string tempFilename = System.IO.Path.GetTempFileName();
                     switch (ePod.EPod.MimeType)
@@ -123,6 +123,10 @@ namespace MyDHLAPI_Test_App.REST
                     System.IO.File.WriteAllBytes(tempFilename, ePod.EPod.Image);
 
                     System.Diagnostics.Process.Start(tempFilename);
+                }
+                else
+                {
+                    txtResult.Text = "ePOD not found for the supplied AWB # and Account # combination.";
                 }
             }
             catch (MyDHLAPIValidationException gvx)

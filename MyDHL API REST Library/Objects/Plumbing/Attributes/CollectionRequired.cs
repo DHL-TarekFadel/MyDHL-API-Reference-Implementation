@@ -8,7 +8,9 @@ namespace MyDHLAPI_REST_Library.Objects.Plumbing.Attributes
     {
         protected override ValidationResult IsValid(object value, ValidationContext validationContext)
         {
-            ErrorMessage = string.Format(ErrorMessageString, validationContext.MemberName);
+            System.Diagnostics.Contracts.Contract.Requires(null != validationContext);
+
+            ErrorMessage = string.Format(System.Globalization.CultureInfo.InvariantCulture, ErrorMessageString, validationContext.MemberName);
 
             if (null == value)
             {

@@ -13,9 +13,9 @@ namespace MyDHLAPI_REST_Library.Objects.Plumbing.Attributes
         }
 
         public PositiveDecimalAttribute(string minimumValue)
-            : base($"Value must be a positive non-zero number with a minimum value of {decimal.Parse(minimumValue):#,##0.##}")
+            : base($"Value must be a positive non-zero number with a minimum value of {decimal.Parse(minimumValue, System.Globalization.CultureInfo.InvariantCulture):#,##0.##}")
         {
-            _minimumValue = decimal.Parse(minimumValue);
+            _minimumValue = decimal.Parse(minimumValue, System.Globalization.CultureInfo.InvariantCulture);
         }
 
         protected override ValidationResult IsValid(object value, ValidationContext validationContext)

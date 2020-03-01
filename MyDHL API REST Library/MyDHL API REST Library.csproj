@@ -20,7 +20,7 @@
     <OutputType>Library</OutputType>
     <StartupObject />
     <PackageTags>shipping, DHL</PackageTags>
-    <Version>1.5.1</Version>
+    <Version>1.5.2</Version>
     <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
     <PackageProjectUrl>https://github.com/DHL-TarekFadel/MyDHL-API-Reference-Implementation</PackageProjectUrl>
     <RepositoryUrl>https://github.com/DHL-TarekFadel/MyDHL-API-Reference-Implementation</RepositoryUrl>

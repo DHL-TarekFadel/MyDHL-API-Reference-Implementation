@@ -312,8 +312,11 @@ namespace MyDHLAPI_REST_Library
 
         public CreateShipmentResponse RequestShipment(CreateShipmentRequest req)
         {
+            // First generate the JSON request (for possible use by the developer later)
+            LastJSONRequest = JsonConvert.SerializeObject(req, Formatting.Indented);
+            LastShipJSONRequest = LastJSONRequest;
+            
             // Validate the request
-
             List<ValidationResult> validationResult = Common.Validate(ref req);
             if (validationResult.Any())
             {
@@ -321,8 +324,7 @@ namespace MyDHLAPI_REST_Library
                 throw new MyDHLAPIValidationException(validationResult);
             }
 
-            LastJSONRequest = JsonConvert.SerializeObject(req, Formatting.Indented);
-            LastShipJSONRequest = LastJSONRequest;
+            // Send the request and capture the response
             LastJSONResponse = SendRequestAndReceiveResponse(LastJSONRequest, "ShipmentRequest");
             LastShipJSONResponse = LastJSONResponse;
 

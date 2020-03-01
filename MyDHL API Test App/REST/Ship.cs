@@ -714,6 +714,7 @@ namespace MyDHLAPI_Test_App.REST
                 catch (MyDHLAPIValidationException gvx)
                 {
                     ProcessValidationError(gvx, processStart);
+                    MyDHLAPI_Request = api.LastShipJSONRequest;
                     return;
                 }
                 catch (Exception ex)
@@ -721,12 +722,14 @@ namespace MyDHLAPI_Test_App.REST
                     if (ex.InnerException?.GetType() == typeof(MyDHLAPIValidationException))
                     {
                         ProcessValidationError((MyDHLAPIValidationException)ex.InnerException, processStart);
+                        MyDHLAPI_Request = api.LastShipJSONRequest;
                         return;
                     }
 
                     MessageBox.Show(ex.Message, "EX");
                     txtResultAWB.Text = "ERROR!";
                     SetStatusText($"Shipment error! Took {(DateTime.Now - processStart):hh\\:mm\\:ss}", false);
+                    MyDHLAPI_Request = api.LastShipJSONRequest;
                     return;
                 }
                 finally
@@ -734,8 +737,8 @@ namespace MyDHLAPI_Test_App.REST
                     shipRequestEnd = DateTime.Now;
                 }
 
-                MyDHLAPI_Request = api.LastJSONRequest;
-                MyDHLAPI_Response = api.LastJSONResponse;
+                MyDHLAPI_Request = api.LastShipJSONRequest;
+                MyDHLAPI_Response = api.LastShipJSONResponse;
 
                 if (null == resp || null == resp.Data)
                 {

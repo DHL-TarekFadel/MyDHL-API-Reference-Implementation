@@ -18,11 +18,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MYDHL API Native REST", "MYDHL API Native REST\MYDHL API Native REST.csproj", "{2C77D4FF-0C56-4F76-9F24-02BBB5199395}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "docs", "docs", "{9E0736AC-FC8D-4696-9130-EC2C89E03905}"
-	ProjectSection(SolutionItems) = preProject
-		index.md = index.md
-	EndProjectSection
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -44,9 +39,6 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
-	EndGlobalSection
-	GlobalSection(NestedProjects) = preSolution
-		{9E0736AC-FC8D-4696-9130-EC2C89E03905} = {0D7E5EE1-A9D2-4455-B7AE-A59DAA1491A2}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {D0C52F7A-492B-4327-A814-C27430A6E9CC}

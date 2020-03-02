@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="description" content="MyDHL API .NET Reference Implementation : Showing you how to use MyDHL API in a .NET project using best practices">
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>MyDHL API .NET Reference Implementation</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://git.dhl.com/dhl-exp-ae/MyDHL-API-Reference-Implementation">View on GitHub</a>
+
+          <h1 id="project_title">MyDHL API .NET Reference Implementation</h1>
+          <h2 id="project_tagline">Showing you how to use MyDHL API in a .NET project using best practices</h2>
+
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h3>
+<a id="welcome-to-the-mydhl-api-net-reference-implementation" class="anchor" href="#welcome-to-the-mydhl-api-net-reference-implementation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Welcome to the MyDHL API .NET reference implementation</h3>
+<p>This project is serves 2 purposes:</p>
+<ol>
+<li>To create a .NET library (<a href="https://www.nuget.org/packages/DHL.MyDHL_API.RESTLibrary#">NuGet Package</a>) which customers can just use in their .NET projects.</li>
+<li>To have source code which shows customers how to use the library and/or how it is created to they can create their own.</li>
+</ol>
+<h1>
+<a id="restful-library" class="anchor" href="#restful-library" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>RESTful Library</h1>
+<h2>
+<a id="implemented-restful-operations" class="anchor" href="#implemented-restful-operations" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Implemented RESTful Operations</h2>
+<ul>
+<li>Rate Query</li>
+<li>Shipment Generation</li>
+<li>Pickup Request</li>
+<li>Cancel/Delete Pickup</li>
+<li>Tracking</li>
+<li>ePOD Retrieve</li>
+</ul>
+<h2>
+<a id="pending-restful-operations" class="anchor" href="#pending-restful-operations" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Pending RESTful Operations</h2>
+<ul>
+<li>Update Shipment</li>
+</ul>
+<h1>
+<a id="soap-library" class="anchor" href="#soap-library" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>SOAP Library</h1>
+<h2>
+<a id="implemented-soap-operations" class="anchor" href="#implemented-soap-operations" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Implemented SOAP Operations</h2>
+<p>--none--</p>
+<h2>
+<a id="pending-soap-operations" class="anchor" href="#pending-soap-operations" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Pending SOAP Operations</h2>
+<ul>
+<li>Rate Query</li>
+<li>Shipment Generation</li>
+<li>Update Shipment</li>
+<li>Pickup Request</li>
+<li>Cancel/Delete Pickup</li>
+<li>Tracking</li>
+<li>ePOD Retrieve</li>
+</ul>
+<h1>
+<a id="usage" class="anchor" href="#usage" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Usage</h1>
+<h2>
+<a id="requirements" class="anchor" href="#requirements" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Requirements</h2>
+<p>To use the test app, you must create a <code>credentials.txt</code> and ensure that it is included while building. This file should contain your username on <code>line 1</code> and your password on <code>line 2</code>. <strong>Do not include this in source control if you intent to publish to the Internet.</strong></p>
+<p>You also have the option to use the <code>defaults.json</code> file to set default values which all forms in the test app will use to pre-populate the form (saving your time). <strong>Do not include this in source control if you intend to publish to the Internet.</strong></p>
+<p>A <code>defaults-example.json</code> file is included for your reference.</p>
+<h2>
+<a id="example" class="anchor" href="#example" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Example</h2>
+<p>Instantiate the MyDHLAPI object</p>
+<pre><code>MyDHLAPI myDHLAPI = new MyDHLAPI(username, password, baseURL);
+</code></pre>
+<p>Call the appropriate method (tracking as an example)</p>
+<pre><code>resp = myDHLAPI.KnownAWBTracking(new List&lt;string&gt;() { "1234567891" }
+                                 , Enums.LevelOfDetails.AllCheckpoints
+                                 , Enums.PiecesEnabled.Both
+                                 , Enums.EstimatedDeliveryDateEnabled.Yes);
+</code></pre>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">MyDHL API .NET Reference Implementation maintained by <a href="https://git.dhl.com/dhl-exp-ae">dhl-exp-ae</a></p>
+        <p>Published with <a href="https://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>

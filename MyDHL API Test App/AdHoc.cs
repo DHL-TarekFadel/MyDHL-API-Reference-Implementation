@@ -180,6 +180,10 @@ namespace MyDHLAPI_Test_App
                 {
                     methodProperty = "PickupRequest";
                 }
+                if (methodProperty.Equals("trackShipmentRequest"))
+                {
+                    methodProperty = "TrackingRequest";
+                }
 
                 string jsonText = string.Empty;
 

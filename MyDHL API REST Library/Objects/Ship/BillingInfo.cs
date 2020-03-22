@@ -35,7 +35,7 @@ namespace MyDHLAPI_REST_Library.Objects.Ship
         /// The DHL account number used for Duties & Taxes.
         /// </summary>
         [StringLength(12)]
-        [JsonProperty("DutyAndTaxPayerAccountNumber")]
+        [JsonProperty("DutyAndTaxPayerAccountNumber", NullValueHandling = NullValueHandling.Ignore)]
         public string DutyAndTaxPayerAccountNumber { get; set; }
 
         /// <summary>
@@ -66,7 +66,7 @@ namespace MyDHLAPI_REST_Library.Objects.Ship
             this.ShipperAccount = shipperAccountNumber;
             this.PaiedBy = payer;
             this.BillToAccount = billingAccountNumber;
-            this.DutyAndTaxPayerAccountNumber = (string.IsNullOrWhiteSpace(dutyAccountNumber) ? string.Empty : dutyAccountNumber);
+            this.DutyAndTaxPayerAccountNumber = (string.IsNullOrWhiteSpace(dutyAccountNumber) ? null : dutyAccountNumber);
             this.NeverOverrideBillingService = (overrideBillingService ? Enums.YesNo.No : Enums.YesNo.Yes);
         }
     }
